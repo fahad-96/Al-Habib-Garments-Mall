@@ -5,9 +5,15 @@ import Button from "../../ui/Button";
 import TextButton from "./TextButton";
 
 export default function CouponField({ className = "" }) {
-  const { coupon, applyCoupon, removeCoupon } = useShop();
+  const { coupon, applyCoupon, removeCoupon, ordersOnline } = useShop();
   const [code, setCode] = useState("");
   const id = useId();
+
+  // Codes are checked against the shop's coupons only when orders are saved online;
+  // otherwise the shop applies them by hand when it confirms on WhatsApp.
+  if (!ordersOnline) {
+    return <p className={`text-xs leading-relaxed text-neutral-600 ${className}`}>Have a coupon? Mention it on WhatsApp and we will apply it.</p>;
+  }
 
   const submit = async (e) => {
     e.preventDefault();

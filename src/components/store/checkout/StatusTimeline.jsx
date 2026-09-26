@@ -35,19 +35,27 @@ export default function StatusTimeline({ status = "new", history = [], className
           const current = !cancelled && i === currentIdx;
           const last = i === STEPS.length - 1;
           const at = lastAt(list, s.key);
+          // State is carried by shape and words, not only by colour: a filled check for done steps,
+          // a dashed ring and lighter weight for steps still to come, plus a hidden label for screen readers.
           return (
-            <li key={s.key} className="relative flex gap-5 pb-8 last:pb-0">
-              {!last && <span aria-hidden="true" className={`absolute left-[7px] top-5 h-full w-px ${reached(i + 1) ? "bg-ink" : "bg-neutral-200"}`} />}
-              <span className={`relative mt-[3px] flex h-4 w-4 shrink-0 items-center justify-center rounded-full border ${done ? "border-ink bg-ink" : "border-neutral-300 bg-paper"}`} aria-hidden="true">
+            <li key={s.key} className="relative flex gap-5 pb-8 last:pb-0" aria-current={current ? "step" : undefined}>
+              {!last && <span aria-hidden="true" className={`absolute left-[7px] top-5 h-full w-px ${reached(i + 1) ? "bg-ink" : "bg-neutral-300"}`} />}
+              <span
+                className={`relative mt-[3px] flex h-4 w-4 shrink-0 items-center justify-center rounded-full border ${done ? "border-ink bg-ink" : "border-dashed border-neutral-500 bg-paper"}`}
+                aria-hidden="true"
+              >
                 {done && <Check className="h-2.5 w-2.5 text-paper" strokeWidth={3} />}
               </span>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <p className={`text-sm font-medium ${done ? "text-ink" : "text-neutral-400"}`}>{s.label}</p>
-                  {current && <span className="eyebrow">Current</span>}
+                  <p className={`text-sm ${done ? "font-medium text-ink" : "text-neutral-600"}`}>
+                    {s.label}
+                    <span className="sr-only">{current ? " (current step)" : done ? " (done)" : " (still to come)"}</span>
+                  </p>
+                  {current && <span className="eyebrow" aria-hidden="true">Current</span>}
                   {at && <span className="ml-auto text-xs tabular-nums text-neutral-500">{formatDateTime(at)}</span>}
                 </div>
-                <p className={`mt-0.5 text-xs leading-relaxed ${done ? "text-neutral-600" : "text-neutral-400"}`}>{COPY[s.key] || s.description}</p>
+                <p className={`mt-0.5 text-xs leading-relaxed ${done ? "text-neutral-600" : "text-neutral-500"}`}>{COPY[s.key] || s.description}</p>
               </div>
             </li>
           );

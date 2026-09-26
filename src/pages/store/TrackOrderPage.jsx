@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { PackageSearch } from "lucide-react";
 import { useShop } from "../../context/ShopContext";
 import { supabase } from "../../lib/supabaseClient";
-import { trackOrderRemote } from "../../lib/storeApi";
+import { customerMessage, trackOrderRemote } from "../../lib/storeApi";
 import { formatDateTime, normalizePhone } from "../../lib/format";
 import { waLink } from "../../lib/whatsapp";
 import Seo from "../../components/ui/Seo";
@@ -17,7 +17,7 @@ import OrderTotals from "../../components/store/checkout/OrderTotals";
 import StatusTimeline from "../../components/store/checkout/StatusTimeline";
 
 function HelpButton({ settings, orderNumber = "", variant = "secondary", full = false }) {
-  const text = orderNumber ? `Hi ${settings.storeName}, I'd like an update on order ${orderNumber}.` : `Hi ${settings.storeName}, I'd like help tracking my order.`;
+  const text = orderNumber ? `Hi ${settings.storeName}, I'd like an update on order ${orderNumber}.` : `Hi ${settings.storeName}, I'd like to know where my order is.`;
   return (
     <Button href={waLink(settings.whatsappNumber, text)} target="_blank" rel="noreferrer" variant={variant} full={full}>
       <WhatsAppIcon className="h-4 w-4" color="#25D366" />
@@ -98,7 +98,8 @@ export default function TrackOrderPage() {
       const order = await trackOrderRemote(supabase, number, phone);
       setState(order ? { status: "found", order, message: "" } : { status: "notfound", order: null, message: "" });
     } catch (error) {
-      setState({ status: "error", order: null, message: String(error?.message || "") || "Could not look up the order. Please try again." });
+      console.error("Order lookup failed", error);
+      setState({ status: "error", order: null, message: customerMessage(error, "Please try again in a moment, or ask us on WhatsApp and we will check for you.") });
     }
   };
 
@@ -109,13 +110,17 @@ export default function TrackOrderPage() {
       <Reveal as="header">
         <p className="eyebrow">Orders</p>
         <h1 className="mt-2 font-display text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl">Track your order</h1>
-        <p className="mt-3 max-w-md text-sm leading-relaxed text-neutral-500">Enter the order number from your WhatsApp message and the phone you ordered with.</p>
+        <p className="mt-3 max-w-md text-sm leading-relaxed text-neutral-500">
+          {isSupabaseConfigured ? "Enter the order number from your WhatsApp message and the phone you ordered with." : "We keep you posted on WhatsApp from confirmation to delivery."}
+        </p>
       </Reveal>
 
       {!isSupabaseConfigured ? (
         <div className="mt-10 border border-line p-6 sm:p-8">
-          <p className="text-sm font-medium">Online tracking opens once the store is connected.</p>
-          <p className="mt-2 text-sm leading-relaxed text-neutral-600">Until then, message us on WhatsApp with your order details and we will tell you exactly where it is.</p>
+          <p className="text-sm font-medium">Ask us on WhatsApp</p>
+          <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+            Send us your order number, or the name and phone you ordered with, and we will tell you where your order is.
+          </p>
           <div className="mt-6">
             <HelpButton settings={settings} orderNumber={number.trim()} variant="primary" />
           </div>
@@ -175,7 +180,7 @@ export default function TrackOrderPage() {
 
           {state.status === "error" && (
             <div className="mt-8 border border-ink p-4" role="alert">
-              <p className="text-sm font-medium">Could not look up the order right now.</p>
+              <p className="text-sm font-medium">We could not look up the order right now.</p>
               <p className="mt-1 text-xs leading-relaxed text-neutral-600">{state.message}</p>
               <div className="mt-4">
                 <HelpButton settings={settings} orderNumber={number.trim()} />

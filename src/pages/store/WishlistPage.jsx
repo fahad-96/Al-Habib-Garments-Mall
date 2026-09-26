@@ -12,12 +12,16 @@ import TextButton from "../../components/store/checkout/TextButton";
 const GRID = "grid grid-cols-2 gap-x-3 gap-y-8 md:grid-cols-3 md:gap-x-5 md:gap-y-10 lg:grid-cols-4 lg:gap-x-6";
 
 export default function WishlistPage() {
-  const { wishlistProducts, toggleWishlist, toast } = useShop();
+  const { wishlist, wishlistProducts, toggleWishlist, addToWishlist, toast } = useShop();
   const count = wishlistProducts.length;
 
+  // Undo puts the piece back in the slot it came from (and never un-saves it if it was saved again meanwhile).
   const remove = (product) => {
+    const index = wishlist.indexOf(product.slug);
+    if (index === -1) return;
+    const after = index > 0 ? wishlist[index - 1] : null;
     toggleWishlist(product.slug);
-    toast("Removed from wishlist", { action: { label: "Undo", onClick: () => toggleWishlist(product.slug) } });
+    toast("Removed from wishlist", { action: { label: "Undo", onClick: () => addToWishlist(product.slug, index, after) } });
   };
 
   return (

@@ -10,22 +10,16 @@ function FreeDeliveryProgress({ totals, settings }) {
   const afterDiscount = Math.max(0, totals.subtotal - totals.discount);
   const remaining = Math.max(0, freeOver - afterDiscount);
   const pct = Math.min(100, Math.round((afterDiscount / freeOver) * 100));
+  // Once it is free the Delivery row above already says so; with nothing orderable there is nothing to nudge.
+  if (remaining <= 0 || afterDiscount <= 0) return null;
   return (
     <div className="mt-4">
       <p className="text-xs text-neutral-600">
-        {remaining > 0 ? (
-          <>
-            Add <span className="font-medium tabular-nums text-ink">{formatINR(remaining)}</span> more for free delivery
-          </>
-        ) : (
-          "You qualify for free delivery"
-        )}
+        Delivery is free from <span className="tabular-nums">{formatINR(freeOver)}</span>. Add <span className="font-medium tabular-nums text-ink">{formatINR(remaining)}</span> more to get it.
       </p>
-      {remaining > 0 && (
-        <div className="mt-2 h-0.5 w-full bg-neutral-200" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} aria-label="Progress to free delivery">
-          <div className="h-0.5 bg-ink transition-[width] duration-500 ease-soft" style={{ width: `${pct}%` }} />
-        </div>
-      )}
+      <div className="mt-2 h-0.5 w-full bg-neutral-200" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} aria-label="Progress to free delivery">
+        <div className="h-0.5 bg-ink transition-[width] duration-500 ease-soft" style={{ width: `${pct}%` }} />
+      </div>
     </div>
   );
 }

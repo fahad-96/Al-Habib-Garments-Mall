@@ -15,13 +15,15 @@ import MobileCheckoutBar from "../../components/store/checkout/MobileCheckoutBar
 import { useFitsViewport, useInView } from "../../components/store/checkout/hooks";
 
 const FORM_ID = "checkout-form";
-const STICKY_OFFSET = 96 + 24; // header + top gap, plus breathing room below
+// The summary sticks 24px under the header (--header-h is 88px at lg); keep 24px spare below it too.
+const STICKY_OFFSET = 88 + 24 + 24;
 
 function EmptyBag({ wishlistProducts }) {
   return (
     <>
       <div className="container py-10 lg:py-16">
         <EmptyState
+          as="h1"
           icon={ShoppingBag}
           title="Your bag is empty"
           description="Add a few pieces and they will appear here, ready to order on WhatsApp."
@@ -34,7 +36,7 @@ function EmptyBag({ wishlistProducts }) {
 }
 
 export default function BagPage() {
-  const { cartLines, cartCount, totals, updateCartQty, removeCartItem, addToCart, inWishlist, toggleWishlist, wishlistProducts, toast, placing } = useShop();
+  const { cartLines, cartCount, totals, updateCartQty, removeCartItem, restoreCartItem, addToWishlist, wishlistProducts, toast, placing } = useShop();
   const navigate = useNavigate();
   const asideRef = useRef(null);
   const submitRef = useRef(null);
@@ -42,17 +44,15 @@ export default function BagPage() {
   const ctaVisible = useInView(submitRef);
 
   const orderable = cartLines.some((l) => l.available);
-  // Count what will actually be ordered (capped to stock, unavailable lines excluded) so it matches the summary.
-  const headerCount = totals.itemCount > 0 ? totals.itemCount : cartCount;
 
+  // Undo puts the line back where it was, with the quantity it had.
   const remove = (line) => {
-    removeCartItem(line.key);
-    const canUndo = Boolean(line.product && line.available);
-    toast("Removed from bag", canUndo ? { action: { label: "Undo", onClick: () => addToCart(line.product, line.color, line.size, Math.min(line.qty, line.stock)) } } : {});
+    const removed = removeCartItem(line.key);
+    toast("Removed from bag", removed ? { action: { label: "Undo", onClick: () => restoreCartItem(removed.item, removed.index, removed.after) } } : {});
   };
 
   const moveToWishlist = (line) => {
-    if (!inWishlist(line.slug)) toggleWishlist(line.slug);
+    addToWishlist(line.slug);
     removeCartItem(line.key);
     toast("Moved to wishlist", { type: "success", action: { label: "View", onClick: () => navigate("/wishlist") } });
   };
@@ -69,7 +69,7 @@ export default function BagPage() {
               <p className="eyebrow">Checkout</p>
               <div className="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1">
                 <h1 className="font-display text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl">Your bag</h1>
-                <span className="text-sm tabular-nums text-neutral-500">{pluralize(headerCount, "item")}</span>
+                {cartCount > 0 && <span className="text-sm tabular-nums text-neutral-500">{pluralize(cartCount, "item")}</span>}
               </div>
             </Reveal>
 
@@ -86,7 +86,7 @@ export default function BagPage() {
                 </Link>
               </section>
 
-              <aside ref={asideRef} className={`mt-12 lg:col-span-5 lg:mt-0 ${asideFits ? "lg:sticky lg:top-24" : ""}`} aria-label="Order summary and delivery details">
+              <aside ref={asideRef} className={`mt-12 lg:col-span-5 lg:mt-0 ${asideFits ? "lg:sticky lg:top-[calc(var(--header-h)+24px)]" : ""}`} aria-label="Order summary and delivery details">
                 <OrderSummary />
                 <DeliveryForm formId={FORM_ID} submitRef={submitRef} orderable={orderable} className="mt-10" />
               </aside>

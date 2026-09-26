@@ -66,6 +66,20 @@ export const normalizePhone = (raw) => {
 
 export const isValidPincode = (raw) => /^[1-9][0-9]{5}$/.test(String(raw || "").trim());
 
+// One tidy line of customer text for messages and records: line breaks, tabs and other
+// control characters become spaces, leading list/markup characters (*, _, ~, -, >, •) are
+// dropped so the text cannot pose as a formatted line, runs of spaces collapse, and the
+// result is trimmed and capped at `max` characters.
+export const oneLine = (value, max = 200) =>
+  (typeof value === "string" || typeof value === "number" ? String(value) : "")
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\u0000-\u001f\u007f-\u009f\u2028\u2029]+/g, " ")
+    .replace(/^[\s*_~\-–—>•·]+/, "")
+    .replace(/\s{2,}/g, " ")
+    .trim()
+    .slice(0, max)
+    .trim();
+
 export const titleCase = (s) => String(s || "").replace(/\b\w/g, (c) => c.toUpperCase());
 
 export const uniq = (arr) => Array.from(new Set(arr));

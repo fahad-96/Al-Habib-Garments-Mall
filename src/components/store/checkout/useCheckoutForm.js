@@ -1,13 +1,17 @@
 import { useCallback, useState } from "react";
 import { isValidPincode, normalizePhone } from "../../../lib/format";
+import { cleanCustomer } from "../../../lib/whatsapp";
 
-export const validateCustomer = (c = {}) => {
+// Checks the values as they will be sent (one line each, markup stripped), so what passes here
+// also passes place_order in the database.
+export const validateCustomer = (raw = {}) => {
+  const c = cleanCustomer(raw);
   const errors = {};
-  if (String(c.name || "").trim().length < 2) errors.name = "Enter your full name.";
+  if (c.name.length < 2) errors.name = "Enter your full name.";
   if (!normalizePhone(c.phone)) errors.phone = "Enter a 10-digit Indian mobile number.";
-  if (String(c.address || "").trim().length < 6) errors.address = "Enter your delivery address.";
-  if (!String(c.city || "").trim()) errors.city = "Enter your city or village.";
-  if (String(c.pincode || "").trim() && !isValidPincode(c.pincode)) errors.pincode = "Enter a valid 6-digit PIN code.";
+  if (c.address.length < 6) errors.address = "Enter your delivery address.";
+  if (!c.city) errors.city = "Enter your city or village.";
+  if (String(raw?.pincode || "").trim() && !isValidPincode(raw.pincode)) errors.pincode = "Enter a valid 6-digit PIN code.";
   return errors;
 };
 

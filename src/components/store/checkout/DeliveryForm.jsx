@@ -4,6 +4,7 @@ import { useShop } from "../../../context/ShopContext";
 import Button from "../../ui/Button";
 import { Input, Textarea } from "../../ui/Fields";
 import WhatsAppIcon from "../../ui/WhatsAppIcon";
+import { scrollBehavior } from "../../../lib/motion";
 import { useCheckoutForm } from "./useCheckoutForm";
 
 // Delivery details + the "Place order on WhatsApp" action.
@@ -12,31 +13,46 @@ export default function DeliveryForm({ formId = "checkout-form", submitRef, orde
   const { customer, setCustomer, settings, placeOrder, placing, toast } = useShop();
   const navigate = useNavigate();
   const { bind, normalizePhoneField, validateAll } = useCheckoutForm(customer, setCustomer);
-  const [error, setError] = useState("");
+  // { message, canSendDirect }: canSendDirect when saving failed for a technical reason, so the
+  // order can still go out on WhatsApp.
+  const [error, setError] = useState(null);
   const formRef = useRef(null);
 
   const paymentNote = settings.codEnabled ? "Cash on delivery, or pay by UPI when we confirm on WhatsApp." : "Pay by UPI when we confirm your order on WhatsApp.";
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    if (placing || !orderable) return;
-    setError("");
-    const errors = validateAll();
-    const first = Object.keys(errors).find((k) => errors[k]);
-    if (first) {
-      const el = formRef.current?.querySelector(`[name="${first}"]`);
-      el?.scrollIntoView?.({ block: "center", behavior: "smooth" });
-      el?.focus?.({ preventScroll: true });
-      return;
-    }
-    const res = await placeOrder();
+  const submitOrder = async (options) => {
+    const res = await placeOrder(options);
     if (res.ok) {
       navigate("/order/placed");
       return;
     }
-    const message = res.error || "Could not place the order. Please try again.";
-    setError(message);
+    const message = res.error || "We could not place the order. Please try again or message us on WhatsApp.";
+    setError({ message, canSendDirect: Boolean(res.canSendDirect) });
     toast(message, { type: "error" });
+  };
+
+  // Checks the form and takes the shopper to the first field that needs attention.
+  const ready = () => {
+    const errors = validateAll();
+    const first = Object.keys(errors).find((k) => errors[k]);
+    if (!first) return true;
+    const el = formRef.current?.querySelector(`[name="${first}"]`);
+    el?.scrollIntoView?.({ block: "center", behavior: scrollBehavior() });
+    el?.focus?.({ preventScroll: true });
+    return false;
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (placing || !orderable) return;
+    setError(null);
+    if (ready()) submitOrder();
+  };
+
+  const sendDirect = () => {
+    if (placing || !orderable) return;
+    setError(null);
+    if (ready()) submitOrder({ direct: true });
   };
 
   return (
@@ -52,7 +68,7 @@ export default function DeliveryForm({ formId = "checkout-form", submitRef, orde
         <Textarea label="Address" rows={2} autoComplete="street-address" placeholder="House, street, landmark" maxLength={300} className="sm:col-span-2" {...bind("address")} />
         <Input label="City or village" autoComplete="address-level2" placeholder="Kunzer, Tangmarg" maxLength={80} {...bind("city")} />
         <Input label="PIN code" hint="Optional" inputMode="numeric" autoComplete="postal-code" placeholder="193402" maxLength={6} {...bind("pincode")} />
-        <Input label="Note for us" hint="Optional" placeholder="A size doubt, a delivery time, anything we should know" maxLength={240} className="sm:col-span-2" {...bind("note")} />
+        <Input label="Note for us" hint="Optional" placeholder="A size doubt or a delivery time" maxLength={240} className="sm:col-span-2" {...bind("note")} />
       </div>
 
       <div className="mt-6 border-t border-line pt-5">
@@ -61,9 +77,15 @@ export default function DeliveryForm({ formId = "checkout-form", submitRef, orde
       </div>
 
       {error && (
-        <p className="mt-5 border border-ink px-4 py-3 text-sm" role="alert">
-          {error}
-        </p>
+        <div className="mt-5 border border-ink px-4 py-3" role="alert">
+          <p className="text-sm">{error.message}</p>
+          {error.canSendDirect && (
+            <Button variant="secondary" size="sm" onClick={sendDirect} disabled={placing} className="mt-3">
+              <WhatsAppIcon className="h-4 w-4" color="#25D366" />
+              Send the order on WhatsApp
+            </Button>
+          )}
+        </div>
       )}
       {!orderable && <p className="mt-5 text-sm text-neutral-600">Nothing in your bag can be ordered right now. Remove the unavailable pieces or add new ones.</p>}
 

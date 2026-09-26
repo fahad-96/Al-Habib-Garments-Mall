@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import { Check } from "lucide-react";
 import { useShop } from "../../context/ShopContext";
 import { formatDateTime } from "../../lib/format";
-import { buildOrderMessage, waLink } from "../../lib/whatsapp";
+import { buildOrderMessage, cleanCustomer, waLink } from "../../lib/whatsapp";
 import Seo from "../../components/ui/Seo";
 import Button from "../../components/ui/Button";
 import Reveal from "../../components/ui/Reveal";
@@ -12,7 +12,7 @@ import OrderLines from "../../components/store/checkout/OrderLines";
 import OrderTotals from "../../components/store/checkout/OrderTotals";
 import NextSteps from "../../components/store/checkout/NextSteps";
 
-function DeliveryAddress({ customer = {} }) {
+function DeliveryAddress({ customer }) {
   const cityLine = [customer.city, customer.pincode].filter(Boolean).join(" ");
   if (!customer.name && !customer.address && !cityLine) return null;
   return (
@@ -34,11 +34,12 @@ export default function OrderPlacedPage() {
 
   if (!lastOrder) return <Navigate to="/bag" replace />;
 
-  const number = lastOrder.orderNumber || "";
-  const lines = Array.isArray(lastOrder.lines) ? lastOrder.lines : [];
-  const totals = lastOrder.totals || {};
-  const customer = lastOrder.customer || {};
-  const firstName = String(customer.name || "").trim().split(/\s+/)[0];
+  // lastOrder is validated when it is read back from storage; stay defensive anyway.
+  const number = typeof lastOrder.orderNumber === "string" ? lastOrder.orderNumber : "";
+  const lines = Array.isArray(lastOrder.lines) ? lastOrder.lines.filter((l) => l && typeof l === "object") : [];
+  const totals = lastOrder.totals && typeof lastOrder.totals === "object" ? lastOrder.totals : {};
+  const customer = cleanCustomer(lastOrder.customer);
+  const firstName = customer.name.split(" ")[0];
   const placedAt = formatDateTime(lastOrder.createdAt);
 
   const message = buildOrderMessage({
@@ -68,7 +69,7 @@ export default function OrderPlacedPage() {
             <p className="mt-1.5 text-3xl font-medium tabular-nums tracking-[0.08em] sm:text-4xl">{number}</p>
           </div>
         ) : (
-          <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-neutral-600">We did not get a number yet, your WhatsApp message carries the details.</p>
+          <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-neutral-600">Your order is in the WhatsApp message. We will confirm it there.</p>
         )}
         {placedAt && <p className="mt-3 text-sm text-neutral-500">Placed {placedAt}</p>}
 

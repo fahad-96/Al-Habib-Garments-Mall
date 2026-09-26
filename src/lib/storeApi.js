@@ -9,6 +9,15 @@ const ok = (res) => {
   return res.data;
 };
 
+// What a shopper sees when a storefront call fails. The database functions raise their own
+// messages for things a customer can fix ("Please enter a valid 10-digit mobile number.",
+// "Only 2 left of ..."), which arrive with PostgreSQL's RAISE EXCEPTION code P0001; those pass
+// through. Anything else (network, permissions, a missing function) is technical, so the
+// caller's plain fallback sentence is shown instead and the raw error stays in the console.
+export const ORDER_FAILED_MESSAGE = "We could not place the order. Please try again or message us on WhatsApp.";
+export const isCustomerFacingError = (error) => error?.code === "P0001" && typeof error.message === "string" && error.message.trim().length > 0 && error.message.length <= 200;
+export const customerMessage = (error, fallback = "Something went wrong. Please try again.") => (isCustomerFacingError(error) ? error.message.trim() : fallback);
+
 export const loadStorefront = async (supabase) => {
   const [products, categories, banners, collections, sizeGuides, settings, ratings] = await Promise.all([
     supabase.from("products").select("*").eq("is_active", true).order("sort_order", { ascending: true }).order("created_at", { ascending: false }).then(ok),

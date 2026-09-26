@@ -29,7 +29,7 @@ export default function BagLine({ line, onQty, onRemove, onMoveToWishlist }) {
   return (
     <li className="flex gap-4 py-6 sm:gap-6 sm:py-7">
       <Link to={href} className={`img-frame aspect-[3/4] w-24 shrink-0 sm:w-28 ${available ? "" : "opacity-40"}`} aria-label={line.title}>
-        <Img src={line.image} alt={line.title} />
+        <Img src={line.image} alt={line.title} sizes="112px" />
       </Link>
 
       <div className="flex min-w-0 flex-1 flex-col">
@@ -46,7 +46,7 @@ export default function BagLine({ line, onQty, onRemove, onMoveToWishlist }) {
                 <span className="tabular-nums">{formatINR(line.price)}</span>
                 {off > 0 && (
                   <>
-                    <span className="text-xs tabular-nums text-neutral-400 line-through">{formatINR(line.mrp)}</span>
+                    <span className="text-xs tabular-nums text-neutral-500 line-through"><span className="sr-only">MRP </span>{formatINR(line.mrp)}</span>
                     <span className="text-2xs font-medium uppercase tracking-micro text-neutral-500">{off}% off</span>
                   </>
                 )}

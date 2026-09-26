@@ -87,10 +87,17 @@ export const searchProducts = (products, query, categories = []) => {
     .map((x) => x.p);
 };
 
+// Keys of categories that hold at least one active product (the ones navigation shows).
+export const stockedCategoryKeys = (products = []) => new Set(products.filter((p) => p && p.isActive !== false).map((p) => p.categoryKey));
+
 export const searchSuggestions = (products, categories, query, limit = 6) => {
   const q = norm(query).trim();
   if (!q) return { products: [], categories: [] };
-  const cats = categories.filter((c) => c.isActive !== false && (norm(c.name).includes(q) || norm(`${c.department} ${c.name}`).includes(q))).slice(0, 4);
+  // Only suggest categories a shopper can browse: empty ones (Kids until it has stock) lead nowhere.
+  const stocked = stockedCategoryKeys(products);
+  const cats = categories
+    .filter((c) => c.isActive !== false && stocked.has(c.key) && (norm(c.name).includes(q) || norm(`${c.department} ${c.name}`).includes(q)))
+    .slice(0, 4);
   const prods = searchProducts(products, query, categories).slice(0, limit);
   return { products: prods, categories: cats };
 };
