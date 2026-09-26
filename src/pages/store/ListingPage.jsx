@@ -34,9 +34,9 @@ const metaFor = ({ mode, q, department, category, collection }) => {
         seo: { title: `${department.name} ${category.name}`, description: category.description || `${category.name} for ${department.name.toLowerCase()} at Al Habib Garments Mall, Kunzer.` },
       };
     case "new":
-      return { crumbs: [HOME, { label: "New in" }], eyebrow: "Just in", title: "New in", description: "The latest pieces to reach the shop floor in Kunzer, across men, women and kids.", seo: { title: "New in", description: "The newest arrivals at Al Habib Garments Mall: kurtas, suits, pherans, winter wear and more." } };
+      return { crumbs: [HOME, { label: "New in" }], eyebrow: "Just in", title: "New in", description: "The latest pieces to reach the shop floor in Kunzer, across men, women and kids.", seo: { title: "New in", description: "The newest arrivals at Al Habib Garments Mall: jackets, hoodies, tees, track pants, bags and more." } };
     case "sale":
-      return { crumbs: [HOME, { label: "Sale" }], eyebrow: "Reduced", title: "Sale", description: "Marked-down pieces across the store. The price you see is the price you pay.", seo: { title: "Sale", description: "Reduced prices on kurtas, suits, pherans, winter wear, footwear and accessories." } };
+      return { crumbs: [HOME, { label: "Sale" }], eyebrow: "Reduced", title: "Sale", description: "Marked-down pieces across the store. The price you see is the price you pay.", seo: { title: "Sale", description: "Reduced prices on jackets, hoodies, tees, track pants, bags and accessories." } };
     case "search":
       return {
         crumbs: [HOME, { label: "Search" }],
@@ -49,7 +49,7 @@ const metaFor = ({ mode, q, department, category, collection }) => {
         ? { crumbs: [], seo: { title: collection.name, description: collection.description, image: collection.imageUrl } }
         : { crumbs: [HOME, { label: "Collections", to: "/collections" }], eyebrow: "Collections", title: "Not found", seo: { title: "Collection not found" } };
     default:
-      return { crumbs: [HOME, { label: "Shop" }], eyebrow: "Shop", title: "Everything", description: "Every piece in the store: menswear, womenswear and kidswear from Kunzer, Tangmarg.", seo: { title: "Shop all", description: "Browse the full range at Al Habib Garments Mall: kurtas, suits, sarees, pherans, winter wear, footwear and accessories." } };
+      return { crumbs: [HOME, { label: "Shop" }], eyebrow: "Shop", title: "Everything", description: "Every piece in the store: menswear, womenswear and kidswear from Kunzer, Tangmarg.", seo: { title: "Shop all", description: "Browse the full range at Al Habib Garments Mall: jackets, hoodies, tees, track pants, leggings, bags and beanies." } };
   }
 };
 

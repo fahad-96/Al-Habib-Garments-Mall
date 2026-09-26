@@ -81,7 +81,7 @@ $fn$;
 -- ── 3. Categories ─────────────────────────────────────────────────
 create table if not exists public.categories (
   key text primary key,
-  department text not null check (department in ('men', 'women', 'kids')),
+  department text not null check (department in ('men', 'women', 'kids', 'accessories')),
   slug text not null,
   name text not null,
   size_set text not null default 'apparel' check (size_set in ('apparel', 'waist', 'kids', 'footwear', 'free')),
@@ -109,7 +109,7 @@ create table if not exists public.products (
   slug text unique not null,
   title text not null,
   brand text not null default 'Al Habib',
-  department text not null default 'men' check (department in ('men', 'women', 'kids')),
+  department text not null default 'men' check (department in ('men', 'women', 'kids', 'accessories')),
   category_key text references public.categories (key) on update cascade on delete restrict,
   badge text not null default '',
   short_info text not null default '',

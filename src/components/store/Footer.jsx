@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import { MapPin, Clock } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "../ui/SocialIcons";
 import { useShop } from "../../context/ShopContext";
-import { DEPARTMENTS } from "../../data/catalog";
 import WhatsAppIcon from "../ui/WhatsAppIcon";
 import { waLink } from "../../lib/whatsapp";
 
 export default function Footer() {
-  const { settings } = useShop();
+  const { settings, departments } = useShop();
   const year = new Date().getFullYear();
   const ig = settings.instagram ? `https://instagram.com/${String(settings.instagram).replace(/^@/, "")}` : "";
   return (
@@ -38,7 +37,7 @@ export default function Footer() {
           <div>
             <p className="eyebrow-dark">Shop</p>
             <ul className="mt-4 space-y-2.5 text-sm text-neutral-300">
-              {DEPARTMENTS.map((d) => (
+              {departments.map((d) => (
                 <li key={d.key}>
                   <Link to={`/shop/${d.key}`} className="hover:text-paper">{d.name}</Link>
                 </li>

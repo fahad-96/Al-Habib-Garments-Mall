@@ -9,7 +9,7 @@ Built with **Vite + React 19 + Tailwind CSS + Framer Motion + Supabase**, deploy
 
 **Storefront**
 - Home with editorial hero banners, department tiles, new-in and bestseller rails, collections,
-  a Kashmir heritage band and store details.
+  a dark feature band and store details.
 - Men, Women and Kids departments, categories, New In, Sale, Collections and search, all with
   Myntra-style filters (category, size, colour, price, discount, availability), sorting and
   shareable filter URLs.
@@ -40,7 +40,7 @@ npm install
 npm run dev
 ```
 
-The site runs on the built-in dummy catalog of 50 products. The admin stays disabled until
+The site runs on the built-in demo catalog of 128 products with real product photography. The admin stays disabled until
 Supabase is configured (it shows a setup notice instead of a fake login). WhatsApp ordering
 works without a database; orders just are not saved or numbered.
 
@@ -66,10 +66,10 @@ security headers, caching).
 
 ## Product photos
 
-The dummy catalog uses generated fabric-swatch artwork (`public/image/products`, made by
-`npm run placeholders`) so the site is complete out of the box without any stock-photo licensing.
-Upload real photos from the admin product editor; they are stored in Supabase Storage and
-compressed to WebP in the browser before upload.
+The demo catalog ships with open-source product photography (Magento Luma sample data under
+OSL 3.0 and Sylius fixtures under MIT; see `public/image/ATTRIBUTIONS.md`) so the store looks
+complete out of the box. Upload your own photos from the admin product editor, on a phone or a
+laptop; they are compressed to WebP in the browser and stored in Supabase Storage.
 
 ## Security model
 
@@ -93,13 +93,14 @@ compressed to WebP in the browser before upload.
 | `npm run build` | Production build into `dist/` |
 | `npm run preview` | Serve the production build locally |
 | `npm run lint` | ESLint over `src/` |
-| `npm run placeholders` | Regenerate the placeholder artwork from `src/data/catalog.js` |
+| `npm run placeholders` | Regenerate the monochrome site artwork in `public/image/art` |
 
 ## Project structure
 
 ```
 src/
-  data/catalog.js        data contract, dummy catalog, DB row mappers
+  data/catalog.js        data contract, demo catalog, DB row mappers
+  data/demo-products.js  generated demo products (photos in public/image/products)
   context/               ShopContext (catalog, bag, wishlist, orders), AdminContext (session)
   lib/                   supabase client, storefront + admin APIs, catalog utils, WhatsApp, images
   components/ui          buttons, fields, modal, drawer, price, stars, image, seo...
@@ -109,5 +110,5 @@ src/
   pages/admin            admin pages
 supabase/schema.sql      database schema, security policies, order/coupon/stock functions
 supabase/ADMIN-SETUP.md  one-time setup guide
-scripts/                 placeholder artwork generator
+scripts/                 artwork generator and the schema test suite
 ```

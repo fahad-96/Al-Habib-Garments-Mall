@@ -9,7 +9,7 @@ import { productImage } from "../../lib/catalogUtils";
 import Img from "../ui/Img";
 import { useLockBody } from "../../hooks/useLockBody";
 
-const POPULAR = ["Pheran", "Kurta", "Winter", "Saree", "Jeans", "Kids"];
+const POPULAR = ["Jacket", "Hoodie", "Tee", "Track pants", "Backpack", "Beanie"];
 
 export default function SearchOverlay() {
   const { searchOpen, setSearchOpen, products, categories } = useShop();
@@ -54,7 +54,7 @@ export default function SearchOverlay() {
               }}
             >
               <Search className="h-5 w-5 shrink-0 text-neutral-500" strokeWidth={1.5} />
-              <input ref={input} value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search kurtas, pherans, jeans, kids..." className="h-full flex-1 bg-transparent text-base outline-none placeholder:text-neutral-400" aria-label="Search products" autoComplete="off" />
+              <input ref={input} value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search jackets, hoodies, bags..." className="h-full flex-1 bg-transparent text-base outline-none placeholder:text-neutral-400" aria-label="Search products" autoComplete="off" />
               <button type="button" onClick={() => setSearchOpen(false)} className="-mr-2 p-2 hover:opacity-60" aria-label="Close">
                 <X className="h-5 w-5" />
               </button>

@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import {
-  BANNERS as DUMMY_BANNERS, CATEGORIES as DUMMY_CATEGORIES, COLLECTIONS as DUMMY_COLLECTIONS, DEFAULT_SETTINGS,
+  BANNERS as DUMMY_BANNERS, CATEGORIES as DUMMY_CATEGORIES, COLLECTIONS as DUMMY_COLLECTIONS, DEFAULT_SETTINGS, DEPARTMENTS,
   PRODUCTS as DUMMY_PRODUCTS, SIZE_GUIDES as DUMMY_SIZE_GUIDES,
 } from "../data/catalog";
 import { isSupabaseConfigured, supabase } from "../lib/supabaseClient";
@@ -92,7 +92,17 @@ export function ShopProvider({ children }) {
   const getProductBySlug = useCallback((slug) => productBySlug.get(slug) || null, [productBySlug]);
   const getProductById = useCallback((id) => productById.get(String(id)) || null, [productById]);
   const getCategory = useCallback((key) => categories.find((c) => c.key === key) || null, [categories]);
-  const categoriesFor = useCallback((department) => categories.filter((c) => c.department === department && c.isActive !== false), [categories]);
+  // Only categories that currently have live products are navigable on the storefront.
+  const stockedCategoryKeys = useMemo(() => new Set(products.filter((p) => p.isActive !== false).map((p) => p.categoryKey)), [products]);
+  const categoriesFor = useCallback(
+    (department) => categories.filter((c) => c.department === department && c.isActive !== false && stockedCategoryKeys.has(c.key)),
+    [categories, stockedCategoryKeys]
+  );
+  // Departments shown in navigation: those with at least one stocked category (Kids appears once kids products exist).
+  const departments = useMemo(
+    () => DEPARTMENTS.filter((d) => categories.some((c) => c.department === d.key && c.isActive !== false && stockedCategoryKeys.has(c.key))),
+    [categories, stockedCategoryKeys]
+  );
   const getCollection = useCallback((slug) => collections.find((c) => c.slug === slug) || null, [collections]);
   const collectionProducts = useCallback(
     (collection) => (collection?.productSlugs || []).map((s) => productBySlug.get(s)).filter((p) => p && p.isActive !== false),
@@ -341,7 +351,7 @@ export function ShopProvider({ children }) {
   const value = useMemo(
     () => ({
       // catalog
-      products, categories, banners, collections, sizeGuides, settings, ratings, catalogReady, catalogError, catalogSource: catalog.source,
+      products, categories, departments, banners, collections, sizeGuides, settings, ratings, catalogReady, catalogError, catalogSource: catalog.source,
       refreshCatalog: loadCatalog, getProductBySlug, getProductById, getCategory, categoriesFor, getCollection, collectionProducts, sizeGuideFor, ratingFor,
       // cart
       cartItems, cartLines, cartCount, cartOpen, setCartOpen, addToCart, updateCartQty, removeCartItem, clearCart, totals, rawSubtotal,
@@ -355,7 +365,7 @@ export function ShopProvider({ children }) {
       isSupabaseConfigured,
     }),
     [
-      products, categories, banners, collections, sizeGuides, settings, ratings, catalogReady, catalogError, catalog.source, loadCatalog,
+      products, categories, departments, banners, collections, sizeGuides, settings, ratings, catalogReady, catalogError, catalog.source, loadCatalog,
       getProductBySlug, getProductById, getCategory, categoriesFor, getCollection, collectionProducts, sizeGuideFor, ratingFor,
       cartItems, cartLines, cartCount, cartOpen, addToCart, updateCartQty, removeCartItem, clearCart, totals, rawSubtotal, coupon, applyCoupon, removeCoupon,
       wishlist, wishlistProducts, inWishlist, toggleWishlist, recentProducts, pushRecent, customer, setCustomer,

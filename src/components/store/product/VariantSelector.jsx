@@ -59,7 +59,7 @@ export function SizeSelector({ ref, sizes = [], sizeSet, selected, stockFor, onS
           Size guide
         </button>
       </div>
-      <div className={`mt-2.5 flex flex-wrap gap-2 ${error ? "outline outline-1 outline-offset-8 outline-ink" : ""}`} role="group" aria-label="Size">
+      <div className={`mt-2.5 flex flex-wrap gap-2 ${error ? "outline outline-1 outline-offset-[6px] outline-ink" : ""}`} role="group" aria-label="Size">
         {sizes.map((s) => {
           const out = stockFor(s) <= 0;
           const active = s === selected;

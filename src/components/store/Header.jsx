@@ -3,7 +3,6 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Heart, Menu, Search, ShoppingBag, ChevronDown, ChevronRight, X } from "lucide-react";
 import { useShop } from "../../context/ShopContext";
-import { DEPARTMENTS } from "../../data/catalog";
 import Logo from "./Logo";
 import Drawer from "../ui/Drawer";
 
@@ -14,7 +13,7 @@ const NAV_EXTRA = [
 ];
 
 export default function Header() {
-  const { cartCount, wishlist, setCartOpen, setSearchOpen, categoriesFor, collections } = useShop();
+  const { cartCount, wishlist, setCartOpen, setSearchOpen, categoriesFor, collections, departments } = useShop();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mega, setMega] = useState(null);
@@ -32,7 +31,7 @@ export default function Header() {
     setMega(null);
   }, [location.pathname]);
 
-  const linkCls = ({ isActive }) => `relative py-2 text-[13px] font-medium uppercase tracking-micro transition-opacity hover:opacity-60 ${isActive ? "after:absolute after:inset-x-0 after:-bottom-px after:h-px after:bg-ink" : ""}`;
+  const linkCls = ({ isActive }) => `relative whitespace-nowrap py-2 text-[13px] font-medium uppercase tracking-micro transition-opacity hover:opacity-60 ${isActive ? "after:absolute after:inset-x-0 after:-bottom-px after:h-px after:bg-ink" : ""}`;
 
   return (
     <header className={`sticky top-0 z-50 bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/85 transition-shadow ${scrolled ? "shadow-[0_1px_0_0_#e5e5e5]" : ""}`} onMouseLeave={() => setMega(null)}>
@@ -43,7 +42,7 @@ export default function Header() {
             <Menu className="h-5 w-5" strokeWidth={1.5} />
           </button>
           <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
-            {DEPARTMENTS.map((d) => (
+            {departments.map((d) => (
               <div key={d.key} onMouseEnter={() => setMega(d.key)} className="relative">
                 <NavLink to={`/shop/${d.key}`} className={linkCls} onFocus={() => setMega(d.key)}>
                   {d.name}
@@ -93,8 +92,8 @@ export default function Header() {
           >
             <div className="container grid grid-cols-12 gap-10 py-8">
               <div className="col-span-3">
-                <p className="eyebrow">{DEPARTMENTS.find((d) => d.key === mega)?.name}</p>
-                <p className="mt-2 max-w-xs font-display text-2xl leading-tight">{DEPARTMENTS.find((d) => d.key === mega)?.tagline}</p>
+                <p className="eyebrow">{departments.find((d) => d.key === mega)?.name}</p>
+                <p className="mt-2 max-w-xs font-display text-2xl leading-tight">{departments.find((d) => d.key === mega)?.tagline}</p>
                 <Link to={`/shop/${mega}`} className="mt-4 inline-flex items-center gap-1 text-2xs font-medium uppercase tracking-micro hover:opacity-60">
                   Shop all <ChevronRight className="h-3 w-3" />
                 </Link>
@@ -127,17 +126,17 @@ export default function Header() {
 
       {/* Mobile navigation drawer */}
       <Drawer open={menuOpen} onClose={() => setMenuOpen(false)} side="left" title="Menu" width="max-w-sm">
-        <MobileNav categoriesFor={categoriesFor} collections={collections} wishlistCount={wishlist.length} />
+        <MobileNav departments={departments} categoriesFor={categoriesFor} collections={collections} wishlistCount={wishlist.length} />
       </Drawer>
     </header>
   );
 }
 
-function MobileNav({ categoriesFor, collections, wishlistCount }) {
-  const [open, setOpen] = useState("men");
+function MobileNav({ departments, categoriesFor, collections, wishlistCount }) {
+  const [open, setOpen] = useState(departments[0]?.key || "men");
   return (
     <nav className="px-5 py-2" aria-label="Mobile">
-      {DEPARTMENTS.map((d) => {
+      {departments.map((d) => {
         const isOpen = open === d.key;
         return (
           <div key={d.key} className="border-b border-line">

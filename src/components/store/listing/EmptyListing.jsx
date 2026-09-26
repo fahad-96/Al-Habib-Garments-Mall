@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import { Search, Sparkles, Tag, Layers, ShoppingBag } from "lucide-react";
 import EmptyState from "../../ui/EmptyState";
 import Button from "../../ui/Button";
-import { DEPARTMENTS } from "../../../data/catalog";
+import { useShop } from "../../../context/ShopContext";
 
 const POPULAR = [
-  { label: "Men's kurtas", to: "/shop/men/kurtas" },
-  { label: "Women's kurta sets", to: "/shop/women/kurta-sets" },
-  { label: "Pherans", to: "/shop/men/pherans" },
-  { label: "Jeans", to: "/shop/men/jeans" },
-  { label: "Winter wear", to: "/shop/women/winter-wear" },
-  { label: "Kids", to: "/shop/kids" },
+  { label: "Men's jackets", to: "/shop/men/jackets" },
+  { label: "Women's jackets", to: "/shop/women/jackets" },
+  { label: "Hoodies", to: "/shop/men/sweatshirts" },
+  { label: "T-shirts", to: "/shop/men/t-shirts" },
+  { label: "Bags & luggage", to: "/shop/accessories/bags" },
+  { label: "Beanies", to: "/shop/accessories/beanies" },
 ];
 
 function ChipLinks({ items }) {
@@ -30,6 +30,7 @@ function ChipLinks({ items }) {
 
 // One empty state per situation. `filtered` means the base set had items but the filters removed them all.
 export default function EmptyListing({ mode, q, department, category, collection, filtered = false, onClear, onSearch }) {
+  const { departments } = useShop();
   if (filtered) {
     return (
       <EmptyState
@@ -51,7 +52,7 @@ export default function EmptyListing({ mode, q, department, category, collection
         <EmptyState
           icon={Search}
           title="Search the store"
-          description="Try a piece, a fabric or an occasion. Pherans, chikankari, Eid."
+          description="Try a piece, a colour or a fabric. Jackets, black, fleece."
           action={
             <div className="space-y-5">
               <Button variant="secondary" onClick={onSearch}>
@@ -71,7 +72,7 @@ export default function EmptyListing({ mode, q, department, category, collection
             Nothing for <span className="italic">“{q}”</span>
           </>
         }
-        description="Try pherans, kurtas, jeans, or browse a popular category."
+        description="Try jackets, hoodies, bags, or browse a popular category."
         action={<ChipLinks items={POPULAR} />}
       />
     );
@@ -141,8 +142,8 @@ export default function EmptyListing({ mode, q, department, category, collection
       <EmptyState
         icon={ShoppingBag}
         title="We do not have that department"
-        description="The store is arranged into three."
-        action={<ChipLinks items={DEPARTMENTS.map((d) => ({ label: d.name, to: `/shop/${d.key}` }))} />}
+        description="Choose one of the departments below."
+        action={<ChipLinks items={departments.map((d) => ({ label: d.name, to: `/shop/${d.key}` }))} />}
       />
     );
   }

@@ -5,7 +5,7 @@ const SITE = "Al Habib Garments Mall";
 // React 19 hoists <title>/<meta> rendered anywhere into <head>.
 export default function Seo({ title, description, image, noindex = false, type = "website" }) {
   const full = title ? `${title} — ${SITE}` : `${SITE} — Kunzer, Tangmarg`;
-  const desc = description || "Curated menswear, womenswear and kidswear from Kunzer, Tangmarg. Kurtas, suits, pherans, winter wear, footwear and accessories. Order on WhatsApp.";
+  const desc = description || "Multi-brand menswear, womenswear and kidswear from Kunzer, Tangmarg. Jackets, hoodies, tees, track pants, bags and beanies. Order on WhatsApp.";
   return (
     <>
       <title>{full}</title>

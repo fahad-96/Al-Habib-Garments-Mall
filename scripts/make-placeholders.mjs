@@ -1,35 +1,16 @@
-// Generates the placeholder artwork for the built-in dummy catalog.
+// Generates the monochrome site artwork used by dark bands and editorial pages
+// (public/image/art/*.svg). Product photos live in public/image/products and are
+// produced separately from open-source photography (see public/image/ATTRIBUTIONS.md).
 //
 //   node scripts/make-placeholders.mjs
-//
-// Every dummy product gets three "fabric swatch" cards per colour variant
-// (front / detail / drape) as crisp, tiny SVG files, plus monochrome artwork for
-// categories, hero banners and collections. Real product photos are uploaded from
-// the admin dashboard and replace these.
-import { mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { PRODUCTS, CATEGORIES, COLLECTIONS, BANNERS, slugifyColor } from "../src/data/catalog.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const OUT_PRODUCTS = join(ROOT, "public/image/products");
 const OUT_ART = join(ROOT, "public/image/art");
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-
-const hexToRgb = (hex) => {
-  const m = /^#?([0-9a-f]{6})$/i.exec(hex) || [];
-  const n = parseInt(m[1] || "999999", 16);
-  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
-};
-const luminance = (hex) => {
-  const [r, g, b] = hexToRgb(hex);
-  return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-};
-const shade = (hex, amt) => {
-  const [r, g, b] = hexToRgb(hex).map((c) => Math.max(0, Math.min(255, Math.round(c + amt))));
-  return `#${[r, g, b].map((c) => c.toString(16).padStart(2, "0")).join("")}`;
-};
 
 // ── Pattern library ──────────────────────────────────────────────────────────
 // Each returns the inner content of a <pattern> plus its tile size.
@@ -79,49 +60,6 @@ const patternDef = (name, id, s, s2, scale = 1) => {
   return `<pattern id="${id}" patternUnits="userSpaceOnUse" width="${size}" height="${size}" patternTransform="scale(${scale})">${body}</pattern>`;
 };
 
-// ── Product swatch cards ──────────────────────────────────────────────────────
-const W = 900;
-const H = 1200;
-
-const card = ({ hex, pattern, title, color, view, index }) => {
-  const light = luminance(hex) > 0.6;
-  const ink = light ? "rgba(0,0,0," : "rgba(255,255,255,";
-  const s = `${ink}${light ? 0.2 : 0.3})`;
-  const s2 = `${ink}${light ? 0.36 : 0.5})`;
-  const text = light ? "#111111" : "#ffffff";
-  const sub = light ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.65)";
-  const bg2 = shade(hex, light ? -18 : 22);
-  const scale = view === 2 ? 2.3 : view === 3 ? 1.35 : 1;
-  const viewLabel = view === 1 ? "Front" : view === 2 ? "Detail" : "Drape";
-
-  const folds =
-    view === 3
-      ? `<g opacity="${light ? 0.22 : 0.3}">
-        <path d="M0 0L${W} 0L${W} ${H * 0.22}L0 ${H * 0.55}Z" fill="url(#fold-a)"/>
-        <path d="M0 ${H * 0.45}L${W} ${H * 0.18}L${W} ${H * 0.62}L0 ${H * 0.95}Z" fill="url(#fold-b)"/>
-        <path d="M0 ${H * 0.86}L${W} ${H * 0.58}L${W} ${H}L0 ${H}Z" fill="url(#fold-a)"/>
-      </g>`
-      : "";
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)} in ${esc(color)}, ${viewLabel.toLowerCase()} view placeholder">
-<defs>
-  ${patternDef(pattern, "p", s, s2, scale)}
-  <radialGradient id="vig" cx="50%" cy="40%" r="80%"><stop offset="0" stop-color="${light ? "#ffffff" : "#ffffff"}" stop-opacity="${light ? 0.35 : 0.08}"/><stop offset="1" stop-color="#000000" stop-opacity="${light ? 0.08 : 0.32}"/></radialGradient>
-  <linearGradient id="fold-a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0.6"/><stop offset="1" stop-color="#000000" stop-opacity="0.5"/></linearGradient>
-  <linearGradient id="fold-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000000" stop-opacity="0.45"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0.55"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></linearGradient>
-</defs>
-<rect width="${W}" height="${H}" fill="${hex}"/>
-<rect width="${W}" height="${H}" fill="${bg2}" opacity="0.18"/>
-<rect width="${W}" height="${H}" fill="url(#p)"/>
-${folds}
-<rect width="${W}" height="${H}" fill="url(#vig)"/>
-<rect x="28" y="28" width="${W - 56}" height="${H - 56}" fill="none" stroke="${light ? "rgba(0,0,0,0.25)" : "rgba(255,255,255,0.3)"}" stroke-width="1"/>
-<text x="${W - 56}" y="78" text-anchor="end" font-family="Didot, 'Bodoni MT', 'Bodoni 72', Georgia, 'Times New Roman', serif" font-size="30" fill="${text}" opacity="0.85">AH</text>
-<text x="56" y="${H - 120}" font-family="Didot, 'Bodoni MT', 'Bodoni 72', Georgia, 'Times New Roman', serif" font-size="44" fill="${text}">${esc(title)}</text>
-<text x="56" y="${H - 76}" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="17" letter-spacing="4" fill="${sub}">${esc(color.toUpperCase())}  ·  ${viewLabel.toUpperCase()}  ·  0${index}</text>
-</svg>`;
-};
-
 // ── Site artwork (monochrome) ────────────────────────────────────────────────
 const art = ({ w, h, pattern, dark = true, scale = 1.6, label = "" }) => {
   const bg = dark ? "#0a0a0a" : "#f4f4f4";
@@ -138,52 +76,9 @@ const art = ({ w, h, pattern, dark = true, scale = 1.6, label = "" }) => {
 </svg>`;
 };
 
-const CATEGORY_PATTERNS = {
-  "men-kurtas": "embroidery", "men-shirts": "oxford", "men-t-shirts": "jersey", "men-trousers": "twill", "men-jeans": "denim",
-  "men-pherans": "herringbone", "men-winter-wear": "cable", "men-footwear": "leather", "men-accessories": "felt",
-  "women-kurta-sets": "block", "women-suits": "floral", "women-sarees": "brocade", "women-pherans": "tilla",
-  "women-winter-wear": "paisley", "women-footwear": "suede", "women-accessories": "chanderi",
-  "kids-boys": "gingham", "kids-girls": "dots", "kids-winter-wear": "quilt", "kids-footwear": "mesh",
-};
-const COLLECTION_PATTERNS = { "winter-edit": "herringbone", "festive-edit": "brocade", "kashmir-heritage": "paisley", "everyday-essentials": "oxford" };
-
-// ── Write everything ─────────────────────────────────────────────────────────
-rmSync(OUT_PRODUCTS, { recursive: true, force: true });
-mkdirSync(OUT_PRODUCTS, { recursive: true });
+// ── Write ────────────────────────────────────────────────────────────────────
 mkdirSync(OUT_ART, { recursive: true });
-
-let files = 0;
-for (const p of PRODUCTS) {
-  const dir = join(OUT_PRODUCTS, p.slug);
-  mkdirSync(dir, { recursive: true });
-  p.variants.forEach((v) => {
-    v.images.forEach((imgPath, i) => {
-      const name = imgPath.split("/").pop();
-      writeFileSync(join(dir, name), card({ hex: v.hex, pattern: p.art?.pattern || "solid", title: p.title, color: v.color, view: i + 1, index: i + 1 }));
-      files += 1;
-    });
-  });
-}
-
-for (const c of CATEGORIES) {
-  writeFileSync(join(OUT_ART, `cat-${c.department}-${c.slug}.svg`), art({ w: 800, h: 1000, pattern: CATEGORY_PATTERNS[c.key] || "solid", dark: true, label: `${c.name} category artwork` }));
-  files += 1;
-}
-for (const c of COLLECTIONS) {
-  writeFileSync(join(OUT_ART, `col-${c.slug}.svg`), art({ w: 1200, h: 900, pattern: COLLECTION_PATTERNS[c.slug] || "solid", dark: true, scale: 2, label: `${c.name} artwork` }));
-  files += 1;
-}
-writeFileSync(join(OUT_ART, "hero-winter.svg"), art({ w: 1800, h: 1100, pattern: "herringbone", dark: true, scale: 2.4, label: "Winter hero artwork" }));
-writeFileSync(join(OUT_ART, "hero-festive.svg"), art({ w: 1800, h: 1100, pattern: "brocade", dark: false, scale: 2.2, label: "Festive hero artwork" }));
 writeFileSync(join(OUT_ART, "strip-kashmir.svg"), art({ w: 1800, h: 800, pattern: "paisley", dark: true, scale: 2.6, label: "Kashmir artwork" }));
 writeFileSync(join(OUT_ART, "about.svg"), art({ w: 1200, h: 1500, pattern: "tilla", dark: true, scale: 2, label: "About artwork" }));
 writeFileSync(join(OUT_ART, "contact.svg"), art({ w: 1600, h: 900, pattern: "twill", dark: true, scale: 2, label: "Contact artwork" }));
-files += 5;
-
-// Referenced banners must exist.
-for (const b of BANNERS) {
-  const name = b.imageUrl.split("/").pop();
-  if (!name) continue;
-}
-
-console.log(`Wrote ${files} SVG files (${PRODUCTS.length} products, ${CATEGORIES.length} categories, ${COLLECTIONS.length} collections).`);
+console.log("Wrote 3 SVG artwork files.");

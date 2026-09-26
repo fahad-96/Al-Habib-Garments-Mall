@@ -71,7 +71,8 @@ function DesktopGallery({ images, alt }) {
   return (
     <div className="grid grid-cols-[4.25rem_minmax(0,1fr)] gap-4 xl:grid-cols-[5rem_minmax(0,1fr)] xl:gap-5">
       <Thumbnails images={images} index={index} onSelect={go} />
-      <div className="relative">
+      {/* Height-capped so the whole image sits inside a 900px-tall viewport under the sticky header. */}
+      <div className="relative h-[calc(100vh-9.5rem)] max-h-[56rem] min-h-[28rem] w-auto max-w-full justify-self-start">
         <button
           type="button"
           ref={frame}
@@ -79,7 +80,7 @@ function DesktopGallery({ images, alt }) {
           onMouseLeave={() => setHover(null)}
           onClick={() => setLocked((l) => !l)}
           onKeyDown={onKey}
-          className={`img-frame block aspect-[3/4] w-full ${zoom ? "cursor-zoom-out" : "cursor-zoom-in"}`}
+          className={`img-frame block aspect-[3/4] h-full max-w-full ${zoom ? "cursor-zoom-out" : "cursor-zoom-in"}`}
           aria-label={`${alt}, image ${index + 1} of ${count}. ${zoom ? "Press Enter to leave zoom." : "Press Enter to zoom, arrow keys to change image."}`}
         >
           <Img

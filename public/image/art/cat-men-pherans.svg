@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Pherans category artwork">
-<defs>
-  <pattern id="p" patternUnits="userSpaceOnUse" width="24" height="24" patternTransform="scale(1.6)"><path d="M0 12L12 0M0 24L12 12M12 0L24 12M12 12L24 24" stroke="rgba(255,255,255,0.16)" stroke-width="1.4"/><path d="M12 0V24" stroke="rgba(255,255,255,0.16)" stroke-width="0.5"/></pattern>
-  <radialGradient id="vig" cx="50%" cy="50%" r="75%"><stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/><stop offset="1" stop-color="#000000" stop-opacity="0.55"/></radialGradient>
-</defs>
-<rect width="800" height="1000" fill="#0a0a0a"/>
-<rect width="800" height="1000" fill="url(#p)"/>
-<rect width="800" height="1000" fill="url(#vig)"/>
-</svg>

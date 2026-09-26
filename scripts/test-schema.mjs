@@ -52,7 +52,16 @@ for (const p of PRODUCTS) {
   await db.query(`insert into public.products (slug, title, brand, department, category_key, badge, short_info, description, details, mrp, price, size_set, sizes, variants, tags, sort_order, is_active) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17)`,
     [r.slug, r.title, r.brand, r.department, r.category_key, r.badge, r.short_info, r.description, JSON.stringify(r.details), r.mrp, r.price, r.size_set, JSON.stringify(r.sizes), JSON.stringify(r.variants), r.tags, r.sort_order, r.is_active]);
 }
-await db.exec(`update public.products set is_active = false where slug = 'wool-overcoat'`);
+// Pick test fixtures from the seeded data rather than hard-coding slugs.
+const INACTIVE_SLUG = PRODUCTS[PRODUCTS.length - 1].slug;
+await db.exec(`update public.products set is_active = false where slug = '${INACTIVE_SLUG}'`);
+const findVariantWithStock = (min) => { for (const p of PRODUCTS) { if (p.slug === INACTIVE_SLUG) continue; for (const v of p.variants) for (const [size, n] of Object.entries(v.stock)) if (n >= min) return { p, v, size, n }; } return null; };
+const findZeroStock = () => { for (const p of PRODUCTS) { if (p.slug === INACTIVE_SLUG) continue; for (const v of p.variants) for (const [size, n] of Object.entries(v.stock)) if (n === 0) return { p, v, size }; } return null; };
+const MAIN = findVariantWithStock(3);
+const ZERO = findZeroStock();
+const SECOND = PRODUCTS.find((p) => p.slug !== MAIN.p.slug && p.slug !== INACTIVE_SLUG && p.price < 1500 && p.variants.some((v) => Object.values(v.stock).some((n) => n >= 1)));
+const SECOND_V = SECOND.variants.find((v) => Object.values(v.stock).some((n) => n >= 1));
+const SECOND_SIZE = Object.entries(SECOND_V.stock).find(([, n]) => n >= 1)[0];
 console.log(`seeded ${CATEGORIES.length} categories, ${PRODUCTS.length} products`);
 
 const asAnon = async (fn) => { await db.exec(`set role anon; select set_config('request.jwt.claims', '', false);`); try { return await fn(); } finally { await db.exec(`reset role;`); } };
@@ -64,8 +73,8 @@ await asAnon(async () => {
   const rows = await q(`select slug, is_active from public.products`);
   ok(rows.length === PRODUCTS.length - 1 && rows.every((r) => r.is_active), "anon sees only active products");
   await expectError(() => q(`insert into public.products (slug, title, category_key) values ('hack', 'Hack', 'men-kurtas')`), "anon cannot insert products", "row-level security");
-  await q(`update public.products set price = 1 where slug = 'classic-wool-pheran'`);
-  ok((await q(`select price from public.products where slug = 'classic-wool-pheran'`))[0].price !== 1, "anon update affects zero rows (RLS)");
+  await q(`update public.products set price = 1 where slug = $1`, [MAIN.p.slug]);
+  ok((await q(`select price from public.products where slug = $1`, [MAIN.p.slug]))[0].price !== 1, "anon update affects zero rows (RLS)");
   ok((await q(`select * from public.coupons`)).length === 0, "anon sees no coupons");
   ok((await q(`select * from public.orders`)).length === 0, "anon sees no orders");
   ok((await q(`select * from public.store_settings`)).length === 1, "anon reads settings");
@@ -76,13 +85,13 @@ await asAnon(async () => {
 await asAdmin(async () => {
   ok((await q(`select public.is_admin_user() as a`))[0].a === true, "admin recognised");
   ok((await q(`select slug from public.products`)).length === PRODUCTS.length, "admin sees inactive products too");
-  const upd = await q(`update public.products set badge = 'Bestseller' where slug = 'classic-wool-pheran' returning badge`);
+  const upd = await q(`update public.products set badge = 'Bestseller' where slug = $1 returning badge`, [MAIN.p.slug]);
   ok(upd.length === 1, "admin can update products");
 });
 await asStranger(async () => {
   ok((await q(`select public.is_admin_user() as a`))[0].a === false, "non-listed authenticated user is not admin");
-  await q(`update public.products set price = 1 where slug = 'classic-wool-pheran'`);
-  ok((await q(`select price from public.products where slug = 'classic-wool-pheran'`))[0].price !== 1, "non-listed user update affects zero rows (RLS)");
+  await q(`update public.products set price = 1 where slug = $1`, [MAIN.p.slug]);
+  ok((await q(`select price from public.products where slug = $1`, [MAIN.p.slug]))[0].price !== 1, "non-listed user update affects zero rows (RLS)");
 });
 
 console.log("\n[Coupons]");
@@ -111,17 +120,16 @@ await asAnon(async () => {
 });
 
 console.log("\n[place_order]");
-const pheran = (await q(`select id, price, variants from public.products where slug = 'classic-wool-pheran'`))[0];
-const jeans = (await q(`select id, price from public.products where slug = 'slim-fit-stretch-jeans'`))[0];
-const inactive = (await q(`select id from public.products where slug = 'wool-overcoat'`))[0];
-const kurta = (await q(`select id, variants from public.products where slug = 'linen-blend-straight-kurta'`))[0];
-const oliveL = kurta.variants.find((v) => v.color === "Olive").stock.L;
-console.log(`  kurta Olive L stock: ${oliveL}`);
-const charcoalStock = pheran.variants.find((v) => v.color === "Charcoal").stock;
-console.log(`  pheran Charcoal stock: ${JSON.stringify(charcoalStock)}`);
+const pheran = (await q(`select id, price, variants from public.products where slug = $1`, [MAIN.p.slug]))[0];
+const jeans = (await q(`select id, price from public.products where slug = $1`, [SECOND.slug]))[0];
+const inactive = (await q(`select id from public.products where slug = $1`, [INACTIVE_SLUG]))[0];
+const kurta = (await q(`select id, variants from public.products where slug = $1`, [ZERO.p.slug]))[0];
+const MAIN_COLOR = MAIN.v.color, MAIN_SIZE = MAIN.size, ZERO_COLOR = ZERO.v.color, ZERO_SIZE = ZERO.size, SECOND_COLOR = SECOND_V.color;
+console.log(`  main: ${MAIN.p.slug} ${MAIN_COLOR}/${MAIN_SIZE} stock ${MAIN.n}; second: ${SECOND.slug} ${SECOND_COLOR}/${SECOND_SIZE}; zero: ${ZERO.p.slug} ${ZERO_COLOR}/${ZERO_SIZE}; inactive: ${INACTIVE_SLUG}`);
+const charcoalStock = pheran.variants.find((v) => v.color === MAIN_COLOR).stock;
 const customer = { name: "Aabid Mir", phone: "+91 98765 43210", address: "Near Jamia Masjid, Kunzer", city: "Tangmarg", pincode: "193404", note: "Call before delivery" };
 const placed = await asAnon(async () => {
-  const r = await q(`select public.place_order($1::jsonb, $2::jsonb, $3) as v`, [JSON.stringify(customer), JSON.stringify([{ product_id: pheran.id, color: "Charcoal", size: "M", qty: 2 }, { product_id: jeans.id, color: "Indigo", size: "32", qty: 1 }]), "welcome10"]);
+  const r = await q(`select public.place_order($1::jsonb, $2::jsonb, $3) as v`, [JSON.stringify(customer), JSON.stringify([{ product_id: pheran.id, color: MAIN_COLOR, size: MAIN_SIZE, qty: 2 }, { product_id: jeans.id, color: SECOND_COLOR, size: SECOND_SIZE, qty: 1 }]), "welcome10"]);
   return r[0].v;
 });
 console.log(`  placed: ${placed.order_number} subtotal ${placed.subtotal} discount ${placed.discount} fee ${placed.delivery_fee} total ${placed.total}`);
@@ -137,24 +145,24 @@ ok(stored.phone === "9876543210", "phone normalised to 10 digits", stored.phone)
 ok(stored.coupon_code === "WELCOME10", "coupon code stored uppercase");
 ok(stored.status === "new" && stored.stock_applied === false, "new order, stock not yet applied");
 ok((await q(`select used_count from public.coupons where code = 'WELCOME10'`))[0].used_count === 1, "coupon used_count incremented");
-const stockAfterPlace = (await q(`select variants from public.products where id = $1`, [pheran.id]))[0].variants.find((v) => v.color === "Charcoal").stock.M;
-ok(stockAfterPlace === charcoalStock.M, "stock unchanged at placement");
+const stockAfterPlace = (await q(`select variants from public.products where id = $1`, [pheran.id]))[0].variants.find((v) => v.color === MAIN_COLOR).stock[MAIN_SIZE];
+ok(stockAfterPlace === charcoalStock[MAIN_SIZE], "stock unchanged at placement");
 
 await asAnon(async () => {
-  const small = await q(`select public.place_order($1::jsonb, $2::jsonb, null) as v`, [JSON.stringify(customer), JSON.stringify([{ product_id: jeans.id, color: "Indigo", size: "32", qty: 1 }])]);
+  const small = await q(`select public.place_order($1::jsonb, $2::jsonb, null) as v`, [JSON.stringify(customer), JSON.stringify([{ product_id: jeans.id, color: SECOND_COLOR, size: SECOND_SIZE, qty: 1 }])]);
   ok(small[0].v.delivery_fee === 99 && small[0].v.total === jeans.price + 99, "delivery fee charged under threshold", JSON.stringify(small[0].v));
-  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify({ ...customer, phone: "12345" }), JSON.stringify([{ product_id: jeans.id, color: "Indigo", size: "32", qty: 1 }])]), "invalid phone rejected", "valid 10-digit");
-  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify({ ...customer, name: "A" }), JSON.stringify([{ product_id: jeans.id, color: "Indigo", size: "32", qty: 1 }])]), "short name rejected", "your name");
+  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify({ ...customer, phone: "12345" }), JSON.stringify([{ product_id: jeans.id, color: SECOND_COLOR, size: SECOND_SIZE, qty: 1 }])]), "invalid phone rejected", "valid 10-digit");
+  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify({ ...customer, name: "A" }), JSON.stringify([{ product_id: jeans.id, color: SECOND_COLOR, size: SECOND_SIZE, qty: 1 }])]), "short name rejected", "your name");
   await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify(customer), JSON.stringify([])]), "empty bag rejected", "empty");
-  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify(customer), JSON.stringify([{ product_id: pheran.id, color: "Charcoal", size: "M", qty: 99 }])]), "qty > 10 rejected", "between 1 and 10");
-  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify(customer), JSON.stringify([{ product_id: kurta.id, color: "Olive", size: "L", qty: 1 }])]), "size with no stock rejected", "Only 0 left");
-  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify(customer), JSON.stringify([{ product_id: pheran.id, color: "Pink", size: "M", qty: 1 }])]), "unknown colour rejected", "not available in Pink");
-  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify(customer), JSON.stringify([{ product_id: inactive.id, color: "Charcoal", size: "M", qty: 1 }])]), "inactive product rejected", "no longer available");
-  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify(customer), JSON.stringify([{ product_id: "not-a-uuid", color: "Charcoal", size: "M", qty: 1 }])]), "bad product id rejected", "invalid");
-  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify({ ...customer, pincode: "12" }), JSON.stringify([{ product_id: jeans.id, color: "Indigo", size: "32", qty: 1 }])]), "bad pincode rejected", "PIN");
-  const okPhone = await q(`select public.place_order($1::jsonb, $2::jsonb, null) as v`, [JSON.stringify({ ...customer, phone: "09876543210", pincode: "" }), JSON.stringify([{ product_id: jeans.id, color: "Indigo", size: "32", qty: 1 }])]);
+  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify(customer), JSON.stringify([{ product_id: pheran.id, color: MAIN_COLOR, size: MAIN_SIZE, qty: 99 }])]), "qty > 10 rejected", "between 1 and 10");
+  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify(customer), JSON.stringify([{ product_id: kurta.id, color: ZERO_COLOR, size: ZERO_SIZE, qty: 1 }])]), "size with no stock rejected", "Only 0 left");
+  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify(customer), JSON.stringify([{ product_id: pheran.id, color: "Pink", size: MAIN_SIZE, qty: 1 }])]), "unknown colour rejected", "not available in Pink");
+  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify(customer), JSON.stringify([{ product_id: inactive.id, color: MAIN_COLOR, size: MAIN_SIZE, qty: 1 }])]), "inactive product rejected", "no longer available");
+  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify(customer), JSON.stringify([{ product_id: "not-a-uuid", color: MAIN_COLOR, size: MAIN_SIZE, qty: 1 }])]), "bad product id rejected", "invalid");
+  await expectError(() => q(`select public.place_order($1::jsonb, $2::jsonb, null)`, [JSON.stringify({ ...customer, pincode: "12" }), JSON.stringify([{ product_id: jeans.id, color: SECOND_COLOR, size: SECOND_SIZE, qty: 1 }])]), "bad pincode rejected", "PIN");
+  const okPhone = await q(`select public.place_order($1::jsonb, $2::jsonb, null) as v`, [JSON.stringify({ ...customer, phone: "09876543210", pincode: "" }), JSON.stringify([{ product_id: jeans.id, color: SECOND_COLOR, size: SECOND_SIZE, qty: 1 }])]);
   ok(Boolean(okPhone[0].v.order_number), "leading-zero phone and empty pincode accepted");
-  const badCoupon = await q(`select public.place_order($1::jsonb, $2::jsonb, 'NOPE') as v`, [JSON.stringify(customer), JSON.stringify([{ product_id: jeans.id, color: "Indigo", size: "32", qty: 1 }])]);
+  const badCoupon = await q(`select public.place_order($1::jsonb, $2::jsonb, 'NOPE') as v`, [JSON.stringify(customer), JSON.stringify([{ product_id: jeans.id, color: SECOND_COLOR, size: SECOND_SIZE, qty: 1 }])]);
   ok(badCoupon[0].v.discount === 0, "invalid coupon silently ignored at placement");
 });
 
@@ -177,7 +185,7 @@ await asStranger(async () => {
   await expectError(() => q(`select public.set_order_status($1, 'confirmed')`, [stored.id]), "non-admin cannot set status", "Not allowed");
 });
 await asAdmin(async () => {
-  const stockOf = async () => (await q(`select variants from public.products where id = $1`, [pheran.id]))[0].variants.find((v) => v.color === "Charcoal").stock.M;
+  const stockOf = async () => (await q(`select variants from public.products where id = $1`, [pheran.id]))[0].variants.find((v) => v.color === MAIN_COLOR).stock[MAIN_SIZE];
   const before = await stockOf();
   let o = (await q(`select * from public.set_order_status($1, 'confirmed')`, [stored.id]))[0];
   ok(o.status === "confirmed" && o.stock_applied === true, "confirmed + stock_applied");
@@ -200,10 +208,10 @@ await asAdmin(async () => {
 
 console.log("\n[Reviews]");
 await asAnon(async () => {
-  await q(`insert into public.reviews (product_id, product_slug, name, rating, title, body) values ($1, 'classic-wool-pheran', 'Sana', 5, 'Warm', 'Lovely wool')`, [pheran.id]);
+  await q(`insert into public.reviews (product_id, product_slug, name, rating, title, body) values ($1, $2, 'Sana', 5, 'Warm', 'Lovely wool')`, [pheran.id, MAIN.p.slug]);
   ok(true, "anon can submit a review (unapproved)");
-  await expectError(() => q(`insert into public.reviews (product_id, product_slug, name, rating, is_approved) values ($1, 'classic-wool-pheran', 'Sana', 5, true)`, [pheran.id]), "anon cannot self-approve", "row-level security");
-  await expectError(() => q(`insert into public.reviews (product_id, product_slug, name, rating) values ($1, 'classic-wool-pheran', 'Sana', 9)`, [pheran.id]), "rating > 5 rejected", "check");
+  await expectError(() => q(`insert into public.reviews (product_id, product_slug, name, rating, is_approved) values ($1, $2, 'Sana', 5, true)`, [pheran.id, MAIN.p.slug]), "anon cannot self-approve", "row-level security");
+  await expectError(() => q(`insert into public.reviews (product_id, product_slug, name, rating) values ($1, $2, 'Sana', 9)`, [pheran.id, MAIN.p.slug]), "rating > 5 rejected", "check");
   ok((await q(`select * from public.reviews`)).length === 0, "anon sees no unapproved reviews");
   ok((await q(`select * from public.product_ratings`)).length === 0, "ratings view empty before approval");
 });
@@ -219,7 +227,7 @@ await asAnon(async () => {
 
 console.log("\n[Categories restrict]");
 await asAdmin(async () => {
-  await expectError(() => q(`delete from public.categories where key = 'men-pherans'`), "category with products cannot be deleted", "foreign key");
+  await expectError(() => q(`delete from public.categories where key = $1`, [MAIN.p.categoryKey]), "category with products cannot be deleted", "foreign key");
   await q(`insert into public.categories (key, department, slug, name) values ('men-temp', 'men', 'temp', 'Temp')`);
   await q(`delete from public.categories where key = 'men-temp'`);
   ok(true, "empty category can be deleted");

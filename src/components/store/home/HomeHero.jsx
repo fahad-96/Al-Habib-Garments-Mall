@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { ArrowRight, Pause, Play } from "lucide-react";
-import { DEPARTMENTS } from "../../../data/catalog";
+import { useShop } from "../../../context/ShopContext";
 import { sanitizeImageUrl } from "../../../lib/format";
 import Button from "../../ui/Button";
 import Img from "../../ui/Img";
@@ -59,16 +59,17 @@ function Slide({ banner, active, index, count, eager, eyebrow }) {
 }
 
 function TypographicHero({ settings }) {
+  const { departments } = useShop();
   return (
     <section className="border-b border-line">
       <div className="container flex min-h-[64svh] flex-col justify-end py-16 lg:min-h-[72vh] lg:py-24">
         <p className="eyebrow">{settings.tagline || seasonLabel()}</p>
         <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[1.02] tracking-tight text-balance sm:text-7xl lg:text-8xl">Dressed for the valley.</h1>
         <p className="mt-6 max-w-lg text-sm leading-relaxed text-neutral-600 sm:text-base">
-          Kurtas for Friday, pherans for the first snow, suits for the wedding season. Every order is confirmed personally on WhatsApp.
+          Jackets for the first snow, tees for the summer, bags for the road. Every order is confirmed personally on WhatsApp.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          {DEPARTMENTS.map((d, i) => (
+          {departments.map((d, i) => (
             <Button key={d.key} to={`/shop/${d.key}`} variant={i === 0 ? "primary" : "secondary"}>
               Shop {d.name.toLowerCase()}
             </Button>

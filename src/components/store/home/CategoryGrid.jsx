@@ -7,7 +7,7 @@ import Reveal from "../../ui/Reveal";
 import SectionHeading from "../../ui/SectionHeading";
 
 // Curated order; anything missing from the live catalog is back-filled with other active categories.
-const CURATED = ["men-pherans", "men-kurtas", "women-kurta-sets", "women-suits", "women-sarees", "men-winter-wear", "men-jeans", "kids-boys"];
+const CURATED = ["men-jackets", "women-jackets", "men-sweatshirts", "women-sweatshirts", "men-t-shirts", "women-tops", "accessories-bags", "men-track-pants"];
 const LIMIT = 8;
 
 export default function CategoryGrid() {
@@ -40,7 +40,7 @@ export default function CategoryGrid() {
             <Link to={`/shop/${c.department}/${c.slug}`} className="group block">
               <div className="img-frame aspect-[3/4] bg-ink">
                 <Img src={c.imageUrl} alt="" className="h-full w-full object-cover transition-transform duration-700 ease-soft group-hover:scale-[1.03]" fallbackLabel={c.name.slice(0, 1)} />
-                <div className="absolute inset-0 bg-ink/10 transition-colors duration-500 group-hover:bg-ink/25" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/15 to-ink/0 transition-opacity duration-500 group-hover:opacity-90" aria-hidden="true" />
                 <div className="absolute inset-x-0 bottom-0 p-4 text-paper sm:p-5">
                   <p className="text-2xs font-medium uppercase tracking-micro text-neutral-300">{departmentName(c.department)}</p>
                   <p className="mt-1 font-display text-[22px] leading-none sm:text-3xl">{c.name}</p>
