@@ -39,7 +39,7 @@ export default function VisitStore({ settings = {} }) {
               ))}
             </dl>
           )}
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Button href={whatsapp} target="_blank" rel="noreferrer">
               <WhatsAppIcon className="h-4 w-4" color="#25D366" />
               Message on WhatsApp
