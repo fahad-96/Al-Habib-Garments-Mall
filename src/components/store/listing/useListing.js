@@ -18,7 +18,18 @@ import {
 } from "../../../lib/catalogUtils";
 
 export const PAGE_SIZE = 24;
+// Longer queries add nothing to the match and only stretch the page and the tab title.
+export const MAX_QUERY_LENGTH = 100;
 const SORT_VALUES = new Set(SORT_OPTIONS.map((o) => o.value));
+
+// Order-insensitive comparison, so a no-op filter change is recognised as one.
+const sameParams = (a, b) => {
+  const x = new URLSearchParams(a);
+  const y = new URLSearchParams(b);
+  x.sort();
+  y.sort();
+  return x.toString() === y.toString();
+};
 
 // "Recommended" means the mode's natural order: relevance for search, the
 // curated order for collections, newest for new-in, biggest markdown for sale.
@@ -43,7 +54,7 @@ export function useListing(mode) {
   const [searchParams, setSearchParams] = useSearchParams();
   const { products, categories, categoriesFor, getCategory, getCollection, collectionProducts, catalogReady } = useShop();
 
-  const q = (searchParams.get("q") || "").trim();
+  const q = (searchParams.get("q") || "").trim().slice(0, MAX_QUERY_LENGTH).trim();
   const department = useMemo(() => DEPARTMENTS.find((d) => d.key === params.department) || null, [params.department]);
   const category = useMemo(
     () => (mode === "category" && params.department && params.categorySlug ? getCategory(`${params.department}-${params.categorySlug}`) : null),
@@ -83,18 +94,24 @@ export function useListing(mode) {
   const visible = useMemo(() => sorted.slice(0, page * PAGE_SIZE), [sorted, page]);
   const filterCount = activeFilterCount(filters);
 
-  // Categories whose name matches the query (search mode only).
+  // Categories whose name matches the query (search mode only). Empty ones (Kids until it has
+  // stock) are left out: the chip would lead to an empty page.
   const matchingCategories = useMemo(() => {
     if (mode !== "search" || !q) return [];
     const tokens = norm(q).split(/\s+/).filter(Boolean);
-    return categories.filter((c) => c.isActive !== false && tokens.some((t) => norm(c.name).includes(t) || norm(c.department) === t)).slice(0, 6);
-  }, [mode, q, categories]);
+    const stocked = new Set(activeProducts.map((p) => p.categoryKey));
+    return categories.filter((c) => c.isActive !== false && stocked.has(c.key) && tokens.some((t) => norm(c.name).includes(t) || norm(c.department) === t)).slice(0, 6);
+  }, [mode, q, categories, activeProducts]);
 
+  // Filters, sort and "load more" refine the page the shopper is already on, so they replace the
+  // current history entry: Back leaves the listing in one press instead of undoing each tap.
+  // A change that leaves the query string as it was does not navigate at all.
   const update = useCallback(
-    (mutate, options) => {
+    (mutate) => {
       const next = new URLSearchParams(searchParams);
       mutate(next);
-      setSearchParams(next, options);
+      if (sameParams(next, searchParams)) return;
+      setSearchParams(next, { replace: true });
     },
     [searchParams, setSearchParams]
   );
@@ -118,7 +135,7 @@ export function useListing(mode) {
       }),
     [update]
   );
-  const loadMore = useCallback(() => update((sp) => sp.set("page", String(page + 1)), { replace: true }), [update, page]);
+  const loadMore = useCallback(() => update((sp) => sp.set("page", String(page + 1))), [update, page]);
   const countFor = useCallback((draft) => applyFilters(base, draft).length, [base]);
 
   return {

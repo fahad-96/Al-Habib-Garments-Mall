@@ -19,14 +19,14 @@ export default function ActiveFilters({ filters, categories = [], onChange, onCl
 
   if (!chips.length) return null;
   return (
-    <div className={`flex flex-wrap items-center gap-2 ${className}`} aria-label="Active filters">
+    <div className={`flex flex-wrap items-center gap-2 ${className}`} role="group" aria-label="Active filters">
       {chips.map((chip) => (
-        <button key={chip.key} type="button" onClick={chip.remove} className="group inline-flex h-9 items-center gap-1.5 border border-ink bg-ink pl-3 pr-2 text-xs font-medium text-paper transition-colors hover:bg-paper hover:text-ink" aria-label={`Remove filter ${chip.label}`}>
-          {chip.label}
-          <X className="h-3.5 w-3.5" strokeWidth={2} aria-hidden="true" />
+        <button key={chip.key} type="button" onClick={chip.remove} className="group inline-flex min-h-10 max-w-full items-center gap-1.5 border border-ink bg-ink py-1.5 pl-3 pr-2 text-left text-xs font-medium text-paper transition-colors hover:bg-paper hover:text-ink lg:min-h-9" aria-label={`Remove filter ${chip.label}`}>
+          <span className="min-w-0 [overflow-wrap:anywhere]">{chip.label}</span>
+          <X className="h-3.5 w-3.5 shrink-0" strokeWidth={2} aria-hidden="true" />
         </button>
       ))}
-      <button type="button" onClick={onClear} className="ml-1 h-9 text-2xs font-medium uppercase tracking-micro text-neutral-500 underline underline-offset-4 hover:text-ink">
+      <button type="button" onClick={onClear} className="ml-1 h-10 text-2xs font-medium uppercase tracking-micro text-neutral-500 underline underline-offset-4 hover:text-ink lg:h-9">
         Clear all
       </button>
     </div>

@@ -69,7 +69,7 @@ export default function EmptyListing({ mode, q, department, category, collection
         icon={Search}
         title={
           <>
-            Nothing for <span className="italic">“{q}”</span>
+            Nothing for <span className="italic [overflow-wrap:anywhere]">“{q.length > 60 ? `${q.slice(0, 60).trimEnd()}…` : q}”</span>
           </>
         }
         description="Try jackets, hoodies, bags, or browse a popular category."

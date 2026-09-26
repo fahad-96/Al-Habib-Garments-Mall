@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useShop } from "../../context/ShopContext";
+import { departmentName } from "../../data/catalog";
 import Seo from "../../components/ui/Seo";
 import { useListing } from "../../components/store/listing/useListing";
 import ListingHeader from "../../components/store/listing/ListingHeader";
@@ -16,6 +17,10 @@ import EmptyListing from "../../components/store/listing/EmptyListing";
 
 const HOME = { label: "Home", to: "/" };
 const SHOP = { label: "Shop", to: "/shop" };
+
+// A pasted link or a long run of letters must not stretch the page: show the start of the query.
+const QUERY_DISPLAY_LENGTH = 60;
+const shortQuery = (q) => (q.length > QUERY_DISPLAY_LENGTH ? `${q.slice(0, QUERY_DISPLAY_LENGTH).trimEnd()}…` : q);
 
 const metaFor = ({ mode, q, department, category, collection }) => {
   switch (mode) {
@@ -41,8 +46,8 @@ const metaFor = ({ mode, q, department, category, collection }) => {
       return {
         crumbs: [HOME, { label: "Search" }],
         eyebrow: "Search",
-        title: q ? <span className="italic">“{q}”</span> : "Search",
-        seo: { title: q ? `Search: ${q}` : "Search", description: q ? `Results for “${q}” at Al Habib Garments Mall.` : "Search the store.", noindex: true },
+        title: q ? <span className="italic [overflow-wrap:anywhere]">“{shortQuery(q)}”</span> : "Search",
+        seo: { title: q ? `Search: ${shortQuery(q)}` : "Search", description: q ? `Results for “${shortQuery(q)}” at Al Habib Garments Mall.` : "Search the store.", noindex: true },
       };
     case "collection":
       return collection
@@ -91,10 +96,17 @@ export default function ListingPage({ mode = "all" }) {
             <p className="eyebrow">Categories</p>
             <ul className="mt-3 flex flex-wrap gap-2">
               {matchingCategories.map((c) => (
-                <li key={c.key}>
-                  <Link to={`/shop/${c.department}/${c.slug}`} className="chip">
-                    <span className="mr-1.5 font-normal text-neutral-500">{c.department === "kids" ? "Kids" : c.department === "women" ? "Women" : "Men"}</span>
-                    {c.name}
+                <li key={c.key} className="max-w-full">
+                  <Link to={`/shop/${c.department}/${c.slug}`} className="chip h-auto min-h-10 max-w-full justify-start py-2 text-left">
+                    <span className="min-w-0 [overflow-wrap:anywhere]">
+                      {departmentName(c.department) && (
+                        <span className="font-normal text-neutral-500">
+                          {departmentName(c.department)}
+                          <span aria-hidden="true"> /</span>{" "}
+                        </span>
+                      )}
+                      {c.name}
+                    </span>
                   </Link>
                 </li>
               ))}

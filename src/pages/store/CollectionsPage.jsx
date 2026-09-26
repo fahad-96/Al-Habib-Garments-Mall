@@ -32,6 +32,15 @@ function CollectionCard({ collection, count, index }) {
   );
 }
 
+// Name the edits that are actually in the store, so the description never promises one that is not.
+const listNames = (names) => (names.length < 2 ? names.join("") : `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`);
+const seoDescription = (items) => {
+  const names = items.map(({ collection }) => collection.name).filter(Boolean);
+  return names.length
+    ? `Edits put together at Al Habib Garments Mall, Kunzer: ${listNames(names)}.`
+    : "Edits put together at Al Habib Garments Mall, Kunzer: pieces chosen to be worn together.";
+};
+
 export default function CollectionsPage() {
   const { collections, collectionProducts, catalogReady } = useShop();
   const items = useMemo(
@@ -46,12 +55,12 @@ export default function CollectionsPage() {
 
   return (
     <div className="container pb-20 pt-6 sm:pt-10 lg:pb-28">
-      <Seo title="Collections" description="Edits put together for the season, the valley and the occasions that matter: winter, festive, Kashmir heritage and everyday essentials." />
+      <Seo title="Collections" description={seoDescription(items)} />
       <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Collections" }]} />
       <Reveal className="mt-5 sm:mt-7">
         <p className="eyebrow">Collections</p>
         <h1 className="mt-2 font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl">Edits for the season</h1>
-        <p className="mt-3 max-w-xl text-sm leading-relaxed text-neutral-500">A few pieces chosen together: for the valley&rsquo;s winter, for weddings and Eid, for the week that carries you.</p>
+        <p className="mt-3 max-w-xl text-sm leading-relaxed text-neutral-500">A few pieces chosen to be worn together, for the valley&rsquo;s weather and the everyday.</p>
       </Reveal>
 
       {!catalogReady ? (

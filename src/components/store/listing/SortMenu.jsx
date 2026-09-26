@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import React, { useId, useRef } from "react";
 import { Check, ChevronDown } from "lucide-react";
 import { SORT_OPTIONS } from "../../../lib/catalogUtils";
 import Drawer from "../../ui/Drawer";
@@ -27,32 +27,41 @@ export default function SortSelect({ value, onChange, className = "" }) {
   );
 }
 
-// Mobile: bottom sheet with one tap per option.
+// Mobile: bottom sheet holding a native radio group. A tap (or Space / Enter) picks an option and
+// closes the sheet; the arrow keys move through the options and re-sort behind it, as radios do,
+// and leave the sheet open until the shopper confirms with Enter or closes it.
 export function SortDrawer({ open, onClose, value, onChange }) {
+  const name = useId();
+  const arrowed = useRef(false);
+
+  const onKeyDown = (e) => {
+    if (e.key.startsWith("Arrow")) arrowed.current = true;
+    else if (e.key === "Enter") {
+      e.preventDefault();
+      onClose();
+    }
+  };
+  const pick = (next) => {
+    onChange(next);
+    if (arrowed.current) arrowed.current = false;
+    else onClose();
+  };
+
   return (
     <Drawer open={open} onClose={onClose} side="bottom" title="Sort by">
-      <ul className="px-5 py-2" role="radiogroup" aria-label="Sort by">
+      <fieldset className="px-5 py-2" onKeyDown={onKeyDown} onPointerDown={() => (arrowed.current = false)}>
+        <legend className="sr-only">Sort by</legend>
         {SORT_OPTIONS.map((o) => {
           const on = o.value === value;
           return (
-            <li key={o.value} className="border-b border-line last:border-b-0">
-              <button
-                type="button"
-                role="radio"
-                aria-checked={on}
-                onClick={() => {
-                  onChange(o.value);
-                  onClose();
-                }}
-                className={`flex min-h-[3.25rem] w-full items-center justify-between py-3 text-left text-[15px] ${on ? "font-medium" : "text-neutral-700"}`}
-              >
-                {o.label}
-                {on && <Check className="h-4 w-4" strokeWidth={2} aria-hidden="true" />}
-              </button>
-            </li>
+            <label key={o.value} className="flex min-h-[3.25rem] cursor-pointer items-center justify-between gap-4 border-b border-line py-3 text-[15px] last:border-b-0 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ink has-[:focus-visible]:ring-offset-2">
+              <input type="radio" name={name} value={o.value} checked={on} onChange={() => pick(o.value)} className="sr-only" data-autofocus={on ? "" : undefined} />
+              <span className={on ? "font-medium text-ink" : "text-neutral-700"}>{o.label}</span>
+              {on && <Check className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden="true" />}
+            </label>
           );
         })}
-      </ul>
+      </fieldset>
       <div className="safe-bottom h-4" />
     </Drawer>
   );
