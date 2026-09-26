@@ -36,9 +36,11 @@ function Slide({ banner, active, index, count, eager, eyebrow }) {
           src={banner.imageUrl}
           alt=""
           eager={eager}
-          className={`absolute inset-0 h-full w-full object-cover object-top transition-transform duration-[7000ms] ease-linear ${active ? "scale-100" : "scale-[1.04]"}`}
+          className={`absolute inset-0 h-full w-full object-cover object-right-top transition-transform duration-[7000ms] ease-linear lg:object-top ${active ? "scale-100" : "scale-[1.04]"}`}
         />
       )}
+      {/* On phones and tablets the photo sits behind the copy, so fade its lower half into the background. */}
+      {hasImage && <div className={`absolute inset-x-0 bottom-0 h-[62%] lg:hidden ${dark ? "bg-gradient-to-t from-ink via-ink/85 to-ink/0" : "bg-gradient-to-t from-paper via-paper/85 to-paper/0"}`} aria-hidden="true" />}
       <div className="relative flex h-full items-end">
         <div className="container pb-20 pt-28 sm:pb-24 lg:pb-28">
           <div className={`max-w-3xl transition-[opacity,transform] duration-700 ease-soft ${active ? "translate-y-0 opacity-100 delay-300" : "translate-y-3 opacity-0"}`}>
