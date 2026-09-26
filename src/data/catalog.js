@@ -6,8 +6,9 @@
 // it can be edited or deleted. Keep the client "shape" documented here in sync
 // with the row mappers at the bottom (DB rows are snake_case, the app is camelCase).
 //
-// Demo products and their photos are generated into ./demo-products.js
-// (open-source product photography, see public/image/ATTRIBUTIONS.md).
+// Demo products and their photos are generated into ./demo-products.js by
+// scripts/demo-catalog/build.mjs (open-source product photography, see
+// public/image/ATTRIBUTIONS.md and README → Demo catalog).
 // ─────────────────────────────────────────────────────────────────────────────
 import { DEMO_CATEGORY_IMAGES, DEMO_COLLECTIONS, DEMO_PRODUCTS } from "./demo-products.js";
 
@@ -35,7 +36,6 @@ export const SIZE_SETS = {
     label: "Kids (years)",
     sizes: ["1-2Y", "2-3Y", "3-4Y", "4-5Y", "5-6Y", "6-7Y", "7-8Y", "8-9Y", "9-10Y", "10-11Y", "11-12Y", "12-13Y", "13-14Y"],
   },
-  footwear: { label: "Footwear (UK)", sizes: ["UK 3", "UK 4", "UK 5", "UK 6", "UK 7", "UK 8", "UK 9", "UK 10", "UK 11"] },
   free: { label: "Free size", sizes: ["Free Size"] },
 };
 
@@ -50,9 +50,9 @@ export const DETAIL_FIELDS = [
   ["neck", "Neck"],
   ["pattern", "Pattern"],
   ["length", "Length"],
+  ["dimensions", "Dimensions"],
   ["closure", "Closure"],
   ["lining", "Lining"],
-  ["sole", "Sole"],
   ["occasion", "Occasion"],
   ["washCare", "Wash care"],
   ["origin", "Origin"],
@@ -84,7 +84,7 @@ export const CATEGORIES = [
   C("women", "leggings", "Leggings & Track Pants", "apparel", "Leggings, tights and relaxed track pants."),
   C("kids", "boys", "Boys", "kids", "Tees, shirts and sets for boys."),
   C("kids", "girls", "Girls", "kids", "Frocks, tops and sets for girls."),
-  C("kids", "winter-wear", "Winter Wear", "kids", "Jackets, sweaters and pherans for kids."),
+  C("kids", "winter-wear", "Winter Wear", "kids", "Jackets, sweaters and fleece for kids."),
   C("accessories", "bags", "Bags & Luggage", "free", "Backpacks, duffles, totes and messenger bags."),
   C("accessories", "beanies", "Caps & Beanies", "free", "Knit beanies and watch caps for the valley's winter."),
 ].map((c, i) => ({ ...c, sortOrder: (i + 1) * 10 }));
@@ -193,7 +193,7 @@ export const DEFAULT_SETTINGS = {
   codEnabled: true,
   deliveryNote: "Dispatched within 24 hours. 2 to 4 days across Jammu & Kashmir, 5 to 8 days across India.",
   returnDays: 7,
-  announcementText: "Free delivery on orders over ₹1,999 · Order directly on WhatsApp",
+  announcementText: "Free delivery from ₹1,999 · Order directly on WhatsApp",
   announcementEnabled: true,
   about:
     "Al Habib Garments Mall is Kunzer's multi-brand garments store, a short drive from Tangmarg on the road to Gulmarg. Jackets, hoodies, tees, track pants, bags and winter accessories for men, women and kids, chosen by hand and priced for families. Every order is confirmed personally on WhatsApp.",
