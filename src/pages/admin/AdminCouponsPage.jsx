@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { Plus, Ticket } from "lucide-react";
 import { useShop } from "../../context/ShopContext";
 import { pluralize } from "../../lib/format";
@@ -38,10 +38,10 @@ export default function AdminCouponsPage() {
   const [editorKey, setEditorKey] = useState(0);
   const [deleting, setDeleting] = useState(null);
 
-  const openEditor = (coupon = null) => {
+  const openEditor = useCallback((coupon = null) => {
     setEditing(coupon || {});
     setEditorKey((k) => k + 1);
-  };
+  }, []);
   const closeEditor = () => setEditing(null);
 
   const handleSave = async (item) => {
@@ -60,7 +60,7 @@ export default function AdminCouponsPage() {
     }
   };
 
-  const columns = useMemo(() => couponColumns({ onEdit: openEditor, onDelete: setDeleting }), []);
+  const columns = useMemo(() => couponColumns({ onEdit: openEditor, onDelete: setDeleting }), [openEditor]);
   const failedCold = Boolean(error) && rows.length === 0;
   const nothingYet = !firstLoad && !error && rows.length === 0;
 

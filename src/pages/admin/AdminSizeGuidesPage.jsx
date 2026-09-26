@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Plus, Ruler } from "lucide-react";
 import { useShop } from "../../context/ShopContext";
 import { pluralize } from "../../lib/format";
@@ -22,10 +22,10 @@ export default function AdminSizeGuidesPage() {
   const [editorKey, setEditorKey] = useState(0);
   const [deleting, setDeleting] = useState(null);
 
-  const openEditor = (guide = null) => {
+  const openEditor = useCallback((guide = null) => {
     setEditing(guide || {});
     setEditorKey((k) => k + 1);
-  };
+  }, []);
   const closeEditor = () => setEditing(null);
 
   const handleSave = async (item) => {
