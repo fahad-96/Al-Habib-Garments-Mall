@@ -175,7 +175,7 @@ export const fetchDashboard = async (supabase) => {
   };
 };
 
-// ── One-click import of the dummy catalog (skips rows that already exist) ──
+// ── One-click import of the demo catalog (skips rows that already exist) ──
 export const seedDummyData = async (supabase, { products, categories, banners, collections, sizeGuides }, onProgress = () => {}) => {
   const user = await requireUser(supabase);
   const counts = { categories: 0, products: 0, banners: 0, collections: 0, sizeGuides: 0 };

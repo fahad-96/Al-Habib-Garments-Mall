@@ -77,7 +77,7 @@ export default function CatalogSetupCard({ liveCount = 0, onImported, className 
         <div className="shrink-0">
           <Button variant={hasProducts ? "inverse-outline" : "inverse"} size="md" onClick={runImport} loading={importing} className="w-full lg:w-auto">
             {!importing && <Download className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />}
-            {importing ? "Importing" : "Import dummy catalog"}
+            {importing ? "Importing" : "Import demo catalog"}
           </Button>
         </div>
       </div>

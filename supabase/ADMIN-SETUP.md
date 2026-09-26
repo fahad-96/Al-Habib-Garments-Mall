@@ -66,7 +66,7 @@ Supabase → **Project Settings → API Keys**. Copy the **Project URL** and the
 
 ## 5. First login
 
-Open `/admin/login`, sign in, and click **Import dummy catalog** on the dashboard. That copies the
+Open `/admin/login`, sign in, and click **Import demo catalog** on the dashboard. That copies the
 built-in categories, products, banners, collections and size guides into the database so you can
 edit prices, upload real photos, and delete what you do not sell. Once the database has at least
 one product, the live catalog replaces the built-in one on the storefront.

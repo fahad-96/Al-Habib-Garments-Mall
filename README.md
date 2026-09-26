@@ -24,7 +24,7 @@ Built with **Vite + React 19 + Tailwind CSS + Framer Motion + Supabase**, deploy
 **Admin** (`/admin`)
 - Sign in with a 6-digit email code or a password. Only allow-listed emails get in.
 - Dashboard with orders, revenue, low stock, pending reviews and one-click import of the built-in
-  dummy catalog.
+  demo catalog.
 - Products: full editor with colours, per-size stock, up to 8 photos per colour (compressed on
   upload), structured details, badges, tags; bulk hide, show and delete.
 - Orders: status flow (new, confirmed, packed, shipped, delivered, cancelled) that reserves and
@@ -49,9 +49,9 @@ works without a database; orders just are not saved or numbered.
 Follow [`supabase/ADMIN-SETUP.md`](supabase/ADMIN-SETUP.md). In short: create a free Supabase
 project, put your admin email into [`supabase/schema.sql`](supabase/schema.sql), run that file in
 the SQL editor, and add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` to `.env` (locally) and to
-Netlify (live). Then sign in at `/admin/login` and click **Import dummy catalog**.
+Netlify (live). Then sign in at `/admin/login` and click **Import demo catalog**.
 
-Once the database has at least one product, the live catalog replaces the dummy one.
+Once the database has at least one product, the live catalog replaces the demo one.
 
 ## Deploy to Netlify
 
