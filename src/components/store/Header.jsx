@@ -35,7 +35,7 @@ export default function Header() {
 
   return (
     <header className={`sticky top-0 z-50 bg-paper transition-shadow ${scrolled ? "shadow-[0_1px_0_0_#e5e5e5]" : "border-b border-line"}`} onMouseLeave={() => setMega(null)}>
-      <div className="container flex h-[68px] items-center gap-4 sm:h-[72px]">
+      <div className="container flex h-[72px] items-center gap-4 sm:h-20 lg:h-[88px]">
         {/* Left: mobile menu + brand */}
         <div className="flex shrink-0 items-center gap-1 sm:gap-2">
           <button type="button" className="-ml-2 p-2 lg:hidden" onClick={() => setMenuOpen(true)} aria-label="Open menu">
