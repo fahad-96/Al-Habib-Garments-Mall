@@ -107,7 +107,11 @@ export const fetchOrders = async (supabase, filters = {}) => {
   return (await run(q)).map(mapOrderRow);
 };
 
-export const fetchOrder = async (supabase, id) => mapOrderRow(await run(supabase.from("orders").select("*").eq("id", id).single()));
+export const fetchOrder = async (supabase, id) => {
+  const data = await run(supabase.from("orders").select("*").eq("id", id).maybeSingle());
+  if (!data) throw new Error("Order not found.");
+  return mapOrderRow(data);
+};
 
 export const setOrderStatus = async (supabase, id, status) => {
   const data = await run(supabase.rpc("set_order_status", { p_order_id: id, p_status: status }));
@@ -155,12 +159,19 @@ export const fetchDashboard = async (supabase) => {
   const [products, orders, pendingReviews] = await Promise.all([
     run(supabase.from("products").select("id,title,slug,variants,is_active,price")),
     run(supabase.from("orders").select("*").order("created_at", { ascending: false }).limit(500)),
-    run(supabase.from("reviews").select("id", { count: "exact", head: true }).eq("is_approved", false)),
+    supabase
+      .from("reviews")
+      .select("id", { count: "exact", head: true })
+      .eq("is_approved", false)
+      .then(({ count, error }) => {
+        if (error) throw new Error(explainDbError(error));
+        return Number(count) || 0;
+      }),
   ]);
   return {
     products: (products || []).map(mapProductRow),
     orders: (orders || []).map(mapOrderRow),
-    pendingReviews: pendingReviews === null ? 0 : Number(pendingReviews) || 0,
+    pendingReviews,
   };
 };
 

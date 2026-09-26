@@ -6,7 +6,7 @@ import {
 import { isSupabaseConfigured, supabase } from "../lib/supabaseClient";
 import { loadStorefront, placeOrderRemote, validateCouponRemote } from "../lib/storeApi";
 import { computeTotals, MAX_QTY_PER_LINE, variantStock } from "../lib/catalogUtils";
-import { buildOrderMessage, openWhatsApp } from "../lib/whatsapp";
+import { buildOrderMessage, openWhatsApp, waLink } from "../lib/whatsapp";
 
 const ShopContext = createContext(null);
 
@@ -298,6 +298,17 @@ export function ShopProvider({ children }) {
     const lines = availableLines.map((l) => ({ ...l, qty: Math.min(l.qty, l.stock) })).filter((l) => l.qty > 0);
     if (!lines.length) return { ok: false, error: "Your bag is empty." };
     setPlacing(true);
+    // Open the tab synchronously inside the click so mobile browsers do not block it,
+    // then point it at WhatsApp once the order is saved.
+    let popup = null;
+    if (isSupabaseConfigured && supabase) {
+      try {
+        popup = window.open("about:blank", "_blank");
+        if (popup) popup.opener = null;
+      } catch {
+        popup = null;
+      }
+    }
     try {
       let orderNumber = null;
       let finalTotals = totals;
@@ -332,7 +343,10 @@ export function ShopProvider({ children }) {
         customer,
         siteUrl: typeof window !== "undefined" ? window.location.origin : "",
       });
-      openWhatsApp(settings.whatsappNumber, message);
+      const link = waLink(settings.whatsappNumber, message);
+      if (popup && !popup.closed) popup.location.href = link;
+      else openWhatsApp(settings.whatsappNumber, message);
+      summary.whatsappLink = link;
       setLastOrder(summary);
       writeJson(KEYS.lastOrder, summary);
       clearCart();
@@ -340,6 +354,7 @@ export function ShopProvider({ children }) {
       setCartOpen(false);
       return { ok: true, order: summary };
     } catch (error) {
+      if (popup && !popup.closed) popup.close();
       console.error("Order failed", error);
       const msg = String(error?.message || "");
       return { ok: false, error: msg || "Could not place the order. Please try again or message us on WhatsApp." };

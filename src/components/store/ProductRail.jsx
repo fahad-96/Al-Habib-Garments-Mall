@@ -48,7 +48,7 @@ export default function ProductRail({ products = [], eyebrow, title, description
           </div>
         </div>
       )}
-      <div ref={ref} className="rail mt-8 px-4 sm:px-6 lg:px-10 xl:px-12 2xl:mx-auto 2xl:max-w-[1440px]">
+      <div ref={ref} className="rail mt-8 px-4 scroll-pl-4 sm:px-6 sm:scroll-pl-6 lg:px-10 lg:scroll-pl-10 xl:px-12 xl:scroll-pl-12 2xl:mx-auto 2xl:max-w-[1440px]">
         {products.map((p, i) => (
           <ProductCard key={p.slug} product={p} eager={i < 2} className={cardWidth} />
         ))}

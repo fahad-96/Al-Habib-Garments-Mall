@@ -11,7 +11,7 @@ export default function Modal({ open, onClose, title, children, size = "md", dar
     if (!open) return undefined;
     const onKey = (e) => e.key === "Escape" && onClose?.();
     window.addEventListener("keydown", onKey);
-    const t = setTimeout(() => panel.current?.querySelector("button, [href], input, select, textarea")?.focus(), 30);
+    const t = setTimeout(() => (panel.current?.querySelector("[data-autofocus], input:not([type=hidden]), select, textarea") || panel.current?.querySelector("button, [href]"))?.focus(), 30);
     return () => {
       window.removeEventListener("keydown", onKey);
       clearTimeout(t);

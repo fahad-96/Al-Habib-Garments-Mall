@@ -36,7 +36,7 @@ export default function AdminLayout() {
   );
 
   return (
-    <div className="min-h-screen bg-ink text-paper lg:grid lg:grid-cols-[240px_1fr]">
+    <div className="min-h-screen bg-ink text-paper lg:grid lg:grid-cols-[240px_minmax(0,1fr)]">
       {/* Sidebar (desktop) */}
       <aside className="hidden border-r border-neutral-800 lg:flex lg:min-h-screen lg:flex-col lg:sticky lg:top-0 lg:h-screen">
         <div className="px-6 py-6">
@@ -60,7 +60,7 @@ export default function AdminLayout() {
       </aside>
 
       {/* Mobile top bar */}
-      <div className="flex flex-col">
+      <div className="flex min-w-0 flex-col">
         <div className="sticky top-0 z-40 flex h-14 items-center justify-between border-b border-neutral-800 bg-ink px-4 lg:hidden">
           <button type="button" onClick={() => setOpen(true)} className="-ml-2 p-2" aria-label="Open admin menu">
             <Menu className="h-5 w-5" />

@@ -3,7 +3,7 @@ import { Check, ChevronDown } from "lucide-react";
 
 const wrap = (dark) => ({ label: dark ? "label label-dark" : "label", field: dark ? "field field-dark" : "field" });
 
-export function Input({ label, hint, error, dark = false, className = "", id, ...rest }) {
+export function Input({ label, hint, error, dark = false, className = "", inputClassName = "", id, ...rest }) {
   const auto = useId();
   const fid = id || auto;
   const c = wrap(dark);
@@ -14,13 +14,13 @@ export function Input({ label, hint, error, dark = false, className = "", id, ..
           {label}
         </label>
       )}
-      <input id={fid} className={`${c.field} ${error ? "border-red-600" : ""}`} aria-invalid={Boolean(error)} {...rest} />
-      {error ? <p className="mt-1.5 text-xs text-red-600">{error}</p> : hint ? <p className={`mt-1.5 text-xs ${dark ? "text-neutral-500" : "text-neutral-500"}`}>{hint}</p> : null}
+      <input id={fid} className={`${c.field} ${inputClassName} ${error ? (dark ? "!border-paper" : "!border-ink border-2") : ""}`} aria-invalid={Boolean(error)} {...rest} />
+      {error ? <p className={`mt-1.5 text-xs font-medium ${dark ? "text-paper" : "text-ink"}`} role="alert">{error}</p> : hint ? <p className="mt-1.5 text-xs text-neutral-500">{hint}</p> : null}
     </div>
   );
 }
 
-export function Textarea({ label, hint, error, dark = false, className = "", id, rows = 4, ...rest }) {
+export function Textarea({ label, hint, error, dark = false, className = "", inputClassName = "", id, rows = 4, ...rest }) {
   const auto = useId();
   const fid = id || auto;
   const c = wrap(dark);
@@ -31,8 +31,8 @@ export function Textarea({ label, hint, error, dark = false, className = "", id,
           {label}
         </label>
       )}
-      <textarea id={fid} rows={rows} className={`${c.field} resize-y ${error ? "border-red-600" : ""}`} aria-invalid={Boolean(error)} {...rest} />
-      {error ? <p className="mt-1.5 text-xs text-red-600">{error}</p> : hint ? <p className="mt-1.5 text-xs text-neutral-500">{hint}</p> : null}
+      <textarea id={fid} rows={rows} className={`${c.field} resize-y ${inputClassName} ${error ? (dark ? "!border-paper" : "!border-ink border-2") : ""}`} aria-invalid={Boolean(error)} {...rest} />
+      {error ? <p className={`mt-1.5 text-xs font-medium ${dark ? "text-paper" : "text-ink"}`} role="alert">{error}</p> : hint ? <p className="mt-1.5 text-xs text-neutral-500">{hint}</p> : null}
     </div>
   );
 }
@@ -49,12 +49,12 @@ export function Select({ label, hint, error, dark = false, className = "", id, c
         </label>
       )}
       <div className="relative">
-        <select id={fid} className={`${c.field} appearance-none pr-10 ${error ? "border-red-600" : ""}`} {...rest}>
+        <select id={fid} className={`${c.field} appearance-none pr-10 ${error ? (dark ? "!border-paper" : "!border-ink border-2") : ""}`} aria-invalid={Boolean(error)} {...rest}>
           {children}
         </select>
         <ChevronDown className={`pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 ${dark ? "text-neutral-400" : "text-neutral-500"}`} aria-hidden="true" />
       </div>
-      {error ? <p className="mt-1.5 text-xs text-red-600">{error}</p> : hint ? <p className="mt-1.5 text-xs text-neutral-500">{hint}</p> : null}
+      {error ? <p className={`mt-1.5 text-xs font-medium ${dark ? "text-paper" : "text-ink"}`} role="alert">{error}</p> : hint ? <p className="mt-1.5 text-xs text-neutral-500">{hint}</p> : null}
     </div>
   );
 }

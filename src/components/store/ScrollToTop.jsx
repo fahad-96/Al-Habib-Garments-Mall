@@ -5,13 +5,22 @@ export default function ScrollToTop() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
     if (hash) {
-      const el = document.getElementById(hash.slice(1));
-      if (el) {
-        el.scrollIntoView({ block: "start" });
-        return;
-      }
+      // Lazy-loaded pages may not have rendered the target yet: retry briefly.
+      let tries = 0;
+      let frame = 0;
+      const attempt = () => {
+        const el = document.getElementById(hash.slice(1));
+        if (el) {
+          el.scrollIntoView({ block: "start" });
+          return;
+        }
+        if (tries++ < 40) frame = requestAnimationFrame(attempt);
+      };
+      attempt();
+      return () => cancelAnimationFrame(frame);
     }
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" in window ? "instant" : "auto" });
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    return undefined;
   }, [pathname, hash]);
   return null;
 }

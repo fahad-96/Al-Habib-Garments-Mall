@@ -2,12 +2,12 @@ import React from "react";
 import Spinner from "../ui/Spinner";
 
 // columns: [{ key, label, render?(row), className?, hideBelow?: "sm"|"md"|"lg" }]
-export default function DataTable({ columns, rows, rowKey = "id", loading = false, error = "", empty = "Nothing here yet.", onRowClick, selectable = false, selected = new Set(), onToggle, onToggleAll }) {
-  const hide = (bp) => (bp ? { sm: "hidden sm:table-cell", md: "hidden md:table-cell", lg: "hidden lg:table-cell" }[bp] : "");
+export default function DataTable({ columns, rows, rowKey = "id", loading = false, error = "", empty = "Nothing here yet.", onRowClick, selectable = false, selected = new Set(), onToggle, onToggleAll, minWidth = "560px" }) {
+  const hide = (bp) => (bp ? { sm: "hidden sm:table-cell", md: "hidden md:table-cell", lg: "hidden lg:table-cell", xl: "hidden xl:table-cell" }[bp] || "" : "");
   const allSelected = rows.length > 0 && rows.every((r) => selected.has(r[rowKey]));
   return (
     <div className="admin-card overflow-x-auto">
-      <table className="admin-table w-full min-w-[560px]">
+      <table className="admin-table w-full" style={{ minWidth }}>
         <thead>
           <tr>
             {selectable && (
@@ -31,7 +31,7 @@ export default function DataTable({ columns, rows, rowKey = "id", loading = fals
             </tr>
           ) : error ? (
             <tr>
-              <td colSpan={columns.length + (selectable ? 1 : 0)} className="py-10 text-center text-sm text-red-400">
+              <td colSpan={columns.length + (selectable ? 1 : 0)} className="py-10 text-center text-sm text-neutral-300">
                 {error}
               </td>
             </tr>

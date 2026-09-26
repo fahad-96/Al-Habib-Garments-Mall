@@ -4,11 +4,15 @@ import Button from "../ui/Button";
 
 export default function ConfirmDialog({ open, onClose, onConfirm, title = "Are you sure?", description, confirmLabel = "Confirm", danger = false }) {
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
   const confirm = async () => {
     setBusy(true);
+    setError("");
     try {
       await onConfirm?.();
       onClose?.();
+    } catch (e) {
+      setError(e?.message || "Something went wrong.");
     } finally {
       setBusy(false);
     }
@@ -25,13 +29,14 @@ export default function ConfirmDialog({ open, onClose, onConfirm, title = "Are y
           <Button variant="inverse-outline" size="sm" onClick={onClose} disabled={busy}>
             Cancel
           </Button>
-          <Button variant="inverse" size="sm" onClick={confirm} loading={busy} className={danger ? "!border-red-500 !bg-red-500 !text-paper hover:!bg-red-600" : ""}>
+          <Button variant={danger ? "inverse-outline" : "inverse"} size="sm" onClick={confirm} loading={busy}>
             {confirmLabel}
           </Button>
         </div>
       }
     >
       {description && <p className="text-sm text-neutral-300">{description}</p>}
+      {error && <p className="mt-3 text-xs font-medium text-paper" role="alert">{error}</p>}
     </Modal>
   );
 }
