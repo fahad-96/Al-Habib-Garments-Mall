@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="800" viewBox="0 0 1800 800" role="img" aria-label="Kashmir artwork">
+<defs>
+  <pattern id="p" patternUnits="userSpaceOnUse" width="110" height="110" patternTransform="scale(2.6)"><g fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.5"><path d="M55 14C80 14 92 40 84 66C78 86 58 96 40 88C24 80 22 62 34 54C46 46 62 54 60 66C58 76 46 78 42 70"/><path d="M55 24C72 24 82 42 76 62"/><path d="M50 40C58 38 64 44 62 52"/></g><circle cx="55" cy="60" r="2" fill="rgba(255,255,255,0.32)"/><circle cx="12" cy="98" r="2" fill="rgba(255,255,255,0.32)"/></pattern>
+  <radialGradient id="vig" cx="50%" cy="50%" r="75%"><stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/><stop offset="1" stop-color="#000000" stop-opacity="0.55"/></radialGradient>
+</defs>
+<rect width="1800" height="800" fill="#0a0a0a"/>
+<rect width="1800" height="800" fill="url(#p)"/>
+<rect width="1800" height="800" fill="url(#vig)"/>
+</svg>

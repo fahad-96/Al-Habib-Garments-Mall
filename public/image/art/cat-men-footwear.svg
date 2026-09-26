@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Footwear category artwork">
+<defs>
+  <pattern id="p" patternUnits="userSpaceOnUse" width="40" height="40" patternTransform="scale(1.6)"><path d="M4 6L10 3L15 8L9 12ZM22 4L30 6L28 13L20 11ZM6 20L13 17L16 24L8 27ZM24 22L33 20L35 28L26 30ZM12 33L19 30L21 37L13 39ZM30 34L38 33L37 39L29 38Z" fill="rgba(255,255,255,0.16)" opacity="0.7"/></pattern>
+  <radialGradient id="vig" cx="50%" cy="50%" r="75%"><stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/><stop offset="1" stop-color="#000000" stop-opacity="0.55"/></radialGradient>
+</defs>
+<rect width="800" height="1000" fill="#0a0a0a"/>
+<rect width="800" height="1000" fill="url(#p)"/>
+<rect width="800" height="1000" fill="url(#vig)"/>
+</svg>

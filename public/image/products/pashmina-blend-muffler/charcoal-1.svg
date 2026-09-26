@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-label="Pashmina Blend Muffler in Charcoal, front view placeholder">
+<defs>
+  <pattern id="p" patternUnits="userSpaceOnUse" width="10" height="10" patternTransform="scale(1)"><path d="M-2 12L12 -2M-2 2L2 -2M8 12L12 8" stroke="rgba(255,255,255,0.3)" stroke-width="1.6"/></pattern>
+  <radialGradient id="vig" cx="50%" cy="40%" r="80%"><stop offset="0" stop-color="#ffffff" stop-opacity="0.08"/><stop offset="1" stop-color="#000000" stop-opacity="0.32"/></radialGradient>
+  <linearGradient id="fold-a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0.6"/><stop offset="1" stop-color="#000000" stop-opacity="0.5"/></linearGradient>
+  <linearGradient id="fold-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000000" stop-opacity="0.45"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0.55"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="900" height="1200" fill="#3a3a3a"/>
+<rect width="900" height="1200" fill="#505050" opacity="0.18"/>
+<rect width="900" height="1200" fill="url(#p)"/>
+
+<rect width="900" height="1200" fill="url(#vig)"/>
+<rect x="28" y="28" width="844" height="1144" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+<text x="844" y="78" text-anchor="end" font-family="Didot, 'Bodoni MT', 'Bodoni 72', Georgia, 'Times New Roman', serif" font-size="30" fill="#ffffff" opacity="0.85">AH</text>
+<text x="56" y="1080" font-family="Didot, 'Bodoni MT', 'Bodoni 72', Georgia, 'Times New Roman', serif" font-size="44" fill="#ffffff">Pashmina Blend Muffler</text>
+<text x="56" y="1124" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="17" letter-spacing="4" fill="rgba(255,255,255,0.65)">CHARCOAL  ·  FRONT  ·  01</text>
+</svg>

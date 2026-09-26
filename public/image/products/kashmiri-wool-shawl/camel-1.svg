@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-label="Kashmiri Wool Shawl in Camel, front view placeholder">
+<defs>
+  <pattern id="p" patternUnits="userSpaceOnUse" width="110" height="110" patternTransform="scale(1)"><g fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"><path d="M55 14C80 14 92 40 84 66C78 86 58 96 40 88C24 80 22 62 34 54C46 46 62 54 60 66C58 76 46 78 42 70"/><path d="M55 24C72 24 82 42 76 62"/><path d="M50 40C58 38 64 44 62 52"/></g><circle cx="55" cy="60" r="2" fill="rgba(255,255,255,0.5)"/><circle cx="12" cy="98" r="2" fill="rgba(255,255,255,0.5)"/></pattern>
+  <radialGradient id="vig" cx="50%" cy="40%" r="80%"><stop offset="0" stop-color="#ffffff" stop-opacity="0.08"/><stop offset="1" stop-color="#000000" stop-opacity="0.32"/></radialGradient>
+  <linearGradient id="fold-a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0.6"/><stop offset="1" stop-color="#000000" stop-opacity="0.5"/></linearGradient>
+  <linearGradient id="fold-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000000" stop-opacity="0.45"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0.55"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="900" height="1200" fill="#b48a5a"/>
+<rect width="900" height="1200" fill="#caa070" opacity="0.18"/>
+<rect width="900" height="1200" fill="url(#p)"/>
+
+<rect width="900" height="1200" fill="url(#vig)"/>
+<rect x="28" y="28" width="844" height="1144" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+<text x="844" y="78" text-anchor="end" font-family="Didot, 'Bodoni MT', 'Bodoni 72', Georgia, 'Times New Roman', serif" font-size="30" fill="#ffffff" opacity="0.85">AH</text>
+<text x="56" y="1080" font-family="Didot, 'Bodoni MT', 'Bodoni 72', Georgia, 'Times New Roman', serif" font-size="44" fill="#ffffff">Kashmiri Wool Shawl</text>
+<text x="56" y="1124" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="17" letter-spacing="4" fill="rgba(255,255,255,0.65)">CAMEL  ·  FRONT  ·  01</text>
+</svg>
