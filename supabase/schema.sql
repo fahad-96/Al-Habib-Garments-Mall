@@ -327,7 +327,7 @@ create table if not exists public.store_settings (
   cod_enabled boolean not null default true,
   delivery_note text not null default 'Dispatched within 24 hours. 2 to 4 days across Jammu & Kashmir, 5 to 8 days across India.',
   return_days integer not null default 7 check (return_days >= 0),
-  announcement_text text not null default 'Free delivery on orders over ₹1,999 · Order directly on WhatsApp',
+  announcement_text text not null default 'Free delivery from ₹1,999 · Order directly on WhatsApp',
   announcement_enabled boolean not null default true,
   about text not null default '',
   updated_at timestamptz not null default now()
