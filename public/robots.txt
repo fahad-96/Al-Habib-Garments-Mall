@@ -4,4 +4,3 @@ Disallow: /admin
 Disallow: /bag
 Disallow: /wishlist
 Disallow: /track
-Sitemap: /sitemap.xml
