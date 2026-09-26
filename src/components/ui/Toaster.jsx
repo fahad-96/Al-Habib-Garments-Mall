@@ -24,11 +24,11 @@ export default function Toaster() {
               <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
               <span className="flex-1">{t.message}</span>
               {t.action && (
-                <button type="button" onClick={() => { t.action.onClick?.(); dismissToast(t.id); }} className="text-2xs font-medium uppercase tracking-micro underline underline-offset-4">
+                <button type="button" onClick={() => { t.action.onClick?.(); dismissToast(t.id); }} className="-my-2 inline-flex h-10 shrink-0 items-center px-2 text-2xs font-medium uppercase tracking-micro underline underline-offset-4">
                   {t.action.label}
                 </button>
               )}
-              <button type="button" onClick={() => dismissToast(t.id)} className="-mr-1 p-1 opacity-70 hover:opacity-100" aria-label="Dismiss">
+              <button type="button" onClick={() => dismissToast(t.id)} className="-my-2 -ml-1 -mr-3 inline-flex h-10 w-10 shrink-0 items-center justify-center opacity-70 hover:opacity-100" aria-label="Dismiss">
                 <X className="h-4 w-4" />
               </button>
             </motion.div>
