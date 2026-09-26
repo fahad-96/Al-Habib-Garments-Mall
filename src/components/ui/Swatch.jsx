@@ -2,17 +2,21 @@ import React from "react";
 import { Check } from "lucide-react";
 
 // Colour swatch. Selected state is a black ring; sold-out gets a diagonal strike.
+// As a button it names itself; rendered as a span inside a labelled control it stays out of the
+// accessibility tree (a name on a plain span is not announced, the parent's label is).
 export default function Swatch({ hex, name, selected = false, soldOut = false, size = "md", onClick, as = "button" }) {
   const px = size === "sm" ? "h-4 w-4" : size === "lg" ? "h-9 w-9" : "h-7 w-7";
   const Tag = as;
+  const isButton = as === "button";
   const light = isLight(hex);
   return (
     <Tag
-      type={as === "button" ? "button" : undefined}
+      type={isButton ? "button" : undefined}
       onClick={onClick}
       title={name}
-      aria-label={name}
-      aria-pressed={as === "button" ? selected : undefined}
+      aria-label={isButton ? name : undefined}
+      aria-hidden={isButton ? undefined : "true"}
+      aria-pressed={isButton ? selected : undefined}
       className={`relative inline-flex ${px} shrink-0 items-center justify-center rounded-full border transition-all ${selected ? "ring-1 ring-ink ring-offset-2" : ""} ${light ? "border-neutral-300" : "border-transparent"} ${soldOut ? "opacity-60" : ""}`}
       style={{ backgroundColor: hex }}
     >

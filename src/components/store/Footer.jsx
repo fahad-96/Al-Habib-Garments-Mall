@@ -7,6 +7,11 @@ import WhatsAppIcon from "../ui/WhatsAppIcon";
 import Logo from "./Logo";
 import { waLink } from "../../lib/whatsapp";
 
+// Phones get 40px-tall rows (touch targets); from sm up the lists return to a calm 20px rhythm.
+const LIST = "mt-3 text-sm text-neutral-300 sm:mt-4 sm:space-y-2.5";
+const ROW = "flex min-h-10 items-center hover:text-paper sm:inline sm:min-h-0";
+const ICON = "flex h-10 w-10 items-center justify-center text-neutral-300 hover:text-paper";
+
 export default function Footer() {
   const { settings, departments } = useShop();
   const year = new Date().getFullYear();
@@ -17,18 +22,18 @@ export default function Footer() {
         <div className="md:col-span-5">
           <Logo inverse />
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-neutral-400">{settings.about?.split(". ").slice(0, 2).join(". ")}.</p>
-          <div className="mt-6 flex items-center gap-4">
+          <div className="-ml-2.5 mt-4 flex items-center gap-1">
             {ig && (
-              <a href={ig} target="_blank" rel="noreferrer" className="p-1 text-neutral-300 hover:text-paper" aria-label="Instagram">
+              <a href={ig} target="_blank" rel="noreferrer" className={ICON} aria-label="Instagram">
                 <InstagramIcon className="h-5 w-5" />
               </a>
             )}
             {settings.facebook && (
-              <a href={settings.facebook} target="_blank" rel="noreferrer" className="p-1 text-neutral-300 hover:text-paper" aria-label="Facebook">
+              <a href={settings.facebook} target="_blank" rel="noreferrer" className={ICON} aria-label="Facebook">
                 <FacebookIcon className="h-5 w-5" />
               </a>
             )}
-            <a href={waLink(settings.whatsappNumber, `Hi ${settings.storeName}, I have a question.`)} target="_blank" rel="noreferrer" className="p-1 text-neutral-300 hover:text-paper" aria-label="WhatsApp">
+            <a href={waLink(settings.whatsappNumber, `Hi ${settings.storeName}, I have a question.`)} target="_blank" rel="noreferrer" className={ICON} aria-label="WhatsApp">
               <WhatsAppIcon className="h-5 w-5" color="#25D366" />
             </a>
           </div>
@@ -36,26 +41,26 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-7">
           <div>
             <p className="eyebrow-dark">Shop</p>
-            <ul className="mt-4 space-y-2.5 text-sm text-neutral-300">
+            <ul className={LIST}>
               {departments.map((d) => (
                 <li key={d.key}>
-                  <Link to={`/shop/${d.key}`} className="hover:text-paper">{d.name}</Link>
+                  <Link to={`/shop/${d.key}`} className={ROW}>{d.name}</Link>
                 </li>
               ))}
-              <li><Link to="/new" className="hover:text-paper">New In</Link></li>
-              <li><Link to="/collections" className="hover:text-paper">Collections</Link></li>
-              <li><Link to="/sale" className="hover:text-paper">Sale</Link></li>
+              <li><Link to="/new" className={ROW}>New in</Link></li>
+              <li><Link to="/collections" className={ROW}>Collections</Link></li>
+              <li><Link to="/sale" className={ROW}>Sale</Link></li>
             </ul>
           </div>
           <div>
             <p className="eyebrow-dark">Help</p>
-            <ul className="mt-4 space-y-2.5 text-sm text-neutral-300">
-              <li><Link to="/track" className="hover:text-paper">Track your order</Link></li>
-              <li><Link to="/size-guide" className="hover:text-paper">Size guide</Link></li>
-              <li><Link to="/policies#shipping" className="hover:text-paper">Shipping &amp; delivery</Link></li>
-              <li><Link to="/policies#returns" className="hover:text-paper">Returns &amp; exchanges</Link></li>
-              <li><Link to="/contact" className="hover:text-paper">Contact us</Link></li>
-              <li><Link to="/about" className="hover:text-paper">Our story</Link></li>
+            <ul className={LIST}>
+              <li><Link to="/track" className={ROW}>Track your order</Link></li>
+              <li><Link to="/size-guide" className={ROW}>Size guide</Link></li>
+              <li><Link to="/policies#shipping" className={ROW}>Shipping and delivery</Link></li>
+              <li><Link to="/policies#returns" className={ROW}>Returns and exchanges</Link></li>
+              <li><Link to="/contact" className={ROW}>Contact us</Link></li>
+              <li><Link to="/about" className={ROW}>Our story</Link></li>
             </ul>
           </div>
           <div className="col-span-2 sm:col-span-1">
@@ -71,7 +76,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3">
                 <WhatsAppIcon className="mt-0.5 h-4 w-4 shrink-0" color="#25D366" />
-                <a href={waLink(settings.whatsappNumber, `Hi ${settings.storeName}, I have a question.`)} target="_blank" rel="noreferrer" className="hover:text-paper">
+                <a href={waLink(settings.whatsappNumber, `Hi ${settings.storeName}, I have a question.`)} target="_blank" rel="noreferrer" className="-my-2.5 inline-flex min-h-10 items-center tabular-nums hover:text-paper">
                   {settings.phoneDisplay}
                 </a>
               </li>
@@ -80,12 +85,12 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-neutral-800">
-        <div className="container flex flex-col gap-3 py-5 pb-20 text-2xs uppercase tracking-micro text-neutral-500 sm:flex-row sm:items-center sm:justify-between sm:pb-5 sm:pr-24">
+        <div className="container flex flex-col gap-3 py-5 pb-20 text-2xs uppercase tracking-micro text-neutral-400 sm:flex-row sm:items-center sm:justify-between sm:pb-5 sm:pr-24">
           <p>© {year} {settings.storeName}. {settings.tagline}.</p>
-          <div className="flex flex-wrap gap-5">
-            <Link to="/policies#privacy" className="hover:text-paper">Privacy</Link>
-            <Link to="/policies#terms" className="hover:text-paper">Terms</Link>
-            <Link to="/admin/login" className="hover:text-paper">Admin</Link>
+          <div className="flex flex-wrap gap-x-5">
+            <Link to="/policies#privacy" className="-my-3 inline-flex min-h-10 items-center hover:text-paper">Privacy</Link>
+            <Link to="/policies#terms" className="-my-3 inline-flex min-h-10 items-center hover:text-paper">Terms</Link>
+            <Link to="/admin/login" className="-my-3 inline-flex min-h-10 items-center hover:text-paper">Admin</Link>
           </div>
         </div>
       </div>

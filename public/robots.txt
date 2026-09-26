@@ -4,3 +4,5 @@ Disallow: /admin
 Disallow: /bag
 Disallow: /wishlist
 Disallow: /track
+Disallow: /order/
+Disallow: /search

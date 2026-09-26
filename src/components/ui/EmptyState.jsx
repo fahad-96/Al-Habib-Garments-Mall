@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function EmptyState({ icon: Icon, title, description, action, className = "", dark = false }) {
+// `as` sets the heading level: h2 under a page's h1 (the default), h3 inside a section, p where no heading fits.
+export default function EmptyState({ icon: Icon, title, description, action, className = "", dark = false, as: Heading = "h2" }) {
   return (
     <div className={`flex flex-col items-center justify-center px-6 py-20 text-center ${className}`}>
       {Icon && (
@@ -8,7 +9,7 @@ export default function EmptyState({ icon: Icon, title, description, action, cla
           <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
         </div>
       )}
-      <h3 className="font-display text-2xl">{title}</h3>
+      <Heading className="font-display text-2xl">{title}</Heading>
       {description && <p className={`mt-2 max-w-sm text-sm ${dark ? "text-neutral-400" : "text-neutral-500"}`}>{description}</p>}
       {action && <div className="mt-6">{action}</div>}
     </div>

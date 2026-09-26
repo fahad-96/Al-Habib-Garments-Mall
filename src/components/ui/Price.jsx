@@ -13,7 +13,10 @@ export default function Price({ price, mrp, size = "md", className = "", showDis
       <span className={`font-semibold tabular-nums ${sizes.price}`}>{formatINR(price)}</span>
       {off > 0 && (
         <>
-          <span className={`tabular-nums text-neutral-400 line-through ${sizes.mrp}`}>{formatINR(mrp)}</span>
+          <span className={`tabular-nums text-neutral-500 line-through ${sizes.mrp}`}>
+            <span className="sr-only">Was </span>
+            {formatINR(mrp)}
+          </span>
           {showDiscount && <span className={`font-medium uppercase tracking-micro text-neutral-600 ${sizes.off}`}>{off}% off</span>}
         </>
       )}

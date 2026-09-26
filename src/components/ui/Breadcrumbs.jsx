@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Links get a 40px-tall hit area (negative margin keeps the visual row 16px tall).
 export default function Breadcrumbs({ items = [], className = "" }) {
   return (
     <nav aria-label="Breadcrumb" className={`text-2xs uppercase tracking-micro text-neutral-500 ${className}`}>
@@ -10,7 +11,7 @@ export default function Breadcrumbs({ items = [], className = "" }) {
           return (
             <li key={`${item.label}-${i}`} className="flex items-center gap-2">
               {item.to && !last ? (
-                <Link to={item.to} className="hover:text-ink">
+                <Link to={item.to} className="-my-3 inline-flex min-h-10 items-center hover:text-ink">
                   {item.label}
                 </Link>
               ) : (

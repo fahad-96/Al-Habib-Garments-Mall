@@ -6,6 +6,8 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # Link previews need absolute og:image URLs. Netlify's own URL variable (the site's primary
+  # address) fills %SITE_URL% in index.html at build time; set VITE_SITE_URL only when building elsewhere.
 
 # SPA routing: every path serves the React app (React Router handles it)
 [[redirects]]
