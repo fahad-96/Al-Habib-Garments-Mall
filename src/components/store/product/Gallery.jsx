@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useState } from "react";
 import { ZoomIn } from "lucide-react";
 import Img from "../../ui/Img";
 import { useIsDesktop } from "../../../hooks/useMediaQuery";
+import { scrollBehavior } from "../../../lib/motion";
 
 const wrap = (i, n) => (n ? ((i % n) + n) % n : 0);
 
@@ -19,7 +20,7 @@ function Thumbnails({ images, index, onSelect }) {
               aria-current={active ? "true" : undefined}
               className={`img-frame block aspect-[3/4] w-full transition-shadow duration-200 ${active ? "ring-1 ring-ink ring-offset-2 ring-offset-paper" : "hover:ring-1 hover:ring-neutral-400 hover:ring-offset-2 hover:ring-offset-paper"}`}
             >
-              <Img src={src} alt="" className={`h-full w-full object-cover transition-opacity duration-200 ${active ? "" : "opacity-75 hover:opacity-100"}`} fallbackLabel={String(i + 1)} />
+              <Img src={src} alt="" sizes="80px" className={`h-full w-full object-cover transition-opacity duration-200 ${active ? "" : "opacity-75 hover:opacity-100"}`} fallbackLabel={String(i + 1)} />
             </button>
           </li>
         );
@@ -71,8 +72,8 @@ function DesktopGallery({ images, alt }) {
   return (
     <div className="grid grid-cols-[4.25rem_minmax(0,1fr)] gap-4 xl:grid-cols-[5rem_minmax(0,1fr)] xl:gap-5">
       <Thumbnails images={images} index={index} onSelect={go} />
-      {/* Height-capped so the whole image sits inside a 900px-tall viewport under the sticky header. */}
-      <div className="relative h-[calc(100vh-9.5rem)] max-h-[56rem] min-h-[28rem] w-auto max-w-full justify-self-start">
+      {/* Height-capped so the whole image fits the viewport once it sticks: header + 1rem above, 3rem spare below. */}
+      <div className="relative h-[calc(100vh-var(--header-h)-4rem)] max-h-[56rem] min-h-[28rem] w-auto max-w-full justify-self-start">
         <button
           type="button"
           ref={frame}
@@ -88,6 +89,7 @@ function DesktopGallery({ images, alt }) {
             src={current}
             alt={`${alt}, view ${index + 1}`}
             eager
+            sizes="(min-width: 1024px) 50vw, 100vw"
             className="h-full w-full object-cover transition-transform duration-500 ease-soft will-change-transform"
             style={{ transform: zoom ? "scale(2)" : "scale(1)", transformOrigin: zoom ? `${zoom.x}% ${zoom.y}%` : "50% 50%" }}
           />
@@ -124,7 +126,7 @@ function MobileGallery({ images, alt }) {
   const goTo = (i) => {
     const el = track.current;
     if (!el) return;
-    el.scrollTo({ left: wrap(i, count) * el.clientWidth, behavior: "smooth" });
+    el.scrollTo({ left: wrap(i, count) * el.clientWidth, behavior: scrollBehavior() });
   };
 
   return (
@@ -144,9 +146,9 @@ function MobileGallery({ images, alt }) {
         )}
       </div>
       {count > 1 && (
-        <div className="mt-1 flex justify-center" aria-label="Choose image">
+        <div className="mt-1 flex justify-center" role="group" aria-label="Choose image">
           {images.map((src, i) => (
-            <button key={`${src}-${i}`} type="button" onClick={() => goTo(i)} aria-label={`Image ${i + 1}`} aria-current={i === index ? "true" : undefined} className="flex h-10 w-8 items-center justify-center">
+            <button key={`${src}-${i}`} type="button" onClick={() => goTo(i)} aria-label={`Image ${i + 1}`} aria-current={i === index ? "true" : undefined} className="flex h-10 w-10 items-center justify-center">
               <span className={`block h-1.5 rounded-full transition-all duration-300 ${i === index ? "w-4 bg-ink" : "w-1.5 bg-neutral-300"}`} />
             </button>
           ))}

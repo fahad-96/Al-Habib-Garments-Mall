@@ -4,6 +4,7 @@ import { useShop } from "../../context/ShopContext";
 import { DEPARTMENTS } from "../../data/catalog";
 import { isNewProduct, isSoldOut, primaryVariant, relatedProducts } from "../../lib/catalogUtils";
 import { buildProductEnquiry, openWhatsApp } from "../../lib/whatsapp";
+import { scrollBehavior } from "../../lib/motion";
 import Seo from "../../components/ui/Seo";
 import Breadcrumbs from "../../components/ui/Breadcrumbs";
 import Badge from "../../components/ui/Badge";
@@ -21,6 +22,7 @@ import StickyBuyBar from "../../components/store/product/StickyBuyBar";
 import ProductJsonLd from "../../components/store/product/ProductJsonLd";
 import { ProductNotFound, ProductSkeleton } from "../../components/store/product/ProductStates";
 import { useProductSelection } from "../../components/store/product/useProductSelection";
+import { productBrand } from "../../components/store/product/brand";
 
 const badgeFor = (product, soldOut) => {
   if (soldOut) return "Sold out";
@@ -63,24 +65,33 @@ function ProductView({ product }) {
   // The mobile buy bar appears once the main CTA has scrolled under the header and steps aside for the footer.
   useEffect(() => {
     let raf = 0;
+    let headerH = 72;
+    const readHeader = () => {
+      headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-h")) || 72;
+    };
     const update = () => {
       raf = 0;
       const cta = ctaRef.current?.getBoundingClientRect();
       const footer = document.querySelector("footer")?.getBoundingClientRect();
-      const passed = Boolean(cta && cta.bottom < 64);
+      const passed = Boolean(cta && cta.bottom < headerH);
       const nearFooter = Boolean(footer && footer.top < window.innerHeight - 72);
       setBarVisible(passed && !nearFooter);
     };
     const schedule = () => {
       if (!raf) raf = window.requestAnimationFrame(update);
     };
+    const onResize = () => {
+      readHeader();
+      schedule();
+    };
+    readHeader();
     update();
     window.addEventListener("scroll", schedule, { passive: true });
-    window.addEventListener("resize", schedule);
+    window.addEventListener("resize", onResize);
     return () => {
       window.cancelAnimationFrame(raf);
       window.removeEventListener("scroll", schedule);
-      window.removeEventListener("resize", schedule);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
@@ -93,6 +104,7 @@ function ProductView({ product }) {
   const wished = inWishlist(product.slug);
   const guide = sizeGuideFor(product);
   const variant = selection.variant;
+  const brand = productBrand(product, settings);
   const images = useMemo(() => (variant?.images?.length ? variant.images : primaryVariant(product)?.images || []), [variant, product]);
   const related = useMemo(() => relatedProducts(product, products, 8), [product, products]);
   const recent = useMemo(() => recentProducts.filter((p) => p.slug !== product.slug).slice(0, 8), [recentProducts, product.slug]);
@@ -108,17 +120,19 @@ function ProductView({ product }) {
     { label: product.title },
   ].filter(Boolean);
 
-  const scrollToReviews = () => document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const scrollToReviews = () => document.getElementById("reviews")?.scrollIntoView({ behavior: scrollBehavior(), block: "start" });
 
   const onAdd = () => {
     if (!selection.size) {
       selection.flagSizeError();
-      sizeRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      sizeRef.current?.scrollIntoView({ behavior: scrollBehavior(), block: "center" });
       return;
     }
     const res = addToCart(product, variant?.color, selection.size, selection.qty);
     if (res.ok) {
-      toast("Added to your bag", { type: "success", action: { label: "View bag", onClick: () => setCartOpen(true) } });
+      // The bag drawer opening is the confirmation (a toast would sit on its Checkout button);
+      // only a partial add needs words, to say why fewer were added.
+      if (res.capped) toast(res.message, { type: "info", duration: 4200 });
       setCartOpen(true);
     } else {
       toast(res.reason || "Could not add this to your bag.", { type: "error" });
@@ -157,31 +171,35 @@ function ProductView({ product }) {
   return (
     <div className="pb-20 lg:pb-28">
       <Seo title={product.title} description={product.shortInfo || product.description} image={images[0]} type="product" />
-      <ProductJsonLd product={product} variant={variant} images={images} rating={rating} url={canonical} origin={origin} />
+      <ProductJsonLd product={product} variant={variant} images={images} rating={rating} url={canonical} origin={origin} settings={settings} />
 
       <div className="container">
         <Breadcrumbs items={crumbs} className="py-4 lg:py-6" />
 
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-10 xl:gap-x-16">
-          <div className="-mx-4 sm:mx-auto sm:max-w-lg lg:sticky lg:top-24 lg:col-span-7 lg:mx-0 lg:max-w-none lg:self-start">
+          <div className="-mx-4 sm:mx-auto sm:max-w-lg lg:sticky lg:top-[calc(var(--header-h)+1rem)] lg:col-span-7 lg:mx-0 lg:max-w-none lg:self-start">
             <Gallery key={variant?.color || "default"} images={images} alt={product.title} />
           </div>
 
           <div className="mt-7 sm:mx-auto sm:max-w-lg lg:col-span-5 lg:mx-0 lg:mt-0 lg:max-w-none">
-            <div className="lg:sticky lg:top-24">
+            <div className="lg:sticky lg:top-[calc(var(--header-h)+1rem)]">
               <div className="flex items-start justify-between gap-4">
                 <p className="eyebrow">
                   {category ? (
-                    <Link to={`/shop/${category.department}/${category.slug}`} className="hover:text-ink">
+                    <Link to={`/shop/${category.department}/${category.slug}`} className="-my-3 inline-flex min-h-10 items-center hover:text-ink">
                       {category.name}
                     </Link>
                   ) : (
                     department?.name || "Shop"
                   )}
-                  <span className="mx-2 text-neutral-300" aria-hidden="true">
-                    /
-                  </span>
-                  {product.brand || "Al Habib"}
+                  {brand && (
+                    <>
+                      <span className="mx-2 text-neutral-300" aria-hidden="true">
+                        /
+                      </span>
+                      {brand}
+                    </>
+                  )}
                 </p>
                 {badge && <Badge tone={soldOut ? "muted" : "light"}>{badge}</Badge>}
               </div>

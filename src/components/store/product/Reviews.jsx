@@ -5,7 +5,9 @@ import { supabase } from "../../../lib/supabaseClient";
 import { fetchProductReviews } from "../../../lib/storeApi";
 import { useAsyncData } from "../../../hooks/useAsyncData";
 import { formatDate } from "../../../lib/format";
+import { waLink } from "../../../lib/whatsapp";
 import Stars from "../../ui/Stars";
+import WhatsAppIcon from "../../ui/WhatsAppIcon";
 import { Skeleton } from "../../ui/Skeleton";
 import ReviewForm from "./ReviewForm";
 
@@ -48,6 +50,52 @@ function ReviewItem({ review }) {
   );
 }
 
+function ReviewsHeading() {
+  return (
+    <>
+      <p className="eyebrow">Reviews</p>
+      <h2 id="reviews-heading" className="mt-2 font-display text-3xl leading-[1.05] tracking-tight sm:text-4xl">
+        What customers say
+      </h2>
+    </>
+  );
+}
+
+// No reviews yet: the heading and one line. With the database the form sits beside it; without it,
+// a WhatsApp link lets a customer tell us what they think.
+function EmptyReviews({ product, live, error, onRetry }) {
+  const { settings } = useShop();
+  const feedback = waLink(settings.whatsappNumber, `Hi ${settings.storeName}, a few words about the ${product.title}: `);
+  return (
+    <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+      <div className="lg:col-span-4">
+        <ReviewsHeading />
+        {error ? (
+          <p className="mt-4 text-sm text-neutral-500">
+            Could not load reviews right now.{" "}
+            <button type="button" onClick={onRetry} className="underline underline-offset-4 hover:text-ink">
+              Try again
+            </button>
+          </p>
+        ) : (
+          <p className="mt-4 text-sm text-neutral-500">{live ? "No reviews for this piece yet. Yours could be the first." : "No reviews for this piece yet."}</p>
+        )}
+        {!live && (
+          <a href={feedback} target="_blank" rel="noreferrer" className="mt-2 inline-flex h-10 items-center gap-2 text-2xs font-medium uppercase tracking-micro underline underline-offset-4 hover:opacity-60">
+            <WhatsAppIcon className="h-4 w-4" color="#25D366" />
+            Tell us what you think
+          </a>
+        )}
+      </div>
+      {live && (
+        <div className="lg:col-span-8">
+          <ReviewForm product={product} />
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Reviews({ product, rating }) {
   const { isSupabaseConfigured } = useShop();
   const live = isSupabaseConfigured && Boolean(supabase);
@@ -66,50 +114,53 @@ export default function Reviews({ product, rating }) {
     [reviews]
   );
   const listAverage = reviews.length ? reviews.reduce((s, r) => s + (Number(r.rating) || 0), 0) / reviews.length : 0;
-  const count = rating?.count || reviews.length;
+  // The loaded list wins when it is empty (a review removed since the catalog loaded); otherwise the aggregate counts all.
+  const listedEmpty = live && !loading && !error && reviews.length === 0;
+  const count = listedEmpty ? 0 : rating?.count || reviews.length;
   const average = rating?.count ? rating.average : listAverage;
 
   return (
-    <div id="reviews" className="scroll-mt-24">
-      <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-4">
-          <p className="eyebrow">Reviews</p>
-          <h2 id="reviews-heading" className="mt-2 font-display text-3xl leading-[1.05] tracking-tight sm:text-4xl">{count > 0 ? "What customers say" : "No reviews yet"}</h2>
-          <div className="mt-6 flex items-end gap-4">
-            <span className="font-display text-6xl leading-none tabular-nums text-ink">{count > 0 ? average.toFixed(1) : "0.0"}</span>
-            <div className="pb-1">
-              <Stars value={average} size="md" />
-              <p className="mt-1.5 text-xs text-neutral-500">{count > 0 ? `Based on ${count} ${count === 1 ? "review" : "reviews"}` : "Nothing written up yet."}</p>
+    <div id="reviews" className="scroll-mt-[calc(var(--header-h)+1.5rem)]">
+      {count > 0 ? (
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-4">
+            <ReviewsHeading />
+            <div className="mt-6 flex items-end gap-4">
+              <span className="font-display text-6xl leading-none tabular-nums text-ink">{average.toFixed(1)}</span>
+              <div className="pb-1">
+                <Stars value={average} size="md" />
+                <p className="mt-1.5 text-xs text-neutral-500">{`Based on ${count} ${count === 1 ? "review" : "reviews"}`}</p>
+              </div>
             </div>
+            {reviews.length > 0 && <RatingBars counts={counts} total={reviews.length} />}
           </div>
-          <RatingBars counts={counts} total={reviews.length} />
+          <div className="lg:col-span-8">
+            {live && loading ? (
+              <div className="space-y-3" aria-busy="true">
+                <Skeleton className="h-3 w-40" />
+                <Skeleton className="h-3 w-full" />
+                <Skeleton className="h-3 w-5/6" />
+              </div>
+            ) : error ? (
+              <p className="text-sm text-neutral-500">
+                Could not load reviews right now.{" "}
+                <button type="button" onClick={reload} className="underline underline-offset-4 hover:text-ink">
+                  Try again
+                </button>
+              </p>
+            ) : (
+              <ul className="divide-y divide-line">
+                {reviews.map((r) => (
+                  <ReviewItem key={r.id} review={r} />
+                ))}
+              </ul>
+            )}
+            {live && <ReviewForm product={product} className="mt-10" />}
+          </div>
         </div>
-        <div className="lg:col-span-8">
-          {live && loading ? (
-            <div className="space-y-3" aria-busy="true">
-              <Skeleton className="h-3 w-40" />
-              <Skeleton className="h-3 w-full" />
-              <Skeleton className="h-3 w-5/6" />
-            </div>
-          ) : error ? (
-            <p className="text-sm text-neutral-500">
-              Could not load reviews right now.{" "}
-              <button type="button" onClick={reload} className="underline underline-offset-4 hover:text-ink">
-                Try again
-              </button>
-            </p>
-          ) : reviews.length > 0 ? (
-            <ul className="divide-y divide-line">
-              {reviews.map((r) => (
-                <ReviewItem key={r.id} review={r} />
-              ))}
-            </ul>
-          ) : (
-            <p className="text-sm text-neutral-500">{live ? "No reviews for this piece yet. Yours could be the first." : "Reviews open once the store is live."}</p>
-          )}
-          {live && <ReviewForm product={product} className="mt-10" />}
-        </div>
-      </div>
+      ) : (
+        <EmptyReviews product={product} live={live} error={live && !loading ? error : null} onRetry={reload} />
+      )}
     </div>
   );
 }

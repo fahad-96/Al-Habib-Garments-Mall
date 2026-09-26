@@ -35,7 +35,8 @@ export default function DetailsAccordion({ product, settings = {} }) {
   const fee = Number(settings.deliveryFee) || 0;
   const returnDays = Number(settings.returnDays) || 0;
 
-  const deliveryLine = free > 0 ? `Delivery is free on orders over ${formatINR(free)}${fee > 0 ? ` and ${formatINR(fee)} below that` : ""}.` : fee > 0 ? `Delivery is ${formatINR(fee)} per order.` : "Delivery is free.";
+  // Mirrors computeTotals: the fee applies below the threshold, and the order ships free from it.
+  const deliveryLine = fee <= 0 ? "Delivery is free." : free > 0 ? `Delivery is ${formatINR(fee)} per order, and free from ${formatINR(free)}.` : `Delivery is ${formatINR(fee)} per order.`;
 
   return (
     <Accordion>

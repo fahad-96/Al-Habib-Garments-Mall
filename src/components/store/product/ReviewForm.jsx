@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useShop } from "../../../context/ShopContext";
 import { supabase } from "../../../lib/supabaseClient";
-import { submitReview } from "../../../lib/storeApi";
+import { customerMessage, submitReview } from "../../../lib/storeApi";
 import Stars from "../../ui/Stars";
 import Button from "../../ui/Button";
 import { Input, Textarea } from "../../ui/Fields";
@@ -23,9 +23,9 @@ export default function ReviewForm({ product, className = "" }) {
 
   const validate = () => {
     const next = {};
-    if (!form.rating) next.rating = "Please choose a rating";
-    if (!form.name.trim()) next.name = "Please add your name";
-    if (form.body.trim().length < 10) next.body = "Tell us a little more (at least 10 characters)";
+    if (!form.rating) next.rating = "Choose a rating.";
+    if (!form.name.trim()) next.name = "Add your name.";
+    if (form.body.trim().length < 10) next.body = "Tell us a little more, at least 10 characters.";
     setErrors(next);
     return Object.keys(next).length === 0;
   };
@@ -40,7 +40,7 @@ export default function ReviewForm({ product, className = "" }) {
       setForm(EMPTY);
       setErrors({});
     } catch (err) {
-      toast(err?.message || "Could not send your review. Please try again.", { type: "error" });
+      toast(customerMessage(err, "We could not send your review. Please try again."), { type: "error" });
     } finally {
       setBusy(false);
     }
@@ -54,18 +54,22 @@ export default function ReviewForm({ product, className = "" }) {
         <p className="label" id="review-rating-label">
           Your rating
         </p>
-        <div role="group" aria-labelledby="review-rating-label" className="-ml-0.5">
-          <Stars
-            interactive
-            size="lg"
-            value={form.rating}
-            onChange={(v) => {
-              setForm((f) => ({ ...f, rating: v }));
-              setErrors((er) => (er.rating ? { ...er, rating: "" } : er));
-            }}
-          />
-        </div>
-        {errors.rating && <p className="mt-1.5 text-xs text-red-600">{errors.rating}</p>}
+        <Stars
+          interactive
+          size="lg"
+          labelledBy="review-rating-label"
+          describedBy={errors.rating ? "review-rating-error" : undefined}
+          value={form.rating}
+          onChange={(v) => {
+            setForm((f) => ({ ...f, rating: v }));
+            setErrors((er) => (er.rating ? { ...er, rating: "" } : er));
+          }}
+        />
+        {errors.rating && (
+          <p id="review-rating-error" className="mt-1.5 text-xs font-medium text-ink" role="alert">
+            {errors.rating}
+          </p>
+        )}
       </div>
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         <Input label="Name" value={form.name} onChange={patch("name")} error={errors.name} maxLength={60} autoComplete="name" />

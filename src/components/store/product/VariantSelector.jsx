@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Ruler } from "lucide-react";
 import Swatch from "../../ui/Swatch";
 import { LOW_STOCK_AT, variantTotalStock } from "../../../lib/catalogUtils";
@@ -36,35 +36,56 @@ export function ColorSelector({ variants = [], selected, onSelect }) {
 }
 
 export function SizeSelector({ ref, sizes = [], sizeSet, selected, stockFor, onSelect, error = false, colorName = "", colorSoldOut = false, productSoldOut = false, onSizeGuide }) {
+  // Sold-out chips stay focusable (aria-disabled) so they are announced; a tap explains instead of selecting.
+  const [soldTap, setSoldTap] = useState(null);
   if (!sizes.length) return null;
   const stock = selected ? stockFor(selected) : 0;
   const setLabel = SIZE_SETS[sizeSet]?.label;
   const showSet = setLabel && sizeSet !== "apparel" && sizeSet !== "free";
+  const tapped = soldTap && soldTap.color === colorName && stockFor(soldTap.size) <= 0 ? soldTap.size : "";
 
   let note = null;
-  if (error) note = <p role="alert" className="font-medium text-ink">Please select a size</p>;
-  else if (productSoldOut) note = <p className="text-neutral-500">Sold out for now. Ask us on WhatsApp about a restock.</p>;
+  if (productSoldOut) note = <p className="text-neutral-500">Sold out for now. Ask us on WhatsApp about a restock.</p>;
   else if (colorSoldOut) note = <p className="text-neutral-500">Sold out in {colorName}. Try another colour.</p>;
+  else if (tapped) note = <p className="text-neutral-500">{`${tapped} is sold out${colorName ? ` in ${colorName}` : ""}. Try another size.`}</p>;
+  else if (error) note = <p role="alert" className="font-medium text-ink">Please select a size</p>;
   else if (selected && stock > 0 && stock <= LOW_STOCK_AT) note = <p className="font-medium text-ink">Only {stock} left</p>;
 
+  const choose = (s) => {
+    if (stockFor(s) <= 0) {
+      setSoldTap({ size: s, color: colorName });
+      return;
+    }
+    setSoldTap(null);
+    onSelect(s);
+  };
+
   return (
-    <div ref={ref} className="scroll-mt-28">
+    <div ref={ref} className="scroll-mt-[calc(var(--header-h)+1rem)]">
       <div className="flex items-baseline justify-between gap-4">
         <Label>
           Size
-          {showSet && <span className="ml-2 normal-case tracking-normal text-neutral-400">{setLabel}</span>}
+          {showSet && <span className="ml-2 normal-case tracking-normal text-neutral-500">{setLabel}</span>}
         </Label>
-        <button type="button" onClick={onSizeGuide} className="inline-flex h-8 items-center gap-1.5 text-2xs font-medium uppercase tracking-micro underline underline-offset-4 hover:opacity-60">
+        <button type="button" onClick={onSizeGuide} className="inline-flex h-10 items-center gap-1.5 text-2xs font-medium uppercase tracking-micro underline underline-offset-4 hover:opacity-60">
           <Ruler className="h-3.5 w-3.5" strokeWidth={1.5} aria-hidden="true" />
           Size guide
         </button>
       </div>
-      <div className={`mt-2.5 flex flex-wrap gap-2 ${error ? "outline outline-1 outline-offset-[6px] outline-ink" : ""}`} role="group" aria-label="Size">
+      <div className={`mt-2 flex flex-wrap gap-2 ${error ? "outline outline-1 outline-offset-[6px] outline-ink" : ""}`} role="group" aria-label="Size">
         {sizes.map((s) => {
           const out = stockFor(s) <= 0;
           const active = s === selected;
           return (
-            <button key={s} type="button" disabled={out} onClick={() => onSelect(s)} aria-pressed={active} aria-label={out ? `${s}, sold out` : s} className={`chip min-w-[3rem] ${active ? "chip-active" : ""} ${out ? "chip-disabled" : ""}`}>
+            <button
+              key={s}
+              type="button"
+              aria-disabled={out || undefined}
+              onClick={() => choose(s)}
+              aria-pressed={active}
+              aria-label={out ? `${s}, sold out` : s}
+              className={`chip min-w-[3rem] ${active ? "chip-active" : ""} ${out ? "chip-disabled" : ""}`}
+            >
               {s}
             </button>
           );

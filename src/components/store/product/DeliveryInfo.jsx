@@ -8,7 +8,7 @@ export default function DeliveryInfo({ settings = {}, className = "" }) {
   const returnDays = Number(settings.returnDays) || 0;
   const rows = [
     settings.deliveryNote && { icon: Truck, text: settings.deliveryNote },
-    free > 0 ? { icon: PackageCheck, text: `Free delivery on orders over ${formatINR(free)}.` } : fee > 0 ? { icon: PackageCheck, text: `Delivery ${formatINR(fee)} per order.` } : { icon: PackageCheck, text: "Free delivery on every order." },
+    { icon: PackageCheck, text: fee <= 0 ? "Free delivery on every order." : free > 0 ? `Free delivery from ${formatINR(free)}.` : `Delivery ${formatINR(fee)} per order.` },
     settings.codEnabled && { icon: Banknote, text: "Cash on delivery available." },
     returnDays > 0 && { icon: RefreshCw, text: `Easy exchange within ${returnDays} days.` },
   ].filter(Boolean);
