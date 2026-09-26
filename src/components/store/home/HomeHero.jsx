@@ -36,7 +36,7 @@ function Slide({ banner, active, index, count, eager, eyebrow }) {
           src={banner.imageUrl}
           alt=""
           eager={eager}
-          className={`absolute inset-0 h-full w-full object-cover transition-transform duration-[7000ms] ease-linear ${active ? "scale-100" : "scale-[1.04]"}`}
+          className={`absolute inset-0 h-full w-full object-cover object-top transition-transform duration-[7000ms] ease-linear ${active ? "scale-100" : "scale-[1.04]"}`}
         />
       )}
       <div className="relative flex h-full items-end">

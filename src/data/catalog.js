@@ -25,7 +25,7 @@ export const DEPARTMENTS = [
   { key: "men", name: "Men", tagline: "Jackets, hoodies, tees and track pants for every day of the week." },
   { key: "women", name: "Women", tagline: "Layers, tops and leggings, cut to move." },
   { key: "kids", name: "Kids", tagline: "Everyday wear and winter warmth for little ones." },
-  { key: "accessories", name: "Bags & Accessories", tagline: "Backpacks, duffles, messengers and beanies." },
+  { key: "accessories", name: "Bags & Accessories", navLabel: "Bags", tagline: "Backpacks, duffles, messengers and beanies." },
 ];
 
 export const SIZE_SETS = {

@@ -34,36 +34,34 @@ export default function Header() {
   const linkCls = ({ isActive }) => `relative whitespace-nowrap py-2 text-[13px] font-medium uppercase tracking-micro transition-opacity hover:opacity-60 ${isActive ? "after:absolute after:inset-x-0 after:-bottom-px after:h-px after:bg-ink" : ""}`;
 
   return (
-    <header className={`sticky top-0 z-50 bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/85 transition-shadow ${scrolled ? "shadow-[0_1px_0_0_#e5e5e5]" : ""}`} onMouseLeave={() => setMega(null)}>
-      <div className="container flex h-16 items-center justify-between gap-4">
-        {/* Left: mobile menu + desktop nav */}
-        <div className="flex flex-1 items-center gap-6">
+    <header className={`sticky top-0 z-50 bg-paper transition-shadow ${scrolled ? "shadow-[0_1px_0_0_#e5e5e5]" : "border-b border-line"}`} onMouseLeave={() => setMega(null)}>
+      <div className="container flex h-[68px] items-center gap-4 sm:h-[72px]">
+        {/* Left: mobile menu + brand */}
+        <div className="flex shrink-0 items-center gap-1 sm:gap-2">
           <button type="button" className="-ml-2 p-2 lg:hidden" onClick={() => setMenuOpen(true)} aria-label="Open menu">
             <Menu className="h-5 w-5" strokeWidth={1.5} />
           </button>
-          <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
-            {departments.map((d) => (
-              <div key={d.key} onMouseEnter={() => setMega(d.key)} className="relative">
-                <NavLink to={`/shop/${d.key}`} className={linkCls} onFocus={() => setMega(d.key)}>
-                  {d.name}
-                </NavLink>
-              </div>
-            ))}
-            {NAV_EXTRA.map((n) => (
-              <NavLink key={n.to} to={n.to} className={linkCls} onMouseEnter={() => setMega(null)}>
-                {n.label}
-              </NavLink>
-            ))}
-          </nav>
-        </div>
-
-        {/* Centre: logo */}
-        <div className="flex shrink-0 justify-center">
           <Logo />
         </div>
 
+        {/* Centre: desktop nav */}
+        <nav className="hidden flex-1 items-center justify-center gap-6 xl:gap-8 lg:flex" aria-label="Primary">
+          {departments.map((d) => (
+            <div key={d.key} onMouseEnter={() => setMega(d.key)} className="relative">
+              <NavLink to={`/shop/${d.key}`} className={linkCls} onFocus={() => setMega(d.key)}>
+                {d.navLabel || d.name}
+              </NavLink>
+            </div>
+          ))}
+          {NAV_EXTRA.map((n) => (
+            <NavLink key={n.to} to={n.to} className={linkCls} onMouseEnter={() => setMega(null)}>
+              {n.label}
+            </NavLink>
+          ))}
+        </nav>
+
         {/* Right: actions */}
-        <div className="flex flex-1 items-center justify-end gap-1 sm:gap-2">
+        <div className="ml-auto flex shrink-0 items-center justify-end gap-1 sm:gap-2">
           <button type="button" onClick={() => setSearchOpen(true)} className="p-2 hover:opacity-60" aria-label="Search">
             <Search className="h-5 w-5" strokeWidth={1.5} />
           </button>
