@@ -6,6 +6,7 @@ import { ShopProvider } from "./context/ShopContext";
 import { AdminProvider } from "./context/AdminContext";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/bodoni-moda";
+import "@fontsource/unifrakturcook/700.css";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

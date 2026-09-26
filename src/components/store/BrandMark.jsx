@@ -1,0 +1,12 @@
+import React from "react";
+
+// Shield-and-hanger emblem. Inherits colour from `currentColor`.
+export default function BrandMark({ className = "h-10 w-10" }) {
+  return (
+    <svg viewBox="0 0 64 72" className={className} fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinejoin="round" strokeLinecap="round" aria-hidden="true">
+      <path d="M32 3 L58 12 V35 C58 51 46 62 32 69 C18 62 6 51 6 35 V12 Z" />
+      <path d="M32 22 c-4 0 -6 3 -6 6 h4.5 c0-1.2 0.7-2 1.5-2 s1.5 0.8 1.5 2 c0 2.5-2.5 3.2-2.5 6.3 V38" />
+      <path d="M32 38 L15 50.5 H49 Z" />
+    </svg>
+  );
+}

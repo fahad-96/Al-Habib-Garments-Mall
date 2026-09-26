@@ -18,6 +18,7 @@ export default {
       fontFamily: {
         sans: ["'Inter Variable'", "Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
         display: ["'Bodoni Moda Variable'", "'Bodoni Moda'", "Didot", "'Times New Roman'", "serif"],
+        brand: ["'UnifrakturCook'", "'Old English Text MT'", "serif"],
       },
       letterSpacing: {
         micro: "0.18em",

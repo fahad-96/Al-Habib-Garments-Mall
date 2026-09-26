@@ -15,7 +15,7 @@ function BarPreview({ text, enabled }) {
         </p>
       </div>
       <div className="flex h-12 items-center justify-center border-b border-line">
-        <span className="font-display text-base tracking-[0.04em] text-ink">AL HABIB</span>
+        <span className="font-brand text-lg text-ink">Al Habib</span>
       </div>
     </div>
   );

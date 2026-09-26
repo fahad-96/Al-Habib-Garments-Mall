@@ -41,7 +41,7 @@ export default function AdminLayout() {
       <aside className="hidden border-r border-neutral-800 lg:flex lg:min-h-screen lg:flex-col lg:sticky lg:top-0 lg:h-screen">
         <div className="px-6 py-6">
           <Link to="/admin/dashboard" className="block leading-none">
-            <span className="font-display text-xl tracking-[0.04em]">AL HABIB</span>
+            <span className="font-brand text-2xl">Al Habib</span>
             <span className="mt-1 block text-[9px] font-medium uppercase tracking-[0.32em] text-neutral-500">Admin</span>
           </Link>
         </div>
@@ -75,7 +75,7 @@ export default function AdminLayout() {
             <button type="button" className="absolute inset-0 bg-black/60" aria-label="Close" onClick={() => setOpen(false)} />
             <div className="absolute left-0 top-0 flex h-full w-72 flex-col bg-ink py-4">
               <div className="flex items-center justify-between px-6 pb-4">
-                <span className="font-display text-lg tracking-[0.04em]">AL HABIB</span>
+                <span className="font-brand text-xl">Al Habib</span>
                 <button type="button" onClick={() => setOpen(false)} className="p-1" aria-label="Close">
                   <X className="h-5 w-5" />
                 </button>

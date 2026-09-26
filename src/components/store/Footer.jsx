@@ -4,6 +4,7 @@ import { MapPin, Clock } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "../ui/SocialIcons";
 import { useShop } from "../../context/ShopContext";
 import WhatsAppIcon from "../ui/WhatsAppIcon";
+import Logo from "./Logo";
 import { waLink } from "../../lib/whatsapp";
 
 export default function Footer() {
@@ -14,8 +15,7 @@ export default function Footer() {
     <footer className="mt-20 bg-ink text-paper">
       <div className="container grid gap-12 py-16 md:grid-cols-12">
         <div className="md:col-span-5">
-          <p className="font-display text-3xl tracking-[0.04em]">AL HABIB</p>
-          <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.32em] text-neutral-400">Garments Mall</p>
+          <Logo inverse />
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-neutral-400">{settings.about?.split(". ").slice(0, 2).join(". ")}.</p>
           <div className="mt-6 flex items-center gap-4">
             {ig && (

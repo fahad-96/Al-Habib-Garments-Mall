@@ -103,7 +103,7 @@
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    background-image: linear-gradient(105deg, #0a0a0a 0%, #0a0a0a 42%, #9a9a9a 47%, #ffffff 50%, #9a9a9a 53%, #0a0a0a 58%, #0a0a0a 100%);
+    background-image: linear-gradient(105deg, #0a0a0a 0%, #0a0a0a 42%, #8a8a8a 47%, #c9c9c9 50%, #8a8a8a 53%, #0a0a0a 58%, #0a0a0a 100%);
     background-size: 260% 100%;
     background-position: 140% 0;
     animation: wordmark-shine 7.5s ease-in-out infinite;
