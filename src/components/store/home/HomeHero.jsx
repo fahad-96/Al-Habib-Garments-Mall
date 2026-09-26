@@ -40,7 +40,7 @@ function Slide({ banner, active, index, count, eager, eyebrow }) {
         />
       )}
       {/* On phones and tablets the photo sits behind the copy, so fade its lower half into the background. */}
-      {hasImage && <div className={`absolute inset-x-0 bottom-0 h-[62%] lg:hidden ${dark ? "bg-gradient-to-t from-ink via-ink/85 to-ink/0" : "bg-gradient-to-t from-paper via-paper/85 to-paper/0"}`} aria-hidden="true" />}
+      {hasImage && <div className={`absolute inset-x-0 bottom-0 h-[78%] lg:hidden ${dark ? "bg-gradient-to-t from-ink via-ink/90 via-45% to-ink/0" : "bg-gradient-to-t from-paper via-paper/90 via-45% to-paper/0"}`} aria-hidden="true" />}
       <div className="relative flex h-full items-end">
         <div className="container pb-20 pt-28 sm:pb-24 lg:pb-28">
           <div className={`max-w-3xl transition-[opacity,transform] duration-700 ease-soft ${active ? "translate-y-0 opacity-100 delay-300" : "translate-y-3 opacity-0"}`}>
