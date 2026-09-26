@@ -30,9 +30,9 @@ export default function ReviewCard({ review, product, busy = "", onApprove, onDe
         <div className="min-w-0">
           <p className="eyebrow-dark">Product</p>
           {product ? (
-            <Link to={`/product/${product.slug}`} target="_blank" rel="noreferrer" className="group mt-1 inline-flex max-w-full items-center gap-1 text-sm font-medium text-paper">
-              <span className="truncate underline-offset-4 group-hover:underline">{product.title}</span>
-              <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-neutral-500 transition-colors group-hover:text-paper" strokeWidth={1.5} aria-hidden="true" />
+            <Link to={`/product/${product.slug}`} target="_blank" rel="noreferrer" className="group mt-1 block text-sm font-medium leading-snug text-paper">
+              <span className="underline-offset-4 group-hover:underline">{product.title}</span>
+              <ArrowUpRight className="ml-1 inline h-3.5 w-3.5 align-[-2px] text-neutral-500 transition-colors group-hover:text-paper" strokeWidth={1.5} aria-hidden="true" />
             </Link>
           ) : (
             <p className="mt-1 truncate text-sm text-neutral-400" title={review.productSlug || undefined}>

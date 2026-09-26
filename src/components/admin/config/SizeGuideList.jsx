@@ -19,7 +19,7 @@ function MiniTable({ guide }) {
         <thead>
           <tr className="bg-neutral-900/70">
             {columns.map((c, i) => (
-              <th key={i} scope="col" className={`truncate px-2.5 py-1.5 text-left text-2xs font-medium uppercase tracking-micro text-neutral-500 ${i === 0 ? "" : "text-right"}`}>
+              <th key={i} scope="col" className={`whitespace-normal px-2.5 py-1.5 text-left align-bottom text-xs font-normal leading-4 text-neutral-500 ${i === 0 ? "" : "text-right"}`}>
                 {c}
               </th>
             ))}
