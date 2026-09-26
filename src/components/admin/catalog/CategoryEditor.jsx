@@ -68,7 +68,7 @@ export default function CategoryEditor({ open, item, department = "men", existin
   return (
     <EditorModal open={open} onClose={onClose} title={isNew ? "New category" : "Edit category"} busy={busy} error={error} hint={isNew ? "" : "Changes reach the store as soon as you save."} submitLabel={isNew ? "Create category" : "Save changes"} onSubmit={submit}>
       <div className="space-y-5">
-        <Input dark label="Name" value={draft.name} onChange={(e) => setName(e.target.value)} placeholder="Jackets" maxLength={60} error={errors.name} autoComplete="off" autoFocus />
+        <Input dark label="Name" value={draft.name} onChange={(e) => setName(e.target.value)} placeholder="Jackets" maxLength={60} error={errors.name} autoComplete="off" />
 
         <div className="grid gap-5 sm:grid-cols-2">
           <Select dark label="Department" value={draft.department} onChange={(e) => patch({ department: e.target.value })} disabled={!isNew} className={isNew ? "" : "opacity-60"}>

@@ -1,4 +1,4 @@
-import React, { useCallback, useId } from "react";
+import React, { useCallback, useEffect, useId } from "react";
 import Modal from "../../ui/Modal";
 import Button from "../../ui/Button";
 
@@ -13,6 +13,13 @@ export default function EditorModal({ open, onClose, title, size = "md", busy = 
     e.preventDefault();
     if (!busy) onSubmit?.();
   };
+
+  // Land focus on the first field once the panel has settled (Modal itself focuses its close button).
+  useEffect(() => {
+    if (!open) return undefined;
+    const t = setTimeout(() => document.getElementById(formId)?.querySelector("input:not([disabled]), textarea, select")?.focus({ preventScroll: true }), 80);
+    return () => clearTimeout(t);
+  }, [open, formId]);
 
   return (
     <Modal

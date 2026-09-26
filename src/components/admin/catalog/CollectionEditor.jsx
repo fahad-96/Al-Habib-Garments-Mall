@@ -23,7 +23,7 @@ export default function CollectionEditor({ open, item, existing = [], defaultSor
 
   useEffect(() => {
     if (!open) return;
-    setDraft(item ? { ...item, productSlugs: [...(item.productSlugs || [])] } : blank(defaultSortOrder));
+    setDraft(item ? { ...item, productSlugs: Array.from(new Set(item.productSlugs || [])) } : blank(defaultSortOrder));
     setSlugPinned(Boolean(item));
     setErrors({});
     setError("");
@@ -64,9 +64,9 @@ export default function CollectionEditor({ open, item, existing = [], defaultSor
 
   return (
     <EditorModal open={open} onClose={onClose} title={isNew ? "New collection" : "Edit collection"} size="lg" busy={busy} error={error} hint={draft.slug ? `/collections/${draft.slug}` : ""} submitLabel={isNew ? "Create collection" : "Save changes"} onSubmit={submit}>
-      <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] md:gap-6">
-        <div className="space-y-5">
-          <Input dark label="Name" value={draft.name} onChange={(e) => setName(e.target.value)} placeholder="Winter Layers" maxLength={60} error={errors.name} autoComplete="off" autoFocus />
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] md:gap-6">
+        <div className="min-w-0 space-y-5">
+          <Input dark label="Name" value={draft.name} onChange={(e) => setName(e.target.value)} placeholder="Winter Layers" maxLength={60} error={errors.name} autoComplete="off" />
           <div>
             <label htmlFor={slugId} className="label label-dark">
               Slug
@@ -87,7 +87,10 @@ export default function CollectionEditor({ open, item, existing = [], defaultSor
             </p>
           </div>
           <Textarea dark label="Description" rows={3} value={draft.description} onChange={(e) => patch({ description: e.target.value })} placeholder="Jackets, hoodies and fleece for the valley's cold." maxLength={240} />
-          <ImageUploader label="Artwork" value={draft.imageUrl} onChange={(imageUrl) => patch({ imageUrl })} folder="collections" nameHint={draft.slug || "collection"} hint="Portrait 3:4. Shown on the collections page and the home page feature." />
+          {/* The uploader lays its tiles on a five-column grid sized for wide pages; three columns keep the single tile legible in this narrow column. */}
+          <div className="[&_.grid]:!grid-cols-3">
+            <ImageUploader label="Artwork" value={draft.imageUrl} onChange={(imageUrl) => patch({ imageUrl })} folder="collections" nameHint={draft.slug || "collection"} hint="Portrait 3:4. Shown on the collections page and the home page feature." />
+          </div>
           <div className="grid gap-5 sm:grid-cols-2 sm:items-end">
             <Input dark type="number" inputMode="numeric" label="Sort order" value={draft.sortOrder} onChange={(e) => patch({ sortOrder: e.target.value })} hint="Lower numbers come first." />
             <ToggleBox className="mb-[1.375rem] sm:mb-[1.4rem]">
@@ -95,7 +98,9 @@ export default function CollectionEditor({ open, item, existing = [], defaultSor
             </ToggleBox>
           </div>
         </div>
-        <ProductPicker value={draft.productSlugs} onChange={(productSlugs) => patch({ productSlugs })} products={products} categories={categories} />
+        <div className="min-w-0">
+          <ProductPicker value={draft.productSlugs} onChange={(productSlugs) => patch({ productSlugs })} products={products} categories={categories} />
+        </div>
       </div>
     </EditorModal>
   );

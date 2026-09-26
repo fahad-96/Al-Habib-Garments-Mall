@@ -85,7 +85,7 @@ export default function BannerEditor({ open, item, placement = "hero", defaultSo
         <BannerPreview banner={draft} className="border border-neutral-800" />
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <Select dark label="Placement" value={draft.placement} onChange={(e) => patch({ placement: e.target.value })}>
           {PLACEMENTS.map((p) => (
             <option key={p.key} value={p.key}>
@@ -98,7 +98,7 @@ export default function BannerEditor({ open, item, placement = "hero", defaultSo
           <option value="light">Light art, black text</option>
         </Select>
 
-        <Input dark className="sm:col-span-2" label="Headline" value={draft.title} onChange={(e) => patch({ title: e.target.value })} placeholder="Winter, layered." maxLength={80} error={errors.title} autoComplete="off" autoFocus />
+        <Input dark className="sm:col-span-2" label="Headline" value={draft.title} onChange={(e) => patch({ title: e.target.value })} placeholder="Winter, layered." maxLength={80} error={errors.title} autoComplete="off" />
         <Textarea dark className="sm:col-span-2" label="Subtitle" rows={2} value={draft.subtitle} onChange={(e) => patch({ subtitle: e.target.value })} placeholder="Jackets, hoodies and fleece built for Kunzer's cold." maxLength={160} />
 
         <Input dark label="Button label" value={draft.ctaLabel} onChange={(e) => patch({ ctaLabel: e.target.value })} placeholder="Shop winter layers" maxLength={40} error={errors.ctaLabel} autoComplete="off" />
@@ -111,7 +111,10 @@ export default function BannerEditor({ open, item, placement = "hero", defaultSo
           </datalist>
         </div>
 
-        <ImageUploader label="Artwork" value={draft.imageUrl} onChange={(imageUrl) => patch({ imageUrl })} folder="banners" nameHint={slugify(draft.title) || "banner"} aspect="aspect-video" hint="Wide 16:9, at least 1600px across. The hero crops to the screen, so keep the subject centred." />
+        {/* Full row and wider tiles: the uploader's five-column grid would shrink a 16:9 tile to a sliver. */}
+        <div className="sm:col-span-2 [&_.grid]:!grid-cols-3 sm:[&_.grid]:!grid-cols-4">
+          <ImageUploader label="Artwork" value={draft.imageUrl} onChange={(imageUrl) => patch({ imageUrl })} folder="banners" nameHint={slugify(draft.title) || "banner"} aspect="aspect-video" hint="Wide 16:9, at least 1600px across. The hero crops to the screen, so keep the subject centred." />
+        </div>
         <div className="grid gap-5 sm:col-span-2 sm:grid-cols-2 sm:items-end">
           <Input dark type="number" inputMode="numeric" label="Sort order" value={draft.sortOrder} onChange={(e) => patch({ sortOrder: e.target.value })} hint="Lower numbers come first." />
           <ToggleBox className="mb-[1.375rem] sm:mb-[1.4rem]">
