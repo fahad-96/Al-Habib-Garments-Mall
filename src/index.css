@@ -96,3 +96,27 @@
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .mask-fade-r { -webkit-mask-image: linear-gradient(to right, black 85%, transparent); mask-image: linear-gradient(to right, black 85%, transparent); }
 }
+
+/* Brand wordmark: a slow silver sheen sweeps across the letters, then rests. */
+@layer components {
+  .wordmark-shine {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(105deg, #0a0a0a 0%, #0a0a0a 42%, #9a9a9a 47%, #ffffff 50%, #9a9a9a 53%, #0a0a0a 58%, #0a0a0a 100%);
+    background-size: 260% 100%;
+    background-position: 140% 0;
+    animation: wordmark-shine 7.5s ease-in-out infinite;
+  }
+  .wordmark-shine-inverse {
+    background-image: linear-gradient(105deg, #ffffff 0%, #ffffff 42%, #c8c8c8 47%, #6a6a6a 50%, #c8c8c8 53%, #ffffff 58%, #ffffff 100%);
+  }
+  @keyframes wordmark-shine {
+    0% { background-position: 140% 0; }
+    24% { background-position: -40% 0; }
+    100% { background-position: -40% 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .wordmark-shine { animation: none; background-position: -40% 0; }
+  }
+}
