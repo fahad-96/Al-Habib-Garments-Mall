@@ -34,7 +34,7 @@ export default function HomePage() {
       <DepartmentRow />
       {newIn.length > 0 && (
         <Reveal>
-          <ProductRail className="mt-20 lg:mt-28" eyebrow="Just in" title="New in" description="Fresh from the mills and ateliers we know by name." to="/new" linkLabel="View all new" products={newIn} />
+          <ProductRail className="mt-20 lg:mt-28" eyebrow="Just in" title="New in" description="The latest pieces to reach the shelf in Kunzer." to="/new" linkLabel="View all new" products={newIn} />
         </Reveal>
       )}
       <CategoryGrid />

@@ -20,7 +20,7 @@ export default function DepartmentRow() {
               <Img src={t.image} alt="" className="h-full w-full object-cover transition-transform duration-700 ease-soft group-hover:scale-[1.03]" fallbackLabel={t.name.slice(0, 1)} />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/15 to-ink/0 transition-opacity duration-500 group-hover:opacity-90" aria-hidden="true" />
               <div className="absolute inset-x-0 bottom-0 p-3 text-paper sm:p-6 lg:p-8">
-                <p className="font-display text-xl leading-none sm:text-3xl lg:text-4xl">{t.name}</p>
+                <p className="font-display text-xl/none sm:text-3xl/none lg:text-4xl/none">{t.name}</p>
                 <p className="mt-2 hidden max-w-xs text-xs leading-relaxed text-neutral-300 md:block">{t.tagline}</p>
                 <span className="mt-3 hidden items-center gap-2 text-2xs font-medium uppercase tracking-micro sm:inline-flex">
                   Shop {t.name.toLowerCase()}

@@ -9,7 +9,7 @@ import MapEmbed from "../../components/store/static/MapEmbed";
 import MessageForm from "../../components/store/static/MessageForm";
 
 export default function ContactPage() {
-  const { settings, toast } = useShop();
+  const { settings, toast, isSupabaseConfigured } = useShop();
   const mapsQuery = settings.mapsQuery || [settings.storeName, settings.address].filter(Boolean).join(", ");
 
   return (
@@ -32,18 +32,24 @@ export default function ContactPage() {
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
           <Reveal className="lg:col-span-5">
             <p className="eyebrow">Write to us</p>
-            <h2 id="message-heading" className="mt-3 font-display text-3xl leading-[1.05] tracking-tight text-balance sm:text-4xl">
+            <h2 id="message-heading" className="mt-3 font-display text-3xl leading-[1.05] tracking-tight text-balance sm:text-4xl/[1.05]">
               Send us a message
             </h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-neutral-600">
               Sizes, stock, an order you have placed, or a piece you saw in the shop window. Write it here and it opens in WhatsApp, ready to send from your own number.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-neutral-600">
-              Already ordered? You can also{" "}
-              <Link to="/track" className="text-ink underline underline-offset-4 hover:opacity-60">
-                track your order
-              </Link>
-              .
+              {isSupabaseConfigured ? (
+                <>
+                  Already ordered? You can also{" "}
+                  <Link to="/track" className="text-ink underline underline-offset-4 hover:opacity-60">
+                    track your order
+                  </Link>
+                  .
+                </>
+              ) : (
+                "Already ordered? Send us the name and phone you ordered with, and we will tell you where your order is."
+              )}
             </p>
           </Reveal>
           <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.1}>

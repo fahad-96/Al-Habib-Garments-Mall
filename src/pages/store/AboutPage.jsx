@@ -13,18 +13,18 @@ const FALLBACK_ABOUT =
   "Al Habib Garments Mall is Kunzer's multi-brand garments store, a short drive from Tangmarg on the road to Gulmarg. Jackets, hoodies, tees, track pants, bags and winter accessories for men, women and kids, chosen by hand and priced for families.";
 
 const STORY = [
-  "It is a family shop, and it sits on the main market road in Kunzer, where the road from Baramulla turns towards Tangmarg and climbs on to Gulmarg. Most of the people who walk in we know by name, or we know their parents. That changes how you buy. You choose pieces you would be glad to see again on the same street next winter, and you price them so that one visit can dress the whole house.",
-  "The website is simply the shop, open a little later in the evening. Browse at home, send us the piece and the size on WhatsApp, and one of us will check the shelf, confirm the colour and pack it the same day. If you are nearby, come in and try it on. Nothing on a screen replaces that.",
+  "It is a family shop on the main market road in Kunzer. Most of the people who walk in we know by name. That changes how you buy. You stock pieces you would be glad to see again on the same street next season, from brands you trust, and you price them so that one visit can dress the whole house.",
+  "The website is simply the shop, open a little later in the evening. Browse at home and place your order, and one of us will check the shelf, confirm the size and colour with you on WhatsApp, and pack it. If you are nearby, come in and try it on. Nothing on a screen replaces that.",
 ];
 
 const PRINCIPLES = [
   {
     title: "Chosen by hand",
-    text: "We visit the brand distributors and wholesalers ourselves and pick what we would wear. If a piece will not hold up through a Kashmiri winter, it does not come on the shelf.",
+    text: "We visit the brand distributors and wholesalers ourselves and pick what we would wear. If a piece will not hold up to a season of everyday wear, it does not go on the shelf.",
   },
   {
     title: "Priced for families",
-    text: "A jacket for father, a hoodie for mother, school layers for the children. Prices are set so that dressing everyone for the season stays sensible, and stay the same online as in the shop.",
+    text: "A jacket for father, a hoodie for mother, warm layers for the children. Prices are set so that dressing everyone for the season stays sensible, and they are the same online as in the shop.",
   },
   {
     title: "Confirmed personally on WhatsApp",
@@ -52,14 +52,14 @@ export default function AboutPage() {
 
       <Reveal as="header" className="max-w-4xl">
         <p className="eyebrow">Our story</p>
-        <h1 className="mt-3 font-display text-[2.75rem] leading-[1.02] tracking-tight text-balance sm:text-6xl lg:text-7xl">Dressing Kunzer since the first snow.</h1>
+        <h1 className="mt-3 font-display text-[2.75rem] leading-[1.02] tracking-tight text-balance sm:text-6xl lg:text-7xl">A family shop on the Gulmarg road.</h1>
       </Reveal>
 
       <div className="mt-10 grid gap-10 lg:mt-16 lg:grid-cols-12 lg:gap-12">
         <Reveal className="lg:col-span-5" delay={0.05}>
           <figure>
             <div className="img-frame aspect-[3/4] bg-ink">
-              <Img src="/image/art/about.svg" alt="Dark artwork with a fine chinar-leaf pattern, the emblem of the shop" eager className="h-full w-full object-cover" fallbackLabel="AH" />
+              <Img src="/image/art/about.svg" alt="Dark artwork with a fine chinar-leaf pattern" eager className="h-full w-full object-cover" fallbackLabel="AH" />
             </div>
             <figcaption className="mt-3 text-2xs uppercase tracking-micro text-neutral-500">{settings.storeName || "Al Habib Garments Mall"} · {settings.tagline || "Kunzer, Tangmarg"}</figcaption>
           </figure>
@@ -88,8 +88,8 @@ export default function AboutPage() {
       <section className="mt-20 lg:mt-28" aria-labelledby="principles-heading">
         <Reveal>
           <p className="eyebrow">How we work</p>
-          <h2 id="principles-heading" className="mt-3 max-w-2xl font-display text-3xl leading-[1.05] tracking-tight text-balance sm:text-4xl">
-            Three things we have never changed.
+          <h2 id="principles-heading" className="mt-3 max-w-2xl font-display text-3xl leading-[1.05] tracking-tight text-balance sm:text-4xl/[1.05]">
+            Three things we hold to.
           </h2>
         </Reveal>
         <ol className="mt-8 grid gap-px border-y border-line bg-line lg:mt-10 lg:grid-cols-3">
@@ -111,7 +111,7 @@ export default function AboutPage() {
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           <Reveal className="lg:col-span-5">
             <p className="eyebrow">Visit</p>
-            <h2 id="visit-heading" className="mt-3 font-display text-3xl leading-[1.05] tracking-tight text-balance sm:text-4xl">
+            <h2 id="visit-heading" className="mt-3 font-display text-3xl leading-[1.05] tracking-tight text-balance sm:text-4xl/[1.05]">
               Come by, try it on, talk to us.
             </h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-neutral-600">On the main market road in Kunzer, on the way up to Tangmarg and Gulmarg. Bring the family; we will find the size.</p>

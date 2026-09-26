@@ -136,16 +136,16 @@ export default function HomeHero({ banners = [], settings = {} }) {
           <span className="mr-2 hidden text-2xs tabular-nums tracking-micro sm:inline">
             {pad(current + 1)} / {pad(count)}
           </span>
-          <div className="flex items-center" role="tablist" aria-label="Choose slide">
+          {/* Plain buttons: the slides are not tab panels, so the dots are a set of "go to slide" controls. */}
+          <div className="flex items-center" role="group" aria-label="Choose slide">
             {banners.map((b, i) => (
               <button
                 key={b.id || i}
                 type="button"
-                role="tab"
-                aria-selected={i === current}
                 aria-label={`Slide ${i + 1}: ${b.title}`}
+                aria-current={i === current ? "true" : undefined}
                 onClick={() => setIndex(i)}
-                className="flex h-10 w-7 items-center justify-center"
+                className="flex h-10 w-10 items-center justify-center lg:w-7"
               >
                 <span className={`block h-1.5 rounded-full transition-all duration-500 ease-soft ${i === current ? `w-6 ${dotOn}` : `w-1.5 ${dotOff}`}`} />
               </button>

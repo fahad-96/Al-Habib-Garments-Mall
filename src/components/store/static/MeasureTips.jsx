@@ -15,7 +15,7 @@ export default function MeasureTips({ hemmingNote = "", className = "" }) {
     <section className={className} aria-labelledby="how-to-measure">
       <Reveal>
         <p className="eyebrow">Getting it right</p>
-        <h2 id="how-to-measure" className="mt-3 font-display text-3xl leading-[1.05] tracking-tight sm:text-4xl">
+        <h2 id="how-to-measure" className="mt-3 font-display text-3xl leading-[1.05] tracking-tight sm:text-4xl/[1.05]">
           How to measure
         </h2>
         <p className="mt-4 max-w-xl text-sm leading-relaxed text-neutral-600">A soft tape and a friend make it easier. Measure over light clothing, and note the numbers in inches so they compare with the chart.</p>
@@ -24,7 +24,9 @@ export default function MeasureTips({ hemmingNote = "", className = "" }) {
         {TIPS.map((tip, i) => (
           <li key={tip.title} className="bg-paper">
             <Reveal delay={i * 0.06} y={10} className="h-full p-5 sm:p-6">
-              <span className="font-display text-2xl leading-none text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
+              <span className="font-display text-2xl leading-none text-neutral-300" aria-hidden="true">
+                {String(i + 1).padStart(2, "0")}
+              </span>
               <h3 className="mt-4 text-sm font-medium">{tip.title}</h3>
               <p className="mt-1.5 text-xs leading-relaxed text-neutral-500 sm:text-[13px]">{tip.text}</p>
             </Reveal>

@@ -92,7 +92,7 @@ export default function SizeGuidePage() {
                 <SizeTable columns={active.columns} rows={active.rows} caption={`${active.title} size chart`} />
               </div>
               <aside className="lg:col-span-4">
-                <div className="border-t border-ink pt-4 lg:sticky lg:top-24">
+                <div className="border-t border-ink pt-4 lg:sticky lg:top-[calc(var(--header-h)+1.5rem)]">
                   <p className="eyebrow">Fit note</p>
                   {active.note && <p className="mt-2 text-sm leading-relaxed text-neutral-700">{active.note}</p>}
                   <p className="mt-2 text-sm leading-relaxed text-neutral-500">Measurements are of the garment laid flat unless the column names a part of the body.</p>
