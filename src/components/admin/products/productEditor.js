@@ -42,16 +42,16 @@ export const hexForColorName = (name) => {
 };
 
 export const DETAIL_PLACEHOLDERS = {
-  highlights: "Full-zip front · Elasticized cuffs",
+  highlights: "Full-zip front · Elasticised cuffs",
   fabric: "100% cotton",
   fit: "Regular",
   sleeve: "Full",
   neck: "Crew",
   pattern: "Solid",
   length: "Hip length",
+  dimensions: "40 × 30 × 12 cm",
   closure: "Full zip",
   lining: "Brushed fleece",
-  sole: "Rubber",
   occasion: "Daily, travel",
   washCare: "Machine wash cold. Line dry.",
   origin: "India",

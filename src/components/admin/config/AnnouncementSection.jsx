@@ -35,7 +35,7 @@ export default function AnnouncementSection({ form, errors, patch }) {
         label="Text"
         value={form.announcementText}
         onChange={(e) => patch({ announcementText: e.target.value.slice(0, ANNOUNCEMENT_MAX) })}
-        placeholder="Free delivery on orders over ₹1,999 · Order directly on WhatsApp"
+        placeholder="Free delivery from ₹1,999 · Order directly on WhatsApp"
         maxLength={ANNOUNCEMENT_MAX}
         error={errors.announcementText}
         hint={`${used} of ${ANNOUNCEMENT_MAX} characters. Keep it to one line; use · to separate two thoughts.`}

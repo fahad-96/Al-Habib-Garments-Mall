@@ -12,7 +12,7 @@ export default function SectionHeading({ eyebrow, title, description, to, linkLa
         {description && <p className={`mt-3 max-w-xl text-sm ${dark ? "text-neutral-400" : "text-neutral-500"}`}>{description}</p>}
       </div>
       {to && (
-        <Link to={to} className={`group inline-flex items-center gap-2 text-2xs font-medium uppercase tracking-micro ${dark ? "text-paper" : "text-ink"} ${center ? "mt-4" : ""}`}>
+        <Link to={to} className={`group -my-3 inline-flex min-h-10 items-center gap-2 text-2xs font-medium uppercase tracking-micro ${dark ? "text-paper" : "text-ink"} ${center ? "mt-1" : ""}`}>
           {linkLabel}
           <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
         </Link>

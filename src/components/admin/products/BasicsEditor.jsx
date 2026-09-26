@@ -14,7 +14,7 @@ export default function BasicsEditor({ editor, categories }) {
   return (
     <EditorSection id="basics" title="Basics" description="What the product is called and where it sits in the store.">
       <div className="space-y-5">
-        <Input dark label="Title" value={product.title} onChange={(e) => setTitle(e.target.value)} placeholder="Summit Reversible Windbreaker" maxLength={TITLE_MAX} error={errors.title} autoComplete="off" />
+        <Input dark label="Title" value={product.title} onChange={(e) => setTitle(e.target.value)} placeholder="Summit Hooded Windbreaker" maxLength={TITLE_MAX} error={errors.title} autoComplete="off" />
 
         <div>
           <label htmlFor={slugId} className="label label-dark">
@@ -26,7 +26,7 @@ export default function BasicsEditor({ editor, categories }) {
               value={product.slug}
               onChange={(e) => setSlug(e.target.value)}
               className={`field field-dark min-w-0 flex-1 font-mono text-sm ${errors.slug ? "border-red-600" : ""}`}
-              placeholder="summit-reversible-windbreaker"
+              placeholder="summit-hooded-windbreaker"
               spellCheck={false}
               autoComplete="off"
               aria-invalid={Boolean(errors.slug)}
@@ -89,7 +89,7 @@ export default function BasicsEditor({ editor, categories }) {
           label="Short info"
           value={product.shortInfo}
           onChange={(e) => patch({ shortInfo: e.target.value })}
-          placeholder="Smooth nylon shell over brushed fleece, reversible for two looks."
+          placeholder="Light, wind-cutting shell with a drawcord hood."
           maxLength={SHORT_INFO_MAX}
           hint={`One line under the title on the card. ${product.shortInfo.length}/${SHORT_INFO_MAX}`}
         />

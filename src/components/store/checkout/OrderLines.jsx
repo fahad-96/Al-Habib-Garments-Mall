@@ -12,7 +12,7 @@ export default function OrderLines({ lines = [], className = "" }) {
         const qty = Number(l.qty) || 0;
         const total = (Number(l.price) || 0) * qty;
         const meta = [[l.color, l.size].filter(Boolean).join(" / "), `Qty ${qty}`].filter(Boolean).join(" · ");
-        const image = <Img src={l.image} alt={l.title || "Item"} />;
+        const image = <Img src={l.image} alt={l.title || "Item"} sizes="64px" />;
         const frame = "img-frame aspect-[3/4] w-16 shrink-0";
         return (
           <li key={`${l.slug || l.title}-${l.color}-${l.size}-${i}`} className="flex items-center gap-4 py-4">

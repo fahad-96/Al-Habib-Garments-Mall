@@ -21,7 +21,9 @@ export default function FeaturedCollection() {
       <div className="grid gap-8 border-t border-line pt-8 lg:grid-cols-12 lg:gap-12 lg:pt-10">
         <Reveal className="lg:col-span-7">
           <Link to={href} className="img-frame group block aspect-[4/5] bg-neutral-100 sm:aspect-[4/3]" aria-label={`Shop ${collection.name}`}>
-            <Img src={collection.imageUrl} alt="" className="h-full w-full object-cover transition-transform duration-700 ease-soft group-hover:scale-[1.02]" fallbackLabel={collection.name.slice(0, 1)} />
+            {/* Collection art is landscape with the model right of centre (room for type on wide screens);
+                the tall phone frame crops toward that side so the model is not cut in half. */}
+            <Img src={collection.imageUrl} alt="" className="h-full w-full object-cover object-[75%_50%] transition-transform duration-700 ease-soft group-hover:scale-[1.02] sm:object-center" fallbackLabel={collection.name.slice(0, 1)} />
           </Link>
         </Reveal>
         <Reveal className="flex flex-col justify-center lg:col-span-5" delay={0.1}>
