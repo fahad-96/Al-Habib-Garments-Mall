@@ -7,7 +7,7 @@ export default function BulkBar({ count, busy, onActivate, onHide, onDelete, onC
   if (!count) return null;
   return (
     <div className="sticky top-16 z-20 mb-3 flex flex-wrap items-center gap-2 border border-neutral-700 bg-neutral-900 py-2 pl-4 pr-2 lg:top-4" role="region" aria-label="Bulk actions">
-      <p className="mr-auto text-sm text-paper">
+      <p className="basis-full text-sm text-paper sm:mr-auto sm:basis-auto">
         <span className="font-medium tabular-nums">{count}</span> selected
       </p>
       <Button variant="inverse-outline" size="sm" onClick={onActivate} loading={busy === "activate"} disabled={Boolean(busy)}>

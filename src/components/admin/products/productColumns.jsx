@@ -31,14 +31,15 @@ export const productColumns = (categoryName) => [
     key: "title",
     label: "Product",
     className: "min-w-[200px]",
+    // max-w caps the cell's intrinsic width (the slug line is nowrap) so the table fits a 1440 viewport.
     render: (p) => (
-      <div className="min-w-0">
+      <div className="min-w-0 max-w-[15rem]">
         <Link to={`/admin/products/${p.id}`} onClick={(e) => e.stopPropagation()} className="line-clamp-1 font-medium text-paper hover:underline hover:underline-offset-4">
           {p.title || "Untitled product"}
         </Link>
         <p className="mt-0.5 truncate text-xs text-neutral-500">
+          {p.badge && <span className="mr-2 text-2xs font-medium uppercase tracking-micro text-neutral-400">{p.badge}</span>}
           {p.slug}
-          {p.badge && <span className="ml-2 text-2xs font-medium uppercase tracking-micro text-neutral-400">{p.badge}</span>}
         </p>
       </div>
     ),

@@ -20,7 +20,8 @@ export default function VariantCard({ variant, index, count, sizes, slug, error,
 
   const setColor = (color) => {
     const suggested = hexForColorName(color);
-    const untouched = !variant.hex || variant.hex === DEFAULT_HEX;
+    // Only replace a hex that was never chosen by hand: the placeholder grey, or the swatch of the previous name.
+    const untouched = !variant.hex || variant.hex === DEFAULT_HEX || variant.hex === hexForColorName(variant.color);
     onChange({ color, ...(suggested && untouched ? { hex: suggested } : {}) });
   };
   const setHex = (raw) => {

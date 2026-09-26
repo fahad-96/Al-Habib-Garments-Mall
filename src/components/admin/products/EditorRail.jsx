@@ -13,7 +13,7 @@ const Row = ({ label, children }) => (
 );
 
 export default function EditorRail({ editor, onDelete }) {
-  const { product, baseline, summary, dirty, saving, saveError, errorCount, attempted, submit, duplicate } = editor;
+  const { product, baseline, summary, dirty, saving, saveError, errorCount, attempted, duplicate } = editor;
   const saved = Boolean(baseline.id);
   const price = Number(product.price) || 0;
   const stockNote = summary.soldOut ? "Sold out" : summary.low ? "Low stock" : "";
@@ -53,7 +53,7 @@ export default function EditorRail({ editor, onDelete }) {
           </p>
           {attempted && errorCount > 0 && <p className="text-xs text-red-500">{pluralize(errorCount, "field needs", "fields need")} attention.</p>}
           {saveError && <p className="text-xs text-red-500">{saveError}</p>}
-          <Button type="submit" variant="inverse" full loading={saving} className="hidden lg:inline-flex" onClick={submit}>
+          <Button type="submit" variant="inverse" full loading={saving} className="hidden lg:inline-flex">
             {saved ? "Save changes" : "Create product"}
           </Button>
           {saved && (

@@ -62,8 +62,9 @@ export default function AdminProductEditorPage() {
 
   const initial = useMemo(() => {
     if (isNew) return blankProduct(categories);
-    if (data && String(data.id) === String(id)) return data;
+    // The last save is at least as fresh as the fetched row, so it wins while both describe this id.
     if (justSaved && String(justSaved.id) === String(id)) return justSaved;
+    if (data && String(data.id) === String(id)) return data;
     return null;
   }, [isNew, data, justSaved, id, categories]);
 
