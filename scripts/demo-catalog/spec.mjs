@@ -752,6 +752,12 @@ export const HEROES = [
   { name: "hero-everyday", photo: "Slub Henley Tee/Sand" },
 ];
 
+// Department tiles on the home page that use a photo instead of their first category's image.
+export const DEPARTMENT_IMAGES = {
+  // The shop's own photo, cropped closer than the hero slide: head to knees.
+  men: { scene: "hero-winter.jpg", box: { left: 0.2, top: 0.19, width: 0.55 } },
+};
+
 // Collections pick their products by category, tag, badge and price, mixing categories.
 export const COLLECTIONS = [
   { slug: "winter-layers", name: "Winter Layers", description: "Puffers, parkas, fleece and hoodies for the valley's cold, for men and women.", photo: "Fur-Trim Hooded Parka/Black", cats: ["men-jackets", "men-sweatshirts", "women-jackets", "women-sweatshirts"], tag: "winter", limit: 16 },

@@ -10,7 +10,7 @@
 // scripts/demo-catalog/build.mjs (borrowed product photography for the demo, see
 // public/image/ATTRIBUTIONS.md and README → Demo catalog).
 // ─────────────────────────────────────────────────────────────────────────────
-import { DEMO_CATEGORY_IMAGES, DEMO_COLLECTIONS, DEMO_HERO_IMAGES, DEMO_PRODUCTS } from "./demo-products.js";
+import { DEMO_CATEGORY_IMAGES, DEMO_COLLECTIONS, DEMO_DEPARTMENT_IMAGES, DEMO_HERO_IMAGES, DEMO_PRODUCTS } from "./demo-products.js";
 
 export const STORE = {
   name: "Al Habib Garments Mall",
@@ -23,7 +23,7 @@ export const STORE = {
 // currently have products (see ShopContext.departments), so Kids appears the
 // moment the first kids product is added from the admin.
 export const DEPARTMENTS = [
-  { key: "men", name: "Men", tagline: "Jackets, hoodies, tees and track pants for every day of the week." },
+  { key: "men", name: "Men", image: DEMO_DEPARTMENT_IMAGES.men, tagline: "Jackets, hoodies, tees and track pants for every day of the week." },
   { key: "women", name: "Women", tagline: "Layers, tops and leggings, cut to move." },
   { key: "kids", name: "Kids", tagline: "Everyday wear and winter warmth for little ones." },
   { key: "accessories", name: "Bags & Accessories", navLabel: "Bags", tagline: "Trolleys, duffles, backpacks and beanies." },
@@ -99,22 +99,6 @@ export const PRODUCTS = DEMO_PRODUCTS;
 
 export const BANNERS = [
   {
-    id: "dummy-hero-video",
-    placement: "hero",
-    title: "Evenings in Tangmarg.",
-    subtitle: "Warm layers for the valley's cold nights, from the first frost to the first snow.",
-    ctaLabel: "Shop winter layers",
-    ctaLink: "/collections/winter-layers",
-    // Filmed near Tangmarg by the shop; built into seamless loops by scripts/hero-video/build.py.
-    videoUrl: "/video/hero-bonfire-landscape.mp4",
-    videoUrlPortrait: "/video/hero-bonfire-portrait.mp4",
-    imageUrl: "/video/hero-bonfire-landscape.webp",
-    imageUrlPortrait: "/video/hero-bonfire-portrait.webp",
-    theme: "dark",
-    sortOrder: 5,
-    isActive: true,
-  },
-  {
     id: "dummy-hero-1",
     placement: "hero",
     title: "Winter, layered.",
@@ -152,6 +136,15 @@ export const BANNERS = [
     isActive: true,
   },
 ];
+
+// The shop's bonfire footage from near Tangmarg, seamless loops built by scripts/hero-video/build.py.
+// It plays behind the Instagram band at the foot of the home page.
+export const BRAND_FILM = {
+  videoUrl: "/video/hero-bonfire-landscape.mp4",
+  videoUrlPortrait: "/video/hero-bonfire-portrait.mp4",
+  imageUrl: "/video/hero-bonfire-landscape.webp",
+  imageUrlPortrait: "/video/hero-bonfire-portrait.webp",
+};
 
 export const COLLECTIONS = DEMO_COLLECTIONS.map((c, i) => ({ id: `dummy-col-${c.slug}`, ...c, sortOrder: (i + 1) * 10, isActive: true }));
 

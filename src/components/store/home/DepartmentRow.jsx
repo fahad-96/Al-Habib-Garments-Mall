@@ -8,7 +8,7 @@ import Reveal from "../../ui/Reveal";
 // Three edge-to-edge tiles that continue the hero as a mosaic.
 export default function DepartmentRow() {
   const { categoriesFor, departments } = useShop();
-  const tiles = departments.map((d) => ({ ...d, image: categoriesFor(d.key)[0]?.imageUrl || "" }));
+  const tiles = departments.map((d) => ({ ...d, image: d.image || categoriesFor(d.key)[0]?.imageUrl || "" }));
   if (!tiles.length) return null;
 
   return (

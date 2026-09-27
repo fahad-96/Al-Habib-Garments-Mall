@@ -100,14 +100,17 @@ and so on). Product slugs come from the titles, so
 renaming a product changes its URL. Then run `npm run test:db`, which seeds the demo catalog into a
 test database.
 
-## Hero video
+## Home page photo and film
 
-The first home page slide plays the shop's own bonfire footage from Tangmarg. The two short phone
-clips in `scripts/hero-video/source` are stabilised and stitched into seamless ~13 s (laptop) and
-~11 s (phone) loops by `python3 scripts/hero-video/build.py` (needs `ffmpeg`), which writes a VP9
-WebM, an H.264 MP4 and a poster frame for each into `public/video`. The poster shows first; the
-video loads after the page, plays only while its slide is up, and is skipped for reduced motion and
-data saver. Any hero banner can take a video from Admin → Banners (Background video / Phone video).
+The first hero slide and the Men tile use the shop's own photo from the road near Tangmarg
+(`scripts/demo-catalog/source/hero-winter.jpg`; the catalog generator crops it for laptops, phones and
+the tile). The shop's bonfire footage plays full-bleed behind the Instagram band at the foot of the
+page. The two short clips in `scripts/hero-video/source` are stabilised and stitched into seamless
+~13 s (laptop) and ~11 s (phone) loops by `python3 scripts/hero-video/build.py` (needs `ffmpeg`),
+which writes a VP9 WebM, an H.264 MP4 and a poster frame for each into `public/video`. The poster
+shows first; the video loads after the page, plays only while the band is on screen, and is skipped
+for reduced motion and data saver. Any hero banner can also take a video or a phone crop from
+Admin → Banners.
 
 ## Security model
 

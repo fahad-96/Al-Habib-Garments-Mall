@@ -7469,3 +7469,7 @@ export const DEMO_HERO_IMAGES = {
  "hero-winter-portrait": "/image/art/hero-winter-portrait-f8c2d9b0.webp",
  "hero-everyday": "/image/art/hero-everyday-bf4c167b.webp"
 };
+
+export const DEMO_DEPARTMENT_IMAGES = {
+ "men": "/image/art/dept-men-b534141d.webp"
+};
