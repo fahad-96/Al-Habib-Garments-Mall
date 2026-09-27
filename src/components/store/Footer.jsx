@@ -85,9 +85,22 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-neutral-800">
-        <div className="container flex flex-col gap-3 py-5 pb-20 text-2xs uppercase tracking-micro text-neutral-400 sm:flex-row sm:items-center sm:justify-between sm:pb-5 sm:pr-24">
+        {/* Stacked on phones; from lg a 1fr/auto/1fr grid keeps the credit centred on the page. */}
+        <div className="container flex flex-col gap-3 py-5 pb-20 text-2xs uppercase tracking-micro text-neutral-400 sm:pb-5 sm:pr-24 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:gap-6">
           <p>© {year} {settings.storeName}. {settings.tagline}.</p>
-          <div className="flex flex-wrap gap-x-5">
+          <p className="font-display text-sm normal-case italic tracking-normal text-neutral-500 lg:text-center">
+            Made with <span className="not-italic text-paper/70" aria-label="love">♥</span> By{" "}
+            <a
+              href="https://fahad-yousuf.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-300 underline decoration-neutral-600 underline-offset-4 transition-colors hover:text-paper hover:decoration-paper/60"
+            >
+              Fahad Yousuf
+            </a>{" "}
+            in Srinagar
+          </p>
+          <div className="flex flex-wrap gap-x-5 lg:justify-end">
             <Link to="/policies#privacy" className="-my-3 inline-flex min-h-10 items-center hover:text-paper">Privacy</Link>
             <Link to="/policies#terms" className="-my-3 inline-flex min-h-10 items-center hover:text-paper">Terms</Link>
             <Link to="/admin/login" className="-my-3 inline-flex min-h-10 items-center hover:text-paper">Admin</Link>
