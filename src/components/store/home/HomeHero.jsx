@@ -5,8 +5,11 @@ import { useShop } from "../../../context/ShopContext";
 import { sanitizeImageUrl } from "../../../lib/format";
 import Button from "../../ui/Button";
 import Img from "../../ui/Img";
+import HeroVideo from "./HeroVideo";
 
 const INTERVAL_MS = 6000;
+// A video slide stays up long enough to be seen, about one pass of its loop.
+const VIDEO_INTERVAL_MS = 12000;
 
 // Fashion calendars run Autumn/Winter from September to February.
 export const seasonLabel = (date = new Date()) => {
@@ -21,7 +24,8 @@ const pad = (n) => String(n).padStart(2, "0");
 
 function Slide({ banner, active, index, count, eager, eyebrow }) {
   const dark = banner.theme !== "light";
-  const hasImage = Boolean(sanitizeImageUrl(banner.imageUrl));
+  const hasVideo = Boolean(sanitizeImageUrl(banner.videoUrl));
+  const hasImage = !hasVideo && Boolean(sanitizeImageUrl(banner.imageUrl));
   const cta = banner.ctaLabel && banner.ctaLink;
   return (
     <div
@@ -38,6 +42,13 @@ function Slide({ banner, active, index, count, eager, eyebrow }) {
           eager={eager}
           className={`absolute inset-0 h-full w-full object-cover object-right-top transition-transform duration-[7000ms] ease-linear lg:object-top ${active ? "scale-100" : "scale-[1.04]"}`}
         />
+      )}
+      {hasVideo && (
+        <>
+          <HeroVideo landscape={banner.videoUrl} portrait={banner.videoUrlPortrait} poster={banner.imageUrl} posterPortrait={banner.imageUrlPortrait} active={active} />
+          {/* Full-bleed footage: shade the copy side (left on desktop, bottom on phones) so the text reads over sky and grass. */}
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/35 via-50% to-ink/10 lg:bg-gradient-to-r lg:from-ink/75 lg:via-ink/30 lg:via-45% lg:to-transparent" aria-hidden="true" />
+        </>
       )}
       {/* On phones and tablets the photo sits behind the copy, so fade its lower half into the background. */}
       {hasImage && <div className={`absolute inset-x-0 bottom-0 h-[78%] lg:hidden ${dark ? "bg-gradient-to-t from-ink via-ink/90 via-45% to-ink/0" : "bg-gradient-to-t from-paper via-paper/90 via-45% to-paper/0"}`} aria-hidden="true" />}
@@ -101,10 +112,11 @@ export default function HomeHero({ banners = [], settings = {} }) {
 
   useEffect(() => {
     if (count < 2 || paused) return undefined;
-    const timer = window.setInterval(() => setIndex((i) => (i + 1) % count), INTERVAL_MS);
-    return () => window.clearInterval(timer);
+    const wait = sanitizeImageUrl(banners[current]?.videoUrl) ? VIDEO_INTERVAL_MS : INTERVAL_MS;
+    const timer = window.setTimeout(() => setIndex((i) => (i + 1) % count), wait);
+    return () => window.clearTimeout(timer);
     // `current` restarts the timer after a manual jump so the next slide gets a full interval.
-  }, [count, paused, current]);
+  }, [count, paused, current, banners]);
 
   if (!count) return <TypographicHero settings={settings} />;
 

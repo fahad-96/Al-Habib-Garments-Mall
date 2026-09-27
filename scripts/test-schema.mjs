@@ -6,7 +6,7 @@
 
 import { PGlite } from "@electric-sql/pglite";
 import { readFileSync } from "node:fs";
-import { PRODUCTS, CATEGORIES, productToRow, categoryToRow } from "../src/data/catalog.js";
+import { PRODUCTS, CATEGORIES, BANNERS, productToRow, categoryToRow, bannerToRow, mapBannerRow } from "../src/data/catalog.js";
 
 const db = new PGlite();
 let pass = 0, fail = 0;
@@ -87,6 +87,13 @@ await asAdmin(async () => {
   ok((await q(`select slug from public.products`)).length === PRODUCTS.length, "admin sees inactive products too");
   const upd = await q(`update public.products set badge = 'Bestseller' where slug = $1 returning badge`, [MAIN.p.slug]);
   ok(upd.length === 1, "admin can update products");
+  const video = BANNERS.find((b) => b.videoUrl);
+  const row = bannerToRow(video);
+  const cols = Object.keys(row);
+  const saved = await q(`insert into public.banners (${cols.join(", ")}) values (${cols.map((_, i) => `$${i + 1}`).join(", ")}) returning *`, Object.values(row));
+  const back = mapBannerRow(saved[0]);
+  ok(back.videoUrl === video.videoUrl && back.videoUrlPortrait === video.videoUrlPortrait && back.imageUrlPortrait === video.imageUrlPortrait, "hero video banner round-trips through the banners table");
+  await q(`delete from public.banners where id = $1`, [saved[0].id]);
 });
 await asStranger(async () => {
   ok((await q(`select public.is_admin_user() as a`))[0].a === false, "non-listed authenticated user is not admin");

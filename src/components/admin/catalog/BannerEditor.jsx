@@ -115,6 +115,12 @@ export default function BannerEditor({ open, item, placement = "hero", defaultSo
         <div className="sm:col-span-2 [&_.grid]:!grid-cols-3 sm:[&_.grid]:!grid-cols-4">
           <ImageUploader label="Artwork" value={draft.imageUrl} onChange={(imageUrl) => patch({ imageUrl })} folder="banners" nameHint={slugify(draft.title) || "banner"} aspect="aspect-video" hint="Wide 16:9, at least 1600px across. The hero crops to the screen, so keep the subject centred." />
         </div>
+        {draft.placement === "hero" && (
+          <>
+            <Input dark label="Background video (optional)" value={draft.videoUrl || ""} onChange={(e) => patch({ videoUrl: e.target.value })} placeholder="/video/hero-bonfire-landscape.mp4" hint="A short, silent MP4 that loops behind the text. The artwork above shows while it loads." autoComplete="off" spellCheck={false} className="[&_input]:font-mono [&_input]:text-sm" />
+            <Input dark label="Phone video (optional)" value={draft.videoUrlPortrait || ""} onChange={(e) => patch({ videoUrlPortrait: e.target.value })} placeholder="/video/hero-bonfire-portrait.mp4" hint="An upright cut for phones. Leave empty to crop the main video." autoComplete="off" spellCheck={false} className="[&_input]:font-mono [&_input]:text-sm" />
+          </>
+        )}
         <div className="grid gap-5 sm:col-span-2 sm:grid-cols-2 sm:items-end">
           <Input dark type="number" inputMode="numeric" label="Sort order" value={draft.sortOrder} onChange={(e) => patch({ sortOrder: e.target.value })} hint="Lower numbers come first." />
           <ToggleBox className="mb-[1.375rem] sm:mb-[1.4rem]">

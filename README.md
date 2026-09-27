@@ -100,6 +100,15 @@ and so on). Product slugs come from the titles, so
 renaming a product changes its URL. Then run `npm run test:db`, which seeds the demo catalog into a
 test database.
 
+## Hero video
+
+The first home page slide plays the shop's own bonfire footage from Tangmarg. The two short phone
+clips in `scripts/hero-video/source` are stabilised and stitched into seamless ~13 s (laptop) and
+~11 s (phone) loops by `python3 scripts/hero-video/build.py` (needs `ffmpeg`), which writes a VP9
+WebM, an H.264 MP4 and a poster frame for each into `public/video`. The poster shows first; the
+video loads after the page, plays only while its slide is up, and is skipped for reduced motion and
+data saver. Any hero banner can take a video from Admin → Banners (Background video / Phone video).
+
 ## Security model
 
 - Admin identity is Supabase Auth. There are no credentials in the code.

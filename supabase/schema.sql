@@ -195,6 +195,10 @@ create table if not exists public.banners (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+-- Optional background video for hero slides (portrait cuts for phones), added after the first release.
+alter table public.banners add column if not exists image_url_portrait text not null default '';
+alter table public.banners add column if not exists video_url text not null default '';
+alter table public.banners add column if not exists video_url_portrait text not null default '';
 drop trigger if exists banners_set_updated_at on public.banners;
 create trigger banners_set_updated_at before update on public.banners for each row execute function public.set_updated_at();
 alter table public.banners enable row level security;
