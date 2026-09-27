@@ -743,8 +743,10 @@ export const SIZES_BY_CAT = {
 };
 
 // ── Site artwork: hero and collection compositions (photo references as in CATEGORIES) ──
+// A hero can use a photo of someone wearing the clothes instead: `shot` is the photo id and `listing` the
+// desertcart product number it comes from (demo only, like the SHOTS photos).
 export const HEROES = [
-  { name: "hero-winter", photo: "Hooded Baffle Puffer/Olive" },
+  { name: "hero-winter", shot: "71iCVARL5aL", listing: "445339564" },
   { name: "hero-everyday", photo: "Slub Henley Tee/Sand" },
 ];
 

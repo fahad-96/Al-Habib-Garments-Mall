@@ -10,7 +10,7 @@
 // scripts/demo-catalog/build.mjs (borrowed product photography for the demo, see
 // public/image/ATTRIBUTIONS.md and README → Demo catalog).
 // ─────────────────────────────────────────────────────────────────────────────
-import { DEMO_CATEGORY_IMAGES, DEMO_COLLECTIONS, DEMO_PRODUCTS } from "./demo-products.js";
+import { DEMO_CATEGORY_IMAGES, DEMO_COLLECTIONS, DEMO_HERO_IMAGES, DEMO_PRODUCTS } from "./demo-products.js";
 
 export const STORE = {
   name: "Al Habib Garments Mall",
@@ -105,7 +105,7 @@ export const BANNERS = [
     subtitle: "Puffers, parkas, hoodies and fleece built for Kunzer's cold.",
     ctaLabel: "Shop winter layers",
     ctaLink: "/collections/winter-layers",
-    imageUrl: "/image/art/hero-winter.webp",
+    imageUrl: DEMO_HERO_IMAGES["hero-winter"],
     theme: "light",
     sortOrder: 10,
     isActive: true,
@@ -117,7 +117,7 @@ export const BANNERS = [
     subtitle: "Tees, track pants and basics that carry the week.",
     ctaLabel: "Shop essentials",
     ctaLink: "/collections/everyday-essentials",
-    imageUrl: "/image/art/hero-everyday.webp",
+    imageUrl: DEMO_HERO_IMAGES["hero-everyday"],
     theme: "light",
     sortOrder: 20,
     isActive: true,

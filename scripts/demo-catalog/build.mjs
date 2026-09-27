@@ -14,6 +14,7 @@
 //   MAGENTO_SAMPLE_DIR=/path/to/magento2-sample-data node scripts/demo-catalog/build.mjs
 // Downloaded photos are kept in DEMO_PHOTO_CACHE (default node_modules/.cache/demo-catalog). Behind an HTTPS
 // proxy, add NODE_USE_ENV_PROXY=1 so Node's fetch uses it.
+import { createHash } from "node:crypto";
 import { createRequire } from "node:module";
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { basename, dirname, join, resolve } from "node:path";
@@ -350,49 +351,58 @@ const backgroundOf = async (file) => {
   return `#${[data[i], data[i + 1], data[i + 2]].map((v) => v.toString(16).padStart(2, "0")).join("")}`;
 };
 // The photo sits on the right on a canvas of its own background colour, leaving room for copy on the left.
-const compose = async (src, dest, W, H, right) => {
+const compose = async (src, W, H, right) => {
   const photo = await sharp(src).resize({ height: H }).toBuffer();
   const { width } = await sharp(photo).metadata();
-  await sharp({ create: { width: W, height: H, channels: 3, background: await backgroundOf(src) } })
+  return sharp({ create: { width: W, height: H, channels: 3, background: await backgroundOf(src) } })
     .composite([{ input: photo, left: Math.max(0, W - width - right), top: 0 }])
     .webp({ quality: 82 })
-    .toFile(dest);
+    .toBuffer();
 };
 
 // Hero slides are cropped hard on phones (object-right-top keeps only the right ~660 px of 1800), so the
 // product is trimmed and fitted into a box on the right that stays inside that crop and inside the top
 // 840 px a wide desktop screen shows.
 const HERO = { width: 1800, height: 1100, box: { width: 560, height: 780, right: 100, top: 60 } };
-const composeHero = async (src, dest) => {
+// A model photo (`model: true`) is cut off at the bottom, so it is scaled to the full slide height and
+// stands on the bottom edge instead of floating in the box.
+const composeHero = async (src, { model = false } = {}) => {
   const { box } = HERO;
   const background = await backgroundOf(src);
   const trimmed = await sharp(src).trim({ background, threshold: 16 }).toBuffer();
-  const { data, info } = await sharp(trimmed).resize(box.width, box.height, { fit: "inside" }).toBuffer({ resolveWithObject: true });
-  await sharp({ create: { width: HERO.width, height: HERO.height, channels: 3, background } })
-    .composite([{ input: data, left: HERO.width - box.right - info.width - Math.round((box.width - info.width) / 2), top: box.top + Math.round((box.height - info.height) / 2) }])
+  const fit = model ? { width: box.width, height: HERO.height - box.top } : box;
+  const { data, info } = await sharp(trimmed).resize(fit.width, fit.height, { fit: "inside" }).toBuffer({ resolveWithObject: true });
+  const left = HERO.width - box.right - info.width - Math.round((box.width - info.width) / 2);
+  const top = model ? HERO.height - info.height : box.top + Math.round((box.height - info.height) / 2);
+  return sharp({ create: { width: HERO.width, height: HERO.height, channels: 3, background } })
+    .composite([{ input: data, left, top }])
     .webp({ quality: 82 })
-    .toFile(dest);
+    .toBuffer();
 };
 
+// Artwork file names carry a hash of their content, so a new version gets a new URL and is never
+// hidden behind the week-long cache on /image/* (netlify.toml).
 mkdirSync(OUT_ART, { recursive: true });
 const artFiles = new Set();
+const writeArt = (base, buffer) => {
+  const file = `${base}-${createHash("sha256").update(buffer).digest("hex").slice(0, 8)}.webp`;
+  writeFileSync(join(OUT_ART, file), buffer);
+  artFiles.add(file);
+  return `/image/art/${file}`;
+};
+const heroImages = {};
 for (const h of SPEC.HEROES) {
-  await composeHero(srcOf(h.photo), join(OUT_ART, `${h.name}.webp`));
-  artFiles.add(`${h.name}.webp`);
+  const src = h.shot ? await shotPhoto(h.shot, h.name) : srcOf(h.photo);
+  heroImages[h.name] = writeArt(h.name, await composeHero(src, { model: Boolean(h.shot) }));
 }
 const categoryImages = {};
 for (const c of SPEC.CATEGORIES) {
   if (!c.image) continue;
-  const file = `cat-${c.key}.webp`;
-  await sharp(srcOf(c.image)).resize(800, 1000, { fit: "cover", position: "top" }).webp({ quality: 80 }).toFile(join(OUT_ART, file));
-  categoryImages[c.key] = `/image/art/${file}`;
-  artFiles.add(file);
+  categoryImages[c.key] = writeArt(`cat-${c.key}`, await sharp(srcOf(c.image)).resize(800, 1000, { fit: "cover", position: "top" }).webp({ quality: 80 }).toBuffer());
 }
 const collections = [];
 for (const col of SPEC.COLLECTIONS) {
-  const file = `col-${col.slug}.webp`;
-  await compose(srcOf(col.photo), join(OUT_ART, file), 1200, 900, 90);
-  artFiles.add(file);
+  const imageUrl = writeArt(`col-${col.slug}`, await compose(srcOf(col.photo), 1200, 900, 90));
   const limit = col.limit || 16;
   const list = products.filter(
     (p) => (!col.cats || col.cats.includes(p.categoryKey)) && (!col.tag || p.tags.includes(col.tag)) && (!col.badge || p.badge === col.badge) && (!col.maxPrice || p.price <= col.maxPrice),
@@ -404,7 +414,7 @@ for (const col of SPEC.COLLECTIONS) {
   const mixed = [];
   while (mixed.length < limit && queues.some((q) => q.length)) for (const q of queues) if (q.length && mixed.length < limit) mixed.push(q.shift());
   if (!mixed.length) fail(`collection ${col.slug} matched no products.`);
-  collections.push({ slug: col.slug, name: col.name, description: col.description, imageUrl: `/image/art/${file}`, productSlugs: mixed.map((p) => p.slug) });
+  collections.push({ slug: col.slug, name: col.name, description: col.description, imageUrl, productSlugs: mixed.map((p) => p.slug) });
 }
 // Remove artwork this script generated before but no longer does (hand-made SVGs are left alone).
 for (const f of readdirSync(OUT_ART)) if (/^(hero|cat|col)-.*\.webp$/.test(f) && !artFiles.has(f)) rmSync(join(OUT_ART, f));
@@ -417,11 +427,12 @@ const header = `// GENERATED by scripts/demo-catalog/build.mjs from scripts/demo
 `;
 writeFileSync(
   OUT_MODULE,
-  `${header}export const DEMO_PRODUCTS = ${JSON.stringify(products, null, 1)};\n\nexport const DEMO_COLLECTIONS = ${JSON.stringify(collections, null, 1)};\n\nexport const DEMO_CATEGORY_IMAGES = ${JSON.stringify(categoryImages, null, 1)};\n`,
+  `${header}export const DEMO_PRODUCTS = ${JSON.stringify(products, null, 1)};\n\nexport const DEMO_COLLECTIONS = ${JSON.stringify(collections, null, 1)};\n\nexport const DEMO_CATEGORY_IMAGES = ${JSON.stringify(categoryImages, null, 1)};\n\nexport const DEMO_HERO_IMAGES = ${JSON.stringify(heroImages, null, 1)};\n`,
 );
 const shotRows = planned
   .filter(({ variants }) => variants[0].shot)
   .map(({ product, variants }) => `| ${product.title} | ${variants.map((v) => `${v.name}: <${SHOT_LISTING_URL(v.listing)}>`).join("<br>")} |`);
+for (const h of SPEC.HEROES) if (h.shot) shotRows.push(`| Home page slide (${h.name}) | <${SHOT_LISTING_URL(h.listing)}> |`);
 writeFileSync(
   OUT_ATTRIBUTIONS,
   `# Photo attributions

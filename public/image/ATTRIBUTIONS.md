@@ -121,3 +121,4 @@ photos are needed once the store has its own products.
 | Expandable Canvas Holdall | Black: <https://www.desertcart.in/products/888592635> |
 | Leather-Look Gym Duffle | Tan: <https://www.desertcart.in/products/888501192> |
 | Weekender Holdall | Black: <https://www.desertcart.in/products/445309269> |
+| Home page slide (hero-winter) | <https://www.desertcart.in/products/445339564> |

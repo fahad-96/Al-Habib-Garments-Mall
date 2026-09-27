@@ -7357,7 +7357,7 @@ export const DEMO_COLLECTIONS = [
   "slug": "winter-layers",
   "name": "Winter Layers",
   "description": "Puffers, parkas, fleece and hoodies for the valley's cold, for men and women.",
-  "imageUrl": "/image/art/col-winter-layers.webp",
+  "imageUrl": "/image/art/col-winter-layers-b7d5ec60.webp",
   "productSlugs": [
    "quilted-check-shacket",
    "cable-texture-raglan-hoodie",
@@ -7381,7 +7381,7 @@ export const DEMO_COLLECTIONS = [
   "slug": "everyday-essentials",
   "name": "Everyday Essentials",
   "description": "Tees, vests, tops, track pants and leggings under ₹1,500. The pieces that carry a week.",
-  "imageUrl": "/image/art/col-everyday-essentials.webp",
+  "imageUrl": "/image/art/col-everyday-essentials-3ac6871f.webp",
   "productSlugs": [
    "embroidered-linen-top",
    "slub-henley-tee",
@@ -7405,7 +7405,7 @@ export const DEMO_COLLECTIONS = [
   "slug": "travel-edit",
   "name": "The Travel Edit",
   "description": "Trolleys, duffles, backpacks and a warm beanie for the road to Srinagar and beyond.",
-  "imageUrl": "/image/art/col-travel-edit.webp",
+  "imageUrl": "/image/art/col-travel-edit-631f5f12.webp",
   "productSlugs": [
    "sport-duffle-bag",
    "cuffed-knit-beanie",
@@ -7429,7 +7429,7 @@ export const DEMO_COLLECTIONS = [
   "slug": "new-season",
   "name": "New Season",
   "description": "The latest arrivals across the mall.",
-  "imageUrl": "/image/art/col-new-season.webp",
+  "imageUrl": "/image/art/col-new-season-a3802b36.webp",
   "productSlugs": [
    "camo-print-hooded-puffer",
    "summit-backpack",
@@ -7450,16 +7450,21 @@ export const DEMO_COLLECTIONS = [
 ];
 
 export const DEMO_CATEGORY_IMAGES = {
- "men-jackets": "/image/art/cat-men-jackets.webp",
- "women-tops": "/image/art/cat-women-tops.webp",
- "men-sweatshirts": "/image/art/cat-men-sweatshirts.webp",
- "women-jackets": "/image/art/cat-women-jackets.webp",
- "men-t-shirts": "/image/art/cat-men-t-shirts.webp",
- "women-sweatshirts": "/image/art/cat-women-sweatshirts.webp",
- "accessories-bags": "/image/art/cat-accessories-bags.webp",
- "men-track-pants": "/image/art/cat-men-track-pants.webp",
- "women-leggings": "/image/art/cat-women-leggings.webp",
- "accessories-beanies": "/image/art/cat-accessories-beanies.webp",
- "men-shorts": "/image/art/cat-men-shorts.webp",
- "men-vests": "/image/art/cat-men-vests.webp"
+ "men-jackets": "/image/art/cat-men-jackets-5ed1fef7.webp",
+ "women-tops": "/image/art/cat-women-tops-7839420f.webp",
+ "men-sweatshirts": "/image/art/cat-men-sweatshirts-8332673e.webp",
+ "women-jackets": "/image/art/cat-women-jackets-3403553a.webp",
+ "men-t-shirts": "/image/art/cat-men-t-shirts-82e5d477.webp",
+ "women-sweatshirts": "/image/art/cat-women-sweatshirts-2898279f.webp",
+ "accessories-bags": "/image/art/cat-accessories-bags-2a41e517.webp",
+ "men-track-pants": "/image/art/cat-men-track-pants-e9a8a402.webp",
+ "women-leggings": "/image/art/cat-women-leggings-ba5df21e.webp",
+ "accessories-beanies": "/image/art/cat-accessories-beanies-e839072d.webp",
+ "men-shorts": "/image/art/cat-men-shorts-ac587805.webp",
+ "men-vests": "/image/art/cat-men-vests-e6b386fa.webp"
+};
+
+export const DEMO_HERO_IMAGES = {
+ "hero-winter": "/image/art/hero-winter-6d29fc43.webp",
+ "hero-everyday": "/image/art/hero-everyday-bf4c167b.webp"
 };
