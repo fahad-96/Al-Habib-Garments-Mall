@@ -1,6 +1,6 @@
 // Generates the monochrome site artwork used by dark bands and editorial pages
 // (public/image/art/*.svg). Product photos live in public/image/products and are
-// produced separately from open-source photography (see public/image/ATTRIBUTIONS.md).
+// produced separately by scripts/demo-catalog/build.mjs (see public/image/ATTRIBUTIONS.md).
 //
 //   node scripts/make-placeholders.mjs
 import { mkdirSync, writeFileSync } from "node:fs";

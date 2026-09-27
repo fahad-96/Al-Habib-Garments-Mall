@@ -1,13 +1,19 @@
-// Builds the built-in demo catalog from open-source product photography:
-//   - reads product photos and metadata from the Magento sample data CSV fixtures and the Sylius cap fixtures,
+// Builds the built-in demo catalog:
+//   - downloads the product-only photos listed in SPEC.SHOTS (seller listings on desertcart.in, served from
+//     m.media-amazon.com) once into a local cache, trims their white margin and centres each product on a
+//     clean white card,
+//   - reads the bottoms and everyday bags from the Magento sample data CSV fixtures,
 //   - applies the copy, colours and mappings in ./spec.mjs,
 //   - writes every product photo as <name>.webp (900 × 1200) and <name>-sm.webp (450 × 600) under public/image/products,
 //   - composes the hero, category and collection artwork in public/image/art,
 //   - writes src/data/demo-products.js and public/image/ATTRIBUTIONS.md.
+// The site only ever uses the files written here; nothing links to the photo sources.
 //
 // Usage (see README → Demo catalog):
 //   npm i --no-save sharp
-//   MAGENTO_SAMPLE_DIR=/path/to/magento2-sample-data SYLIUS_DIR=/path/to/Sylius node scripts/demo-catalog/build.mjs
+//   MAGENTO_SAMPLE_DIR=/path/to/magento2-sample-data node scripts/demo-catalog/build.mjs
+// Downloaded photos are kept in DEMO_PHOTO_CACHE (default node_modules/.cache/demo-catalog). Behind an HTTPS
+// proxy, add NODE_USE_ENV_PROXY=1 so Node's fetch uses it.
 import { createRequire } from "node:module";
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { basename, dirname, join, resolve } from "node:path";
@@ -16,13 +22,14 @@ import * as SPEC from "./spec.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const MAGENTO_DIR = resolve(process.env.MAGENTO_SAMPLE_DIR || "/home/user/magento/sample");
-const SYLIUS_DIR = resolve(process.env.SYLIUS_DIR || "/home/user/sylius/Sylius");
+const PHOTO_CACHE = resolve(process.env.DEMO_PHOTO_CACHE || join(ROOT, "node_modules/.cache/demo-catalog"));
+const SHOT_PHOTO_URL = (id) => `https://m.media-amazon.com/images/I/${id}.jpg`;
+const SHOT_LISTING_URL = (listing) => `https://www.desertcart.in/products/${listing}`;
 
 const MAGENTO_MEDIA = join(MAGENTO_DIR, "pub/media/catalog/product");
 const MAGENTO_APPAREL_CSV = join(MAGENTO_DIR, "app/code/Magento/ConfigurableSampleData/fixtures/products.csv");
 const MAGENTO_BAGS_CSV = join(MAGENTO_DIR, "app/code/Magento/CatalogSampleData/fixtures/SimpleProduct/products_gear_bags.csv");
 const MAGENTO_BAG_IMAGES_CSV = join(MAGENTO_DIR, "app/code/Magento/CatalogSampleData/fixtures/SimpleProduct/images_gear_bags.csv");
-const SYLIUS_CAPS = join(SYLIUS_DIR, "src/Sylius/Bundle/CoreBundle/Resources/fixtures/caps");
 
 const OUT_PRODUCTS = join(ROOT, "public/image/products");
 const OUT_ART = join(ROOT, "public/image/art");
@@ -31,6 +38,8 @@ const OUT_ATTRIBUTIONS = join(ROOT, "public/image/ATTRIBUTIONS.md");
 
 const IMAGE = { width: 900, height: 1200, quality: 80 };
 const IMAGE_SM = { width: 450, height: 600, quality: 78 };
+// White margin around a product-only photo on its 900 × 1200 card, so every product sits the same way.
+const SHOT_MARGIN = { x: 70, y: 80 };
 
 const fail = (message) => {
   console.error(`\ndemo-catalog: ${message}\n`);
@@ -43,7 +52,6 @@ const requireSource = (path, what, envVar) => {
 };
 requireSource(MAGENTO_APPAREL_CSV, "Magento sample data", "MAGENTO_SAMPLE_DIR");
 requireSource(MAGENTO_MEDIA, "Magento sample photos (pub/media/catalog/product)", "MAGENTO_SAMPLE_DIR");
-requireSource(SYLIUS_CAPS, "Sylius cap fixtures", "SYLIUS_DIR");
 
 // sharp is a build-time tool only, so it is not a project dependency.
 const loadSharp = () => {
@@ -128,6 +136,35 @@ const extractBags = () => {
     (images.get(sku)[token] = images.get(sku)[token] || []).push(file);
   }
   return { skus, images };
+};
+
+// Product-only photos: downloaded once, then read from the cache.
+const shotPhoto = async (id, where) => {
+  const file = join(PHOTO_CACHE, `${id}.jpg`);
+  if (existsSync(file) && statSync(file).size > 0) return file;
+  mkdirSync(PHOTO_CACHE, { recursive: true });
+  const url = SHOT_PHOTO_URL(id);
+  let res;
+  try {
+    res = await fetch(url);
+  } catch (e) {
+    return fail(`${where}: could not download ${url} (${e.cause?.code || e.message}).\nBehind an HTTPS proxy, run the script with NODE_USE_ENV_PROXY=1.`);
+  }
+  if (!res.ok) fail(`${where}: ${url} answered HTTP ${res.status}.`);
+  writeFileSync(file, Buffer.from(await res.arrayBuffer()));
+  return file;
+};
+
+// Trim the photo's white margin and centre the product on a white 900 × 1200 card.
+const shotCard = async (file) => {
+  const trimmed = await sharp(file).flatten({ background: "#ffffff" }).trim({ background: "#ffffff", threshold: 16 }).toBuffer();
+  const { data, info } = await sharp(trimmed)
+    .resize(IMAGE.width - 2 * SHOT_MARGIN.x, IMAGE.height - 2 * SHOT_MARGIN.y, { fit: "inside" })
+    .toBuffer({ resolveWithObject: true });
+  return sharp({ create: { width: IMAGE.width, height: IMAGE.height, channels: 3, background: "#ffffff" } })
+    .composite([{ input: data, left: Math.round((IMAGE.width - info.width) / 2), top: Math.round((IMAGE.height - info.height) / 2) }])
+    .png()
+    .toBuffer();
 };
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -216,6 +253,7 @@ const plan = ({ key, cat, title, short, price, mrp, badge, details, tags, highli
   });
 };
 
+const entries = []; // every product with its photo variants, before ordering
 for (const a of SPEC.APPAREL) {
   const m = MAGENTO.get(a.sku);
   if (!m) fail(`no Magento product ${a.sku} in ${MAGENTO_APPAREL_CSV}.`);
@@ -225,7 +263,7 @@ for (const a of SPEC.APPAREL) {
     .map((v) => ({ ...colourOf(a.colors?.[v.color] ?? SPEC.COLOR_RENAME[v.color] ?? v.color, a.sku), files: v.images.filter((f) => !skip.has(stem(f))), ref: `${a.sku}/${v.color}` }))
     .filter((v) => v.files.length)
     .sort((x, y) => y.files.length - x.files.length); // the colour with the full photo set leads
-  plan({ ...a, key: a.sku, variants });
+  entries.push({ ...a, key: a.sku, variants });
 }
 for (const b of SPEC.BAGS) {
   if (!BAG_SOURCES.skus.has(b.sku)) fail(`no Magento bag ${b.sku} in ${MAGENTO_BAGS_CSV}.`);
@@ -234,15 +272,30 @@ for (const b of SPEC.BAGS) {
     if (!photos[token]?.length) fail(`${b.sku}: no "${token}" photo in ${MAGENTO_BAG_IMAGES_CSV}.`);
     return { ...colourOf(value, b.sku), files: photos[token], ref: `${b.sku}/${token}` };
   });
-  plan({ ...b, key: b.sku, variants });
+  entries.push({ ...b, key: b.sku, variants });
 }
-for (const c of SPEC.CAPS) {
-  const files = c.files.map((f) => join(SYLIUS_CAPS, f));
-  const missing = files.find((f) => !existsSync(f));
-  if (missing) fail(`${c.id}: missing ${missing}.`);
-  const colour = colourOf(c.color, c.id);
-  plan({ ...c, key: c.id, variants: [{ ...colour, files, ref: `${c.id}/${colour.name}` }] });
+const shotIds = new Set();
+for (const s of SPEC.SHOTS) {
+  const variants = [];
+  for (const v of s.variants) {
+    const colour = colourOf(v.color, s.title);
+    if (!/^\d+$/.test(v.listing)) fail(`${s.title}: listing "${v.listing}" is not a desertcart product number.`);
+    if (!v.photos.length) fail(`${s.title} (${colour.name}): no photos.`);
+    const files = [];
+    for (const id of v.photos) {
+      if (shotIds.has(id)) fail(`${s.title}: photo ${id} is used twice.`);
+      shotIds.add(id);
+      files.push(await shotPhoto(id, s.title));
+    }
+    variants.push({ ...colour, files, shot: true, listing: v.listing, ref: `${s.title}/${colour.name}` });
+  }
+  entries.push({ ...s, key: s.title, variants });
 }
+// Interleave the categories (in SPEC.CATEGORIES order) so the newest products, and "New in", mix them.
+const queues = SPEC.CATEGORIES.map((c) => entries.filter((e) => e.cat === c.key));
+const stray = entries.find((e) => !catBy[e.cat]);
+if (stray) fail(`${stray.key}: unknown category ${stray.cat}.`);
+while (queues.some((q) => q.length)) for (const q of queues) if (q.length) plan(q.shift());
 
 // ── Checks before anything is written ────────────────────────────────────────
 const problems = [];
@@ -270,7 +323,7 @@ const writeProductImage = async (src, dir, name) => {
 
 rmSync(OUT_PRODUCTS, { recursive: true, force: true });
 mkdirSync(OUT_PRODUCTS, { recursive: true });
-const photoIndex = {}; // "SKU/source colour" -> source file of the colour's first photo
+const photoIndex = {}; // photo reference ("Title/Colour" or "SKU/Magento colour") -> the colour's first photo
 let written = 0;
 for (const { variants, product } of planned) {
   const dir = join(OUT_PRODUCTS, product.slug);
@@ -279,17 +332,18 @@ for (const { variants, product } of planned) {
     const v = variants[vi];
     for (let i = 0; i < v.files.length; i++) {
       const name = `${colorSlug(v.name)}-${i + 1}`;
-      await writeProductImage(v.files[i], dir, name);
+      const src = v.shot ? await shotCard(v.files[i]) : v.files[i];
+      await writeProductImage(src, dir, name);
       product.variants[vi].images.push(`/image/products/${product.slug}/${name}.webp`);
       written += 2;
+      if (i === 0) photoIndex[v.ref] = src;
     }
-    photoIndex[v.ref] = v.files[0];
   }
 }
 const products = planned.map((p) => p.product);
 
 // ── Artwork ──────────────────────────────────────────────────────────────────
-const srcOf = (ref) => photoIndex[ref] || fail(`no photo for ${ref} (use "SKU/Magento colour", e.g. "MS01/Black").`);
+const srcOf = (ref) => photoIndex[ref] || fail(`no photo for ${ref} (use "Product title/Colour" or "SKU/Magento colour", e.g. "MP07/Blue").`);
 const backgroundOf = async (file) => {
   const { data, info } = await sharp(file).raw().toBuffer({ resolveWithObject: true });
   const i = (4 * info.width + 4) * info.channels;
@@ -305,10 +359,25 @@ const compose = async (src, dest, W, H, right) => {
     .toFile(dest);
 };
 
+// Hero slides are cropped hard on phones (object-right-top keeps only the right ~660 px of 1800), so the
+// product is trimmed and fitted into a box on the right that stays inside that crop and inside the top
+// 840 px a wide desktop screen shows.
+const HERO = { width: 1800, height: 1100, box: { width: 560, height: 780, right: 100, top: 60 } };
+const composeHero = async (src, dest) => {
+  const { box } = HERO;
+  const background = await backgroundOf(src);
+  const trimmed = await sharp(src).trim({ background, threshold: 16 }).toBuffer();
+  const { data, info } = await sharp(trimmed).resize(box.width, box.height, { fit: "inside" }).toBuffer({ resolveWithObject: true });
+  await sharp({ create: { width: HERO.width, height: HERO.height, channels: 3, background } })
+    .composite([{ input: data, left: HERO.width - box.right - info.width - Math.round((box.width - info.width) / 2), top: box.top + Math.round((box.height - info.height) / 2) }])
+    .webp({ quality: 82 })
+    .toFile(dest);
+};
+
 mkdirSync(OUT_ART, { recursive: true });
 const artFiles = new Set();
 for (const h of SPEC.HEROES) {
-  await compose(srcOf(h.photo), join(OUT_ART, `${h.name}.webp`), 1800, 1100, 140);
+  await composeHero(srcOf(h.photo), join(OUT_ART, `${h.name}.webp`));
   artFiles.add(`${h.name}.webp`);
 }
 const categoryImages = {};
@@ -343,27 +412,43 @@ for (const f of readdirSync(OUT_ART)) if (/^(hero|cat|col)-.*\.webp$/.test(f) &&
 // ── Module and attributions ──────────────────────────────────────────────────
 const header = `// GENERATED by scripts/demo-catalog/build.mjs from scripts/demo-catalog/spec.mjs. Do not edit by hand:
 // change the spec and run the script (see README → Demo catalog).
-// Photos: Magento Luma sample data (OSL 3.0) and Sylius fixtures (MIT). See public/image/ATTRIBUTIONS.md.
+// Photos: seller listings on desertcart.in (demo only, to be replaced) and Magento Luma sample data (OSL 3.0).
+// See public/image/ATTRIBUTIONS.md.
 `;
 writeFileSync(
   OUT_MODULE,
   `${header}export const DEMO_PRODUCTS = ${JSON.stringify(products, null, 1)};\n\nexport const DEMO_COLLECTIONS = ${JSON.stringify(collections, null, 1)};\n\nexport const DEMO_CATEGORY_IMAGES = ${JSON.stringify(categoryImages, null, 1)};\n`,
 );
+const shotRows = planned
+  .filter(({ variants }) => variants[0].shot)
+  .map(({ product, variants }) => `| ${product.title} | ${variants.map((v) => `${v.name}: <${SHOT_LISTING_URL(v.listing)}>`).join("<br>")} |`);
 writeFileSync(
   OUT_ATTRIBUTIONS,
   `# Photo attributions
 
-The built-in demo catalog uses open-source product photography so the store looks complete before
-the owner uploads their own photos from the admin dashboard.
+The built-in demo catalog borrows product photography so the store looks complete for the presentation,
+before the owner uploads his own photos from the admin dashboard.
 
-| Source | License | Used for |
+> **Demo only.** The product-only photos of the jackets, sweatshirts, t-shirts, vests, tops, beanies and
+> travel bags are other sellers' listing photos from desertcart.in. They belong to those sellers and brands
+> and are used here as placeholders for the presentation only. Replace every one of them with the shop's own
+> photos (Admin → Products) before the store sells for real.
+
+| Source | Terms | Used for |
 | --- | --- | --- |
-| [magento/magento2-sample-data](https://github.com/magento/magento2-sample-data) (Luma sample catalog, \`pub/media/catalog/product\`) | Open Software License 3.0 | Men's and women's jackets, hoodies, tees, track pants, shorts, vests; bags |
-| [Sylius/Sylius](https://github.com/Sylius/Sylius) (\`src/Sylius/Bundle/CoreBundle/Resources/fixtures/caps\`) | MIT | Beanies |
+| Seller listings on [desertcart.in](https://www.desertcart.in) (images served from m.media-amazon.com) | © the respective sellers and brands; placeholder for the demo only | Men's and women's jackets, sweatshirts and hoodies; men's t-shirts and vests; women's tops; beanies; trolleys, duffles and holdalls |
+| [magento/magento2-sample-data](https://github.com/magento/magento2-sample-data) (Luma sample catalog, \`pub/media/catalog/product\`) | Open Software License 3.0 | Men's track pants and shorts, women's leggings; backpacks, totes, messengers and duffles |
 
-Each photo was resized to 900 × 1200 WebP, with a 450 × 600 copy (\`-sm.webp\`) for phones, by
-\`scripts/demo-catalog/build.mjs\`. Product names, descriptions and colour names are our own. Replace
-the photos with your own from Admin → Products; none of them are needed once the store has its own products.
+Each photo was saved into this repository at 900 × 1200 WebP, with a 450 × 600 copy (\`-sm.webp\`) for phones,
+by \`scripts/demo-catalog/build.mjs\`; the site never loads images from the sources. Product-only photos were
+trimmed and centred on a white card. Product names, descriptions and colour names are our own. None of the
+photos are needed once the store has its own products.
+
+## Borrowed photos to replace
+
+| Product | Source listing per colour |
+| --- | --- |
+${shotRows.join("\n")}
 `,
 );
 

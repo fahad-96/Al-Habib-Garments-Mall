@@ -7,7 +7,7 @@
 // with the row mappers at the bottom (DB rows are snake_case, the app is camelCase).
 //
 // Demo products and their photos are generated into ./demo-products.js by
-// scripts/demo-catalog/build.mjs (open-source product photography, see
+// scripts/demo-catalog/build.mjs (borrowed product photography for the demo, see
 // public/image/ATTRIBUTIONS.md and README → Demo catalog).
 // ─────────────────────────────────────────────────────────────────────────────
 import { DEMO_CATEGORY_IMAGES, DEMO_COLLECTIONS, DEMO_PRODUCTS } from "./demo-products.js";
@@ -26,7 +26,7 @@ export const DEPARTMENTS = [
   { key: "men", name: "Men", tagline: "Jackets, hoodies, tees and track pants for every day of the week." },
   { key: "women", name: "Women", tagline: "Layers, tops and leggings, cut to move." },
   { key: "kids", name: "Kids", tagline: "Everyday wear and winter warmth for little ones." },
-  { key: "accessories", name: "Bags & Accessories", navLabel: "Bags", tagline: "Backpacks, duffles, messengers and beanies." },
+  { key: "accessories", name: "Bags & Accessories", navLabel: "Bags", tagline: "Trolleys, duffles, backpacks and beanies." },
 ];
 
 export const SIZE_SETS = {
@@ -72,21 +72,21 @@ const C = (department, slug, name, sizeSet, description = "") => ({
 });
 
 export const CATEGORIES = [
-  C("men", "t-shirts", "T-Shirts", "apparel", "Crew and V-neck tees in light, quick-drying knits."),
+  C("men", "t-shirts", "T-Shirts", "apparel", "Crew, V-neck and henley tees in soft cotton knits."),
   C("men", "sweatshirts", "Sweatshirts & Hoodies", "apparel", "Fleece hoodies and crewnecks for the cold months."),
-  C("men", "jackets", "Jackets", "apparel", "Windbreakers, shells and fleece-lined layers."),
+  C("men", "jackets", "Jackets", "apparel", "Puffers, fleece-lined jackets, windbreakers and overcoats."),
   C("men", "track-pants", "Track Pants & Joggers", "waist", "Straight-leg track pants, joggers and lounge pants."),
   C("men", "shorts", "Shorts", "waist", "Lightweight shorts for warm afternoons."),
-  C("men", "vests", "Vests & Basics", "apparel", "Everyday vests and base layers."),
-  C("women", "tops", "Tops & T-Shirts", "apparel", "Scoop, V-neck and longline tees."),
-  C("women", "sweatshirts", "Sweatshirts & Hoodies", "apparel", "Pullover and zip hoodies in soft fleece."),
-  C("women", "jackets", "Jackets", "apparel", "Shells, quarter-zips and full-zip layers."),
+  C("men", "vests", "Vests & Basics", "apparel", "Everyday vests, multipacks and base layers."),
+  C("women", "tops", "Tops & T-Shirts", "apparel", "Embroidered linen tops, tunics, blouses and tees."),
+  C("women", "sweatshirts", "Sweatshirts & Hoodies", "apparel", "Pullover and zip hoodies, half-zips and sweatshirts in soft fleece."),
+  C("women", "jackets", "Jackets", "apparel", "Puffers, parkas, rain jackets and trench coats."),
   C("women", "leggings", "Leggings & Track Pants", "apparel", "Leggings, tights and relaxed track pants."),
   C("kids", "boys", "Boys", "kids", "Tees, shirts and sets for boys."),
   C("kids", "girls", "Girls", "kids", "Frocks, tops and sets for girls."),
   C("kids", "winter-wear", "Winter Wear", "kids", "Jackets, sweaters and fleece for kids."),
-  C("accessories", "bags", "Bags & Luggage", "free", "Backpacks, duffles, totes and messenger bags."),
-  C("accessories", "beanies", "Caps & Beanies", "free", "Knit beanies and watch caps for the valley's winter."),
+  C("accessories", "bags", "Bags & Luggage", "free", "Trolleys, duffles, backpacks, totes and messenger bags."),
+  C("accessories", "beanies", "Caps & Beanies", "free", "Knit beanies, skull caps and trapper hats for the valley's winter."),
 ].map((c, i) => ({ ...c, sortOrder: (i + 1) * 10 }));
 
 export const getCategory = (key, categories = CATEGORIES) => categories.find((c) => c.key === key) || null;
@@ -102,7 +102,7 @@ export const BANNERS = [
     id: "dummy-hero-1",
     placement: "hero",
     title: "Winter, layered.",
-    subtitle: "Jackets, hoodies and fleece built for Kunzer's cold.",
+    subtitle: "Puffers, parkas, hoodies and fleece built for Kunzer's cold.",
     ctaLabel: "Shop winter layers",
     ctaLink: "/collections/winter-layers",
     imageUrl: "/image/art/hero-winter.webp",
@@ -126,8 +126,8 @@ export const BANNERS = [
     id: "dummy-strip-1",
     placement: "strip",
     title: "Packed for the road.",
-    subtitle: "Duffles, backpacks and beanies for the drive to Srinagar and beyond.",
-    ctaLabel: "Shop bags",
+    subtitle: "Trolleys, duffles and backpacks for the drive to Srinagar and beyond.",
+    ctaLabel: "Shop bags & luggage",
     ctaLink: "/shop/accessories/bags",
     imageUrl: "/image/art/strip-kashmir.svg",
     theme: "dark",

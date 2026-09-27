@@ -40,7 +40,7 @@ npm install
 npm run dev
 ```
 
-The site runs on the built-in demo catalog of 128 products with real product photography. The admin stays disabled until
+The site runs on the built-in demo catalog of 138 products with real product photography. The admin stays disabled until
 Supabase is configured (it shows a setup notice instead of a fake login). WhatsApp ordering
 works without a database; orders just are not saved or numbered.
 
@@ -66,28 +66,37 @@ security headers, caching).
 
 ## Product photos
 
-The demo catalog ships with open-source product photography (Magento Luma sample data under
-OSL 3.0 and Sylius fixtures under MIT; see `public/image/ATTRIBUTIONS.md`) so the store looks
-complete out of the box. Upload your own photos from the admin product editor, on a phone or a
-laptop; they are compressed to WebP in the browser and stored in Supabase Storage.
+The demo catalog ships with product photography saved in this repository, so the store looks
+complete out of the box and never loads images from another site:
+
+- Jackets, sweatshirts, t-shirts, vests, tops, beanies and travel bags use product-only photos (no
+  models) from seller listings on desertcart.in. **They are other sellers' photos, for the
+  presentation only**: replace them with the shop's own photos before selling. Every one is listed
+  with its source in `public/image/ATTRIBUTIONS.md`.
+- Track pants, shorts, leggings and the everyday bags use the Magento Luma sample data (OSL 3.0).
+
+Upload your own photos from the admin product editor, on a phone or a laptop; they are compressed
+to WebP in the browser and stored in Supabase Storage.
 
 ## Demo catalog
 
 `src/data/demo-products.js`, the photos in `public/image/products` and the `hero-*`, `cat-*` and
 `col-*` artwork in `public/image/art` are generated. Do not edit them by hand: change the copy,
 colours, prices or photo mappings in [`scripts/demo-catalog/spec.mjs`](scripts/demo-catalog/spec.mjs)
-and regenerate. You need the two photo sources checked out somewhere on your machine:
+and regenerate. You need the Magento sample data checked out somewhere on your machine:
 
 ```bash
 git clone --depth 1 https://github.com/magento/magento2-sample-data.git ../magento2-sample-data
-git clone --depth 1 https://github.com/Sylius/Sylius.git ../Sylius
 npm i --no-save sharp   # image resizing, only needed for this script
-MAGENTO_SAMPLE_DIR=../magento2-sample-data SYLIUS_DIR=../Sylius node scripts/demo-catalog/build.mjs
+MAGENTO_SAMPLE_DIR=../magento2-sample-data node scripts/demo-catalog/build.mjs
 ```
 
-The script reads the Magento CSV fixtures for product photos, writes every photo at 900 × 1200 plus
-a 450 × 600 `-sm.webp` copy for phones, and refuses to write anything if the copy uses a banned word
-(kurta, pheran, footwear, sales hype, US spelling and so on). Product slugs come from the titles, so
+The script downloads the product-only photos listed in `SHOTS` once into
+`node_modules/.cache/demo-catalog` (behind an HTTPS proxy, add `NODE_USE_ENV_PROXY=1`), trims their
+white margin and centres each product on a white card, reads the Magento CSV fixtures for the other
+photos, writes every photo at 900 × 1200 plus a 450 × 600 `-sm.webp` copy for phones, and refuses
+to write anything if the copy uses a banned word (kurta, pheran, footwear, sales hype, US spelling
+and so on). Product slugs come from the titles, so
 renaming a product changes its URL. Then run `npm run test:db`, which seeds the demo catalog into a
 test database.
 
