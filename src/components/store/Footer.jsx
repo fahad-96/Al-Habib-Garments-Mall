@@ -37,6 +37,11 @@ export default function Footer() {
               <WhatsAppIcon className="h-5 w-5" color="#25D366" />
             </a>
           </div>
+          <nav aria-label="Legal" className="mt-3 flex flex-wrap gap-x-5 text-2xs uppercase tracking-micro text-neutral-400">
+            <Link to="/policies#privacy" className="inline-flex min-h-10 items-center hover:text-paper">Privacy</Link>
+            <Link to="/policies#terms" className="inline-flex min-h-10 items-center hover:text-paper">Terms</Link>
+            <Link to="/admin/login" className="inline-flex min-h-10 items-center hover:text-paper">Admin</Link>
+          </nav>
         </div>
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-7">
           <div>
@@ -86,7 +91,7 @@ export default function Footer() {
       </div>
       <div className="border-t border-neutral-800">
         {/* Stacked and centred below lg (bottom padding clears the WhatsApp button); from lg a 1fr/auto/1fr
-            grid keeps the credit centred on the page, with the copyright left and the links right. */}
+            grid keeps the credit centred on the page, with the copyright on the left. */}
         <div className="container flex flex-col items-center gap-4 py-6 pb-24 text-center text-2xs uppercase tracking-micro text-neutral-400 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:gap-6 lg:py-5 lg:pr-24 lg:text-left">
           <p>© {year} {settings.storeName}. {settings.tagline}.</p>
           <p className="font-display text-sm normal-case italic tracking-normal text-neutral-500 lg:text-center">
@@ -101,11 +106,6 @@ export default function Footer() {
             </a>{" "}
             in Srinagar
           </p>
-          <div className="flex flex-wrap justify-center gap-x-5 lg:justify-end">
-            <Link to="/policies#privacy" className="-my-3 inline-flex min-h-10 items-center hover:text-paper">Privacy</Link>
-            <Link to="/policies#terms" className="-my-3 inline-flex min-h-10 items-center hover:text-paper">Terms</Link>
-            <Link to="/admin/login" className="-my-3 inline-flex min-h-10 items-center hover:text-paper">Admin</Link>
-          </div>
         </div>
       </div>
     </footer>
