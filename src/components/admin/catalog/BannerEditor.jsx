@@ -99,7 +99,7 @@ export default function BannerEditor({ open, item, placement = "hero", defaultSo
         </Select>
 
         <Input dark className="sm:col-span-2" label="Headline" value={draft.title} onChange={(e) => patch({ title: e.target.value })} placeholder="Winter, layered." maxLength={80} error={errors.title} autoComplete="off" />
-        <Textarea dark className="sm:col-span-2" label="Subtitle" rows={2} value={draft.subtitle} onChange={(e) => patch({ subtitle: e.target.value })} placeholder="Jackets, hoodies and fleece built for Kunzer's cold." maxLength={160} />
+        <Textarea dark className="sm:col-span-2" label="Subtitle" rows={2} value={draft.subtitle} onChange={(e) => patch({ subtitle: e.target.value })} placeholder="Jackets, hoodies and fleece built for Kashmir's cold." maxLength={160} />
 
         <Input dark label="Button label" value={draft.ctaLabel} onChange={(e) => patch({ ctaLabel: e.target.value })} placeholder="Shop winter layers" maxLength={40} error={errors.ctaLabel} autoComplete="off" />
         <div>

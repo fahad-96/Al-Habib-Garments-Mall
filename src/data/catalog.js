@@ -118,7 +118,7 @@ export const BANNERS = [
     id: "dummy-hero-1",
     placement: "hero",
     title: "Winter, layered.",
-    subtitle: "Leather, puffers and fleece-lined jackets built for Kunzer's cold.",
+    subtitle: "Leather, puffers and fleece-lined jackets built for Kashmir's cold.",
     ctaLabel: "Shop men's jackets",
     ctaLink: "/shop/men/jackets",
     imageUrl: DEMO_HERO_IMAGES["hero-winter"],
