@@ -7465,6 +7465,7 @@ export const DEMO_CATEGORY_IMAGES = {
 };
 
 export const DEMO_HERO_IMAGES = {
- "hero-winter": "/image/art/hero-winter-6d29fc43.webp",
+ "hero-winter": "/image/art/hero-winter-69ba43e4.webp",
+ "hero-winter-portrait": "/image/art/hero-winter-portrait-f8c2d9b0.webp",
  "hero-everyday": "/image/art/hero-everyday-bf4c167b.webp"
 };

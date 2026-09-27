@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { sanitizeImageUrl } from "../../../lib/format";
 
-const PORTRAIT = "(max-aspect-ratio: 4/5)";
+// Upright screens (phones, portrait tablets) get the portrait cut of a video or photo.
+export const PORTRAIT_QUERY = "(max-aspect-ratio: 4/5)";
+const PORTRAIT = PORTRAIT_QUERY;
 
 // The built-in loops (scripts/hero-video/build.py) ship a smaller VP9 WebM next to each MP4; browsers that
 // can play it take it, the rest fall back to the MP4. Any other URL is used as it is.

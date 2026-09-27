@@ -380,6 +380,40 @@ const composeHero = async (src, { model = false } = {}) => {
     .toBuffer();
 };
 
+// A lifestyle photo (`scene`, a file in ./source) fills the whole slide. On wide screens the square photo
+// sits on the right and fades into a deep tone taken from its own left edge, which carries the copy; on
+// phones an upright crop keeps the subject (`focus`, 0 to 1 across the photo) in the middle.
+const SCENE_FADE = 520;
+const composeScene = async (file, focus = 0.5) => {
+  const { width: w0, height: h0 } = await sharp(file).metadata();
+  const graded = sharp(file).linear(1.04, -5); // a touch more contrast; nothing else is changed
+  const H = HERO.height;
+  const side = Math.round((H / h0) * w0);
+  const { data: rgb, info } = await graded.clone().resize(side, H).raw().toBuffer({ resolveWithObject: true });
+  const edge = [0, 1, 2].map((c) => {
+    let sum = 0;
+    for (let y = 0; y < H; y++) for (let x = 0; x < 120; x++) sum += rgb[(y * info.width + x) * 3 + c];
+    return Math.round((sum / (H * 120)) * 0.5);
+  });
+  const rgba = Buffer.alloc(info.width * H * 4);
+  for (let y = 0; y < H; y++)
+    for (let x = 0; x < info.width; x++) {
+      const i = y * info.width + x;
+      rgba[i * 4] = rgb[i * 3];
+      rgba[i * 4 + 1] = rgb[i * 3 + 1];
+      rgba[i * 4 + 2] = rgb[i * 3 + 2];
+      rgba[i * 4 + 3] = x >= SCENE_FADE ? 255 : Math.round(255 * (x / SCENE_FADE) ** 1.6);
+    }
+  const landscape = await sharp({ create: { width: HERO.width, height: H, channels: 3, background: { r: edge[0], g: edge[1], b: edge[2] } } })
+    .composite([{ input: rgba, raw: { width: info.width, height: H, channels: 4 }, left: HERO.width - info.width, top: 0 }])
+    .webp({ quality: 82 })
+    .toBuffer();
+  const cropW = Math.min(w0, Math.round(h0 * 0.62));
+  const left = Math.max(0, Math.min(w0 - cropW, Math.round(w0 * focus - cropW / 2)));
+  const portrait = await graded.clone().extract({ left, top: 0, width: cropW, height: h0 }).resize({ width: 820 }).webp({ quality: 82 }).toBuffer();
+  return { landscape, portrait };
+};
+
 // Artwork file names carry a hash of their content, so a new version gets a new URL and is never
 // hidden behind the week-long cache on /image/* (netlify.toml).
 mkdirSync(OUT_ART, { recursive: true });
@@ -392,6 +426,14 @@ const writeArt = (base, buffer) => {
 };
 const heroImages = {};
 for (const h of SPEC.HEROES) {
+  if (h.scene) {
+    const file = join(dirname(fileURLToPath(import.meta.url)), "source", h.scene);
+    if (!existsSync(file)) fail(`${h.name}: missing ${file}.`);
+    const { landscape, portrait } = await composeScene(file, h.focus);
+    heroImages[h.name] = writeArt(h.name, landscape);
+    heroImages[`${h.name}-portrait`] = writeArt(`${h.name}-portrait`, portrait);
+    continue;
+  }
   const src = h.shot ? await shotPhoto(h.shot, h.name) : srcOf(h.photo);
   heroImages[h.name] = writeArt(h.name, await composeHero(src, { model: Boolean(h.shot) }));
 }
@@ -449,6 +491,7 @@ before the owner uploads his own photos from the admin dashboard.
 | --- | --- | --- |
 | Seller listings on [desertcart.in](https://www.desertcart.in) (images served from m.media-amazon.com) | © the respective sellers and brands; placeholder for the demo only | Men's and women's jackets, sweatshirts and hoodies; men's t-shirts and vests; women's tops; beanies; trolleys, duffles and holdalls |
 | [magento/magento2-sample-data](https://github.com/magento/magento2-sample-data) (Luma sample catalog, \`pub/media/catalog/product\`) | Open Software License 3.0 | Men's track pants and shorts, women's leggings; backpacks, totes, messengers and duffles |
+| The shop's own photo and footage (\`scripts/demo-catalog/source\`, \`scripts/hero-video/source\`) | © Al Habib Garments Mall | Home page: the winter slide and the bonfire video |
 
 Each photo was saved into this repository at 900 × 1200 WebP, with a 450 × 600 copy (\`-sm.webp\`) for phones,
 by \`scripts/demo-catalog/build.mjs\`; the site never loads images from the sources. Product-only photos were

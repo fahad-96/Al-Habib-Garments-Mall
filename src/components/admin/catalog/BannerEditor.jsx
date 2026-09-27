@@ -117,6 +117,7 @@ export default function BannerEditor({ open, item, placement = "hero", defaultSo
         </div>
         {draft.placement === "hero" && (
           <>
+            <Input dark label="Phone artwork (optional)" value={draft.imageUrlPortrait || ""} onChange={(e) => patch({ imageUrlPortrait: e.target.value })} placeholder="/image/art/hero-winter-portrait.webp" hint="An upright photo for phones. With it, the slide shows the photo edge to edge, like a video." autoComplete="off" spellCheck={false} className="sm:col-span-2 [&_input]:font-mono [&_input]:text-sm" />
             <Input dark label="Background video (optional)" value={draft.videoUrl || ""} onChange={(e) => patch({ videoUrl: e.target.value })} placeholder="/video/hero-bonfire-landscape.mp4" hint="A short, silent MP4 that loops behind the text. The artwork above shows while it loads." autoComplete="off" spellCheck={false} className="[&_input]:font-mono [&_input]:text-sm" />
             <Input dark label="Phone video (optional)" value={draft.videoUrlPortrait || ""} onChange={(e) => patch({ videoUrlPortrait: e.target.value })} placeholder="/video/hero-bonfire-portrait.mp4" hint="An upright cut for phones. Leave empty to crop the main video." autoComplete="off" spellCheck={false} className="[&_input]:font-mono [&_input]:text-sm" />
           </>

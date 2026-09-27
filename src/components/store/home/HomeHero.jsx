@@ -5,7 +5,7 @@ import { useShop } from "../../../context/ShopContext";
 import { sanitizeImageUrl } from "../../../lib/format";
 import Button from "../../ui/Button";
 import Img from "../../ui/Img";
-import HeroVideo from "./HeroVideo";
+import HeroVideo, { PORTRAIT_QUERY } from "./HeroVideo";
 
 const INTERVAL_MS = 6000;
 // A video slide stays up long enough to be seen, about one pass of its loop.
@@ -25,7 +25,9 @@ const pad = (n) => String(n).padStart(2, "0");
 function Slide({ banner, active, index, count, eager, eyebrow }) {
   const dark = banner.theme !== "light";
   const hasVideo = Boolean(sanitizeImageUrl(banner.videoUrl));
-  const hasImage = !hasVideo && Boolean(sanitizeImageUrl(banner.imageUrl));
+  // A photo with a phone crop is a full-bleed scene (like a video); a single image is product artwork.
+  const hasScene = !hasVideo && Boolean(sanitizeImageUrl(banner.imageUrl)) && Boolean(sanitizeImageUrl(banner.imageUrlPortrait));
+  const hasImage = !hasVideo && !hasScene && Boolean(sanitizeImageUrl(banner.imageUrl));
   const cta = banner.ctaLabel && banner.ctaLink;
   return (
     <div
@@ -43,12 +45,22 @@ function Slide({ banner, active, index, count, eager, eyebrow }) {
           className={`absolute inset-0 h-full w-full object-cover object-right-top transition-transform duration-[7000ms] ease-linear lg:object-top ${active ? "scale-100" : "scale-[1.04]"}`}
         />
       )}
-      {hasVideo && (
-        <>
-          <HeroVideo landscape={banner.videoUrl} portrait={banner.videoUrlPortrait} poster={banner.imageUrl} posterPortrait={banner.imageUrlPortrait} active={active} />
-          {/* Full-bleed footage: shade the copy side (left on desktop, bottom on phones) so the text reads over sky and grass. */}
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/35 via-50% to-ink/10 lg:bg-gradient-to-r lg:from-ink/75 lg:via-ink/30 lg:via-45% lg:to-transparent" aria-hidden="true" />
-        </>
+      {hasVideo && <HeroVideo landscape={banner.videoUrl} portrait={banner.videoUrlPortrait} poster={banner.imageUrl} posterPortrait={banner.imageUrlPortrait} active={active} />}
+      {hasScene && (
+        <picture>
+          <source media={PORTRAIT_QUERY} srcSet={sanitizeImageUrl(banner.imageUrlPortrait)} />
+          <img
+            src={sanitizeImageUrl(banner.imageUrl)}
+            alt=""
+            loading={eager ? "eager" : "lazy"}
+            decoding="async"
+            className={`absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[7000ms] ease-linear ${active ? "scale-100" : "scale-[1.04]"}`}
+          />
+        </picture>
+      )}
+      {/* Full-bleed video or photo: shade the copy side (left on desktop, bottom on phones) so the text reads. */}
+      {(hasVideo || hasScene) && (
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/35 via-50% to-ink/10 lg:bg-gradient-to-r lg:from-ink/75 lg:via-ink/30 lg:via-45% lg:to-transparent" aria-hidden="true" />
       )}
       {/* On phones and tablets the photo sits behind the copy, so fade its lower half into the background. */}
       {hasImage && <div className={`absolute inset-x-0 bottom-0 h-[78%] lg:hidden ${dark ? "bg-gradient-to-t from-ink via-ink/90 via-45% to-ink/0" : "bg-gradient-to-t from-paper via-paper/90 via-45% to-paper/0"}`} aria-hidden="true" />}
@@ -128,7 +140,7 @@ export default function HomeHero({ banners = [], settings = {} }) {
 
   return (
     <section
-      className="relative min-h-[76svh] overflow-hidden lg:min-h-[80vh]"
+      className="relative min-h-[76svh] overflow-hidden lg:min-h-[max(560px,calc(100svh-88px))]"
       aria-roledescription="carousel"
       aria-label="Featured"
       onMouseEnter={() => setHover(true)}

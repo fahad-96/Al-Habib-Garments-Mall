@@ -12,6 +12,7 @@ before the owner uploads his own photos from the admin dashboard.
 | --- | --- | --- |
 | Seller listings on [desertcart.in](https://www.desertcart.in) (images served from m.media-amazon.com) | © the respective sellers and brands; placeholder for the demo only | Men's and women's jackets, sweatshirts and hoodies; men's t-shirts and vests; women's tops; beanies; trolleys, duffles and holdalls |
 | [magento/magento2-sample-data](https://github.com/magento/magento2-sample-data) (Luma sample catalog, `pub/media/catalog/product`) | Open Software License 3.0 | Men's track pants and shorts, women's leggings; backpacks, totes, messengers and duffles |
+| The shop's own photo and footage (`scripts/demo-catalog/source`, `scripts/hero-video/source`) | © Al Habib Garments Mall | Home page: the winter slide and the bonfire video |
 
 Each photo was saved into this repository at 900 × 1200 WebP, with a 450 × 600 copy (`-sm.webp`) for phones,
 by `scripts/demo-catalog/build.mjs`; the site never loads images from the sources. Product-only photos were
@@ -121,4 +122,3 @@ photos are needed once the store has its own products.
 | Expandable Canvas Holdall | Black: <https://www.desertcart.in/products/888592635> |
 | Leather-Look Gym Duffle | Tan: <https://www.desertcart.in/products/888501192> |
 | Weekender Holdall | Black: <https://www.desertcart.in/products/445309269> |
-| Home page slide (hero-winter) | <https://www.desertcart.in/products/445339564> |

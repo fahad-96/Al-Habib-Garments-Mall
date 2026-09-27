@@ -743,10 +743,12 @@ export const SIZES_BY_CAT = {
 };
 
 // ── Site artwork: hero and collection compositions (photo references as in CATEGORIES) ──
-// A hero can use a photo of someone wearing the clothes instead: `shot` is the photo id and `listing` the
-// desertcart product number it comes from (demo only, like the SHOTS photos).
+// A hero can instead use a photo of someone wearing the clothes: `shot` is a desertcart photo id with its
+// `listing` (demo only, like SHOTS), or `scene` is a lifestyle photo in ./source that fills the whole slide
+// (`focus`: where the subject stands, 0 to 1 across the photo).
 export const HEROES = [
-  { name: "hero-winter", shot: "71iCVARL5aL", listing: "445339564" },
+  // The shop's own photo, taken on the road near Tangmarg.
+  { name: "hero-winter", scene: "hero-winter.jpg", focus: 0.445 },
   { name: "hero-everyday", photo: "Slub Henley Tee/Sand" },
 ];
 
