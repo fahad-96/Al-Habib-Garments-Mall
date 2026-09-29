@@ -1,0 +1,1645 @@
+company,max_payout,min_payout,currency,platform_url,safe_harbor,managed,tranco_rank,web3_immunefi
+LayerZero,15000000,,,https://layerzero.gitbook.io/docs/bug-bounty/bug-bounty-program,,,3478,False
+Reserve,10000000,,,https://immunefi.com/bug-bounty/reserve/,,,,True
+Sky,10000000,,,https://immunefi.com/bug-bounty/sky/,,,,True
+Stargate,10000000,,,https://immunefi.com/bug-bounty/stargate/,,,,True
+USDT0,6000000,,,https://immunefi.com/bug-bounty/usdt0/,,,,True
+BlazePhoenix,6000000,100000,BZPX,https://blazephoenix.xyz/bounty,full,,,False
+GMX,5000000,,,https://immunefi.com/bug-bounty/gmx/,,,,True
+Spark,5000000,,,https://immunefi.com/bug-bounty/sparklend/,,,,True
+Wormhole,5000000,,,https://immunefi.com/bug-bounty/wormhole/,,,,True
+Olympus,3333333,,,https://medical.olympusamerica.com/customer-resources/product-security,,,106225,False
+Chainlink,3000000,,,https://hackerone.com/chainlink,full,False,36060,False
+Ethena,3000000,,,https://immunefi.com/bug-bounty/ethena/,,,,True
+OpenSea Managed Bug Bounty Program,3000000,,,https://bugcrowd.com/engagements/opensea,full,True,5533,False
+Hyperlane,2500000,,,https://immunefi.com/bug-bounty/hyperlane/,,,,True
+ZKsync Lite,2300000,,,https://immunefi.com/bug-bounty/zksync/,,,,True
+Axelar Network,2250000,,,https://immunefi.com/bug-bounty/axelarnetwork/,,,,True
+Optimism,2000042,,,https://immunefi.com/bug-bounty/optimism/,,,,True
+Arbitrum,2000000,,,https://immunefi.com/bug-bounty/arbitrum/,,,,True
+Celer,2000000,,,https://immunefi.com/bug-bounty/celer/,,,,True
+EigenLayer,2000000,,,https://immunefi.com/bug-bounty/eigenlayer/,,,,True
+Gnosis Chain,2000000,,,https://immunefi.com/bug-bounty/gnosischain/,,,,True
+Lido,2000000,,,https://immunefi.com/bug-bounty/lido/,,,,True
+Rhino.fi,2000000,,,https://immunefi.com/bug-bounty/rhinofi/,,,,True
+Sweat Economy,2000000,,,https://immunefi.com/bug-bounty/sweateconomy/,,,,True
+Kamino,1500000,,,https://immunefi.com/bug-bounty/kamino/,,,,True
+Beanstalk,1100000,,,https://support.beanstalkapp.com/article/890-responsible-disclosure-policy,none,,314362,False
+ZKsync Era,1100000,,,https://immunefi.com/bug-bounty/zksyncera/,,,,True
+0x,1000000,,,https://docs.0x.org/developer-resources/bounties,,,155677,False
+AAVE,1000000,,,https://immunefi.com/bug-bounty/aave/,,,,True
+Aura Finance,1000000,,,https://immunefi.com/bug-bounty/aurafinance/,,,,True
+Balancer,1000000,,,https://immunefi.com/bug-bounty/balancer/,,,,True
+Boba Network,1000000,,,https://immunefi.com/bug-bounty/bobanetwork/,,,,True
+CapyFi,1000000,,,https://immunefi.com/bug-bounty/capyfi/,,,,True
+Compound Finance,1000000,,,https://immunefi.com/bug-bounty/compoundfinance/,,,,True
+CoW Protocol,1000000,,,https://immunefi.com/bug-bounty/cowprotocol/,,,,True
+Eclipse,1000000,,,https://www.eclipse.org/security/,none,,4507,False
+Flamingo Finance,1000000,,,https://immunefi.com/bug-bounty/flamingofinance/,,,,True
+Immutable Bug Bounty,1000000,,,https://bugcrowd.com/immutable-og,full,True,4186,False
+Infinex,1000000,,,https://immunefi.com/bug-bounty/infinex/,,,,True
+Kiln On-Chain v1,1000000,,,https://immunefi.com/bug-bounty/kiln-on-chain-v1/,,,,True
+Lista DAO,1000000,,,https://immunefi.com/bug-bounty/listadao/,,,,True
+Ondo Finance,1000000,,,https://immunefi.com/bug-bounty/ondofinance/,,,,True
+Origin Protocol,1000000,,,https://immunefi.com/bug-bounty/originprotocol/,,,,True
+PancakeSwap,1000000,,,https://immunefi.com/bug-bounty/pancakeswap/,,,,True
+Polygon,1000000,,,https://immunefi.com/bug-bounty/polygon/,,,,True
+Polymarket,1000000,,,https://immunefi.com/bug-bounty/polymarket/,,,,True
+Scroll,1000000,,,https://immunefi.com/bug-bounty/scroll/,,,,True
+SSV Network,1000000,,,https://immunefi.com/bug-bounty/ssvnetwork/,,,,True
+Stader for ETH,1000000,,,https://immunefi.com/bug-bounty/staderforeth/,,,,True
+StarkEx,1000000,,,https://immunefi.com/bug-bounty/starkex/,,,,True
+StarkNet,1000000,,,https://immunefi.com/bug-bounty/starknet/,,,,True
+Flux Finance,550000,,,https://immunefi.com/bug-bounty/fluxfinance/,,,,True
+Raydium,505000,,,https://immunefi.com/bug-bounty/raydium/,,,,True
+Aera,500000,,,https://immunefi.com/bug-bounty/aera/,,,,True
+Alpha Venture DAO,500000,,,https://immunefi.com/bug-bounty/AlphaVentureDAO/,,,,True
+Ankr,500000,,,https://immunefi.com/bug-bounty/ankr/,,,,True
+Babylon Labs,500000,,,https://immunefi.com/bug-bounty/babylon-labs/,,,,True
+BENQI,500000,,,https://immunefi.com/bug-bounty/benqi/,,,,True
+Bifrost,500000,,,https://immunefi.com/bug-bounty/bifrostfinance/,,,,True
+Buttonwood,500000,,,https://immunefi.com/bug-bounty/buttonwood/,,,,True
+Decentraland,500000,,,https://immunefi.com/bug-bounty/decentraland/,,,,True
+DeXe Protocol,500000,,,https://immunefi.com/bug-bounty/dexeprotocol/,,,,True
+Firedancer,500000,,,https://immunefi.com/bug-bounty/firedancer/,,,,True
+Hydration,500000,,,https://immunefi.com/bug-bounty/hydration/,,,,True
+Injective,500000,,,https://immunefi.com/bug-bounty/injective/,,,,True
+Instadapp,500000,,,https://immunefi.com/bug-bounty/instadapp/,,,,True
+Kiln DeFi,500000,,,https://immunefi.com/bug-bounty/kiln-defi/,,,,True
+Maple,500000,,,https://immunefi.com/bug-bounty/maple/,,,,True
+mETH Protocol,500000,,,https://immunefi.com/bug-bounty/mETH/,,,,True
+Nucleus,500000,,,https://immunefi.com/bug-bounty/nucleus/,,,,True
+Orca,500000,,,https://immunefi.com/bug-bounty/orca/,,,,True
+Paradex,500000,,,https://immunefi.com/bug-bounty/paradex/,,,,True
+Perennial,500000,,,https://immunefi.com/bug-bounty/perennial/,,,,True
+Renzo Protocol,500000,,,https://immunefi.com/bug-bounty/renzoprotocol/,,,,True
+Resolv,500000,,,https://immunefi.com/bug-bounty/resolv/,,,,True
+Rocket Pool,500000,,,https://immunefi.com/bug-bounty/rocketpool/,,,,True
+Sei,500000,,,https://immunefi.com/bug-bounty/sei/,,,,True
+Sherlock,500000,,,https://immunefi.com/bug-bounty/sherlock/,,,,True
+Symbiotic,500000,,,https://immunefi.com/bug-bounty/symbiotic/,,,,True
+Threshold Network,500000,,,https://immunefi.com/bug-bounty/thresholdnetwork/,,,,True
+Utix,500000,,,https://immunefi.com/bug-bounty/utix/,,,,True
+DeFi Saver,350000,,,https://immunefi.com/bug-bounty/defisaver/,,,,True
+Silo Finance V2,350000,,,https://immunefi.com/bug-bounty/silofinance-v2/,,,,True
+Aevo,300000,,,https://immunefi.com/bug-bounty/Aevo/,,,,True
+Alchemix,300000,,,https://immunefi.com/bug-bounty/alchemix/,,,,True
+Ether.fi,300000,,,https://immunefi.com/bug-bounty/etherfi/,,,,True
+StakeStone,300000,,,https://immunefi.com/bug-bounty/stakestone/,,,,True
+Astar Network,250000,,,https://immunefi.com/bug-bounty/astarnetwork/,,,,True
+Avail,250000,,,https://immunefi.com/bug-bounty/avail/,,,,True
+Berachain,250000,,,https://immunefi.com/bug-bounty/berachain/,,,,True
+Burrow,250000,,,https://immunefi.com/bug-bounty/burrow/,,,,True
+ENS,250000,,,https://docs.ens.domains/bug-bounty-program,,,96786,False
+Flare FAssets,250000,,,https://immunefi.com/bug-bounty/fassets/,,,,True
+Flare Network,250000,,,https://immunefi.com/bug-bounty/flarenetwork/,,,,True
+Jito,250000,,,https://immunefi.com/bug-bounty/jito/,,,,True
+Kelp DAO,250000,,,https://immunefi.com/bug-bounty/kelp-dao/,,,,True
+Lombard Finance,250000,,,https://immunefi.com/bug-bounty/lombard-finance/,,,,True
+Marinade,250000,,,https://immunefi.com/bug-bounty/marinade/,,,,True
+Notion,250000,,,https://www.notion.so/Responsible-Disclosure-Policy-5f18bb6b86804eaf989c006131778b9c,full,True,2056,False
+Parallel,250000,,,https://immunefi.com/bug-bounty/parallel/,,,,True
+Perpetual,250000,,,https://immunefi.com/bug-bounty/perpetual/,,,,True
+Pyth Network,250000,,,https://immunefi.com/bug-bounty/pythnetwork/,,,,True
+Ref Finance,250000,,,https://immunefi.com/bug-bounty/reffinance/,,,,True
+Stacks,250000,,,https://immunefi.com/bug-bounty/stacks/,,,,True
+Stader for BNB,250000,,,https://immunefi.com/bug-bounty/staderforbnb/,,,,True
+Stader for Polygon,250000,,,https://immunefi.com/bug-bounty/StaderforPolygon/,,,,True
+Stellar,250000,,,https://www.stellar.org/bug-bounty-program/,none,False,30445,False
+StellaSwap,250000,,,https://immunefi.com/bug-bounty/stellaswap/,,,,True
+Swell,250000,,,https://immunefi.com/bug-bounty/swell/,,,,True
+Thala Protocol,250000,,,https://immunefi.com/bug-bounty/thala-protocol/,,,,True
+XION,250000,,,https://immunefi.com/bug-bounty/xion/,,,,True
+Swiss Post - E-Voting,230000,100,,https://yeswehack.com/programs/swiss-post-evoting,,,,False
+Basilisk,222222,,,https://immunefi.com/bug-bounty/basilisk/,,,,True
+Acala,200000,,,https://immunefi.com/bug-bounty/acala/,,,,True
+Aster,200000,,,https://immunefi.com/bug-bounty/aster/,,,,True
+Beets,200000,,,https://immunefi.com/bug-bounty/beets/,,,,True
+deBridge,200000,,,https://immunefi.com/bug-bounty/debridge/,,,,True
+Enzyme Blue,200000,,,https://immunefi.com/bug-bounty/enzymefinance/,,,,True
+Enzyme Onyx,200000,,,https://immunefi.com/bug-bounty/enzyme-onyx/,,,,True
+Folks Finance,200000,,,https://immunefi.com/bug-bounty/folksfinance/,,,,True
+Gains Network,200000,,,https://immunefi.com/bug-bounty/gainsnetwork/,,,,True
+Gearbox,200000,,,https://immunefi.com/bug-bounty/gearbox/,,,,True
+Index Coop,200000,,,https://immunefi.com/bug-bounty/indexcoop/,,,,True
+MagpieXYZ,200000,,,https://immunefi.com/bug-bounty/magpiexyz/,,,,True
+Pantos,200000,,,https://immunefi.com/bug-bounty/pantos/,,,,True
+Reaper Farm,200000,,,https://immunefi.com/bug-bounty/reaperfarm/,,,,True
+StakeWise Mainnet,200000,,,https://immunefi.com/bug-bounty/stakewise/,,,,True
+SushiSwap,200000,,,https://immunefi.com/bug-bounty/sushiswap/,,,,True
+The Sandbox,200000,,,https://immunefi.com/bug-bounty/thesandbox/,,,,True
+Tranchess,200000,,,https://immunefi.com/bug-bounty/tranchess/,,,,True
+Yearn Finance,200000,,,https://immunefi.com/bug-bounty/yearnfinance/,,,,True
+Filecoin,150000,,,https://security.filecoin.io/bug-bounty/,,,100722,False
+Fireblocks MPC Managed Bug Bounty Engagement,150000,,,https://bugcrowd.com/engagements/fireblocks-mbb-og2,full,True,,False
+Granite Protocol,150000,,,https://immunefi.com/bug-bounty/granite-protocol/,,,,True
+yelay.io,150000,,,https://immunefi.com/bug-bounty/yelay/,,,,True
+T-Mobile,133700,,,https://bugcrowd.com/t-mobile,full,True,1111,False
+ALEX,100000,,,https://immunefi.com/bug-bounty/alex/,,,,True
+Arkadiko,100000,,,https://immunefi.com/bug-bounty/arkadiko/,,,,True
+Ava Labs Avalanche,100000,,,https://immunefi.com/bug-bounty/avalanche/,,,,True
+BiFi,100000,,,https://immunefi.com/bug-bounty/bifi/,,,,True
+Bitflow,100000,,,https://immunefi.com/bug-bounty/bitflow/,,,,True
+BProtocol,100000,,,https://immunefi.com/bug-bounty/bprotocol/,,,,True
+DODO,100000,,,https://immunefi.com/bug-bounty/dodo/,,,,True
+Drips,100000,,,https://immunefi.com/bug-bounty/drips/,,,,True
+Extra Finance,100000,,,https://immunefi.com/bug-bounty/extrafinance/,,,,True
+FBTC,100000,,,https://immunefi.com/bug-bounty/fbtc/,,,,True
+Felix,100000,,,https://immunefi.com/bug-bounty/felix/,,,,True
+Harvest Finance,100000,,,https://immunefi.com/bug-bounty/harvest/,,,,True
+Haven1,100000,,,https://immunefi.com/bug-bounty/haven1/,,,,True
+Intel,100000,250,USD,https://www.intel.com/content/www/us/en/security-center/default.html,none,True,440,False
+Inverse Finance,100000,,,https://immunefi.com/bug-bounty/inversefinance/,,,,True
+Jito - BAM Client,100000,,,https://immunefi.com/bug-bounty/jito-bam-client/,,,,True
+Kiln (dApp/Infra),100000,,,https://immunefi.com/bug-bounty/kiln-webapp/,,,,True
+LINE,100000,,,https://bugbounty.linecorp.com/en/,none,,11672,False
+monero-oxide,100000,,,https://immunefi.com/bug-bounty/monero-oxide/,,,,True
+Moonbeam Network,100000,,,https://immunefi.com/bug-bounty/moonbeamnetwork/,,,,True
+MUX,100000,,,https://immunefi.com/bug-bounty/mux/,,,,True
+Neutron,100000,,,https://immunefi.com/bug-bounty/neutron/,,,,True
+Oasis,100000,,,https://immunefi.com/bug-bounty/oasis/,,,,True
+Orderly Network,100000,,,https://immunefi.com/bug-bounty/orderlynetwork/,full,True,,True
+Pinto,100000,,,https://immunefi.com/bug-bounty/pinto/,,,,True
+Resonate,100000,,,https://immunefi.com/bug-bounty/resonate/,,,,True
+Revest,100000,,,https://immunefi.com/bug-bounty/revest/,,,,True
+Segment Finance,100000,,,https://immunefi.com/bug-bounty/segmentfinance/,,,,True
+SpaceX/Starlink,100000,,,https://bugcrowd.com/engagements/spacex,full,True,,False
+StackingDAO,100000,,,https://immunefi.com/bug-bounty/stackingdao/,,,,True
+stake.link,100000,,,https://immunefi.com/bug-bounty/stakelink/,,,,True
+Symbiosis,100000,,,https://immunefi.com/bug-bounty/symbiosis/,,,,True
+Synthetix,100000,,,https://immunefi.com/bug-bounty/synthetix/,,,,True
+Tesla,100000,,,https://bugcrowd.com/tesla,partial,True,22868,False
+Tinyman,100000,,,https://immunefi.com/bug-bounty/tinyman/,,,,True
+Trader Joe,100000,,,https://immunefi.com/bug-bounty/traderjoe/,,,,True
+USX,100000,,,https://immunefi.com/bug-bounty/usx/,,,,True
+VeChain,100000,,,https://immunefi.com/bug-bounty/vechain/,,,,True
+Velodrome Finance,100000,,,https://immunefi.com/bug-bounty/velodromefinance/,,,,True
+Vesu,100000,,,https://immunefi.com/bug-bounty/vesu/,,,,True
+WePiggy,100000,,,https://immunefi.com/bug-bounty/wepiggy/,,,,True
+WOOFi,100000,,,https://immunefi.com/bug-bounty/woofi/,,,,True
+Zest Protocol,100000,,,https://immunefi.com/bug-bounty/zestprotocol/,,,,True
+ZKsync OS,100000,,,https://immunefi.com/bug-bounty/zksync-os/,,,,True
+obol.org,100000,500,USD,https://docs.obol.org/advanced-and-troubleshooting/security/bug-bounty,,,954662,False
+Impossible Finance,94000,,,https://immunefi.com/bug-bounty/impossiblefinance/,,,,True
+Sophos,80000,,,https://bugcrowd.com/sophos,full,True,,False
+Xterio,80000,,,https://immunefi.com/bug-bounty/xterio/,,,,True
+Beefy Finance,75000,,,https://immunefi.com/bug-bounty/beefyfinance/,,,,True
+Okta,75000,,,https://bugcrowd.com/okta,full,True,97401,False
+Aleo,65000,,,https://immunefi.com/bug-bounty/aleo/,,,,True
+Velvet Capital,51000,,,https://immunefi.com/bug-bounty/velvetcapital/,,,,True
+Aspida,50000,,,https://immunefi.com/bug-bounty/aspida/,,,,True
+Auth0 by Okta,50000,,,https://bugcrowd.com/engagements/auth0-okta,full,True,26216,False
+Autonolas,50000,,,https://immunefi.com/bug-bounty/autonolas/,,,,True
+Beradrome,50000,,,https://immunefi.com/bug-bounty/beradrome/,,,,True
+Bitcoin SV,50000,,,https://immunefi.com/bug-bounty/bitcoinsv/,,,,True
+Connext,50000,,,https://immunefi.com/bug-bounty/connext/,,,,True
+Cove,50000,,,https://immunefi.com/bug-bounty/cove/,,,,True
+dForce,50000,,,https://immunefi.com/bug-bounty/dforce/,,,,True
+DFX Finance,50000,,,https://immunefi.com/bug-bounty/dfxfinance/,,,,True
+dHEDGE,50000,,,https://immunefi.com/bug-bounty/dhedge/,,,,True
+Doctolib,50000,,,https://yeswehack.com/programs/doctolib-public-bug-bounty-program,,,70221,False
+Exactly,50000,,,https://immunefi.com/bug-bounty/exactly/,,,,True
+Gala Games,50000,,,https://immunefi.com/bug-bounty/galagames/,,,,True
+Gamma,50000,,,https://www.gamma.nl/klantenservice/veiligheid-privacy/responsible-disclosure,none,,16909,False
+Glo Dollar,50000,,,https://immunefi.com/bug-bounty/glodollar/,,,,True
+GoGoPool,50000,,,https://immunefi.com/bug-bounty/gogopool/,,,,True
+Hathor Network,50000,,,https://immunefi.com/bug-bounty/hathornetwork/,,,,True
+Hourglass,50000,,,https://immunefi.com/bug-bounty/hourglass/,,,,True
+Ichi,50000,,,https://immunefi.com/bug-bounty/ichi/,,,,True
+Immunefi,50000,,,https://immunefi.com/bug-bounty/immunefi/,,,,True
+Interlay,50000,,,https://immunefi.com/bug-bounty/interlay/,,,,True
+JustLend DAO,50000,,,https://immunefi.com/bug-bounty/justlenddao/,,,,True
+Kiteworks Public Bug Bounty Program,50000,,,https://yeswehack.com/programs/kiteworks-public-bug-bounty-program-1,,,,False
+Light Protocol,50000,,,https://immunefi.com/bug-bounty/light-protocol/,,,,True
+Lyra,50000,,,https://immunefi.com/bug-bounty/lyra/,,,,True
+MetaStreet,50000,,,https://immunefi.com/bug-bounty/metastreet/,,,,True
+Metronome,50000,,,https://immunefi.com/bug-bounty/metronome/,,,,True
+Obyte,50000,,,https://immunefi.com/bug-bounty/obyte/,,,,True
+Pareto Credit,50000,,,https://immunefi.com/bug-bounty/pareto/,,,,True
+Pragma Oracle,50000,,,https://immunefi.com/bug-bounty/pragmaoracle/,,,,True
+SkateFi,50000,,,https://immunefi.com/bug-bounty/skatefi/,,,,True
+Superform (v1 SuperVaults),50000,,,https://immunefi.com/bug-bounty/superform/,,,,True
+TermMax,50000,,,https://immunefi.com/bug-bounty/termstructurelabs/,,,,True
+Tropykus,50000,,,https://immunefi.com/bug-bounty/tropykus/,,,,True
+USDN,50000,,,https://immunefi.com/bug-bounty/usdn/,,,,True
+Vesper,50000,,,https://immunefi.com/bug-bounty/vesper/,,,,True
+XOXNO,50000,,,https://immunefi.com/bug-bounty/xoxno/,,,,True
+zkVerify,50000,,,https://immunefi.com/bug-bounty/zkverify/,,,,True
+Abhieo,50000,500,INR,https://www.abhieo.in/bug-bounty,full,,,False
+AXIS OS,40000,,,https://bugcrowd.com/engagements/axis-os-public,full,True,,False
+GammaSwap,40000,,,https://immunefi.com/bug-bounty/gammaswap/,,,,True
+Hashflow,40000,,,https://immunefi.com/bug-bounty/hashflow/,,,,True
+Livepeer,40000,,,https://immunefi.com/bug-bounty/livepeer/,,,,True
+Starknet Staking,40000,,,https://immunefi.com/bug-bounty/starknet-staking/,,,,True
+TruFin,40000,,,https://immunefi.com/bug-bounty/trufin/,,,,True
+Maya Protocol,35000,,,https://immunefi.com/bug-bounty/mayaprotocol/,,,,True
+Altera,30000,500,USD,https://www.intigriti.com/programs/altera/altera/detail,,,,False
+Ensuro,30000,,,https://immunefi.com/bug-bounty/ensuro/,,,,True
+Hedera,30000,,,https://immunefi.com/bug-bounty/hedera/,,,,True
+Serai,30000,,,https://immunefi.com/bug-bounty/serai/,,,,True
+Zenlink,30000,,,https://immunefi.com/bug-bounty/zenlink/,,,,True
+88mphV3,25000,,,https://immunefi.com/bug-bounty/88mphv3/,,,,True
+Aiven Managed Bug Bounty,25000,,,https://bugcrowd.com/engagements/aiven-mbb-og,full,True,66791,False
+Ante Finance,25000,,,https://immunefi.com/bug-bounty/antefinance/,,,,True
+Arkham,25000,,,https://immunefi.com/bug-bounty/arkham/,,,,True
+Bullish Exchange,25000,,,https://bugcrowd.com/engagements/bullish-exchange,full,True,256869,False
+Coreum,25000,,,https://immunefi.com/bug-bounty/coreum/,,,,True
+Farcaster,25000,,,https://immunefi.com/bug-bounty/farcaster/,,,,True
+Gear,25000,,,https://immunefi.com/bug-bounty/gear/,,,,True
+Hypixel Studios Managed Bug Bounty Engagement,25000,,,https://bugcrowd.com/engagements/hypixel-studios-mbb-og,full,True,38331,False
+Impossible Cloud Network,25000,,,https://immunefi.com/bug-bounty/impossible-cloud-network/,,,,True
+Integral,25000,,,https://immunefi.com/bug-bounty/integral/,,,,True
+Kiteworks,25000,,,https://security.kiteworks.com,partial,True,65523,False
+Nexus Mutual,25000,,,https://immunefi.com/bug-bounty/nexusmutual/,,,,True
+OpenZeppelin,25000,,,https://immunefi.com/bug-bounty/openzeppelin/,,,,True
+OpenZeppelin on Stellar,25000,,,https://immunefi.com/bug-bounty/openzeppelin-stellar/,,,,True
+Pinterest,25000,,,https://bugcrowd.com/pinterest/,full,True,103,False
+Rubic,25000,,,https://immunefi.com/bug-bounty/rubic/,,,,True
+Sector Finance,25000,,,https://immunefi.com/bug-bounty/sectorfinance/,,,,True
+Zerion,25000,,,https://immunefi.com/bug-bounty/zerion/,,,,True
+CrowdProof,25000,100,USD,https://crowdproof.id/security,,,,False
+Arm,20000,500,USD,https://developer.arm.com/support/arm-security-updates/report-security-vulnerabilities,,,9003,False
+Astroport,20000,,,https://immunefi.com/bug-bounty/astroport/,,,,True
+Charm,20000,,,https://immunefi.com/bug-bounty/charm/,,,,True
+Chime Managed Bug Bounty Engagement,20000,,,https://bugcrowd.com/engagements/chime,full,True,86602,False
+Daimo Pay,20000,,,https://immunefi.com/bug-bounty/daimo-pay/,,,,True
+FIS,20000,,,https://bugcrowd.com/engagements/fis,full,True,186172,False
+Hibachi,20000,,,https://immunefi.com/bug-bounty/hibachi/,,,,True
+Horizen,20000,,,https://immunefi.com/bug-bounty/horizen/,,,,True
+IPOR,20000,,,https://immunefi.com/bug-bounty/ipor/,,,,True
+NFTfi,20000,,,https://immunefi.com/bug-bounty/nftfi/,,,,True
+Paribus,20000,,,https://immunefi.com/bug-bounty/paribus/,,,,True
+Push Protocol,20000,,,https://immunefi.com/bug-bounty/pushprotocol/,,,,True
+SAP Invitational Bug Bounty Program,20000,,,https://bugcrowd.com/engagements/sap-private-invite,full,True,,False
+szns,20000,,,https://docs.szns.io/smart-contracts/bug-bounty,,,,False
+Trusted Firmware,20000,1000,USD,https://www.intigriti.com/programs/arm/trustedfirmware/detail,,,,False
+Uniswap on zkSync,20000,,,https://immunefi.com/bug-bounty/uniswaponzksync/,,,,True
+Wombat Exchange,20000,,,https://immunefi.com/bug-bounty/wombatexchange/,,,,True
+CodeRabbit,20000,100,USD,https://www.coderabbit.ai/vulnerability-disclosure,full,,55196,False
+requestfinance.com,20000,500,USD,https://help.request.finance/en/articles/8623679-bug-bounty-program-at-request,,,692466,False
+Cash App,18000,,,https://bugcrowd.com/cashapp,full,True,7608,False
+Exodus,18000,,,https://www.exodus.com,,False,18763,False
+Square,18000,,,https://bugcrowd.com/square,full,True,154005,False
+Adobe,15000,75,USD,https://helpx.adobe.com/security/alertus.html,none,True,68,False
+Adobe Public,15000,75,USD,https://www.intigriti.com/programs/adobe/adobepublic/detail,,,68,False
+BitDefender,15000,,,https://www.bitdefender.com/bitdefender_vulnerability_disclosure_program.html,full,True,1812,False
+Bitpanda Ongoing Bug Bounty,15000,,,https://bugcrowd.com/engagements/bitpanda-og-bb,full,True,32558,False
+BMW Group Automotive,15000,100,EUR,https://www.intigriti.com/programs/bmw/bmwgroup-automotive/detail,,,,False
+Canva,15000,,,https://www.canva.com/security/bug-bounty/,partial,True,246,False
+Capital.com,15000,,EUR,https://www.intigriti.com/programs/capitalcom/capitalcom/detail,,,24817,False
+Delen Private Bank,15000,100,EUR,https://www.intigriti.com/programs/delenprivatebank/privatebankdelen/detail,,,117272,False
+Dropbox,15000,100,USD,https://hackerone.com/dropbox,partial,,136,False
+eToro Managed Bug Bounty Engagement,15000,,,https://bugcrowd.com/engagements/etoro-mbb-og,full,True,141268,False
+FDJ United (Online Betting and Gaming) - Bug Bounty program,15000,50,,https://yeswehack.com/programs/fdj-united-online-betting-gaming-bug-bounty-program,,,33065,False
+KuCoin Managed Bug Bounty Program,15000,,,https://bugcrowd.com/engagements/kucoin,partial,True,5762,False
+NVIDIA Public Bug Bounty,15000,150,USD,https://www.intigriti.com/programs/nvidia/nvidiapublicbugbounty/detail,,,,False
+Omron,15000,,,https://immunefi.com/bug-bounty/omron/,,,,True
+Teahouse Finance,15000,,,https://immunefi.com/bug-bounty/teahousefinance/,,,,True
+Yahoo Bug Bounty,15000,100,USD,https://www.intigriti.com/programs/yahoo/yahoobugbounty/detail,,,59,False
+Yes We Hack,15000,50,,https://yeswehack.com/programs/yes-we-hack,,,,False
+YesWeHack,15000,50,,https://yeswehack.com/programs/yes-we-hack,,,179429,False
+spectrocoin.com,15000,200,USD,https://spectrocoin.com/bug-bounty.html,,,162284,False
+Intigriti,13337,,EUR,https://app.intigriti.com/programs/intigriti/intigriti/detail,,,129597,False
+Monzo Public Bug Bounty Program,12500,50,GBP,https://www.intigriti.com/programs/monzobank/monzopublicbugbountyprogram/detail,,,16607,False
+OVHcloud,12500,50,,https://yeswehack.com/programs/ovh,,,1486,False
+Atlassian,12000,,,https://bugcrowd.com/atlassian,full,True,15085,False
+Bullish.com,12000,,,https://bugcrowd.com/engagements/bullish,full,True,110811,False
+Electroneum Legacy Blockchain: EOL,12000,,,https://bugcrowd.com/engagements/legacy-blockchain-mbb-og,full,True,,False
+Electroneum Smart Chain (ETN-SC) — EVM-Compatible Blockchain,12000,,,https://bugcrowd.com/engagements/smartchain-mbb-og,full,True,,False
+Trello,12000,,,https://bugcrowd.com/trello,full,True,1827,False
+Ava Labs,10000,,,https://immunefi.com/bug-bounty/avalabs/,,,,True
+Binance,10000,,,https://bugcrowd.com/binance,partial,True,2403,False
+BIND 9 Bug Bounty Program,10000,,,https://yeswehack.com/programs/bind-bug-bounty-program,,,3308,False
+Blockchain.com Managed Bug Bounty Engagement,10000,,,https://bugcrowd.com/engagements/blockchain-dot-com,full,True,4785,False
+BlockPI Network,10000,,,https://immunefi.com/bug-bounty/blockpinetwork/,,,,True
+Bugcrowd,10000,,,https://bugcrowd.com/bugcrowd,full,True,30553,False
+Cardano Foundation,10000,,,https://immunefi.com/bug-bounty/cardanofoundation/,,,,True
+Cisco Networking,10000,,,https://bugcrowd.com/engagements/cisconetworking,partial,True,2654,False
+Deri Protocol,10000,,,https://immunefi.com/bug-bounty/deriprotocol/,,,,True
+DigitalOcean,10000,50,USD,https://hackerone.com/digitalocean,partial,,557,False
+Etsy,10000,,,https://bugcrowd.com/etsy,partial,True,336,False
+FOIL,10000,,,https://immunefi.com/bug-bounty/foil/,,,,True
+Indeed,10000,,,https://bugcrowd.com/indeed,full,True,412,False
+INTMAX,10000,,,https://immunefi.com/bug-bounty/intmax/,,,,True
+Keeper Security Public Bounty Program,10000,,,https://bugcrowd.com/engagements/keepersecurity,partial,True,,False
+Mars Ecosystem,10000,,,https://immunefi.com/bug-bounty/marsecosystem/,,,,True
+Money on Chain,10000,,,https://immunefi.com/bug-bounty/moneyonchain/,,,,True
+Neon,10000,125,USD,http://neon.tech,,True,4295,False
+OFZA,10000,,,https://immunefi.com/bug-bounty/ofza-1/,,,,True
+SEEK,10000,,,https://bugcrowd.com/seek,full,True,142263,False
+SPOT,10000,,,https://immunefi.com/bug-bounty/spot/,,,,True
+Swiss Post,10000,50,,https://yeswehack.com/programs/swiss-post,,,15345,False
+TeamViewer - Bounty Program,10000,100,,https://yeswehack.com/programs/teamviewer-bounty-program,,,590,False
+Unstoppable Wallet,10000,,,https://immunefi.com/bug-bounty/unstoppablewallet/,,,,True
+Verisign,10000,,,https://bugcrowd.com/verisign,partial,True,36724,False
+Wildcat Protocol,10000,,,https://immunefi.com/bug-bounty/wildcatprotocol/,,,,True
+YO Protocol,10000,,,https://immunefi.com/bug-bounty/yo-protocol/,,,,True
+Zano,10000,,,https://immunefi.com/bug-bounty/zano/,,,,True
+docs.range.org,10000,250,USD,https://docs.range.org/resources/bug-bounty,full,,743008,False
+forexfactory.com,10000,100,USD,https://www.forexfactory.com/bug-bounty,,,6428,False
+setpointmedical.com,10000,100,USD,https://setpointmedical.com/security/,,,,False
+Orderly Network Public Managed Bug Bounty Engagement,9000,,,https://bugcrowd.com/engagements/orderlynetwork-mbb-og2,partial,True,,False
+ICI PARIS XL,8500,10,USD,https://www.intigriti.com/programs/aswatson/iciparisxl/detail,,,61701,False
+Kruidvat,8500,10,USD,https://www.intigriti.com/programs/aswatson/kruidvat/detail,,,37913,False
+Marionnaud,8500,10,USD,https://www.intigriti.com/programs/aswatson/marionnaud/detail,,,106049,False
+Superdrug,8500,10,USD,https://www.intigriti.com/programs/aswatson/superdrug/detail,,,52954,False
+The Perfume Shop,8500,10,USD,https://www.intigriti.com/programs/aswatson/theperfumeshop/detail,,,44777,False
+Watsons,8500,10,USD,https://www.intigriti.com/programs/aswatson/watsons/detail,,,,False
+Forta Network,8000,,,https://immunefi.com/bug-bounty/forta/,,,,True
+HotDoc,8000,,,https://bugcrowd.com/engagements/hotdoc,partial,True,,False
+Lululemon,8000,,,https://bugcrowd.com/lululemon,,True,6060,False
+MON ESPACE SANTÉ,8000,50,,https://yeswehack.com/programs/mon-espace-sante-mes,,,48732,False
+Skyscanner,8000,,,https://bugcrowd.com/skyscanner,full,True,4363,False
+StakeEasy,8000,,,https://immunefi.com/bug-bounty/stakeeasy/,,,,True
+CoinDesk Data - Data API,7500,,,https://bugcrowd.com/engagements/CCData-mbb-og,full,True,,False
+CoinDesk Mobile,7500,,,https://bugcrowd.com/engagements/coindesk-mobile-mbb-og,full,True,,False
+CoinDesk.com,7500,,,https://bugcrowd.com/engagements/coindesk-mbb-og,full,True,4053,False
+Consensus by CoinDesk,7500,,,https://bugcrowd.com/engagements/consensus-mbb-og,full,True,,False
+Fivetran,7500,,,https://bugcrowd.com/engagements/fivetran-mbb-og,full,True,17094,False
+Latitude Financial Services Bug Bounty,7500,,,https://bugcrowd.com/engagements/latitude-financial-service-bugbounty,full,True,262128,False
+LaunchDarkly Managed Bug Bounty Engagement,7500,,,https://bugcrowd.com/engagements/launchdarkly-mbb-og,full,True,499,False
+Lightspeed Hospitality,7500,,,https://bugcrowd.com/engagements/lightspeed-hospitality,full,True,59819,False
+Lightspeed Retail,7500,,,https://bugcrowd.com/engagements/lightspeed-retail,full,True,4576,False
+Linktree,7500,,,https://bugcrowd.com/linktree-mbb-og,full,True,45185,False
+Luno,7500,,,https://bugcrowd.com/luno-og,full,True,44352,False
+MGM China Holdings Limited Managed Bug Bounty Program,7500,,,https://bugcrowd.com/engagements/mgmmacau-mbb-og,full,True,62618,False
+Monash University,7500,,,https://www.monash.edu/cybersecurity/about/mon-csirt,partial,True,3497,False
+Rapyd,7500,,,https://bugcrowd.com/rapyd,full,True,31764,False
+Safety Bug Bounty,7500,,,https://bugcrowd.com/engagements/openai-safety,full,True,87,False
+Visma,7500,100,EUR,https://www.visma.com/trust-centre/smb/security-and-privacy/operational/responsible-disclosure/,full,,25020,False
+Centers for Medicare & Medicaid Services - Public Bug Bounty Program 2026,7000,,,https://bugcrowd.com/engagements/cms-bbpublic,full,True,4227,False
+Infomaniak,7000,100,,https://yeswehack.com/programs/infomaniak-bug-bounty-program,,,104198,False
+KOMOJU - Public Bug Bounty Program,7000,50,,https://yeswehack.com/programs/komoju-public-bug-bounty-program,,,110545,False
+Lime,7000,,,https://bugcrowd.com/lime,full,True,58108,False
+MATLAB Online - Ongoing Bug Bounty Engagement,7000,,,https://bugcrowd.com/engagements/matlab-online,full,True,2891,False
+Moovit Managed Bug Bounty Program,7000,,,https://bugcrowd.com/engagements/moovit-mbb-og,full,True,,False
+Thüringer Aufbaubank Bug Bounty Program,7000,50,,https://yeswehack.com/programs/thuringer-aufbaubank-bug-bounty-program,,,190876,False
+SBB - Swiss Federal Railways,6666,25,EUR,https://app.intigriti.com/programs/sbb/sbbglobal/detail,,,168561,False
+Asana,6500,,,https://asana.com/bounty,partial,True,2233,False
+Backblaze,6500,,,https://www.backblaze.com/security.html,none,True,3771,False
+Bolt Technology OÜ,6500,,,https://bugcrowd.com/engagements/bolt-og,full,True,7283,False
+Entain Game Logic Flaws Bug Bounty Program,6500,,,https://bugcrowd.com/engagements/entain-glf-mbb-og,full,True,18511,False
+OneTrust,6500,,,https://bugcrowd.com/onetrust,full,True,619,False
+OpenAI,6500,,,https://bugcrowd.com/openai,partial,True,87,False
+Torfs,6500,25,EUR,https://app.intigriti.com/programs/torfs/torfs/detail,,,,False
+BMW Group,6000,150,EUR,https://hackerone.com/bmwgroup,,,129523,False
+Flourish,6000,,,https://bugcrowd.com/flourish,,True,18741,False
+Gearset: Managed Bug Bounty,6000,,,https://bugcrowd.com/engagements/gearset-mbb,full,True,110084,False
+Intercom,6000,,,https://bugcrowd.com/intercom,partial,True,658,False
+Kaleido,6000,,,https://bugcrowd.com/kaleido,,True,272991,False
+New Relic Public Bug Bounty Program,6000,,,https://bugcrowd.com/engagements/newrelic-mbb-og-public,partial,True,512,False
+Northwestern Mutual - Public Bug Bounty,6000,,,https://bugcrowd.com/engagements/northwestern-mutual-mbb-og,partial,True,64390,False
+Octopus,6000,,,https://bugcrowd.com/octopus-og,full,True,34505,False
+Octopus Deploy,6000,,,https://octopus.com/security/disclosure,full,True,34505,False
+Pexels,6000,,,https://bugcrowd.com/pexels,partial,True,861,False
+Pixabay,6000,,,https://bugcrowd.com/pixabay,,True,460,False
+Seek.com,6000,,,https://bugcrowd.com/engagements/seek-com,full,True,,False
+SimpliSafe Managed Bug Bounty Engagement,6000,,,https://bugcrowd.com/engagements/simplisafe,full,True,2732,False
+SimScale,6000,250,EUR,https://www.intigriti.com/programs/simscale/simscale/detail,,,,False
+Telenor,6000,50,,https://yeswehack.com/programs/telenor-sweden-public-bug-bounty-program,,,,False
+Telenor Sweden Public Bug Bounty Program,6000,50,,https://yeswehack.com/programs/telenor-sweden-public-bug-bounty-program,,,3846,False
+TrueLayer,6000,75,EUR,https://www.intigriti.com/programs/truelayer/truelayer/detail,,,41430,False
+Uphold,6000,,EUR,https://app.intigriti.com/programs/Uphold/upholdcom/detail,,,47805,False
+USAA,6000,,,https://bugcrowd.com/usaa,partial,True,72620,False
+Veriff,6000,5,EUR,https://www.veriff.com/responsible-disclosure,,,32051,False
+Comcast Xfinity,5500,,,https://bugcrowd.com/comcastvdp,full,True,621,False
+Intergamma,5500,50,EUR,https://www.intigriti.com/programs/intergamma/intergamma/detail,,,,False
+Xfinity Home & xFi,5500,,,https://bugcrowd.com/xfinity-home,full,True,,False
+20 Minuten,5000,,,https://bugcrowd.com/engagements/twentyminuten,full,True,4939,False
+3DS OUTSCALE,5000,50,,https://en.outscale.com/reporting-vulnerabilities/,,,35045,False
+Afterpay Bug Bounty Program,5000,,,https://bugcrowd.com/engagements/afterpay,full,True,5739,False
+Alpen Labs,5000,,,https://immunefi.com/bug-bounty/alpen-labs/,,,,True
+Bitdefender Box v2,5000,,,https://bugcrowd.com/engagements/bitdefenderbox2,full,True,,False
+Block Open Source,5000,,,https://bugcrowd.com/engagements/blockopensource,full,True,,False
+Cryptobox,5000,100,,https://yeswehack.com/programs/cryptobox-bug-bounty,,,149694,False
+Dell Technologies' Products Bug Bounty Program,5000,,,https://bugcrowd.com/engagements/dell-product,partial,True,,False
+Dovecot,5000,,,https://hackerone.com/dovecot,,,,False
+Entain Public Managed Bug Bounty Engagement 2024,5000,,,https://bugcrowd.com/engagements/entain-public-mbb-og,full,True,,False
+Exoscale Bug Bounty,5000,50,EUR,https://www.intigriti.com/programs/exoscale/excoscalebugbounty/detail,,,97075,False
+Ezviz,5000,,,https://yeswehack.com/programs/ezviz-bug-bounty-program#program-description,,,,False
+Ezviz - Bug Bounty Program,5000,,,https://yeswehack.com/programs/ezviz-bug-bounty-program,,,444,False
+Glean Technologies Public Engagement,5000,,,https://bugcrowd.com/engagements/glean-technologies-public,partial,True,,False
+GoTo Financial - Public Bounty Program,5000,5,,https://yeswehack.com/programs/goto-financial-public-bounty-program,,,55583,False
+HPE Networking Product Public Program,5000,,,https://bugcrowd.com/engagements/hpe-networking-product-public,full,True,341,False
+Keycloak,5000,,,https://yeswehack.com/programs/keycloak-bug-bounty-program,,,,False
+Kinepolis Group,5000,,EUR,https://www.intigriti.com/programs/kinepolis/website/detail,,,85848,False
+LastPass,5000,,,https://bugcrowd.com/lastpass,partial,True,2539,False
+Louis Vuitton Malletier - Public Bug Bounty Program,5000,50,,https://yeswehack.com/programs/louis-vuitton-malletier-public-bug-bounty-program,,,5201,False
+Mastercard Public Bug Bounty,5000,,,https://bugcrowd.com/engagements/mastercard,partial,True,929751,False
+Maya - Public Bug Bounty Program,5000,50,,https://yeswehack.com/programs/maya-public-bug-bounty-program,,,7486,False
+Mobile Vikings,5000,,EUR,https://hackerone.com/mobilevikings,,,6814,False
+Moneytree KK,5000,,,https://bugcrowd.com/moneytreekkog,partial,True,228822,False
+Motorola Mobility Hardware Engagement,5000,,,https://bugcrowd.com/engagements/motorolamobility-iot,partial,True,,False
+Mt Pelerin,5000,,,https://www.mtpelerin.com/responsible-disclosure-policy,,,326684,False
+Opera Public Bug Bounty,5000,,,https://bugcrowd.com/opera,full,True,90,False
+Optus Managed Bug Bounty,5000,,,https://bugcrowd.com/engagements/optus-mbb-og,full,True,10221,False
+Paddle.com Public Bug Bounty Program,5000,50,,https://yeswehack.com/programs/paddle-com-public-bug-bounty-program,,,11353,False
+Personio,5000,50,EUR,https://www.intigriti.com/programs/personio/personio/detail,,,20276,False
+Plusgrade Loyalty Public Program,5000,,,https://bugcrowd.com/engagements/plusgrade-mbb-public,full,True,29688,False
+Q Blockchain,5000,,,https://immunefi.com/bug-bounty/qblockchain/,,,,True
+QWANT,5000,,,https://yeswehack.com/programs/qwant,none,,6602,False
+Recorded Future Public Managed Bug Bounty Engagement,5000,,,https://bugcrowd.com/engagements/recorded-future-mbb-og,full,True,37824,False
+Rivian Bug Bounty,5000,100,USD,https://www.intigriti.com/programs/rivian/rivianbugbounty/detail,,,13968,False
+Skoda Auto Bug Bounty Program,5000,200,EUR,https://www.intigriti.com/programs/skodaauto/skodaautoprivatebugbountyprogram/detail,,,,False
+Skroutz Public Managed Bug Bounty,5000,,,https://bugcrowd.com/engagements/skroutz,full,True,1086,False
+Tencent,5000,,,https://en.security.tencent.com/,none,,646,False
+The Trade Desk,5000,,,https://bugcrowd.com/engagements/thetradedesk-mbb,full,True,267,False
+TIDAL,5000,,,https://bugcrowd.com/tidal-bugbounty,full,True,2411,False
+TripAdvisor,5000,,,https://bugcrowd.com/tripadvisor-bb-og,full,True,50696,False
+Upwork,5000,,,https://bugcrowd.com/upwork,partial,True,2479,False
+UZ Leuven,5000,50,EUR,https://www.intigriti.com/programs/uz%20leuven/uzleuven/detail,,,61318,False
+Venly,5000,50,EUR,https://www.intigriti.com/programs/arkane/arkanenetwork/detail,,,262804,False
+Water-Link,5000,50,EUR,https://www.intigriti.com/programs/waterlink/water-link/detail,,,117872,False
+Wyze Bug Bounty,5000,,,https://bugcrowd.com/engagements/wyze,full,True,916,False
+Ably,5000,150,USD,https://ably.com/disclosure,full,,49396,False
+atmail.com,5000,50,USD,https://www.atmail.com/bug-bounty-terms/,full,,344027,False
+moneykit.com,5000,1000,USD,https://moneykit.com/bounty,,,,False
+nuuvem.com,5000,,USD,https://www.nuuvem.com/us-en/security,,,42204,False
+panteracapital.com,5000,,USD,https://panteracapital.com/pantera-bug-bounty/,,,233513,False
+stormrake,5000,50,AUD,https://www.stormrake.com/offering/stormrake-bug-bounty-program,,,,False
+voibly.app,5000,,,https://voibly.app/security,,,,False
+whatruns.com,5000,100,USD,https://www.whatruns.com/bug-bounty,,,96172,False
+Arlo Cash Rewards,4500,,,https://bugcrowd.com/arlo,partial,True,3810,False
+BitGo Mobile Apps Bug Bounty Engagement,4500,,,https://bugcrowd.com/engagements/bitgo-mobileapps-mbb-og,full,True,,False
+Bitso Managed Bug Bounty Engagement,4500,,,https://bugcrowd.com/engagements/bitso-mbb-og,partial,True,57347,False
+Certinia (formerly FinancialForce),4500,,,https://bugcrowd.com/engagements/financialforce,full,True,39540,False
+Cisco ThousandEyes Vulnerability Hunting aka Bug Bounty,4500,,,https://bugcrowd.com/engagements/thousandeyes-og,partial,True,2223,False
+Demo-EU-admin-PublicMBB-1,4500,,,https://eu.bugcrowd.net/engagements/eu-public-1,,True,118633,False
+Felix Health Managed Bug Bounty Engagement,4500,,,https://bugcrowd.com/engagements/felix-health-mbb-og,full,True,317481,False
+Infinite Athlete,4500,,,https://bugcrowd.com/engagements/tempusex-public-mbb-og,full,True,263890,False
+InnoGames,4500,50,EUR,https://hackerone.com/innogames,full,,,False
+iRobot,4500,,,https://bugcrowd.com/irobot,full,True,23925,False
+Just Eat Takeaway.com,4500,,,https://bugcrowd.com/justeattakeaway,full,True,104055,False
+Kohl's,4500,,,https://bugcrowd.com/engagements/kohls,partial,True,1030,False
+MyFitnessPal Managed Bug Bounty,4500,,,https://bugcrowd.com/engagements/myfitnesspal-mbb,full,True,4512,False
+Navan,4500,,,https://bugcrowd.com/engagements/navan,full,True,28881,False
+New Blue Website (NBW) - VWFS Bug Bounty Program,4500,,,https://bugcrowd.com/engagements/volkswagen-vwfs-mbb-og,full,True,380019,False
+OSL Managed Public Bug Bounty Engagement,4500,,,https://bugcrowd.com/engagements/osl-mbb-og1,full,True,267505,False
+PNI Media - Bug Bounty,4500,,,https://bugcrowd.com/engagements/pnimedia-bb,full,True,,False
+Port of Antwerp-Bruges,4500,50,EUR,https://www.intigriti.com/programs/portofantwerp/portofantwerp/detail,,,139312,False
+"REA Group | realestate.com.au, realcommercial.com.au, property.com.au",4500,,,https://bugcrowd.com/engagements/rea-mbb-og,full,True,58557,False
+Soteri Marketplace Bug Bounty,4500,,,https://bugcrowd.com/engagements/soteri,full,True,,False
+SoundCloud,4500,,,https://bugcrowd.com/soundcloud,full,True,193,False
+Ultra Mobile Public Bug Bounty Engagement,4500,,,https://bugcrowd.com/engagements/ultramobile-public,full,True,32366,False
+Ultra Mobile Public ECOMM 2025 Bug Bounty Engagement,4500,,,https://bugcrowd.com/engagements/ultramobile-ecomm,full,True,32366,False
+Unisys Managed Bug Bounty Engagement,4500,,,https://bugcrowd.com/engagements/unisys-mbb-og,full,True,187842,False
+Viator,4500,,,https://bugcrowd.com/viator,partial,True,4584,False
+VR Public Managed Bug Bounty Engagement,4500,,,https://bugcrowd.com/engagements/vr-group-mbb-og1,full,True,267505,False
+Ninja Kiwi Games,4125,75,EUR,https://www.intigriti.com/programs/ninjakiwigames/ninjakiwigames/detail,,,29360,False
+"Acorns Grow, Inc.",4000,,,https://bugcrowd.com/engagements/acorns,full,True,4164,False
+Allegro,4000,100,EUR,https://hackerone.com/allegro,none,,25720,False
+allegro.pl,4000,100,EUR,https://hackerone.com/allegro?view_policy=true,,,,False
+ATG,4000,,,https://yeswehack.com/programs/atg-public-bug-bounty-program,,,,False
+ATG Public Bug Bounty Program,4000,,,https://yeswehack.com/programs/atg-public-bug-bounty-program,,,8886,False
+Atlassian-Built Apps,4000,,,https://bugcrowd.com/engagements/atlassianapps,full,True,1827,False
+Blofin Crypto Managed Bug Bounty Engagement,4000,,,https://bugcrowd.com/engagements/blofin-crypto-mbb-og,full,True,32766,False
+Cloudinary,4000,,,https://bugcrowd.com/cloudinary,full,True,939,False
+Cloudways by DigitalOcean,4000,50,USD,https://www.intigriti.com/programs/digitalocean/cloudways/detail,,,16230,False
+Elementor: Bug Bounty Program,4000,,,https://bugcrowd.com/engagements/elementor,full,True,384938,False
+Empower Personal Wealth,4000,,,https://bugcrowd.com/engagements/personalcapital,full,True,,False
+HARMAN International,4000,100,,https://yeswehack.com/programs/harman-international-web-applications,,,,False
+HARMAN International - Web Applications,4000,100,,https://yeswehack.com/programs/harman-international-web-applications,,,41762,False
+Harman International Lifestyle Products & Services,4000,100,,https://yeswehack.com/programs/harman-international-public-bug-bounty,,,2709,False
+Majid Al Futtaim Retail,4000,,,https://bugcrowd.com/engagements/carrefour,full,True,82411,False
+Mediamarktsaturn,4000,,,https://hackerone.com/mediamarktsaturn,,,41986,False
+Nubank Brasil Managed Bug Bounty Program,4000,,,https://bugcrowd.com/engagements/nubank,full,True,,False
+Opsgenie,4000,,,https://bugcrowd.com/opsgenie,full,True,3154,False
+Statuspage,4000,,,https://bugcrowd.com/statuspage,full,True,1050,False
+Wise,4000,,,https://bugcrowd.com/wise,full,True,28265,False
+cleanshot.com,4000,50,USD,https://cleanshot.com/disclosure,,,117816,False
+iFood: Bug Bounty Program,3750,,,https://bugcrowd.com/ifood-og,full,True,5366,False
+City of Vienna Managed Bug Bounty,3500,,,https://bugcrowd.com/engagements/city-of-vienna-mbb-og,full,True,157831,False
+Fing Bug Bounty Program,3500,50,EUR,https://www.intigriti.com/programs/lansweeper/fing/detail,,,17919,False
+GOJEK - Public Bounty Program,3500,5,,https://yeswehack.com/programs/gojek-bug-bounty-program,,,97309,False
+Klaviyo Managed Bug Bounty,3500,,,https://bugcrowd.com/engagements/klaviyo-og,full,True,,False
+Majid Al Futtaim Lifestyle,3500,,,https://bugcrowd.com/engagements/maffashion,full,True,,False
+NEOGOV Public Assets,3500,,,https://bugcrowd.com/engagements/neohrms,full,True,42996,False
+Optimizely,3500,,,https://bugcrowd.com/optimizely,partial,True,685,False
+PDQ bug bounty program,3500,50,EUR,https://www.intigriti.com/programs/pdq/pdqcomprivate/detail,,,25239,False
+TheFork - B2B - TFM3,3500,,,https://bugcrowd.com/engagements/lafourchette,full,True,,False
+TheFork - B2C - WNG,3500,,,https://bugcrowd.com/engagements/thefork-b2c-wng,full,True,,False
+TheFork Managed Bug Bounty Engagement,3500,,,https://bugcrowd.com/engagements/thefork-mbb-og,full,True,24900,False
+Ultra Mobile Retailer Portal Bug Bounty Engagement,3500,,,https://bugcrowd.com/engagements/ultramobile-retailer-portal,partial,True,,False
+Voi Scooters,3500,,EUR,https://www.intigriti.com/programs/voi/voiscooters/detail,,,164684,False
+BlaBlaCar,3000,50,,https://yeswehack.com/programs/bug-bounty-program-blablacar,,,,False
+Bug Bounty Program - BlaBlaCar,3000,50,,https://yeswehack.com/programs/bug-bounty-program-blablacar,,,,False
+DANA Bug Bounty Program,3000,,,https://yeswehack.com/programs/dana-bug-bounty-program,,,6051,False
+DATADOME,3000,50,,https://yeswehack.com/programs/datadome-bug-bounty,,,1298,False
+Directly,3000,,,https://bugcrowd.com/directly,full,True,,False
+eazyBI,3000,,,https://bugcrowd.com/engagements/eazybi,partial,True,104557,False
+GRW Trading FZE - Open Bug Bounty Program,3000,50,,https://yeswehack.com/programs/grw-trading-fze-bug-bounty-program,,,155354,False
+Magic Labs Managed Bug Bounty Engagement,3000,,,https://bugcrowd.com/engagements/magiclabs-mbb-og,full,True,33181,False
+PlanetHoster,3000,,,https://bugcrowd.com/planethosterinc,partial,True,7910,False
+Programme de prime aux bogues du Gouvernement du Québec,3000,50,,https://yeswehack.com/programs/programmes-de-primes-aux-bogues-du-gouvernement-du-quebec-cgcd,,,,False
+Stiltsoft,3000,,,https://bugcrowd.com/engagements/stiltsoft,full,True,,False
+toom Baumarkt GmbH - Bug Bounty Program (toom.de),3000,50,,https://yeswehack.com/programs/toom-baumarkt-gmbh-bug-bounty-program,,,,False
+toom Baumarkt GmbH - Webshop,3000,50,,https://yeswehack.com/programs/toom-baumarkt-gmbh-bug-bounty-program,,,15415,False
+Unity Technologies,3000,,,https://bugcrowd.com/engagements/unity,full,True,2162,False
+vidaXL Services - Open Bug Bounty Program,3000,50,,https://yeswehack.com/programs/vidaxl-services-open-bug-bounty-program,,,98014,False
+VINCI SA - Public program,3000,50,,https://yeswehack.com/programs/vincisa-public-program,,,70291,False
+Web.com VDP,3000,,,https://bugcrowd.com/webdotcom-vdp,full,True,6343,False
+Withings,3000,,,https://yeswehack.com/programs/withings-public-program,,,17008,False
+YNAB,3000,,,https://bugcrowd.com/ynab,full,True,541688,False
+CM.com,2625,5,EUR,https://www.intigriti.com/programs/cmcom/cmcom/detail,,,8732,False
+Aikido Security: Bug Bounty Program,2500,50,EUR,https://www.intigriti.com/programs/aikido/aikido/detail,,,38968,False
+Ant Group Security Response Center - Bug Bounty Program,2500,10,,https://yeswehack.com/programs/ant-group-security-response-center-bug-bounty-program,,,734167,False
+Axel Springer National Media & Tech,2500,15,EUR,https://www.intigriti.com/programs/axelspringerse/nmt/detail,,,117844,False
+Classdojo,2500,,,https://www.classdojo.com/securitydisclosureprogram/,full,True,5486,False
+ClickHouse,2500,,,https://bugcrowd.com/engagements/clickhouse,full,True,,False
+CodeAI,2500,,,https://bugcrowd.com/engagements/codeorg,full,True,241183,False
+DECATHLON,2500,50,,https://yeswehack.com/programs/decathlon,,,,False
+Deezer,2500,,,https://yeswehack.com/programs/deezer-bug-bounty-program-2019,,,1547,False
+Dell Technologies Application Bug Bounty,2500,,,https://bugcrowd.com/engagements/dell-com,partial,True,16095,False
+ExpressVPN,2500,,,https://bugcrowd.com/expressvpn,full,,15689,False
+HostGator LATAM Bug Bounty,2500,,,https://bugcrowd.com/engagements/hostgator-latam-bb,full,True,721,False
+Imperva - Thales Bug Bounty,2500,,,https://bugcrowd.com/engagements/imperva-mbb,full,True,349827,False
+Izymes,2500,,,https://bugcrowd.com/engagements/izymes,full,True,,False
+Jora,2500,,,https://bugcrowd.com/jora,full,True,19450,False
+Majid Al Futtaim Customer Solutions,2500,,,https://bugcrowd.com/engagements/majidalfuttaim-loyalty,full,True,1907,False
+Majid Al Futtaim Entertainment,2500,,,https://bugcrowd.com/engagements/vox,full,True,100265,False
+Majid Al Futtaim Properties,2500,,,https://bugcrowd.com/engagements/mallofemirates,full,True,,False
+Nexuzhealth,2500,50,EUR,https://www.intigriti.com/public/project/uz%20leuven/nexuzhealthwebpacs,full,,,False
+Origin Energy,2500,,,https://bugcrowd.com/originenergy-og1,full,True,91068,False
+OTTO.DE Bug Bounty,2500,50,,https://yeswehack.com/programs/otto-de-bug-bounty,,,58073,False
+Rec Room Video Games,2500,,,https://bugcrowd.com/engagements/recroom-og,full,True,,False
+Refined,2500,,,https://bugcrowd.com/engagements/refined2,partial,True,17007,False
+SecureDrop,2500,,,https://bugcrowd.com/freedomofpress,partial,True,,False
+Sqills,2500,,EUR,https://www.sqills.com/responsible-disclosure-policy/,,,10932,False
+Tamedia,2500,,,https://bugcrowd.com/engagements/tamedia,full,True,11337,False
+The Hut Group: Public Managed Bug Bounty Engagement,2500,,,https://bugcrowd.com/engagements/hutgroup-public,full,True,151313,False
+Tomorrowland,2500,,EUR,https://www.intigriti.com/programs/tomorrowland/tomorrowland/detail,,,10138,False
+"Tyler Technologies Data & Insights – Tyler Data Platform, powered by Socrata",2500,,,https://bugcrowd.com/engagements/tyler-tech-data-insights,full,True,112483,False
+Under Armour Corporate,2500,,,https://bugcrowd.com/engagements/underarmour-corp,full,True,6613,False
+Under Armour Product Security,2500,,,https://bugcrowd.com/engagements/underarmour,full,True,27845,False
+Volkswagen,2500,,,https://bugcrowd.com/engagements/volkswagen-og,full,True,5075,False
+WP Engine,2500,,EUR,https://bugcrowd.com/wpengine,partial,,32989,False
+Algemeen Dagblad,2200,25,EUR,https://www.intigriti.com/programs/dpgm/algemeendagblad/detail,,,1171,False
+De Morgen,2200,25,EUR,https://www.intigriti.com/programs/dpgm/demorgen/detail,,,13713,False
+De Volkskrant,2200,25,EUR,https://www.intigriti.com/programs/dpgm/devolkskrant/detail,,,7734,False
+Het Laatste Nieuws,2200,25,EUR,https://www.intigriti.com/programs/dpgm/hetlaatstenieuws/detail,,,1246,False
+Het Parool,2200,25,EUR,https://www.intigriti.com/programs/dpgm/hetparool/detail,,,12921,False
+Humo,2200,25,EUR,https://www.intigriti.com/programs/dpgm/humo/detail,,,35459,False
+Libelle,2200,25,EUR,https://www.intigriti.com/programs/dpgm/libelle/detail,,,17182,False
+Trouw,2200,25,EUR,https://www.intigriti.com/programs/dpgm/trouw/detail,,,17099,False
+Tweakers,2200,50,EUR,https://app.intigriti.com/programs/dpgm/tweakers/detail,,,55285,False
+VTM GO,2200,25,EUR,https://www.intigriti.com/programs/dpgm/vtmgo/detail,,,29565,False
+Council on Foreign Relations,2100,,,https://bugcrowd.com/engagements/cfr,full,True,5382,False
+AnyTask: Freelancer Platform,2000,,,https://bugcrowd.com/engagements/anytask-mbb-og,full,True,,False
+"Appliances - Barracuda Networks, Inc.",2000,,,https://bugcrowd.com/engagements/barracuda,partial,True,,False
+BitGo Managed Public Bug Bounty Engagement,2000,,,https://bugcrowd.com/engagements/bitgo-mbb-og-public,full,True,,False
+BitOasis - Bug Bounty Program,2000,5,,https://yeswehack.com/programs/bitoasis-bug-bounty-program,,,176350,False
+Bitstamp,2000,,,https://bugcrowd.com/engagements/bitstamp,full,True,,False
+BookBeat,2000,50,,https://yeswehack.com/programs/bookbeat,,,46193,False
+Braze Public BB,2000,,,https://bugcrowd.com/engagements/braze-bb,full,True,,False
+Centers for Medicare & Medicaid Services - Public Bug Bounty Program 2025,2000,,,https://bugcrowd.com/engagements/cms-bbpublic,full,True,,False
+Code.org,2000,,,https://bugcrowd.com/engagements/codeorg,full,True,,False
+Coindcx,2000,50,,https://yeswehack.com/programs/coindcx-bug-bounty-program#program-description,,,,False
+Coindcx - Bug Bounty Program,2000,,,https://yeswehack.com/programs/coindcx-bug-bounty-program,,False,27743,False
+Contentsquare,2000,,,https://yeswehack.com/programs/contentsquare-bug-bounty-program,,,20387,False
+"Cybermalveillance.gouv.fr  - sensibilization, prevention and support in terms of cybersecurity",2000,,,https://yeswehack.com/programs/cybermalveillance-gouv-fr-sensibilization-prevention-and-support-in-terms-of-cybersecurity,,,,False
+Dossier Medical Partagé Bug Bounty Program,2000,50,,https://yeswehack.com/programs/dossier-medical-partage-program,,,,False
+Easy Agile,2000,,,https://bugcrowd.com/engagements/easyagile,full,True,,False
+eHealth Hub VZN KUL,2000,,EUR,https://www.intigriti.com/programs/uz%20leuven/ehealthhub%26meta-hubvznkul/detail,,,227643,False
+Electroneum Wallet: Gateway to the ETN Cryptocurrency,2000,,,https://bugcrowd.com/engagements/myapp-mbb-og,full,True,,False
+Etherlinx,2000,,,https://bugcrowd.com/engagements/etherlinx-vdpc,partial,True,,False
+Hemi,2000,,,https://bugcrowd.com/engagements/hemi,full,True,,False
+Here Technologies,2000,,EUR,https://www.intigriti.com/programs/heretechnologies/heretechnologies/detail,,,2489,False
+Housing Application (huisvestingsapp) Bug Bounty Program,2000,,EUR,https://www.intigriti.com/programs/kuleuven/huisvesting/detail,,,5128,False
+HPE Aruba Networking Product Public Program,2000,,,https://bugcrowd.com/engagements/hpe-networking-product-public,full,True,,False
+Internet Brands Public,2000,,,https://bugcrowd.com/engagements/internetbrands-public,full,True,962,False
+Lansweeper,2000,50,EUR,https://www.intigriti.com/programs/lansweeper/lansweeper1/detail,,,7307,False
+Majid Al Futtaim Loyalty Program (Share Rewards),2000,,,https://bugcrowd.com/engagements/majidalfuttaim-loyalty,full,True,,False
+Mattermost Public Bug Bounty Engagement,2000,,,https://bugcrowd.com/engagements/mattermost-mbb-public,full,True,,False
+Moneybox Bug Bounty,2000,50,,https://yeswehack.com/programs/moneybox-bug-bounty,,,379533,False
+Nasa VDP,2000,,,https://bugcrowd.com/engagements/nasa-vdp,full,True,,False
+oDesk,2000,,,https://bugcrowd.com/engagements/odesk,partial,True,,False
+Okto,2000,,,https://yeswehack.com/programs/okto-bug-bounty-program,,,,False
+Okto - Bug Bounty Program,2000,,,https://yeswehack.com/programs/okto-bug-bounty-program,,,,False
+Online enrollment for students Bug Bounty Program,2000,,EUR,https://www.intigriti.com/programs/kuleuven/onlineinschrijvingenbetalingstoepassing/detail,,,5128,False
+Orderly Network: Bug Bounty Program,2000,,,https://bugcrowd.com/engagements/orderlynetwork-mbb-og,full,True,,False
+Posti Bug Bounty,2000,100,EUR,https://www.intigriti.com/programs/posti/postibugbounty/detail,,,26838,False
+Quizlet,2000,,,https://bugcrowd.com/quizlet,partial,True,3215,False
+Ripe NCC,2000,,EUR,https://www.ripe.net/support/contact/responsible-disclosure-policy,none,,3418,False
+Salt Mobile SA - Bug Bounty Program,2000,,,https://yeswehack.com/programs/salt-mobile-sa-bug-bounty-program,,,143836,False
+Sardine VDP,2000,,,https://bugcrowd.com/engagements/sardine-vdp-ess,full,True,,False
+Sendbird,2000,,,https://bugcrowd.com/engagements/sendbird-mbb,full,True,,False
+Shipwire,2000,,,https://bugcrowd.com/engagements/shipwire,partial,True,,False
+SnapNames VDP,2000,,,https://bugcrowd.com/snapnames-vdp,full,True,253195,False
+Sogexia,2000,100,,https://yeswehack.com/programs/sogexia,,,333667,False
+SORA,2000,,,https://immunefi.com/bug-bounty/sora/,,,,True
+Sportradar VAIX Managed Bug Bounty Engagement,2000,,,https://bugcrowd.com/engagements/sportradar-vaix-mbb-og,full,True,,False
+Superbank - Public Bug Bounty Program,2000,,,https://yeswehack.com/programs/superbank-public-bug-bounty-program,,,187861,False
+Swapcard,2000,50,,https://yeswehack.com/programs/swapcard,,,30355,False
+Tetu,2000,,,https://immunefi.com/bug-bounty/tetu/,,,,True
+VRT,2000,100,EUR,https://www.vrt.be/en/responsible-disclosure-policy-english-version/,full,,4950,False
+ZECIBLE PUBLIC BUG BOUNTY PROGRAM,2000,100,,https://yeswehack.com/programs/zecible-public-bug-bounty-program,,,,False
+Zola Managed Bug Bounty,2000,,,https://bugcrowd.com/engagements/zola-mbb-og,full,True,,False
+keragon.com,2000,25,USD,https://www.keragon.com/security/vulnerability-disclosure-program,full,,319837,False
+scribblemaps.com,2000,25,USD,https://help.scribblemaps.com/hc/en-us/articles/360049250211-Vulnerabilities-And-Bounties,,,69607,False
+Spendesk,2000,,EUR,https://www.spendesk.com/.well-known/security.txt,,,108769,False
+SquareX,2000,100,USD,https://sqrx.com/bugbounty,,,188260,False
+superside.com,2000,0,,https://www.superside.com/bug-bounty-program-policy,,,141867,False
+Dstny,1697,,EUR,https://www.intigriti.com/programs/dstny/dstnybugbounty/detail,,,,False
+55 Degrees,1500,,,https://bugcrowd.com/engagements/fiftyfivedegrees,partial,True,,False
+Accxia Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/accxia-gmbh,full,True,,False
+Aelbox Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/aelbox,full,True,,False
+agile doyens,1500,,,https://bugcrowd.com/engagements/agiledoyens-market,full,True,,False
+AgilePulse Marketplace Bug Bounty Program,1500,,,https://bugcrowd.com/engagements/agile-pulse,full,True,,False
+Agilis LT Bug Bounty,1500,,,https://bugcrowd.com/engagements/agilislt,full,True,551475,False
+Akeles Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/akeles,full,True,,False
+AppFox,1500,,,https://bugcrowd.com/engagements/automationconsultants,full,True,,False
+AppLiger,1500,,,https://bugcrowd.com/engagements/appliger,full,True,,False
+Appsvio Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/appsvio,full,True,,False
+APTIS,1500,,,https://bugcrowd.com/engagements/epicsumup,full,True,,False
+Balsamiq for Atlassian Products,1500,,,https://bugcrowd.com/engagements/balsamiq,partial,True,,False
+BOJA Consulting Bug Bounty,1500,,,https://bugcrowd.com/engagements/boja,full,True,,False
+Bpost,1500,,EUR,https://www.intigriti.com/programs/bpost/dummy/detail,,,148871,False
+BrizoIT,1500,,,https://bugcrowd.com/engagements/brizoit,full,True,,False
+Broken Build Bug Bounty,1500,,,https://bugcrowd.com/engagements/brokenbuild,full,True,,False
+BrowserStack Inc. Marketplace Managed Bug Bounty Engagement,1500,,,https://bugcrowd.com/engagements/browserstack-market,full,True,,False
+Caelor Group,1500,,,https://bugcrowd.com/engagements/caelor-group-market,full,True,,False
+Cappsule Sarl - Marketplace Bug Bounty Program,1500,,,https://bugcrowd.com/engagements/cappsule-sarl,full,True,,False
+Catapult Labs Bug Bounty,1500,,,https://bugcrowd.com/engagements/catapultlabs,full,True,,False
+celix Solutions GmbH Marketplace Bug Bounty Program,1500,,,https://bugcrowd.com/engagements/celix-solutions-market,full,True,,False
+codecentric AG - Marketplace Bug Bounty Program,1500,,,https://bugcrowd.com/engagements/codecentric,full,True,,False
+codeclou GmbH,1500,,,https://bugcrowd.com/engagements/codeclou,full,True,,False
+codefortynine,1500,,,https://bugcrowd.com/engagements/codefortynine,partial,True,,False
+Colined,1500,,,https://bugcrowd.com/engagements/colined,partial,True,,False
+Craft Coders Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/craftcoders,full,True,,False
+Creativas,1500,,,https://bugcrowd.com/engagements/creativas,full,True,,False
+DataCamp,1500,25,EUR,https://www.intigriti.com/programs/datacamp/datacamp/detail,,,8696,False
+DevAcrobats,1500,,,https://bugcrowd.com/engagements/devacrobats-market,full,True,,False
+Deview Studios Marketplace Managed Bug Bounty Engagement,1500,,,https://bugcrowd.com/engagements/deviewstudios-market,full,True,,False
+Deviniti,1500,,,https://bugcrowd.com/engagements/deviniti,full,True,,False
+DevSamurai,1500,,,https://bugcrowd.com/engagements/devsamurai,full,True,,False
+Digital Rose's Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/digitalrose,full,True,,False
+Dutch Beginners ZZP Marketplace Managed Bug Bounty Engagement,1500,,,https://bugcrowd.com/engagements/dutch-beginners-market,full,True,,False
+Elements,1500,,,https://bugcrowd.com/engagements/elements,full,True,,False
+Eurid,1500,50,EUR,https://eurid.eu/lv/other-infomation/eurid-responsible-disclosure-policy/,none,,24754,False
+FindOut InfoVis AB - Marketplace Bug Bounty Program,1500,,,https://bugcrowd.com/engagements/FindOut-infovis,full,True,,False
+Gliffy,1500,,,https://bugcrowd.com/engagements/gliffy,full,True,,False
+HeroCoders Apps,1500,,,https://bugcrowd.com/engagements/herocoders,partial,True,,False
+Inprowiser Bug Bounty,1500,,,https://bugcrowd.com/engagements/inprowiser,full,True,,False
+J-Tricks - Marketplace Bug Bounty Program,1500,,,https://bugcrowd.com/engagements/j-tricks,full,True,,False
+Jaanga Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/JaangaInc-mbb-market,partial,True,,False
+K15t,1500,,,https://bugcrowd.com/engagements/k15t,full,True,,False
+Kantega SSO,1500,,,https://bugcrowd.com/engagements/kantega,full,True,,False
+Litew8 GmbH - Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/litew8,full,True,,False
+Magic Apps Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/magic-apps,full,True,,False
+Marketplace Expert SL,1500,,,https://bugcrowd.com/engagements/marketplaceexpert,full,True,,False
+Marvelution,1500,,,https://bugcrowd.com/engagements/marvelutionbv,full,True,,False
+META-INF,1500,,,https://bugcrowd.com/engagements/metainfkft,full,True,,False
+MobilityStream Bug Bounty,1500,,,https://bugcrowd.com/engagements/mobilitystream,full,True,,False
+Move Work Forward,1500,,,https://bugcrowd.com/engagements/moveworkforward,full,True,,False
+Navarambh,1500,,,https://bugcrowd.com/engagements/navarambh,full,True,,False
+Nemetschek,1500,,,https://bugcrowd.com/engagements/nemetschek,full,True,,False
+Nextup.ai,1500,,,https://bugcrowd.com/engagements/nextupai,full,True,,False
+Okapya,1500,,,https://bugcrowd.com/engagements/okapya,full,True,,False
+Onward Software Solutions Inc. - Marketplace Bug Bounty Program,1500,,,https://bugcrowd.com/engagements/onward-software-solutions-inc,full,True,,False
+Ooredoo QPSC - Customer Portal Bug Bounty Program,1500,50,,https://yeswehack.com/programs/ooredoo-qpsc-bug-bounty-program,,,16189,False
+Opus Guard Marketplace Managed Bug Bounty Engagement,1500,,,https://bugcrowd.com/engagements/opus-guard-market,full,True,,False
+OST Consulting SRL Marketplace Managed Bug Bounty Engagement,1500,,,https://bugcrowd.com/engagements/ost-consulting-market,full,True,544140,False
+Presago Marketplace Bug Bounty Program,1500,,,https://bugcrowd.com/engagements/presago,full,True,,False
+Programmer Hat Marketplace Bug Bounty Program,1500,,,https://bugcrowd.com/engagements/programmer-hat-market,full,True,,False
+ProjectBalm,1500,,,https://bugcrowd.com/engagements/projectbalm,partial,True,,False
+Quirk Consulting Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/quirk-consulting,full,True,,False
+RadBee Ltd.,1500,,,https://bugcrowd.com/engagements/radbee,full,True,,False
+Railsware,1500,,,https://bugcrowd.com/engagements/railsware,full,True,,False
+Raley Apps,1500,,,https://bugcrowd.com/engagements/raleyapps,full,True,,False
+Redmoon,1500,,,https://bugcrowd.com/engagements/redmoon,full,True,,False
+Release Management (by Y2 ENGR),1500,,,https://bugcrowd.com/engagements/releasemanagement,full,True,,False
+Requirement Yogi (Bug bounty),1500,,,https://bugcrowd.com/engagements/requirement-yogi,partial,True,,False
+Resolution,1500,,,https://bugcrowd.com/engagements/resolutionde,full,True,,False
+Revyz - Marketplace Bug Bounty Program,1500,,,https://bugcrowd.com/engagements/revyz,full,True,,False
+RV Softwares Marketplace Bug Bounty Program,1500,,,https://bugcrowd.com/engagements/rv-softwares,full,True,,False
+SaaSJet,1500,,,https://bugcrowd.com/engagements/saasjet,full,True,,False
+Santé Publique France Bug Bounty Program,1500,50,,https://yeswehack.com/programs/sante-publique-france-bugbounty-public-program,,,256618,False
+Savignano Software Solutions Marketplace Bug Bounty Program,1500,,,https://bugcrowd.com/engagements/savignano,full,True,,False
+SecureFlag Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/secureflag-mbb-market,partial,True,,False
+Shinetech Software Inc Marketplace Managed Bug Bounty Engagement,1500,,,https://bugcrowd.com/engagements/shinetech-software-market,full,True,,False
+Snapbytes Marketplace Managed Bug Bounty Engagement,1500,,,https://bugcrowd.com/engagements/snapbytes-market,full,True,,False
+SolDevelo,1500,,,https://bugcrowd.com/engagements/soldevelo,full,True,,False
+STAGIL Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/stagil,full,True,,False
+StonikByte,1500,,,https://bugcrowd.com/engagements/stonikbyte,full,True,,False
+Sykora IT Marketplace Managed Bug Bounty Engagement,1500,,,https://bugcrowd.com/engagements/sykora-it-market,full,True,,False
+The Plugin People,1500,,,https://bugcrowd.com/engagements/plugin-people,full,True,,False
+ToolsPlus,1500,,,https://bugcrowd.com/engagements/toolsplus,partial,True,,False
+Vectors Bug Bounty,1500,,,https://bugcrowd.com/engagements/vectors-marketplace,full,True,,False
+Vfs,1500,5,,https://yeswehack.com/programs/vfs-global-bug-bounty-program,,,,False
+VFS Global Bug Bounty Program,1500,5,,https://yeswehack.com/programs/vfs-global-bug-bounty-program,,,69153,False
+Vico Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/vicosoft,full,True,,False
+weweave GmbH Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/we-weave,full,True,,False
+weweave UG Marketplace Bug Bounty,1500,,,https://bugcrowd.com/engagements/we-weave,full,True,,False
+Xelians - Blackbox program,1500,50,,https://yeswehack.com/programs/xelians-blackbox-program,,,655931,False
+Xopero Software S.A. Marketplace Managed Bug Bounty Engagement,1500,,,https://bugcrowd.com/engagements/xopero-software-marketplace,full,True,,False
+boldcommerce.com,1500,150,CAD,https://boldcommerce.com/bug-bounty,,,46246,False
+proxidize.com,1500,100,USD,https://proxidize.com/legal/vulnerability-disclosure-policy/,,,265467,False
+CyberGhost - Bug Bounty Program,1250,50,,https://yeswehack.com/programs/cyberghost-bug-bounty-program,,,11509,False
+Pillar,1250,,,https://immunefi.com/bug-bounty/pillar/,,,,True
+Private Internet Access - Bug Bounty Program,1250,50,,https://yeswehack.com/programs/private-internet-access-bug-bounty-program,,,7877,False
+Prosus,1250,,,https://bugcrowd.com/engagements/prosus-og,full,True,220465,False
+IMOU Public Bug Bounty Program,1200,10,,https://yeswehack.com/programs/imou-public-bug-bounty-program,,,2024,False
+Alasco GmbH - Bug Bounty Program,1000,50,,https://yeswehack.com/programs/alasco-gmbh-bug-bounty-program,,,263866,False
+DataDome Bot Bounty,1000,200,,https://yeswehack.com/programs/datadome-bot-bounty,,,1298,False
+EPAM Systems Managed Bug Bounty Program,1000,,,https://bugcrowd.com/engagements/epam-mbb-og,full,True,176218,False
+Ibotta,1000,,,https://bugcrowd.com/ibotta,full,True,18403,False
+Nexuzhealth Web PACS,1000,,EUR,https://www.intigriti.com/programs/uz%20leuven/nexuzhealthwebpacs/detail,,,626614,False
+Pine Labs Bug Bounty Program,1000,,,https://yeswehack.com/programs/pine-labs-bug-bounty-program,,,84816,False
+Polkastarter,1000,,,https://immunefi.com/bug-bounty/polkastarter/,,,,True
+QuintoAndar Managed Bug Bounty Engagement,1000,,,https://bugcrowd.com/engagements/quintoandar,full,True,8849,False
+Sky DACH Vulnerability Disclosure Program,1000,,,https://bugcrowd.com/engagements/sky-plc-mbb-og2,full,True,,False
+Sky Italy Vulnerability Disclosure Program,1000,,,https://bugcrowd.com/engagements/sky-plc-mbb-og1,full,True,,False
+Sky UK/ROI Vulnerability Disclosure Program,1000,,,https://bugcrowd.com/engagements/sky-plc-mbb-og,full,True,,False
+TRM Labs Public Bug Bounty Engagement,1000,,,https://bugcrowd.com/engagements/trm-labs-public-mbb,partial,True,,False
+aurasell.ai,1000,5,USD,https://www.aurasell.ai/bug-bounty,,,627659,False
+bentley.com,1000,100,USD,https://www.bentley.com/legal/bug-bounty-report/,,,5966,False
+kindo.ai,1000,50,USD,https://www.kindo.ai/vulnerability-disclosure-program,full,,,False
+shieldfive.com,1000,,USD,https://shieldfive.com/security/bug-bounty,,,,False
+Social Deal,750,25,EUR,https://www.intigriti.com/programs/socialdeal/socialdeal/detail,,,,False
+DPG Media,500,25,EUR,https://app.intigriti.com/programs/dpgm/dpgmedia/detail,,,29201,False
+Pantheon,500,,,https://bugcrowd.com/pantheon,partial,True,13276,False
+coderpad.io,500,49,,https://coderpad.io/vulnerability-disclosure-policy/,,,137656,False
+codingame.com,500,50,USD,https://www.codingame.com/work/vulnerability-disclosure-policy/,,,44861,False
+Collibra,500,10,USD,https://www.collibra.com/legal/documents/collibra-bug-bounty-program-rules,,,99715,False
+geckoboard.com,500,,USD,https://support.geckoboard.com/en/articles/6055718-report-a-security-vulnerability-and-responsible-disclosure-policies,,,51160,False
+Wallbox,500,,USD,https://wallbox.com/.well-known/security-policy.html,full,,118655,False
+Kontent.ai,200,50,USD,https://kontent.ai/vulnerability-disclosure-policy,full,,146917,False
+simbase.com,200,,USD,https://simbase.com/terms/responsible-disclosure-policy,full,,884027,False
+0x Project,,,,https://blog.0xproject.com/announcing-the-0x-protocol-bug-bounty-b0559d2738c,,,636768,False
+1Password - CTF,,,,http://1password.com,,False,1936,False
+1Password Game,,,,https://bugcrowd.com/agilebits,full,,,False
+1win,,,,https://1win.com,,False,18700,False
+23andme,,,,https://www.23andme.com/security-report/,none,True,21041,False
+24sessions,,,,https://www.24sessions.com/responsible-disclosure,partial,,176806,False
+3CX,,,,https://www.3cx.com,,True,16863,False
+84codes,,,,https://www.84codes.com/security,partial,,,False
+8x8,,,,https://www.8x8.com,,False,6129,False
+8x8 Bounty,,,,https://hackerone.com/8x8-bounty,,False,,False
+Abercrombie & Fitch Management Co.,,,,http://abercrombie.com,,True,10910,False
+Abn Amro,,,,https://www.abnamro.nl/en/personal/overabnamro/secure-banking/responsible-disclosure.html,partial,,24428,False
+Accellion,,,,https://bugcrowd.com/accellion-public,full,,,False
+Accredible,,,,https://www.accredible.com/white_hat/,none,,74835,False
+Acorns Grow,,,,https://bugcrowd.com/acorns,,,,False
+Acorns LLC,,,,https://bugcrowd.com/acorns,full,,,False
+Acronis,,,,https://www.acronis.com,,False,2031,False
+Across Protocol,,,,https://docs.across.to/v/developer-docs/additional-info/bug-bounty,,,136076,False
+Actility,,,,https://www.actility.com/security/,none,,616701,False
+Adafruit,,,,https://www.adafruit.com/reportingsecurityissues,none,,8313,False
+Affirm,,,,http://www.affirm.com,,True,2784,False
+Agicap,,,,https://agicap.com/en/bug-bounty/,,,97606,False
+Agoda Public,,,,https://www.agoda.com/,,True,854,False
+Ahold Delhaize,,,,https://www.aholddelhaize.com/en/security/,none,,51082,False
+Aikido Security: Zen by Aikido,,,,https://www.intigriti.com/programs/aikido/aikidoruntime/detail,,,,False
+Aion,,,,https://aion.network/terms-bounty/,,,,False
+Air Miles,,,,https://www.airmiles.nl/responsible-disclosure,none,,240882,False
+Airbnb,,,,https://www.airbnb.com/security,none,False,732,False
+AirSwap,,,,https://blog.airswap.io/airswap-bug-bounty-4d7ec41f3ea7,,,946180,False
+Airtable,,,,https://airtable.com/security,none,True,2946,False
+AirVPN,,,,https://airvpn.org/security_policy/,,,101460,False
+Aiven,,,,https://www.aven.com/,,True,86197,False
+Algolia,,,,https://www.algolia.com/security,none,False,19402,False
+Algorand,,,,https://bugcrowd.com/algorand,full,,,False
+Alibaba,,,,https://security.alibaba.com/,partial,True,317,False
+Aliexpress,,,,https://security.alibaba.com/,partial,,317,False
+ALSCO,,,,https://alscotoday.com/go/bug,full,False,,False
+Altilly,,,,https://www.altilly.com/page/security,,,,False
+AlwaysData,,,,https://www.alwaysdata.com/en/bug-bounty/,full,,26392,False
+Amazon,,,,https://www.amazon.com/gp/help/customer/display.html/ref=hp_left_v4_sib?ie=UTF8&nodeId=201182150,none,True,26,False
+Amazon Web Services,,,,https://aws.amazon.com/security/vulnerability-reporting,none,True,26,False
+AMD Product Security Bug Bounty Program,,,,https://www.intigriti.com/programs/amd/amd/detail,,,,False
+AMERICAN SYSTEMS,,,,https://hackerone.com/american_systems_bbp,,,,False
+AmpCode.com,,,,https://ampcode.com/security/,full,,73921,False
+Android,,,,https://www.google.com/about/appsecurity/android-rewards/,none,,1,False
+Anduril Industries,,,,https://www.anduril.com,,True,16222,False
+Antavo Loyalty Management Platform,,,,https://www.hacktify.eu/en/public-programs/,partial,,,False
+Anthropic (VDP),,,,http://www.anthropic.com,,False,613,False
+Apache,,,,https://www.apache.org/security/,none,,132,False
+Apache Log4j - Bug Bounty Program,,,,https://yeswehack.com/programs/log4j-bug-bounty-program,,,,False
+Apple,,,,https://developer.apple.com/security-bounty/,none,,10,False
+Apsis,,,,https://www.apsis.com/bug-bounty,,,926365,False
+Aqua Security,,,,https://www.aquasec.com/trust/security/responsible-disclosure-program/,,,65880,False
+Aragon,,,,https://ark.io/blog/ark-development-and-security-bounty-program-arkio-blog,none,,423532,False
+Arc,,,,https://www.arc.io,,True,34284,False
+Ark,,,,https://blog.ark.io/ark-github-development-bounty-113806ae9ffe,none,True,423532,False
+Arkose Labs,,,,https://www.arkoselabs.com/,partial,True,5580,False
+Arlo - Cash Rewards Program,,,,https://bugcrowd.com/arlo,partial,,,False
+ARM mBed,,,,https://tls.mbed.org/c-library-bug-bounty-program,partial,,149313,False
+Artsy,,,,https://www.artsy.net/security,none,,10583,False
+Aruba Networks,,,,https://bugcrowd.com/aruba-public,full,,,False
+ASN Bank,,,,https://www.devolksbank.nl/over-ons/kwetsbaarheden-melden,none,,43119,False
+Assuring Medical Apps,,,,https://digitalhealthcompliance.com/disclosure-en/,partial,,,False
+Asterisk,,,,https://wiki.asterisk.org/wiki/display/AST/Asterisk+Bug+Bounties,none,,37140,False
+AT&T,,,,https://bugbounty.att.com/,none,True,1014,False
+Athento,,,,https://www.athento.com/bug-bounty-program-en/,none,,550906,False
+Atlassian - Opsgenie,,,,https://bugcrowd.com/opsgenie,full,,,False
+Audible,,,,http://audible.com,,True,2532,False
+Augur,,,,https://www.augur.net/bounty/,partial,,298937,False
+Automata Network,,,,https://www.ata.network/bugbounty,,,892061,False
+Automattic,,,,https://automattic.com/security/,none,False,2032,False
+Automox,,,,https://www.automox.com/security/responsible-disclosure,full,,15772,False
+Avail Carsharing,,,,https://availcarsharing.com/bug-bounty,,,,False
+Avast!,,,,https://www.avast.com/bug-bounty,none,,321,False
+Avira,,,,https://www.avira.com/en/support-vulnerability,none,,1796,False
+Azimo,,,,https://azimo.com/en/lp/responsible-disclosure,,,637022,False
+Badoo,,,,https://corp.badoo.com/security,none,,1788,False
+Baidu,,,,https://bsrc.baidu.com/v2/#/en,,,84,False
+Banco Plata,,,,http://platacard.mx,,True,67027,False
+Basecamp,,,,https://basecamp.com/about/policies/security/response,none,False,6219,False
+Belvo Technologies Inc.,,,,https://www.federacy.com/belvo-technologies-inc,,,,False
+Bentley,,,,https://www.bentley.com/responsible_disclosure.pdf,full,,5966,False
+Better,,,,https://bugcrowd.com/better,full,,,False
+BigBlueButton Bug Bounty Program,,,,https://yeswehack.com/programs/bigbluebutton-bug-bounty-program,,,,False
+BigCommerce,,,,https://bugcrowd.com/bigcommerce,,,,False
+Bime,,,,https://www.zendesk.com/company/policies-procedures/#responsible-disclosure-policy,none,,373,False
+Binary,,,,https://hackerone.com/binary,,,,False
+Bitcoin Gold,,,,https://github.com/BTCGPU/Developer-Portal/blob/master/responsible-disclosure.md,none,,29,False
+BitDiscovery,,,,https://bugcrowd.com/bitdiscovery,full,,,False
+Bitfinex,,,,https://www.bitfinex.com/bug-bounty/,,,24230,False
+Bitgo,,,,https://www.bitgo.com/bug-bounty,,,29186,False
+BitMEX,,,,https://www.bitmex.com/app/security,none,,27610,False
+Bitpay,,,,https://support.bitpay.com/hc/en-us/articles/204229369-Does-BitPay-have-a-bug-bounty-program-,partial,,44262,False
+Bitski,,,,https://www.bitski.com/bounty/,,,674079,False
+Bitsoffreedom,,,,https://www.bitsoffreedom.nl/coordinated-vulnerability-disclosure-en/,none,,261048,False
+Bitwala,,,,https://www.bitwala.com/security/,partial,,,False
+Blade Storm,,,,https://bladestorm.zendesk.com/hc/en-us/articles/360010393497-Bug-Bounty-Program,none,,373,False
+Blend Labs,,,,https://blend.com,,True,30325,False
+Block.One,,,,https://hackerone.com/eosio,,,,False
+Blockchain,,,,https://hackerone.com/blockchain,,,,False
+Blockimmo,,,,https://hackerone.com/blockimmo,,,,False
+Blockstack,,,,https://hackerone.com/blockstack,,,,False
+Blogger,,,,https://www.google.com/about/appsecurity/reward-program/,none,,1,False
+Blue Jeans Network,,,,https://bugcrowd.com/bluejeans,partial,,,False
+Bluesnap,,,,https://home.bluesnap.com/security-bounty/,full,,79653,False
+Booking.com,,,,http://www.booking.com,,True,278,False
+Boozt Fashion,,,,https://www.boozt.com,full,True,14171,False
+Bose,,,,https://global.bose.com/en_us/product_security_vulnerability_response.html,partial,True,11115,False
+Box,,,,https://www.box.com/about-us/security/,none,True,778,False
+Brave,,,,https://hackerone.com/brave?view_policy=true,none,False,,False
+Brave Software,,,,https://brave.com,,False,423,False
+"Braze, Inc.",,,,http://braze.com,,True,603,False
+BtcTurk,,,,https://www.btcturk.com/odul-avciligi,,,119713,False
+Buffer,,,,https://buffer.com/legal#security,none,,4294,False
+Bug Bounty SNCF Connect,,,,https://yeswehack.com/programs/bug-bounty-sncf-connect-1,,,,False
+BugPoC,,,,https://bugcrowd.com/bugpoc-mbb,full,,,False
+Bugv,,,,https://app.bugv.io/researcher/program/0000001/detail,,,,False
+Bullish,,,,https://bugcrowd.com/bullish,,,,False
+Bumba,,,,http://bumba.global,,True,515779,False
+Bumble,,,,https://hackerone.com/bumble,,True,605324,False
+Bunq,,,,https://www.bunq.com/assets/media/legal/en/20161114_Responsible_Disclosure_Policy_EN.pdf,partial,,21708,False
+Bybit Fintech Ltd,,,,https://www.bybit.com,,True,3153,False
+Bykea,,,,https://bykea.com,,False,884735,False
+Bytedance,,,,https://security.bytedance.com/media/score-standard/Vulnerability_Rewards_Program.pdf,,,2100,False
+Caffeine,,,,https://bugcrowd.com/caffeine,full,,,False
+Campaign Monitor,,,,https://www.campaignmonitor.com/trust/report-a-vulnerability/,,,14784,False
+Capital One,,,,https://www.capitalone.com/digital/responsible-disclosure/,none,True,2764,False
+CareEvolution,,,,https://careevolution.com/trust/security-research/,full,,423219,False
+Casper,,,,https://hackerone.com/casper,,,,False
+Centrify,,,,https://bugcrowd.com/centrify,partial,,,False
+ChainRift,,,,https://medium.com/chainrift/chainrift-launches-bug-bounty-program-6255eb2d518d,full,,201,False
+Chameleon,,,,https://www.trychameleon.com/security/disclosure,none,,43104,False
+Chargezoom,,,,https://bugbounty.chargezoom.com/support/tickets/new,,,,False
+Chaturbate,,,,https://hackerone.com/chaturbate,,True,952,False
+Check,,,,https://checkhq.com/security,full,,331414,False
+Chia Network,,,,http://chia.net,,False,122188,False
+Chime,,,,https://hackerone.com/chime,,,,False
+Circle,,,,https://www.circle.com/,,True,9310,False
+CircleCi,,,,https://circleci.com/security,none,True,10336,False
+Cisco Meraki,,,,https://bugcrowd.com/ciscomeraki,none,,,False
+Citrix,,,,https://www.citrix.com/about/trust-center/vulnerability-process.html,none,False,3032,False
+City-Data.com,,,,https://www.city-data.com/bug-bounty.html,partial,,16024,False
+cLabs,,,,https://app.intigriti.com/programs/clabs/clabs/detail,,,,False
+Clario,,,,https://hackerone.com/clario,full,,,False
+Clause,,,,https://clause.io/security,none,,,False
+CLEAR,,,,https://www.clearme.com/,,True,20157,False
+Clenergy,,,,https://clenergy.com/de/cyber-security-policy/?lang=en,,,,False
+Clickup,,,,https://clickup.com/bug-bounty,,,2734,False
+Clio,,,,https://support.clio.com/hc/en-us/articles/360001114273-How-do-I-Claim-a-Bug-Bounty-or-Report-a-Vulnerability-,,,12195,False
+CloudCannon,,,,https://cloudcannon.com/bug-bounty/,full,,232220,False
+CloudFlare,,,,https://www.cloudflare.com/en-gb/disclosure/,none,False,2,False
+Cloudways,,,,https://bugcrowd.com/cloudways,partial,,,False
+Cobinhood,,,,https://hackerone.com/cobinhood,,,,False
+Coda,,,,https://hackerone.com/coda_bbp,,,,False
+Codacy,,,,https://www.codacy.com,,,126986,False
+CodeChef,,,,https://www.codechef.com/bug-bounty-program,,,20401,False
+Codefi,,,,https://hackerone.com/codefi_bbp,,,,False
+Coin Wallet,,,,https://coinapp.zendesk.com/hc/en-us/articles/115001730468-Does-CoinSpace-have-a-bug-bounty-program-,full,,373,False
+Coinbase,,,,https://coinbase.com/whitehat,full,True,2421,False
+Coinhako,,,,https://coinhako.com,,,362760,False
+CoinJar,,,,https://www.coinjar.com/bounty,none,,207339,False
+CoinMate.io,,,,https://coinmate.io,,False,327748,False
+Coinpayments,,,,https://www.coinpayments.net/help-bug-bounty,none,,132834,False
+Coinspot,,,,http://coinspot.com.au,,True,54257,False
+Cointracker,,,,https://www.cointracker.io/security,full,,153614,False
+Compass,,,,https://www.compass.com/legal/responsible-disclosure/,full,True,4298,False
+Consensys,,,,http://consensys.io,,,60291,False
+Cornershop,,,,https://hackerone.com/cornershop,,,,False
+Cosmos,,,,https://cosmoslabs.io,,,,False
+Coupang Taiwan,,,,https://www.tw.coupang.com,,True,909,False
+cPanel,,,,https://cpanel.net/cpanel-security-bounty-program/,none,,245,False
+Credit Karma,,,,https://creditkarma.com,partial,True,4162,False
+Cross Border Fines,,,EUR,https://www.intigriti.com/programs/bpost/crossborderfines/detail,,,412506,False
+Crowdstrike,,,,https://hackerone.com/crowdstrike,,False,172383,False
+Crypto,,,,https://hackerone.com/crypto,,False,,False
+Crypto.com,,,,https://crypto.com,,False,4446,False
+CS Money,,,,https://cs.money,,False,16605,False
+Curl,,,,https://hackerone.com/curl,full,False,,False
+Curve,,,,https://hackerone.com/curve,,,,False
+Custellence,,,,https://custellence.com/responsible-disclosure.html,,,,False
+CyberGhost,,,,https://bugcrowd.com/cyberghost,,,,False
+d-you App & German EUDI Wallet Ecosystem,,,,https://eudi-wallet.gov.de/,,True,204315,False
+D66,,,,https://d66.nl/responsible-disclosure/,,,130239,False
+Dailymotion,,,,https://yeswehack.com/programs/dailymotion-public-bug-bounty,full,,,False
+Dailymotion public bug bounty,,,,https://yeswehack.com/programs/dailymotion-public-bug-bounty,,,,False
+Danske Bank,,,,https://danskebank.com/responsible-disclosure,,,43930,False
+Dashlane,,,USD,https://hackerone.com/dashlane,,,3775,False
+Data Processing,,,,https://hackerone.com/ibb-data,,,,False
+Databricks,,,,https://databricks.com/,,True,2663,False
+DataStax,,,,https://hackerone.com/datastax,,,,False
+Datto VDP,,,,https://www.datto.com/legal/vulnerability-disclosure-program,,,2085,False
+De Volksbank,,,,https://hackerone.com/devolksbank,,,,False
+Debricked,,,,https://debricked.com/report-a-vulnerability/,,,709344,False
+Decred,,,,https://bounty.decred.org/,none,,110017,False
+Defibox,,,,https://support.newdex.net/hc/en-us/articles/360046715092-Defibox-launches-bug-bounty-program-officially,none,,,False
+Definity Inc.,,,,https://definityinc.com/bug-bounty-program/,partial,,,False
+delight-im,,,,https://www.federacy.com/delight-im,,,,False
+Delight.im,,,,https://hackerone.com/delight_im,,,,False
+Deliveroo,,,,https://hackerone.com/deliveroo,,,,False
+Dell Technologies,,,,https://bugcrowd.com/dell-com,,,,False
+DeNederlandscheBank,,,,https://www.dnb.nl/en/responsible-disclosure/index.jsp,none,,42219,False
+Dentrix,,,,https://www.dentrix.com/support/data-security/bug-bounty-program,,,245961,False
+Deribit,,,,https://www.deribit.com/pages/information/bug-bounty-program,partial,True,10958,False
+Deriv.com,,,,https://www.deriv.com,,False,10495,False
+DeskPro,,,,https://www.deskpro.com/security/responsible-disclosure/,,,167574,False
+Deutsche Telekom,,,,https://www.telekom.com/en/corporate-responsibility/data-protection-data-security/security/details/closing-security-gaps-360054,none,,12309,False
+dfuse Platform,,,,https://hackerone.com/dfuse,none,,,False
+DINUM - AGORA GOUV - Public Bug Bounty Program,,,,https://yeswehack.com/programs/agora,,,,False
+DINUM - Démarches Simplifiées - Public Bug Bounty Program,,,,https://yeswehack.com/programs/demarches-simplifiees-public,,,,False
+DINUM - ProConnect Identité - Public Bug Bounty Program,,,,https://yeswehack.com/programs/proconnect-identite,,,,False
+DINUM - Tchap - Bug Bounty Program,,,,https://yeswehack.com/programs/tchap-public,,,,False
+Discord,,,,https://canary.discord.com/security,,,169,False
+Discourse,,,,https://hackerone.com/discourse,none,False,11036,False
+Discover Financial Services,,,,https://discover.responsibledisclosure.com/hc/en-us,none,,,False
+Django,,,,https://hackerone.com/django,,False,,False
+DJI,,,,https://security.dji.com/policy,,,4034,False
+Doist,,,,https://todoist.com/help/articles/doist-bug-bounty-policy,,,4495,False
+Dokobit,,,,https://www.dokobit.com/compliance/vulnerability-disclosure-policy,,,120748,False
+DoorDash,,,,http://doordash.com,,True,2335,False
+Doppler,,,,https://www.doppler.com,,True,23721,False
+Dozuki,,,,https://help.dozuki.com/Info/Responsible_Disclosure,,,234575,False
+DPD,,,,https://getdpd.com/security/,partial,,315582,False
+DRACOON,,,,https://security.dracoon.com,partial,,403467,False
+DragonEx,,,,https://dragonex.zendesk.com/hc/en-us/articles/360036938832-BUG-Bounty-Program,none,,373,False
+Droom,,,,https://droom.in/bugbounty,none,,268451,False
+Dynamic Labs,,,,http://dynamic.xyz,,,187321,False
+Dynatrace,,,,https://dynatrace.com,,True,502,False
+Dyson,,,,http://dyson.com,,True,13150,False
+Early Warning,,,,https://www.earlywarning.com/responsible-disclosure-program,,True,49004,False
+Easyname,,,,https://www.easyname.de/de/support/easyname/253-bug-bounty-programm,,,,False
+Easyprojects,,,,https://www.easyprojects.net/company/vulnerability-reward-program/,,,391883,False
+EC-Council,,,,https://www.eccouncil.org/bug-bounty/,,,40801,False
+Edmodo,,,,https://support.edmodo.com/hc/en-us/articles/360035475733-Bug-Bounty-Guidelines,,,106151,False
+Eero,,,,https://eero.com/,partial,True,20210,False
+Elastic,,,,https://www.elastic.co/cloud/security,,True,2285,False
+Electroneum,,,,https://hackerone.com/electroneum,,,,False
+Elementor,,,,https://bugcrowd.com/elementor,,,,False
+Eligible,,,,https://eligible.com/responsible_disclosure_program,none,,355993,False
+elmah.io,,,,https://docs.elmah.io/vulnerability-disclosure-program/,,,325785,False
+Emma,,,,https://myemma.com/trust/report-a-vulnerability/,,,60343,False
+Empuls,,,,https://www.empuls.io/bug-bounty,,,239845,False
+Enjin,,,,https://enjin.io,,False,95604,False
+Eobot,,,,https://hackerone.com/eobotcom,,,,False
+Epic Games,,,,https://epicgames.com,,True,130,False
+Eset,,,,https://www.eset.com/int/security-vulnerability-reporting/,none,,571,False
+Eternal,,,,https://www.eternal.com,,False,165736,False
+Ethereum Foundation,,,,https://bounty.ethereum.org/,,,7669,False
+Etherscan,,,,https://etherscan.io/bugbounty,,,5533,False
+eToro,,,,https://hackerone.com/etoro_bbp,,,,False
+eufy Security,,,,http://eufy.com,,True,9837,False
+Evernote,,,,https://evernote.com/security/report-issue,none,True,2067,False
+Exness,,,,https://www.exness.com,,False,14688,False
+F Secure,,,,https://www.f-secure.com/en/business/programs/vulnerability-reward-program,,,9225,False
+F5 Networks,,,,https://support.f5.com/csp/article/K4602,none,,91,False
+Facebook,,,,https://www.facebook.com/BugBounty/,none,,3,False
+Fair,,,,https://www.fair.com/bug-bounty,partial,,,False
+FanDuel,,,,https://www.fanduel.com/security,full,False,2676,False
+"Faraday, Inc.",,,,https://faraday.ai,,True,316341,False
+FastMail,,,,https://www.fastmail.com/about/bugbounty.html,none,,11769,False
+Federacy,,,,https://www.federacy.com/federacy,full,,,False
+Ferm Rotterdam,,,,https://ferm-rotterdam.nl/nl/responsible-disclosure-statement,none,,,False
+Fetlife,,,,https://fetlife.com,,False,1240,False
+Fiat Chrysler Automobiles,,,,https://bugcrowd.com/fca,full,,,False
+Fig,,,,https://hackerone.com/fig,,,,False
+Figma,,,,https://figma.com,,True,872,False
+Files.com,,,,https://hackerone.com/files,full,False,25351,False
+FileZilla,,,,https://hackerone.com/filezilla_h1c,full,,,False
+Fitbit,,,,https://bugcrowd.com/fitbit,partial,,,False
+Flickr,,,,https://hackerone.com/flickr,,False,190,False
+Flipkart,,,,https://www.flipkart.com/pages/security,,True,1008,False
+Flo,,,,https://flo.health/responsible-vulnerability-disclosure-program,,,19245,False
+FloorDAO,,,,https://docs.floor.xyz/v/en/protocol/bug-bounty,,,,False
+FloQast,,,,https://floqast.com,,False,232751,False
+Flutter UK&I,,,,https://www.flutter.com/our-business/our-divisions,,True,108467,False
+Fondy,,,,https://docs.fondy.eu/en/docs/page/bug-bounty-program,,,372951,False
+Ford,,,,https://hackerone.com/ford,full,True,41887,False
+ForeScout Technologies,,,,https://hackerone.com/forescout_technologies,none,True,79143,False
+FoxyCart,,,,https://bugcrowd.com/foxycart,partial,,,False
+FranceConnect / FranceConnect+ - DINUM,,,,https://yeswehack.com/programs/franceconnect-proconnect-public,,,,False
+Frax Finance,,,,https://docs.frax.finance/smart-contracts/miscellaneous,,,382495,False
+Freshworks,,,,https://www.freshworks.com/security/responsible-disclosure/,none,False,4860,False
+Front,,,,https://frontapp.com,,True,8173,False
+Frontegg,,,,http://www.frontegg.com,,True,61736,False
+FUSION,,,,https://www.fusion.org/developers/bug-bounty#bugs,none,,,False
+g.cn,,,,https://g.co/vrp,partial,,755,False
+Gcore,,,,https://gcore.com/bug-bounty-program/,,,8981,False
+Genetec,,,,https://www.genetec.com/trust-cybersecurity/bug-bounty,,,26149,False
+Geotab,,,,https://www.geotab.com/security/,none,,14364,False
+GetAdmiral,,,,https://hackerone.com/getadmiral,,,,False
+Ghostscript,,,,https://ghostscript.com/Bug_bounty_program.html,none,,47234,False
+Gitcoin,,,,https://docs.gitcoin.co/mk_securitybounty/,,,170027,False
+Github,,,,https://bounty.github.com/,full,False,29,False
+Gitlab,,,,https://about.gitlab.com/security/disclosure/,none,True,376,False
+Glassdoor,,,,https://www.glassdoor.com/,,,2821,False
+GlassWire,,,,https://hackerone.com/glasswire,,,,False
+Global,,,,https://global.com/bug-bounty-policy/,full,,12299,False
+GO-JEK,,,,https://bugcrowd.com/gojek,partial,,,False
+gocardless.com,,,,https://gocardless.com,,True,14800,False
+GOJEK,,,,https://hackerone.com/gojek,,,,False
+Goldman Sachs,,,,https://www.goldmansachs.com/privacy-and-cookies/global-privacy-policy.html,none,True,6162,False
+GoodRx,,,,https://www.goodrx.com,,True,5052,False
+Google,,,,https://www.google.com/about/appsecurity/,none,,1,False
+Google Chrome,,,,https://www.google.com/about/appsecurity/chrome-rewards/,none,,1,False
+Google PRP,,,,https://www.google.com/about/appsecurity/patch-rewards/index.html,none,,1,False
+GovTech,,,,https://yeswehack.com/programs/govtech-vulnerability-disclosure-programme-policy,,,,False
+Grab,,,,https://hackerone.com/grab,none,True,10891,False
+Grafana Labs,,,,https://www.intigriti.com/programs/grafanalabs/grafanaossbbp/detail,,,,False
+Grammarly,,,,https://hackerone.com/grammarly,,,,False
+Greenhouse.io,,,,https://hackerone.com/greenhouse,,True,4308,False
+Grindr,,,,https://www.grindr.com,,True,2933,False
+Grofers,,,,https://grofers.com/bug-bounty,,,12558,False
+Groww,,,,https://groww.in/p/security/,,,5730,False
+Gusto,,,,https://bugcrowd.com/gusto,full,,,False
+H&M Group,,,,https://www2.hm.com/security.txt,,,961,False
+Hackerone,,,,https://hackerone.com/security,,True,163316,False
+Hacking-Lab,,,,https://bugbounty.compass-security.com/bug-bounties/compass-bug-bounty,,,382558,False
+Hake Finance,,,,https://immunefi.com/bounty/hakkafinance/,,,,True
+Halodoc,,,,https://www.halodoc.com/security,,,7554,False
+halp.com,,,,https://www.atlassian.com/trust/security/report-a-vulnerability,full,,623,False
+Harvest,,,,https://hackerone.com/harvest,,,,False
+Helium,,,,http://www.helium.com,,,53312,False
+Hellosign,,,,https://www.hellosign.com/legal/security,none,,25490,False
+Heroku,,,,https://www.heroku.com/policy/security,partial,,4588,False
+Hex-Rays,,,,https://www.hex-rays.com/bugbounty/,none,,110386,False
+Hike,,,,https://bugbase.in/programs/bugbase,,,,False
+Hilton,,,,http://hilton.com,,True,998,False
+Hilton Bounty,,,,https://hackerone.com/hilton,,True,,False
+HitBTC,,,,https://hitbtc.com/bug-report,none,,57095,False
+Home Bargains,,,,https://home.bargains,,False,50618,False
+Honest,,,,https://honest.co.id/vulnerability-disclosure-policy,full,,792346,False
+Hootsuite,,,,https://hootsuite.com/security/response,none,,3320,False
+Hostinger,,,,https://www.hostinger.com/responsible-disclosure-policy,full,False,337,False
+hoteis.com,,,,https://www.expediagroup.com/about/privacy-data-handling-requirements/,,True,13271,False
+HTC,,,,https://www.htc.com/us/terms/product-security/,none,,17075,False
+HubSpot,,,,https://bugcrowd.com/hubspot,partial,True,502593,False
+Hunter.io,,,,https://hunter.io/security-bounty-program,none,,31129,False
+Hyatt,,,,https://hackerone.com/hyatt,full,True,,False
+Hyatt Hotels,,,,http://www.hyatt.com,,True,2364,False
+Hyperledger,,,,https://hackerone.com/hyperledger,,,,False
+HYPR,,,,https://www.hypr.com,,False,15518,False
+Ian Dunn,,,,https://hackerone.com/iandunn-projects,,,,False
+Iconloop,,,,https://hackerone.com/iconloop_inc,none,,,False
+ICQ,,,,https://hackerone.com/icq,,,,False
+Idena,,,,https://www.idena.io/contribute#contribute-3-1,,,,False
+Ikea,,,,https://www.ikea.com/ms/en_ES/responsible-disclosure/responsible_disclosure.html,,,633,False
+images.paypal.com,,,,https://hackerone.com/paypal?view_policy=true,,True,,False
+Imgur,,,,https://hackerone.com/imgur,,,,False
+ImmutableSoft,,,,https://immutablesoft.github.io/ImmutableEcosystem/,full,,127,False
+ImpactGuru,,,,https://www.impactguru.com/bug-bounty,,,105138,False
+Independer,,,,https://www.independer.nl/algemeen/info/responsible-disclosure.aspx,partial,,41507,False
+Inditex,,,,https://www.inditex.com/,,True,10222,False
+INDmoney,,,,https://www.indmoney.com/page/bug-bounty,,,20672,False
+inDrive,,,,https://indrive.com/,,False,16364,False
+Inflection,,,,https://hackerone.com/inflection,,,,False
+InfStones,,,,https://infstones.com/blog/education/introducing-the-blocguardians-bug-bounty-program-654e723bd9afaf003e44fdea,,,719827,False
+Ing,,,,https://www.ing.com/ING.com-Security.htm,none,,12518,False
+ING Bank,,,EUR,https://hackerone.com/ing,,,,False
+ING NL,,,,https://www.ing.nl/de-ing/veilig-bankieren/fraude-melden/meldpunt-kwetsbaarheden/index.html,none,,25920,False
+Insightly,,,,http://insightly.com,,True,67097,False
+Insolar,,,,https://hackerone.com/insolar,,,,False
+Inspectorio,,,,http://inspectorio.com,,True,116551,False
+Instacart,,,,https://hackerone.com/instacart,,True,2545,False
+Instamojo,,,,https://support.instamojo.com/hc/en-us/articles/207758769-Instamojo-Bug-Bounty-Policy,,,85766,False
+Instructure,,,,https://www.instructure.com/canvas/blog/instructures-proven-security-vulnerability-disclosure-program,none,,1074,False
+IntegraXor (SCADA),,,,https://www.integraxor.com/integraxor-hmi-scada-bug-bounty-program/,none,,,False
+Internet Bug Bounty,,,,https://www.hackerone.com/internet-bug-bounty,,,,False
+Internet Freedom,,,,https://hackerone.com/ibb-if,,,,False
+intl.nothing.tech,,,,https://intl.nothing.tech/pages/vulnerability-report,,,27464,False
+InVision,,,,https://bugcrowd.com/invision,partial,,,False
+"Invision Power Services, Inc.",,,,http://www.invisioncommunity.com,,False,47398,False
+IOTA,,,,https://bugcrowd.com/iota,partial,,,False
+IOVLabs,,,,https://hackerone.com/iovlabs,,,,False
+IRCCloud,,,,https://hackerone.com/irccloud,,,,False
+IronCore Labs,,,,https://ironcorelabs.com/trust-center/bug-bounty-program,partial,,,False
+Itslearning,,,,https://itslearning.com/global/your-data-matters/responsible-disclosure/,,,39634,False
+JD Services,,,,https://jd-services.eu/vdp/,full,,503314,False
+JD.COM,,,,https://hackerone.com/jd_com,,,,False
+Jenkins,,,,https://www.jenkins.io/security/reporting/,none,,8755,False
+JetBrains,,,,https://www.jetbrains.com/legal/terms/coordinated-disclosure.html,partial,,862,False
+Jivochat,,,,https://jivochat.com/bugbounty/,,,258455,False
+Judge.me,,,,https://judge.me,,True,4143,False
+Jumbo Privacy,,,,https://bugcrowd.com/jumboprivacy,partial,,,False
+JumpleAd,,,,https://jumplead.com/about/security,partial,,,False
+Kaltura,,,,http://kaltura.com,,False,3508,False
+Kaspersky,,,,https://support.kaspersky.com/vulnerability,full,,142,False
+Kayak,,,,https://www.kayak.co.in/security,none,True,117174,False
+Keeper Security,,,,https://bugcrowd.com/keepersecurity,full,,,False
+Kenna Security,,,,https://bugcrowd.com/kennasecurity,none,,,False
+Keybase,,,,https://hackerone.com/keybase,,,,False
+KFC,,,,https://kfc.responsibledisclosure.com/hc/en-us,none,,,False
+KHealth,,,,https://www.khealth.com,,True,61510,False
+Kindred Group,,,,https://hackerone.com/kindred_group,,,,False
+Kissflow,,,,https://kissflow.com/responsible-disclosure/,none,,64340,False
+Kiwi.com,,,,https://www.kiwi.com/us/pages/security,partial,True,11263,False
+Klarna,,,,https://www.klarna.com/responsible-disclosure/,,True,2326,False
+Koho,,,,https://koho.ca,,False,54751,False
+Kong,,,,http://konghq.com,,True,3885,False
+Kraden,,,,https://hackerone.com/kraden,,,,False
+Kraken,,,,https://www.kraken.com/security/bug-bounty,none,,1845,False
+Krisp,,,,https://krisp.ai,,False,10903,False
+Kubernetes,,,,https://kubernetes.io/security,full,True,5142,False
+Larksuite,,,,https://hackerone.com/lark_technologies,,True,,False
+Latent Patterns,,,,https://latentpatterns.com/security,full,,,False
+LaunchDarkly,,,,https://launchdarkly.com,,,499,False
+Leetcode,,,,https://leetcode.com/bugbounty/,partial,,4451,False
+Legal Robot,,,,https://hackerone.com/legalrobot,,,,False
+LeverEX,,,,https://medium.com/leverex/leverex-bug-bounty-program-10e53d0d7901,,,201,False
+Liberapay,,,,https://hackerone.com/liberapay,full,,,False
+Lido Finance,,,,https://immunefi.com/bounty/lido/,,,,True
+LifeOmic,,,,https://hackerone.com/lifeomic,,,,False
+Lightspark BBP,,,,http://lightspark.com,,True,171613,False
+Linkedin,,,,https://security.linkedin.com/vulnerabilty-disclosure,none,True,18,False
+Liquid Web,,,,https://www.liquidweb.com/about-us/policies/bug-bounty-program/,,,4880,False
+Lisk,,,,https://lisk.io/bug-bounty-program,,,542152,False
+Live Nation,,,,http://livenation.com,,True,13084,False
+Liveclicker,,,,https://www.liveclicker.com/trust/report-a-vulnerability/,,,557383,False
+Livesport,,,,https://bugbounty.livesport.eu/docs/Vulnerability%20Disclosure%20Policy.pdf,full,,194163,False
+Livestream,,,,https://hackerone.com/livestream,partial,,,False
+Lob,,,,https://hackerone.com/lob,full,,,False
+Localize,,,,https://hackerone.com/localizejs,,,,False
+LocalTapiola,,,,https://hackerone.com/localtapiola,,,,False
+LoginRadius,,,,https://www.loginradius.com/bug-bounty/,partial,,40082,False
+Logitech,,,,https://www.logitech.com/en-us/legal/security-vulnerability-reporting.html,,True,1998,False
+LogMeOnce,,,,https://www.logmeonce.com/vulnerability-disclosure-policy/,,,186041,False
+Lyft,,,,https://www.lyft.com/security,none,,5184,False
+Lyst,,,,https://hackerone.com/lyst,,True,12010,False
+M-Pesa Africa Limited,,,,https://www.m-pesa.africa,,,,False
+Magento,,,,https://hackerone.com/magento,full,,,False
+Magic Eden,,,,http://magiceden.io,,True,54005,False
+Magic Leap Cloud,,,,https://bugcrowd.com/magicleapcloud,,,,False
+MagicLeap Device,,,,https://bugcrowd.com/magicleapdevice,,,,False
+Magisto,,,,https://hackerone.com/magisto,,,,False
+Mail.Ru,,,,https://hackerone.com/mailru,,,,False
+Mailgun,,,,https://bugcrowd.com/mailgun,partial,,,False
+Majid Al Futtaim,,,,https://www.majidalfuttaim.com/en/responsible-disclosure-policy,none,,83519,False
+Make,,,,https://www.make.com/en/bounty,,,8759,False
+MakeMyTrip,,,,https://www.makemytrip.com/pwa-hlp/mmtbb/report,,,1266,False
+Maker Ecosystem Growth Holdings,,,,https://hackerone.com/makerdao_bbp,none,,,False
+MakerDAO Ecosystem,,,,https://immunefi.com/bounty/makerdao/,,,,True
+Malwarebytes,,,,https://www.malwarebytes.org/secure/,none,True,17151,False
+ManageWP,,,,https://managewp.com/white-hat-reward,none,,60194,False
+Mapbox,,,,https://hackerone.com/mapbox,,,,False
+MapsMarker.com.eu,,,,https://hackerone.com/mapsmarker_com_e_u,,,,False
+Marktplaats,,,,https://www.marktplaats.nl/i/help/veilig-en-succesvol/responsible-disclosure-program.dot.html,none,,1227,False
+Marriott,,,,https://hackerone.com/marriott,none,True,713,False
+Massachusetts Institute of Technology,,,,https://bounty.mit.edu/,none,,231,False
+Mastercard,,,,https://bugcrowd.com/mastercard,partial,,,False
+Matomo,,,,https://hackerone.com/matomo,,False,5558,False
+Mattermost,,,,https://about.mattermost.com/report-security-issue/,full,,6198,False
+Maximum,,,,https://hackerone.com/maximum,,,,False
+McDelivery,,,,https://mcdelivery.co.in/bug-bounty,,,406492,False
+Medium,,,,https://help.medium.com/hc/en-us/articles/213481308-Bug-Bounty-Disclosure-Program,full,,201,False
+Meesho,,,,https://meesho.com,,False,1224,False
+Mega.co.nz,,,,https://mega.co.nz/#blog_6,none,,643,False
+Meituan,,,,https://security.meituan.com/,,,2458,False
+Memento - Public Bug Bounty Program,,,,https://yeswehack.com/programs/memento-bug-bounty-program,,,,False
+MercadoLibre,,,,https://www.mercadolibre.com,,True,1917,False
+Mergify,,,,http://mergify.com,,False,130492,False
+MetaMask,,,,https://metamask.io/,,True,2088,False
+MicroStrategy,,,,https://www.microstrategy.com/us/bug-bounty-program,,,39827,False
+Mobikwik,,,,https://www.mobikwik.com/bug-bounty,none,,29016,False
+mobile.paypal.com,,,,https://hackerone.com/paypal?view_policy=true,,True,,False
+Modern Treasury,,,,https://www.moderntreasury.com/security,full,True,200349,False
+Mollie,,,,https://www.mollie.com/en/responsible-disclosure,none,,11424,False
+Monash MBB,,,,https://bugcrowd.com/monash-mbb,,,,False
+Monetha,,,,https://www.monetha.io/bounty,none,,948874,False
+Moneybird,,,,https://www.moneybird.nl/security/,partial,False,348416,False
+MongoDB,,,,https://www.mongodb.com/security,partial,True,1770,False
+Monolith,,,,https://hackerone.com/monolith,,,,False
+MoonPay,,,,https://moonpay.com,,False,10712,False
+Mozilla,,,,https://www.mozilla.org/en-US/security/bug-bounty/,full,True,103,False
+MuJS,,,,https://mujs.com/security.html,none,,475273,False
+Multichain,,,,https://docs.multichain.org/security/bug-bounty,,,974199,False
+Mural,,,,https://www.mural.co/security/vdp,full,,22888,False
+MyEtherWallet,,,,https://hackerone.com/myetherwallet,,,,False
+N26,,,,https://n26.com/en-eu/bug-bounty-program,,,20254,False
+Narkasa,,,,https://support.narkasa.com/hc/en-us/articles/360011019458-Bug-Bounty,,,,False
+National Cyber Security Center (Netherlands),,,,https://www.ncsc.nl/security,none,,75428,False
+Naver Whale,,,,https://bugbounty.whale.naver.com/,none,,355,False
+NBA Public Bug Bounty,,,,https://www.nba.com,,True,2417,False
+NBX,,,,https://nbxsupport.zendesk.com/hc/en-us/articles/360044264592-NBX-Responsible-Disclosure-Policy,full,,373,False
+NCSC-NL,,,,https://www.ncsc.nl/security,partial,,75428,False
+Neophotonics,,,,https://bugcrowd.com/neophotonics,full,,,False
+Netflix,,,,https://help.netflix.com/en/node/6657,partial,True,42,False
+Netgear,,,,https://bugcrowd.com/netgear,,,,False
+NETGEAR Cash Rewards,,,,https://bugcrowd.com/netgear,partial,,,False
+Netlify,,,,https://www.netlify.com,,True,3927,False
+NetScaler Public Program,,,,https://hackerone.com/netscaler_public_program,,False,,False
+New Relic,,,,https://hackerone.com/newrelic,,,,False
+Newegg,,,,https://newegg.com,,True,4874,False
+Nextcloud,,,,https://hackerone.com/nextcloud,,False,1029,False
+Nextiva,,,,https://www.nextiva.com/security-policy.html,,,24816,False
+Nginx,,,,https://nginx.org/en/security_advisories.html,none,,76,False
+ngrok,,,,https://ngrok.com/security/disclosure-and-reward-program,,,7116,False
+Nimiq,,,,https://hackerone.com/nimiq,,,,False
+Ninja Kiwi,,,,https://hackerone.com/ninja-kiwi,,,,False
+Nintendo,,,,https://hackerone.com/nintendo,,False,,False
+no.de,,,,https://nodejs.org/en/security/,,False,2139,False
+Node.js,,,,https://hackerone.com/nodejs,,False,,False
+Nord Security,,,,https://nordsecurity.com/,,,669714,False
+NordVPN,,,,https://hackerone.com/nordsecurity,,,,False
+NOS,,,,https://over.nos.nl/organisatie/regelgeving/,,,3574,False
+NOWPayments,,,,https://nowpayments.io/doc/NOWPayments_BugBounty_program.pdf,partial,,55635,False
+Nozbe,,,,https://nozbe.com/bug-bounty/,,,184730,False
+ntpd-rs Bug Bounty Program,,,,https://yeswehack.com/programs/pendulum-bug-bounty-program,,,,False
+Nubank,,,,https://hackerone.com/nubank,,,,False
+Nvidia,,,USD,https://www.nvidia.com/object/submit-security-vulnerability.html,none,,375,False
+NWB Bank,,,,https://www.nwbbank.com/en/responsible-disclosure,partial,,916604,False
+Oda,,,,https://www.intigriti.com/programs/oda/oda/detail,,,,False
+Offensive Security,,,,https://www.offensive-security.com/bug-bounty-program/,none,,108002,False
+Ok.ru,,,,https://hackerone.com/ok,,,,False
+OKG,,,,https://hackerone.com/okg,,True,14518,False
+OLA,,,,https://www.olacabs.com/whitehat?,,,35676,False
+OLAcabs,,,,https://www.olacabs.com/whitehat,none,,35676,False
+Olark,,,,https://www.olark.com/customer/portal/articles/1237352,none,,12311,False
+Omise,,,,https://hackerone.com/omise,none,,,False
+ON2IT,,,,https://on2it.net/responsible-disclosure/,,,394047,False
+One Plus,,,,https://security.oneplus.com/noticedetails.html?noticeId=20191565338585128,partial,,13502,False
+OneDoc,,,,https://yeswehack.com/programs/onedoc-sa-bug-bounty-program,,,,False
+Onfo,,,,https://onfo.zendesk.com/hc/en-us/articles/360025769031-Bug-Bounty-Program,full,,373,False
+Online Seminar,,,,https://www.onlineseminar.com/security/,partial,,,False
+Open Source University,,,,https://medium.com/the-os-university-blog/os-university-smart-contracts-are-live-edu-token-bug-bounty-reward-awaits-you-27c1de006249,full,,201,False
+Open Technology Fund,,,,https://hackerone.com/otf,,,,False
+Open-Xchange,,,,https://hackerone.com/open-xchange,,,,False
+OpenPGP.js Bug Bounty Program,,,,https://yeswehack.com/programs/openpgp-js-bug-bounty-program,,,,False
+OpenSea,,,,https://hackerone.com/opensea,,,,False
+OpenSSL,,,,https://www.openssl.org/community/#securityreports,none,,2137,False
+OpenVPN,,,,https://hackerone.com/ibb-openvpn,,,,False
+Opire,,,,https://opire.dev,,,,False
+Oppo,,,,https://security.oppo.com/en/,,True,4683,False
+Orkut,,,,https://www.google.com/about/appsecurity/reward-program/,none,,1,False
+Oro,,,,https://oroinc.com/bug-bounty/,,,54093,False
+OVH,,,,https://bountyfactory.io/hunter/submit/program/42,none,,,False
+OWASP ZAP,,,,https://bugcrowd.com/owaspzap,partial,,,False
+OwnCloud,,,,https://security.owncloud.com,partial,,38033,False
+OX App Suite,,,,https://yeswehack.com/programs/app-suite,,,,False
+Paddy Power Betfair,,,,https://hackerone.com/flutteruki,,True,,False
+Paladin,,,,https://www.meetpaladin.com/post/our-commitment-to-security,,,,False
+Paladin Cyber Bug Bounty,,,,https://www.federacy.com/paladin-cyber-bug-bounty,full,,,False
+Palantir,,,,https://www.palantir.com/responsible-disclosure/,,False,28657,False
+Panther Labs,,,,https://hackerone.com/panther_labs,,,,False
+Parabol,,,,https://www.parabol.co/security-disclosure,,,367111,False
+Paragon Initiative Enterprises,,,,https://hackerone.com/paragonie,,,,False
+Parity,,,,https://www.parity.io/bug-bounty/,,,66917,False
+PasteCoin,,,,https://www.pastecoin.com/bug_bounty,none,,,False
+Pathao,,,,https://pathao.com/bug-bounty/,,,55911,False
+Payoneer,,,,http://payoneer.com,,True,13489,False
+Paypal,,,,https://www.paypal.com/us/webapps/mpp/security-tools/reporting-security-issues,none,True,175,False
+paypalobjects.com,,,,https://hackerone.com/paypal?view_policy=true,,True,,False
+PayTm,,,,https://bugbounty.paytm.com/,full,,8333,False
+PC Extreme,,,,https://www.pcextreme.com/policies/responsible-disclosure,partial,,,False
+Perl,,,,https://perldoc.perl.org/perlsec.html#SECURITY-VULNERABILITY-CONTACT-INFORMATION,none,,2634,False
+PERL (Bug Bounty),,,,https://hackerone.com/ibb-perl,,,,False
+Personal Capital,,,,https://www.personalcapital.com/responsible-disclosure/,full,,143022,False
+PGGM,,,,https://www.pggm.nl/en/responsible-disclosure,,,300221,False
+Phabricator,,,,https://hackerone.com/phabricator,,False,,False
+PHP,,,,https://bugs.php.net/report.php?bug_type=Security,none,,331,False
+PHP (Bug Bounty),,,,https://hackerone.com/ibb-php,,,,False
+Picky Assist,,,,https://pickyassist.com/blog/bug-bounty-program-bug-beacon/,,,11863,False
+Ping,,,,https://www.pingidentity.com/en/company/security-at-ping-identity.html,,True,24521,False
+PIVX-Project,,,,https://hackerone.com/pivx-project,,,,False
+Pixiv,,,,https://www.pixiv.net,,True,989,False
+Plaid,,,,https://hackerone.com/plaid,,True,11861,False
+Playstation,,,,https://www.playstation.com,,True,612,False
+Playtika,,,,https://www.playtika.com,,True,6002,False
+Plisio,,,,https://plisio.net/bug-bounty,,,137643,False
+pm.me,,,,https://protonmail.com/blog/protonmail-bug-bounty-program/,full,,11374,False
+Polar SSL,,,,https://tls.mbed.org/bug-bounty-program,partial,,149313,False
+Polygon Technology,,,,https://polygon.technology,,True,14829,False
+Pon Cat,,,,https://www.pon-cat.com/en/responsible-disclosure,none,,469212,False
+Porkbun,,,,https://porkbun.com/products/bug_bounty,,,720,False
+PornBox,,,,https://pornbox.com,,True,40029,False
+Pornhub,,,,https://hackerone.com/pornhub,,,,False
+PortSwigger Web Security,,,,https://hackerone.com/portswigger,,False,14012,False
+Postmates,,,,https://hackerone.com/postmates,none,,,False
+PowerDNS,,,,https://hackerone.com/powerdns,,,,False
+Prezi,,,,https://bugbounty.prezi.com/,none,,2926,False
+Priceline,,,,https://hackerone.com/priceline,full,True,,False
+Private Internet Access,,,,https://bugcrowd.com/privateinternetaccess,,,,False
+Privy (Bounty),,,,http://privy.io,,True,16629,False
+Productboard,,,,https://www.productboard.com/product/security/#application-security,partial,True,49474,False
+Proton,,,,https://proton.me/blog/responsible-vulnerability-disclosure,,,2888,False
+ProtonVPN,,,,https://protonvpn.com/blog/bug-bounty-program/,,,6468,False
+PureVPN,,,,https://bugcrowd.com/purevpn,partial,,,False
+Python,,,,https://www.python.org/news/security/,none,,748,False
+Qiwi,,,,https://www.qiwi.ru/page/hack.action,none,,177377,False
+Qmail,,,,https://cr.yp.to/qmail/guarantee.html,none,,3767,False
+Qtrade,,,,https://qtrade.io/bug_bounty,none,,,False
+Qualcomm,,,,https://www.qualcomm.com/connect/contact/security/product-security,none,,3813,False
+Quandency,,,,https://support.quadency.com/en/articles/2869964-bug-bounty-program,,,,False
+Quantopian,,,,https://hackerone.com/quantopian,none,,,False
+QuantStamp,,,,https://quantstamp.com/legal/responsible-disclosure,none,,378930,False
+Quora,,,,https://hackerone.com/quora,,False,15826,False
+Rabobank,,,,https://hackerone.com/rabobank,,,,False
+Range,,,,https://www.range.co/security/bounty,partial,,485021,False
+Rarible,,,,https://bugcrowd.com/rarible-ogmbb,,,,False
+Razer,,,,https://www.razer.com/security/bug-bounty-program,,,3967,False
+Razorpay,,,,https://razorpay.com/responsible-disclosure/,full,False,3330,False
+RBS Help,,,,https://personal.rbs.co.uk/personal/security-centre/responsible-disclosure.html,,,42302,False
+RealSelf,,,,https://bugcrowd.com/realself,full,,,False
+Recargapay,,,,https://hackerone.com/recargapay,,,,False
+Recorded Future,,,,https://www.recordedfuture.com/security/,none,,37824,False
+Reddit,,,,https://code.reddit.com/wiki/help/whitehat,none,True,110,False
+Redox,,,,https://bugcrowd.com/redox,full,True,107291,False
+redstorm.io,,,,https://www.redstorm.io/researcher/programs/rswebapppltf,,,,False
+Redtube,,,,https://hackerone.com/redtube,,,,False
+Refereum,,,,https://hackerone.com/refereum,none,,,False
+REI BBP,,,,http://rei.com,,True,4349,False
+Relaso,,,,https://www.relaso.com/disclosure/,partial,,,False
+Remitano,,,,https://security.remitano.com/,full,,151182,False
+Remitly,,,,https://www.remitly.com,,False,5234,False
+RenoFi,,,,https://www.renofi.com/security/,full,,400517,False
+ReportGarden,,,,https://reportgarden.com/responsible-disclosure/,full,,490051,False
+Research Gate,,,,https://explore.researchgate.net/display/support/Security+and+vulnerability,none,,230,False
+RevenueCat,,,,https://www.federacy.com/revenuecat,full,,,False
+Reverb,,,,https://hackerone.com/reverb,,,,False
+Ricoh,,,,https://www.ricoh.ca/en/about-us/vulnerability-disclosure-policy,partial,,587060,False
+Ring,,,,http://ring.com,,True,716,False
+Riot Games,,,,https://www.riotgames.com/riot-games-security,full,,1096,False
+Ripio,,,,http://ripio.com,,False,117178,False
+Ripple,,,,https://ripple.com/bug-bounty/,none,,17931,False
+Robinhood,,,,https://hackerone.com/robinhood,,True,,False
+Robinhood Markets,,,,http://robinhood.com,,True,2963,False
+Roblox,,,,https://www.roblox.com,,True,61,False
+Rockset,,,,https://rockset.com/legal/responsible-disclosure-policy/,full,,,False
+Rockstar Games,,,,http://www.rockstargames.com/,,True,2578,False
+RockstarGames,,,,https://hackerone.com/rockstargames,,True,,False
+RSK,,,,https://developers.rsk.co/contribute/bug-bounty-program/,none,,55537,False
+Ruby,,,,https://hackerone.com/ruby,,False,,False
+Ruby on Rails,,,,https://hackerone.com/rails,,False,,False
+RubyGems,,,,https://hackerone.com/rubygems,,False,13753,False
+RupiahToken,,,,https://rupiahtoken.com/blog/bug-bounty-program,,,724491,False
+S-Pankki,,,,https://www.s-pankki.fi,,True,57600,False
+Sailthru,,,,https://www.sailthru.com/trust/report-a-vulnerability/,,,19672,False
+Samsung Mobile,,,,https://security.samsungmobile.com/securityReporting.smsb,none,,7267,False
+Samsung SmartTV,,,,https://samsungtvbounty.com/ReportBug.aspx,none,,,False
+sandbox.paypal.com,,,,https://hackerone.com/paypal?view_policy=true,,True,,False
+SaveDroid,,,,https://hackerone.com/savedroid,none,,,False
+Say Technologies,,,,https://hackerone.com/saytechnologies,,,,False
+Scholar Fund,,,,https://www.scholarfundwa.org/bug-bounty,,,,False
+Scopely,,,,https://scopely.com,,True,16352,False
+Scraping Hub,,,,https://scrapinghub.com/responsible-disclosure-policy/,none,,296003,False
+SecNews,,,,https://hackerone.com/secnews,,,,False
+SecPoint Penetrator,,,,https://bugcrowd.com/secpoint,,,,False
+Secure Cyber Future,,,,https://www.securecyberfuture.com/responsible-disclosure,none,,,False
+Segment,,,,https://bugcrowd.com/segment,full,,,False
+Selz,,,,https://help.selz.com/article/217-security-escalation,none,,259648,False
+Semmle,,,,https://hackerone.com/semmle,none,,,False
+SEMRush,,,,https://hackerone.com/semrush,,False,627782,False
+Sendcloud,,,,https://www.sendcloud.com/bug-bounty-program/,,,18611,False
+SendSafely,,,,https://www.sendsafely.com/security/bug-bounty,none,,144223,False
+Sequoia PGP Bug Bounty Program,,,,https://yeswehack.com/programs/sequoia-pgp-bug-bounty-program,,,,False
+SerenityOS,,,,https://www.serenityos.org/bounty/,none,,,False
+Shakepay,,,,https://legal.shakepay.com/bug-bounty-program,,,271829,False
+Shape Security,,,,https://www.shapesecurity.com/report-a-vulnerability,none,,,False
+Shapeshift,,,,https://corp.shapeshift.io/responsible-disclosure-program/,none,,488853,False
+Sheer,,,,https://www.sheer.com/,,True,73640,False
+SHEIN,,,,http://shein.com,,True,504,False
+Shipt,,,,https://hackerone.com/shipt,,,,False
+Shopify,,,,https://hackerone.com/shopify,full,False,176,False
+Shoppingcart,,,,https://bugcrowd.com/shoppingcart,,,,False
+Showmax,,,,https://hackerone.com/showmax,,,,False
+Sidefx,,,,https://www.sidefx.com/responsible-disclosure-program/,partial,True,33269,False
+Signal,,,,https://support.signal.org/hc/en-us/articles/360007320791-How-can-I-report-a-security-vulnerability-,,,2317,False
+SignalFX,,,,https://www.signalfx.com/trust/security/responsible-disclosure,none,,7856,False
+Silvergoldbull,,,,https://silvergoldbull.com/bug-bounty/,full,,371585,False
+Simple,,,,https://bugcrowd.com/simple,partial,,,False
+SIX Group,,,,https://six-group.com,,True,12388,False
+Slack,,,,https://slack.com/report-vulnerability,none,False,353,False
+Smartling,,,,https://help.smartling.com/hc/en-us/articles/360008147833-Bug-Bounty-Policy,,,18833,False
+Smartmockups,,,,https://bugcrowd.com/smartmockups,,,,False
+Smartsheet,,,,https://hackerone.com/smartsheet,none,,,False
+Smokescreen,,,,https://www.smokescreen.io/responsible-disclosure-policy/,,,338732,False
+SMTP2GO,,,,http://smtp2go.com,,True,10849,False
+Snapchat,,,,https://hackerone.com/snapchat,,False,128,False
+SNS Bank,,,,https://www.devolksbank.nl/veiligheid.html,none,,43119,False
+Snyk,,,,https://snyk.io/docs/security,partial,,12609,False
+Socrata,,,,https://bugcrowd.com/socrata,partial,,,False
+SolarEdge,,,,https://www.solaredge.com/us/cyber-security-policy,partial,,11352,False
+Sorare,,,,https://sorare.com,,True,16968,False
+Soundtrack Technologies,,,,https://www.intigriti.com/programs/syb/soundtrackyourbrand/detail,,,,False
+Soundtrack Your Brand,,,,https://www.intigriti.com/programs/syb/soundtrackyourbrand/detail,,,,False
+Souq,,,,https://hackerone.com/souq,,,,False
+Spacelift,,,USD,https://www.federacy.com/spacelift,,,55662,False
+Spacelift.io - Bug Bounty Program,,,,https://yeswehack.com/programs/spacelift-io-bug-bounty-program,,,,False
+SpaceX,,,,https://bugcrowd.com/spacex,,,,False
+Sphero,,,,https://support.sphero.com/article/5drs94lhk5-vulnerability-disclosure-program,none,,66499,False
+Splendid Data,,,,https://www.splendiddata.com/responsible-disclosure-policy/,none,,,False
+Spokeo,,,,https://www.spokeo.com/security,partial,,8141,False
+Spotify,,,,https://www.spotify.com/us/bounty/,none,True,64,False
+Spreaker,,,,https://www.spreaker.com/security,partial,,4426,False
+Square Open Source,,,,https://bugcrowd.com/squareopensource,partial,,,False
+Squid Cache (IBB),,,,https://hackerone.com/ibb-squid-cache,none,,,False
+Staked,,,,https://staked.us/bug-bounty/,full,,202234,False
+Stanford University,,,,https://uit.stanford.edu/security/report-incident,none,,383,False
+Starbucks,,,,https://www.starbucks.com/whitehat,none,True,2753,False
+StarLeaf,,,,https://www.starleaf.com/c/bug-bounty-program/,none,,250750,False
+Starlink,,,,https://bugcrowd.com/spacex,full,,,False
+StatusPage.io,,,,https://bugcrowd.com/statuspage,full,,,False
+Stellantis,,,,https://bugcrowd.com/stellantis,,,,False
+Stripchat,,,,https://stripchat.com,,False,738,False
+Stripe,,,,https://stripe.com/docs/security/stripe,none,True,239,False
+Studo,,,,https://studo.com/at/security,partial,,246732,False
+Superbet,,,,https://superbet.ro,,True,4915,False
+Superhuman (formerly Grammarly),,,,https://superhuman.com/,,True,13567,False
+Swiggy,,,,https://www.swiggy.com/bug-bounty,full,,5834,False
+Swisscom,,,,https://www.swisscom.ch/en/about/company/portrait/network/security/bug-bounty.html,none,,4443,False
+Syfe,,,,https://syfe.com,,True,106689,False
+Synology,,,,https://www.synology.com/de-de/security/bounty_program#scope_and_reward,none,,876,False
+systemd Bug Bounty Program,,,,https://yeswehack.com/programs/systemd-bug-bounty-program,,,,False
+T-Mobile CZ,,,,https://www.t-mobile.cz/bug-bounty,,,28955,False
+Takeaway.com,,,,https://bugcrowd.com/takeaway,full,,,False
+Tarsnap,,,,https://www.tarsnap.com/bugbounty.html,none,,281053,False
+TECNO,,,,https://security.tecno.com/dashboard,,,194774,False
+Telegram,,,,https://telegram.org/faq#q-what-if-my-hacker-friend-says-they-could-decipher-telegram-mes,,,251,False
+Telekom,,,,https://www.telekom.com/en/corporate-responsibility/data-protection-data-security/security/security/closing-security-gaps-360054,none,,12309,False
+Telenet,,,,https://www.intigriti.com/public/project/telenet/telenet,full,,,False
+Teleport,,,,https://hackerone.com/teleport,,,,False
+Temu,,,,https://temu.com,,True,435,False
+Tendermint,,,,https://hackerone.com/tendermint,,,,False
+The Browser Company of NYC,,,,http://thebrowser.company,,True,383132,False
+The Internet,,,,https://hackerone.com/internet,,,,False
+Threema,,,,https://gobugfree.com/programs/fidentity,,,548425,False
+Tide,,,,https://hackerone.com/tide,,,,False
+TikTok,,,,http://tiktok.com,,True,53,False
+Tinder,,,,https://www.gotinder.com/security,none,True,577,False
+Tlon Corp,,,,https://www.tinfoilsecurity.com/security,,,,False
+Tokopedia,,,,https://bounty.tokopedia.net/rules,none,,27982,False
+Tools for Humanity,,,,https://toolsforhumanity.com,,True,62347,False
+Tor,,,,https://hackerone.com/torproject,,False,4046,False
+Touch Incentive Marketing,,,,https://touchincentive.com/responsible-disclosure/,,,641502,False
+Trade Republic,,,,https://hackerone.com/trade-republic-bbp,,,,False
+TradingView,,,,https://www.tradingview.com/bounty/,none,,369,False
+TransferWise,,,,https://bugcrowd.com/transferwise,full,,,False
+Traveloka,,,,https://www.traveloka.com/en-id/bugs,,,3223,False
+Trendyol,,,,https://hackerone.com/trendyol,,False,25874,False
+Trezor,,,,https://trezor.io/security/,partial,,7698,False
+Trip.com,,,,http://trip.com,,True,2131,False
+Tron Foundation,,,,https://tron.network/findBug,full,False,97755,False
+Truecaller,,,,https://www.truecaller.com,,True,2052,False
+Trustpilot,,,,https://hackerone.com/trustpilot,none,,,False
+TryHackMe,,,,https://help.tryhackme.com/en/articles/6495946-the-bug-bounty-program,,,26274,False
+TTS,,,,https://github.com/18F/vulnerability-disclosure-policy/blob/master/vulnerability-disclosure-policy.md,full,False,29,False
+Tube8,,,,https://hackerone.com/tube8,none,,,False
+Tumblr,,,,https://tumblr.zendesk.com/hc/en-us/articles/234583348-Bug-Bounty-Program,none,,373,False
+Tuple,,,,https://www.federacy.com/tuple,,,,False
+Twilio,,,,https://bugcrowd.com/twilio,full,True,1350,False
+Twitter,,,,https://hackerone.com/twitter,,,,False
+Uber,,,,https://hackerone.com/uber,,True,725,False
+Ubiquiti,,,,https://ui.com,,True,112,False
+Ubiquiti Networks,,,,https://hackerone.com/ui,none,True,,False
+Udemy,,,,https://support.udemy.com/hc/en-us/articles/229232627-Report-a-Security-Vulnerability,none,True,1881,False
+UMA Project,,,,https://hackerone.com/uma_project,full,,,False
+UNDER ARMOUR,,,,https://bugcrowd.com/underarmour,partial,,,False
+Unico IDtech,,,,http://unico.io,,True,59448,False
+Unikrn,,,,https://hackerone.com/unikrn,,,,False
+UnionPay,,,,https://security.unionpay.com/,,,46893,False
+United Airlines,,,,https://www.united.com/web/en-US/content/contact/bugbounty.aspx,none,,3626,False
+Upfort,,,,https://www.federacy.com/upfort,,,,False
+Upserve,,,,https://upserve.com/security/,full,,67300,False
+Upstox,,,,https://upstox.com/bug-bounty/,,,29051,False
+Urban Company,,,,https://www.urbancompany.com,,False,35925,False
+UsabilityHub,,,,https://app.usabilityhub.com/security/responsible_disclosure,,,428862,False
+UXCam,,,,https://uxcam.com/bug-bounty,,,13952,False
+Valve,,,,https://hackerone.com/valve,,True,306,False
+Valve Software,,,,https://hackerone.com/valve,,True,,False
+Vanilla,,,,https://hackerone.com/vanilla,,,,False
+VeraCrypt,,,,https://hackerone.com/ibb-veracrypt,,,,False
+Vercel,,,,https://hackerone.com/vercel,,True,34708,False
+Vercel Open Source,,,,https://vercel.com/,,True,3059,False
+Verily Life Sciences,,,,http://verily.com,,True,19649,False
+Verizon Media,,,,https://hackerone.com/verizonmedia,,,,False
+VHX,,,,https://hackerone.com/vhx,partial,,,False
+VI Company,,,,https://www.vicompany.nl/legal/responsible-disclosure,partial,,,False
+Via,,,,https://ridewithvia.com,partial,False,5820,False
+VidaXL Holding - Open Bug Bounty Program,,,,https://yeswehack.com/programs/vidaxl-holding-open-bug-bounty-program,,,,False
+Vimeo,,,,https://hackerone.com/vimeo,partial,True,8914,False
+Vinted - Bug Bounty Program,,,,https://www.intigriti.com/programs/vinted/vinted-bugbountyprogram/detail,,,,False
+Visa,,,,https://usa.visa.com/about-visa/vulnerability-disclosure.html,partial,True,2577,False
+Visma Public,,,,https://app.intigriti.com/researcher/programs/visma/visma/detail,,,,False
+Vivo,,,,https://security.vivo.com.cn/#/home,,,822,False
+VK.com,,,,https://hackerone.com/vkcom,,,,False
+Vodafone Oman,,,,http://www.vodafone.om,,False,106659,False
+Volkis,,,,https://www.volkis.com.au/vulnerability-disclosure/,full,,,False
+VPNArea,,,,https://vpnarea.com/front/home/bugbounty,,,,False
+Vultr,,,,https://www.vultr.com/bug-bounty/,none,,5255,False
+Wagwalking,,,,https://wagwalking.com/responsible-disclosure,partial,,51702,False
+Walla! Communication,,,,https://www.walla.co.il/.well-know/security.txt,,,13747,False
+Wallet on Telegram,,,,https://wallet.tg/,,True,162768,False
+WalletConnect,,,,https://walletconnect.com/.well-known/security.txt,full,,17921,False
+Walmart,,,,https://corporate.walmart.com/privacy-security,full,,449,False
+Wamba,,,,https://corp.wamba.com/en/developer/security/#form,none,,80866,False
+Wealthsimple,,,,https://www.wealthsimple.com,,True,11856,False
+WEB.DE,,,,https://bugbounty.web.de/english.html,,,2493,False
+web3 foundation,,,,https://web3.foundation/security-report/,,,302250,False
+Wefact,,,,https://www.wefact.nl/security/,partial,,438341,False
+Wells Fargo,,,,https://www.wellsfargo.com/privacy-security/fraud/responsible-disclosure-program/,partial,True,3020,False
+Wepay,,,,https://hackerone.com/wepay,,,,False
+Western Union,,,,https://bugcrowd.com/westernunion,partial,,,False
+WeTransfer,,,,https://wetransfer.com/legal/disclosure,partial,,2538,False
+WeVPN,,,,https://wevpn.com/responsible-disclosure,full,,,False
+WGR Industries - Open Bug Bounty Program,,,,https://yeswehack.com/programs/wgr-industries-holding-open-bug-bounty-program,,,,False
+Whatbox,,,,https://whatbox.ca/policies/security,full,,172081,False
+Whatnot,,,,https://www.whatnot.com,,True,6665,False
+Whmcs,,,,https://bugcrowd.com/whmcs,partial,,,False
+Whoop Bug Bounty,,,,https://www.whoop.com,,True,6625,False
+Wickr,,,,https://wickr.com/security/bug-bounty/,none,True,119717,False
+Winni,,,,https://www.winni.in/bug-bounty,,,85095,False
+"WisdomTree, Inc.",,,,https://www.wisdomtree.com,,True,101272,False
+Wolt,,,,https://www.intigriti.com/programs/wolt/wolt/detail,,True,4492,False
+Wordfence,,,,https://www.wordfence.com/security/,none,,3832,False
+Wordpoints,,,,https://hackerone.com/wordpoints,,,,False
+Wordpress,,,,https://wordpress.org/about/security/,none,False,49,False
+X (Formerly Twitter),,,,https://hackerone.com/x,,True,,False
+X / xAI,,,,https://x.com,,True,50,False
+Xiaomi,,,,http://www.mi.com,,False,351,False
+XT,,,,https://hackenproof.com/xt,,,,False
+XVIDEOS,,,,https://www.xvideos.com,,True,844,False
+Yahoo!,,,,https://app.intigriti.com/programs/yahoo/yahoobugbounty/detail,,,,False
+Yammer,,,,https://technet.microsoft.com/en-us/security/dn800983,none,,6,False
+Yandex,,,,https://yandex.com/bugbounty/report/,none,,395,False
+YATRA,,,,https://www.yatra.com/online/bug-bounty,none,,39755,False
+Yelp,,,,https://hackerone.com/yelp,,False,674,False
+Yoti,,,,http://www.yoti.com,,False,18594,False
+You Need a Budget (YNAB),,,,https://bugcrowd.com/ynab,full,,,False
+YouPorn,,,,https://hackerone.com/youporn,,,,False
+Yuga Labs,,,,https://hackerone.com/yuga_labs,,True,79351,False
+Zabbix,,,,https://zabbix.com,,True,7327,False
+Zaful,,,,https://www.zaful.com/report-security-issues,partial,,113117,False
+Zapier,,,,https://zapier.com/engineering/bug-bounty-program/,,,2894,False
+Zendesk,,,,https://www.zendesk.de/company/policies-procedures/responsible-disclosure-policy/,none,,100769,False
+Zenly,,,,https://hackerone.com/zenly,,,,False
+ZeroBounce,,,,https://www.zerobounce.net,,,58388,False
+Zerocopter,,,,https://www.zerocopter.com/en/responsible-disclosure,partial,,,False
+Zerodha,,,,https://zerodha.com/bug-bounty/,,,7406,False
+Zilliqa,,,,https://bugcrowd.com/zilliqa,full,,,False
+Zivver,,,,https://security.zivver.com/p/Policy,partial,,96162,False
+zkSync,,,,https://zksync.io/dev/bug-bounty.html,,,61577,False
+Zoho,,,,https://bugbounty.zoho.com/bb/info#guide,none,,829,False
+Zomato,,,,https://www.zomato.com/security,full,,4690,False
+Zoom,,,,https://zoom.us/docs/en-us/vulnerability-disclosure-policy.html,full,,74,False
+Zooplus,,,,http://zooplus.de,,True,35772,False
+Airwallex,,,,https://help.airwallex.com/hc/en-gb/articles/900004502526-Bug-Bounty-Program-Rules,,,10445,False
+Alaan,,,,https://www.alaan.com/responsible-disclosure-policy,full,,493666,False
+atlan.com,,,,https://atlan.com/responsible-disclosure-program/,,,109623,False
+Bambu Lab,,,,https://bambulab.com/en/bug-bounty-program,,,7597,False
+Billie,,,,https://billie.io/coordinated-vulnerability-disclosure-policy,partial,,323281,False
+Buckaroo,,,,https://www.buckaroo.nl/media/fwdj2uvv/responsible-disclosure-policy-eng.pdf,full,,119464,False
+C-SINT,,,,https://www.csint.pro/bug_bounty,,,,False
+Cabify,,,EUR,https://cabify.com/.well-known/bounty.txt,,,43052,False
+Fintual,,100,USD,https://fintual.com/security-policy.txt,partial,,,False
+Fluxer,,,,https://fluxer.app/security,,,74096,False
+foundation.xyz,,,USD,https://foundation.xyz/responsible-disclosure/,,,486333,False
+FreeFires,,,,https://freefires.site,,,,False
+Glia,,200,USD,https://www.glia.com/security-bounty,full,,18002,False
+Idura,,,,https://idura.eu/legal/vulnerability-disclosure-policy,full,,,False
+ilionx,,,,https://www.ilionx.com/en/contact/report-vulnerability-cvd/,partial,,691557,False
+Instant Gaming,,,,https://www.instant-gaming.com/en/docs/bugbounty/,full,,7038,False
+Lark,,,,https://www.larksuite.com/en_us/bugbounty,,,5187,False
+Linear,,,,https://linear.app/security/vulnerability,full,,9975,False
+Mamentis,,,,https://mamentis.com/docs/resources/miscellaneous/submit-bug-request#security-issues,,,,False
+mintlify.com,,,,https://www.mintlify.com/security/responsible-disclosure,,,34926,False
+Omnisend,,,,https://www.omnisend.com/bug-bounty/,,,25217,False
+OpenEvidence,,,,https://www.openevidence.com/security,,,33532,False
+pokee.ai,,,USD,https://pokee.ai/bug-bounty,,,,False
+Prop Firm Match,,,,https://propfirmmatch.com/bug-bounty,,,59615,False
+PubNub,,,,https://www.pubnub.com/bug-bounty-policy/,,,6452,False
+Schuberg Philis,,,,https://schubergphilis.com/security,,,484592,False
+SnapDeploy,,,,https://snapdeploy.dev/blog/bug-bounty-rewards-report-issues,,,,False
+Socket,,50,USD,https://socket.dev/security/disclosure,full,,29919,False
+Tribepad,,,,https://tribepad.b-cdn.net/app/uploads/2025/09/Vulnerability-Disclosure-Program.pdf,,,109,False
+Unraid,,,,https://unraid.net/policies,,,28003,False
+Val Town,,,,https://docs.val.town/contact-us/security/,,,187060,False
+Vivid,,,,https://vivid.money/en-eu/bug-bounty/,full,,121634,False
+WorkOS,,,,https://workos.com/security/responsible-disclosure,,,19620,False
+Zaakpay,,1000,INR,https://zaakpay.com/bug-bounty,,,116963,False
+Zenya,,,,https://zenya-software.com/coordinated-vulnerability-disclosure/,,,,False
+ZTE,,,,https://www.zte.com.cn/global/about/trust-center/ztepsirt.html,,,24874,False
